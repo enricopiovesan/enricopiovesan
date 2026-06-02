@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speaking — Enrico Piovesan</title>
+  <meta name="description" content="Enrico Piovesan speaks about portable systems, contract-driven AI development, and restructuring software for the age of AI agents.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f4f0;
+      --mid: #888580;
+      --accent: #c8441a;
+      --border: #2a2a28;
+      --mono: 'IBM Plex Mono', monospace;
+      --sans: 'IBM Plex Sans', sans-serif;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-name {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: var(--mid);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      color: var(--mid);
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    /* HERO */
+    .hero {
+      padding: 6rem 3rem 4rem;
+      max-width: 860px;
+    }
+
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--mid);
+    }
+
+    .hero-bio {
+      font-size: 1.05rem;
+      color: var(--mid);
+      max-width: 560px;
+      line-height: 1.8;
+    }
+
+    /* TALKS */
+    .talks-section {
+      padding: 4rem 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      color: var(--mid);
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+
+    .talk {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .talk:first-of-type { border-top: none; }
+
+    .talk-meta {
+      padding-top: 0.25rem;
+    }
+
+    .talk-track {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .talk-audience {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    .talk-content h2 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+      line-height: 1.35;
+    }
+
+    .talk-content p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.8;
+      max-width: 520px;
+    }
+
+    .talk-proof {
+      margin-top: 1rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--border);
+      letter-spacing: 0.04em;
+    }
+
+    .talk-proof a {
+      color: var(--mid);
+      border-bottom: 1px solid var(--border);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .talk-proof a:hover {
+      color: var(--white);
+      border-color: var(--mid);
+    }
+
+    /* BIO */
+    .bio-section {
+      padding: 4rem 3rem;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+    }
+
+    .bio-label {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      color: var(--mid);
+      text-transform: uppercase;
+      padding-top: 0.25rem;
+    }
+
+    .bio-text p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .bio-text p:last-child { margin-bottom: 0; }
+
+    /* CONTACT */
+    .contact-section {
+      padding: 4rem 3rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .contact-text {
+      font-size: 1.05rem;
+      font-weight: 300;
+      max-width: 400px;
+      line-height: 1.6;
+    }
+
+    .contact-text strong {
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contact-link {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      color: var(--mid);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: color 0.15s;
+    }
+
+    .contact-link:hover { color: var(--white); }
+
+    .contact-link::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem 3rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--border);
+    }
+
+    .footer-links a:hover { color: var(--mid); }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--border);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      nav, .hero, .talks-section, .bio-section, .contact-section, footer {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .talk { grid-template-columns: 1fr; gap: 1rem; }
+      .bio-section { grid-template-columns: 1fr; }
+      .contact-section { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-name">ENRICO PIOVESAN</span>
+    <div class="nav-links">
+      <a href="https://www.universalmicroservices.com">UMA</a>
+      <a href="https://medium.com/@enricopiovesan">Writing</a>
+      <a href="https://github.com/enricopiovesan">GitHub</a>
+      <a href="https://linkedin.com/in/enricopiovesan">LinkedIn</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <p class="hero-label">Speaking</p>
+    <h1>Software that works for users, <em>not for the runtime it happens to run on.</em></h1>
+    <p class="hero-bio">
+      I talk about portable systems, contract-driven AI development, and what it actually takes
+      to restructure software for the age of AI agents. Every talk is drawn directly from
+      published books, white papers, and shipped tooling.
+    </p>
+  </section>
+
+  <section class="talks-section">
+    <p class="section-label">Current Topics</p>
+
+    <div class="talk">
+      <div class="talk-meta">
+        <p class="talk-track">Architecture</p>
+        <p class="talk-audience">Platform engineering<br>Architecture tracks</p>
+      </div>
+      <div class="talk-content">
+        <h2>Write Once, Run Where It Makes Sense</h2>
+        <p>
+          The same business logic gets rewritten four or five times across browser, backend,
+          edge, and AI pipelines. Most architectures assume the environment too early and teams
+          pay that cost forever. This talk covers the architecture of portable business logic
+          with WebAssembly and Universal Microservices Architecture — what it means to separate
+          logic from execution, and why it matters more now than ever.
+        </p>
+        <p class="talk-proof">
+          Based on: <a href="https://www.amazon.com/dp/B0GTTTTQH4">Universal Microservices Architecture</a>
+          and the <a href="https://www.universalmicroservices.com">UMA reference implementation</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="talk">
+      <div class="talk-meta">
+        <p class="talk-track">AI Engineering</p>
+        <p class="talk-audience">AI engineering<br>Developer tooling tracks</p>
+      </div>
+      <div class="talk-content">
+        <h2>Contract-Driven AI Development</h2>
+        <p>
+          AI coding tools can describe what software does but not why it does it. They automate
+          structure, not understanding. This talk introduces C-DAD — how verifiable contracts,
+          automated reasoning, and hybrid governance change how we build AI-assisted systems.
+          The difference between a specification and a contract is the difference between
+          automation and trust.
+        </p>
+        <p class="talk-proof">
+          Based on: <a href="https://drive.google.com/file/d/1HC_ZWJl9aYaMeN78qiL3ZYBVY7mAGl3f/view">C-DAD White Paper</a>
+          and the <a href="https://github.com/enricopiovesan/the-day-after-toolkit">the-day-after-toolkit</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="talk">
+      <div class="talk-meta">
+        <p class="talk-track">Leadership</p>
+        <p class="talk-audience">Engineering leadership<br>CTO and staff tracks</p>
+      </div>
+      <div class="talk-content">
+        <h2>The Day After: Restructuring Software for the Age of AI Agents</h2>
+        <p>
+          Most codebases are not navigable by AI agents because the intent was never declared.
+          The tribal knowledge is locked in people's heads and there is no map. This talk covers
+          practical patterns for making software organizations legible to AI agents without
+          throwing everything away — role by role, capability by capability.
+        </p>
+        <p class="talk-proof">
+          Based on: The Day After (forthcoming) and the
+          <a href="https://drive.google.com/file/d/1HC_ZWJl9aYaMeN78qiL3ZYBVY7mAGl3f/view">C-DAD White Paper</a>
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="bio-section">
+    <p class="bio-label">Speaker Bio</p>
+    <div class="bio-text">
+      <p>
+        Enrico Piovesan is a platform architect and author who builds frameworks for software
+        that runs anywhere and codebases that AI agents can actually navigate.
+      </p>
+      <p>
+        After years building products across startups in travel, education, and payments, he
+        developed Universal Microservices Architecture — a portable, contract-driven execution
+        model for distributed systems. His first book on UMA is available on Amazon. His second
+        book, The Day After, explores what it takes to restructure software organizations for
+        the age of AI agents.
+      </p>
+      <p>
+        He is a Platform Software Architect at Autodesk, an active open source builder, and
+        publishes on architecture and AI-native systems every week on Medium. He is based in
+        Golden, BC — Purcell Mountains, Canada.
+      </p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <p class="contact-text">
+      <strong>Currently accepting CFP invitations</strong> for architecture, WASM,
+      and AI engineering tracks. All talks are drawn from published work and shipped tooling.
+    </p>
+    <div class="contact-links">
+      <a class="contact-link" href="https://linkedin.com/in/enricopiovesan">LinkedIn</a>
+      <a class="contact-link" href="https://x.com/enricopiovesan">X / Twitter</a>
+      <a class="contact-link" href="https://medium.com/@enricopiovesan">Medium</a>
+      <a class="contact-link" href="https://github.com/enricopiovesan">GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.universalmicroservices.com">universalmicroservices.com</a>
+      <a href="https://www.amazon.com/dp/B0GTTTTQH4">UMA Book</a>
+      <a href="https://drive.google.com/file/d/1HC_ZWJl9aYaMeN78qiL3ZYBVY7mAGl3f/view">C-DAD Paper</a>
+      <a href="https://github.com/enricopiovesan">GitHub</a>
+    </div>
+    <p class="footer-copy">Enrico Piovesan</p>
+  </footer>
+
+</body>
+</html>
