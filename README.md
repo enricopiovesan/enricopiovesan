@@ -1,8 +1,8 @@
 # Enrico Piovesan
 
-After years building products for real users across startups in travel, education, and payments, I kept running into the same problems — business logic rewritten for every runtime, codebases that no one could navigate, systems that worked in isolation but broke at the seams. I stopped accepting those as facts of life and started building frameworks to fix them.
+After years building products for real users across startups in travel, education, and payments, I kept running into the same problems. Business logic rewritten for every runtime. Codebases that no one could navigate. Systems that worked in isolation but broke at the seams. I stopped accepting those as facts of life and started building frameworks to fix them.
 
-That's where UMA, C-DAD, and Traverse came from. Not from theory — from real problems that kept showing up.
+That's where UMA, C-DAD, and Traverse came from. Not from theory. From real problems that kept showing up.
 
 ---
 
@@ -18,10 +18,10 @@ Most architectures assume the environment too early. The same logic ends up dupl
 ---
 
 **Most codebases aren't navigable by AI agents — not because the AI is bad, but because the code has no contracts.**
-Tribal knowledge is locked in people's heads. There's no map. Agents guess, hallucinate, and break things. The fix isn't more prompting — it's better structure.
+Tribal knowledge is locked in people's heads. There's no map. Agents guess, hallucinate, and break things. The fix isn't more prompting. It's better structure.
 
-→ **[the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit)** — a CLI (`cdad`) that audits codebase agent-readiness and scaffolds the contracts needed to fix it. On npm today.
-→ **The Day After** — the book behind the toolkit. Currently in negotiation with Apress.
+→ **[the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit)** — a CLI (`cdad`) that audits codebase agent-readiness and scaffolds the contracts needed to fix it.
+→ **[The Day After](https://github.com/enricopiovesan/the-day-after-toolkit)** — the book behind the toolkit. Explores what it takes to restructure software organizations for the age of AI agents.
 → **[C-DAD white paper](https://drive.google.com/file/d/1HC_ZWJl9aYaMeN78qiL3ZYBVY7mAGl3f/view)** — Contract-Driven AI Development: verifiable contracts, automated reasoning, hybrid governance.
 
 ---
@@ -30,18 +30,19 @@ Tribal knowledge is locked in people's heads. There's no map. Agents guess, hall
 
 **[Traverse](https://github.com/enricopiovesan/Traverse)** — a contract-driven Rust/WASM runtime for discovering, validating, and composing portable business capabilities. Pre-implementation, spec-governed, personal R&D.
 
-**[youaskm3](https://github.com/youaskm3/youaskm3)** — a WASM-native, MCP-powered personal knowledge layer. Runs entirely on GitHub Pages — no server, no database, no cost. Federation model so anyone can fork and run their own instance.
+**[youaskm3](https://github.com/youaskm3/youaskm3)** — a WASM-native, MCP-powered personal knowledge layer. Runs entirely on GitHub Pages. No server, no database, no cost. Federation model so anyone can fork and run their own instance.
 
 ---
 
 ## Writing
 
-Five years of thinking about portable systems, AI-native architecture, and contract-driven development — in white papers and two active Medium publications.
+Five years of thinking about portable systems, AI-native architecture, and contract-driven development. In white papers and two active Medium publications.
 
 | Date | Paper |
 |---|---|
 | Nov 2025 | [Contract-Driven AI Development (C-DAD)](https://drive.google.com/file/d/1HC_ZWJl9aYaMeN78qiL3ZYBVY7mAGl3f/view) |
 | Aug 2025 | [Event Contract Catalog Architecture (ECCA)](https://docs.google.com/document/d/1hpyLDZg9c1Od3vycR7GHIcxuCriWeiAxDFyCbb0h6Ro/edit) |
+| Jun 2025 | [Designing Adaptive AI Systems with UMA and MCP](https://medium.com/software-architecture-in-the-age-of-ai) |
 | Aug 2024 | [Universal Microservices Architecture (UMA)](https://docs.google.com/document/d/1MHj8ruFsGsZTNfMayP9Xck2qAMnXu-qfjTs0zWjP8OE/edit) |
 | Jun 2023 | [Client-Side Microservices Architecture (CSMA)](https://drive.google.com/file/d/1OKA_0HSFym2JkKPujx8vQdxFfzNJlw0-/view) |
 
@@ -51,7 +52,7 @@ Five years of thinking about portable systems, AI-native architecture, and contr
 
 ## Speaking
 
-I talk about portable systems, contract-driven AI development, and what it actually takes to restructure software for the age of AI agents — drawn directly from the books, white papers, and shipped tooling above.
+I talk about portable systems, contract-driven AI development, and what it actually takes to restructure software for the age of AI agents. Drawn directly from the books, white papers, and shipped tooling above.
 
 Three topics I'm currently submitting to conferences:
 
@@ -61,8 +62,8 @@ Three topics I'm currently submitting to conferences:
 
 ---
 
-I'm a Software Architect at Autodesk by day. I moved from Italy to Canada about ten years ago and ended up in Golden, BC — Purcell Mountains, population small, snow quality excellent. I'm a certified ski instructor. When there's fresh snow, everything else waits.
+I'm a Software Architect at Autodesk by day. I moved from Italy to Canada about ten years ago and ended up in Golden, BC. Purcell Mountains, population small, snow quality excellent. I'm a certified ski instructor. When there's fresh snow, everything else waits.
 
-The Day After with Apress and Traverse are next. youaskm3 is in progress.
+Traverse and The Day After are next. youaskm3 is in progress.
 
 **[enricopiovesan.com](https://enricopiovesan.com)** · **[LinkedIn](https://linkedin.com/in/enricopiovesan)** · **[Medium](https://medium.com/@enricopiovesan)** · **[X](https://x.com/enricopiovesan)**
