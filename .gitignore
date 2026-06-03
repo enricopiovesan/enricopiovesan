@@ -1,7 +1,11 @@
 /books/
 /posts/
+/posts-clean/
 /pdfs/
 node_modules/
 enricopiovesan.com/_site/
 .DS_Store
 .venv/
+.env
+graphify-out/
+graph/graph.html
