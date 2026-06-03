@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Universal Microservices Architecture — Enrico Piovesan</title>
+  <meta name="description" content="UMA is a portable, contract-driven execution model for distributed systems. Business logic that runs in browser, edge, cloud, and AI pipelines without rewriting it for each environment.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Universal Microservices Architecture (UMA) — Enrico Piovesan">
+  <meta property="og:description" content="A portable, contract-driven execution model that separates business logic from runtime environment. WASM-native, spec-governed, AI-navigable.">
+  <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png">
+  <meta property="og:url" content="https://enricopiovesan.com/uma/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Enrico Piovesan">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://enricopiovesan.com/uma/">
+
+  <!-- Fonts (self-hosted) -->
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/enricopiovesan/src/assets/styles/tokens.css">
+  <link rel="stylesheet" href="/enricopiovesan/src/assets/styles/reset.css">
+  <link rel="stylesheet" href="/enricopiovesan/src/assets/styles/global.css">
+
+  <!-- Schema -->
+  
+
+  <!-- Web Components -->
+  <script type="module" src="/enricopiovesan/src/components/ep-nav.js"></script>
+  <script type="module" src="/enricopiovesan/src/components/ep-footer.js"></script>
+</head>
+<body>
+  <ep-nav active="uma" base="/enricopiovesan/"></ep-nav>
+
+  <main id="main-content">
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Universal Microservices Architecture", "item": "https://enricopiovesan.com/uma/" }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://enricopiovesan.com/uma/",
+      "name": "Universal Microservices Architecture (UMA)",
+      "headline": "What is Universal Microservices Architecture?",
+      "description": "UMA is a portable, contract-driven execution model for distributed systems. Business logic that runs in browser, edge, cloud, and AI pipelines without rewriting it for each environment.",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "datePublished": "2024-08-01",
+      "inLanguage": "en",
+      "about": ["WebAssembly", "Microservices", "Software Architecture", "Portable Systems"],
+      "url": "https://enricopiovesan.com/uma/"
+    }
+  ]
+}
+</script>
+
+
+<section class="hero">
+  <p class="hero-label">Framework</p>
+  <h1>Universal Microservices Architecture</h1>
+  <p class="hero-bio">A portable, contract-driven execution model for distributed systems. Business logic that runs where it makes sense — browser, edge, cloud, AI pipeline — without rewriting it every time.</p>
+</section>
+
+<section class="section">
+  <p class="section-label">What is UMA?</p>
+  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:560px;">UMA separates business logic from runtime environment. Instead of rewriting the same logic for browser, backend, edge, and AI pipelines, you write it once as a portable, self-contained unit — a Universal Microservice — and deploy it wherever it makes sense.</p>
+  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:560px;margin-top:1rem;">Each service is governed by a contract that defines what it does, what it needs, and what it guarantees. The contract is the interface. The implementation can run in any compliant runtime — Rust, WASM, browser, edge worker, or AI pipeline.</p>
+</section>
+
+<section class="section">
+  <p class="section-label">Core Principles</p>
+  <div class="concept-list">
+    <div class="concept-item">
+      <h2>Contract-first</h2>
+      <p>Every service defines its interface, dependencies, and guarantees in a machine-readable contract before implementation begins. The contract is the source of truth — not the code.</p>
+    </div>
+    <div class="concept-item">
+      <h2>Runtime-agnostic</h2>
+      <p>Business logic compiled to WebAssembly runs unchanged across browser, Node, Deno, Cloudflare Workers, and AI pipelines. The execution environment is a deployment decision, not an architectural one.</p>
+    </div>
+    <div class="concept-item">
+      <h2>Composable by design</h2>
+      <p>Services are discovered, validated, and composed at runtime through a capability registry. Systems built with UMA can adapt to new requirements without structural rewrites.</p>
+    </div>
+    <div class="concept-item">
+      <h2>AI-navigable</h2>
+      <p>Every service has declared intent, explicit dependencies, and a lifecycle-aware contract. AI agents can reason about what a system does, why each part exists, and how to extend it safely.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <p class="section-label">The problem it solves</p>
+  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:560px;">The same business logic gets rewritten three, four, five times across browser, backend, edge, and AI pipelines. Most architectures assume the runtime too early and teams pay that cost forever — in maintenance, in drift, in onboarding time, and in the inability to adapt. UMA eliminates the assumption. Logic and runtime are separate concerns from the start.</p>
+</section>
+
+<section class="section">
+  <p class="section-label">Resources</p>
+  <div class="resource-links">
+    <a href="/enricopiovesan/books/" class="resource-link">
+      <span class="resource-label">Book</span>
+      <span class="resource-title">Universal Microservices Architecture — Apress</span>
+    </a>
+    <a href="/enricopiovesan/whitepapers/" class="resource-link">
+      <span class="resource-label">White Paper</span>
+      <span class="resource-title">Universal Microservices Architecture (UMA) — August 2024</span>
+    </a>
+    <a href="https://www.universalmicroservices.com" target="_blank" rel="noopener" class="resource-link">
+      <span class="resource-label">Reference App</span>
+      <span class="resource-title">universalmicroservices.com — live implementation</span>
+    </a>
+    <a href="https://github.com/enricopiovesan/UMA-code-examples" target="_blank" rel="noopener" class="resource-link">
+      <span class="resource-label">Code</span>
+      <span class="resource-title">UMA-code-examples — 13 chapters, Rust/WASM</span>
+    </a>
+    <a href="/enricopiovesan/projects/" class="resource-link">
+      <span class="resource-label">Runtime</span>
+      <span class="resource-title">Traverse — contract-driven Rust/WASM runtime</span>
+    </a>
+  </div>
+</section>
+
+  </main>
+
+  <ep-footer></ep-footer>
+</body>
+</html>

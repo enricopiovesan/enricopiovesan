@@ -1,6 +1,46 @@
 ---
 layout: base.njk
 ---
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Speaking", "item": "https://enricopiovesan.com/speaking/" }
+      ]
+    },
+    {
+      "@type": "PresentationDigitalDocument",
+      "name": "Write Once, Run Where It Makes Sense",
+      "description": "The architecture of portable business logic with WebAssembly and Universal Microservices Architecture.",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "about": ["WebAssembly", "Software Architecture", "Platform Engineering"],
+      "inLanguage": "en"
+    },
+    {
+      "@type": "PresentationDigitalDocument",
+      "name": "Contract-Driven AI Development",
+      "description": "How verifiable contracts, automated reasoning, and hybrid governance change how we build AI-assisted systems.",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "about": ["AI Engineering", "Contract-Driven Development"],
+      "inLanguage": "en"
+    },
+    {
+      "@type": "PresentationDigitalDocument",
+      "name": "The Day After: Restructuring Software for the Age of AI Agents",
+      "description": "Practical patterns for making software organizations legible to AI agents without throwing everything away.",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "about": ["AI Agents", "Engineering Leadership"],
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+{% endblock %}
 <section class="hero">
   <p class="hero-label">Speaking</p>
   <h1>{{ intro }}</h1>

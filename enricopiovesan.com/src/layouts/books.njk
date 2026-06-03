@@ -1,6 +1,47 @@
 ---
 layout: base.njk
 ---
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Books", "item": "https://enricopiovesan.com/books/" }
+      ]
+    },
+    {
+      "@type": "Book",
+      "@id": "https://enricopiovesan.com/books/#uma-book",
+      "name": "Universal Microservices Architecture",
+      "subtitle": "Device-Independent Modelling for Modern Software Design with WASM",
+      "url": "https://enricopiovesan.com/books/",
+      "sameAs": "https://www.amazon.com/dp/B0GTTTTQH4",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "publisher": { "@type": "Organization", "name": "Apress" },
+      "inLanguage": "en",
+      "bookFormat": "https://schema.org/EBook",
+      "about": "A portable, contract-driven execution model for distributed systems. Business logic that runs in browser, edge, cloud, and AI pipelines without environment-specific rewrites.",
+      "genre": ["Software Architecture", "WebAssembly", "Distributed Systems"]
+    },
+    {
+      "@type": "Book",
+      "@id": "https://enricopiovesan.com/books/#the-day-after",
+      "name": "The Day After",
+      "subtitle": "How to Restructure Your Software Company for the Age of AI Agents",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "inLanguage": "en",
+      "bookEdition": "Forthcoming",
+      "about": "Practical patterns for making software organizations legible to AI agents — role by role, capability by capability.",
+      "genre": ["Software Architecture", "AI Engineering", "Engineering Leadership"]
+    }
+  ]
+}
+</script>
+{% endblock %}
 <section class="hero">
   <p class="hero-label">Books</p>
   <h1>{{ intro }}</h1>

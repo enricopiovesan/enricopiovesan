@@ -1,6 +1,52 @@
 ---
 layout: base.njk
 ---
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Writing", "item": "https://enricopiovesan.com/writing/" }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Writing Series by Enrico Piovesan",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Periodical",
+            "name": "Mastering Software Architecture for the AI Era",
+            "url": "https://medium.com/software-architecture-in-the-age-of-ai",
+            "author": { "@id": "https://enricopiovesan.com/#person" },
+            "about": ["Software Architecture", "AI-native Systems", "C-DAD"],
+            "inLanguage": "en"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Periodical",
+            "name": "The Rise of Device-Independent Architecture",
+            "url": "https://medium.com/the-rise-of-device-independent-architecture",
+            "author": { "@id": "https://enricopiovesan.com/#person" },
+            "about": ["WebAssembly", "UMA", "Device-Independent Architecture"],
+            "inLanguage": "en"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
 <section class="hero">
   <p class="hero-label">Writing</p>
   <h1>{{ intro }}</h1>

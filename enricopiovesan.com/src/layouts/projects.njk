@@ -1,6 +1,47 @@
 ---
 layout: base.njk
 ---
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://enricopiovesan.com/projects/" }
+      ]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "UMA-code-examples",
+      "description": "13 chapters of runnable code companion to Universal Microservices Architecture. 100% business logic coverage enforced in CI.",
+      "codeRepository": "https://github.com/enricopiovesan/UMA-code-examples",
+      "programmingLanguage": ["Rust", "WebAssembly", "JavaScript"],
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "url": "https://www.universalmicroservices.com"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "the-day-after-toolkit",
+      "description": "A CLI that audits codebase agent-readiness and scaffolds the contracts needed to fix it.",
+      "codeRepository": "https://github.com/enricopiovesan/the-day-after-toolkit",
+      "programmingLanguage": "TypeScript",
+      "author": { "@id": "https://enricopiovesan.com/#person" }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "Traverse",
+      "description": "A contract-driven Rust/WASM runtime for discovering, validating, and composing portable business capabilities.",
+      "codeRepository": "https://github.com/enricopiovesan/Traverse",
+      "programmingLanguage": "Rust",
+      "author": { "@id": "https://enricopiovesan.com/#person" }
+    }
+  ]
+}
+</script>
+{% endblock %}
 <section class="hero">
   <p class="hero-label">Projects</p>
   <h1>{{ intro }}</h1>

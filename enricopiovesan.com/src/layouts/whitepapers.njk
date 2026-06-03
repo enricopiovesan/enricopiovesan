@@ -1,6 +1,74 @@
 ---
 layout: base.njk
 ---
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "White Papers", "item": "https://enricopiovesan.com/whitepapers/" }
+      ]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://enricopiovesan.com/whitepapers/#cdad",
+      "name": "Contract-Driven AI Development (C-DAD)",
+      "headline": "Contract-Driven AI Development (C-DAD)",
+      "description": "A new foundation for building AI-native systems where contracts, not code, define collaboration between humans, machines, and runtimes.",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "datePublished": "2025-11-01",
+      "inLanguage": "en",
+      "about": ["AI-native Systems", "Contract-Driven Development", "Software Architecture"]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://enricopiovesan.com/whitepapers/#ecca",
+      "name": "Event Contract Catalog Architecture (ECCA)",
+      "headline": "Event Contract Catalog Architecture (ECCA)",
+      "description": "Addresses discoverability, governance, and consistency at scale in event-driven architectures.",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "datePublished": "2025-08-01",
+      "inLanguage": "en",
+      "about": ["Event-Driven Architecture", "API Governance"]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://enricopiovesan.com/whitepapers/#uma-mcp",
+      "name": "Designing Adaptive AI Systems with UMA and MCP",
+      "headline": "Designing Adaptive AI Systems with UMA and MCP",
+      "description": "How Universal Microservices Architecture and the Model Context Protocol combine to produce AI systems that adapt to changing requirements without structural rewrites.",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "datePublished": "2025-06-01",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://enricopiovesan.com/whitepapers/#uma",
+      "name": "Universal Microservices Architecture (UMA)",
+      "headline": "Universal Microservices Architecture (UMA)",
+      "description": "The foundational paper introducing UMA — a portable, contract-driven execution model for distributed systems that separates business logic from runtime environment.",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "datePublished": "2024-08-01",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://enricopiovesan.com/whitepapers/#csma",
+      "name": "Client-Side Microservices Architecture (CSMA)",
+      "headline": "Client-Side Microservices Architecture (CSMA)",
+      "description": "The original paper introducing client-side microservices as a pattern for portable, composable business logic running in the browser.",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "datePublished": "2023-06-01",
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+{% endblock %}
 <section class="hero">
   <p class="hero-label">White Papers</p>
   <h1>{{ intro }}</h1>
