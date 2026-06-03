@@ -1,13 +1,16 @@
 class EpNavCards extends HTMLElement {
+  static get observedAttributes() { return ['base']; }
   connectedCallback() { this.render(); }
+  attributeChangedCallback() { this.render(); }
 
   render() {
+    const base = (this.getAttribute('base') || '/').replace(/\/$/, '');
     const cards = [
-      { href: '/books/', label: 'Books', desc: 'Two books on software architecture and AI-native systems' },
-      { href: '/whitepapers/', label: 'White Papers', desc: 'Five research papers published between 2023 and 2025' },
-      { href: '/projects/', label: 'Projects', desc: 'Open source tools and runtimes built from the frameworks' },
-      { href: '/writing/', label: 'Writing', desc: 'Weekly publishing on Medium since May 2025' },
-      { href: '/speaking/', label: 'Speaking', desc: 'Conference talks on architecture, WASM, and AI-native systems' },
+      { href: `${base}/books/`, label: 'Books', desc: 'Two books on software architecture and AI-native systems' },
+      { href: `${base}/whitepapers/`, label: 'White Papers', desc: 'Five research papers published between 2023 and 2025' },
+      { href: `${base}/projects/`, label: 'Projects', desc: 'Open source tools and runtimes built from the frameworks' },
+      { href: `${base}/writing/`, label: 'Writing', desc: 'Weekly publishing on Medium since May 2025' },
+      { href: `${base}/speaking/`, label: 'Speaking', desc: 'Conference talks on architecture, WASM, and AI-native systems' },
     ];
 
     this.innerHTML = `

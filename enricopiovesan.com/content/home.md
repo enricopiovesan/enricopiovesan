@@ -13,6 +13,6 @@ After years building products across startups in travel, education, and payments
 
 That is where UMA came from. Then C-DAD. Then Traverse. Not from theory. From real problems that kept showing up.
 
-<ep-nav-cards></ep-nav-cards>
+<ep-nav-cards base="{{ pathPrefix }}"></ep-nav-cards>
 
 Platform Software Architect at Autodesk. Based in Golden, BC, Purcell Mountains, Canada. Certified ski instructor. When there is fresh snow, everything else waits.

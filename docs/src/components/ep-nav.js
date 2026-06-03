@@ -1,18 +1,19 @@
 class EpNav extends HTMLElement {
-  static get observedAttributes() { return ['active']; }
+  static get observedAttributes() { return ['active', 'base']; }
 
   connectedCallback() { this.render(); }
   attributeChangedCallback() { this.render(); }
 
   render() {
     const active = this.getAttribute('active') || '';
+    const base = (this.getAttribute('base') || '/').replace(/\/$/, '');
     const links = [
-      { href: '/', label: 'Home', slug: 'home' },
-      { href: '/books/', label: 'Books', slug: 'books' },
-      { href: '/projects/', label: 'Projects', slug: 'projects' },
-      { href: '/speaking/', label: 'Speaking', slug: 'speaking' },
-      { href: '/whitepapers/', label: 'White Papers', slug: 'whitepapers' },
-      { href: '/writing/', label: 'Writing', slug: 'writing' },
+      { href: `${base}/`, label: 'Home', slug: 'home' },
+      { href: `${base}/books/`, label: 'Books', slug: 'books' },
+      { href: `${base}/projects/`, label: 'Projects', slug: 'projects' },
+      { href: `${base}/speaking/`, label: 'Speaking', slug: 'speaking' },
+      { href: `${base}/whitepapers/`, label: 'White Papers', slug: 'whitepapers' },
+      { href: `${base}/writing/`, label: 'Writing', slug: 'writing' },
     ];
 
     this.innerHTML = `

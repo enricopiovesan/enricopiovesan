@@ -14,6 +14,9 @@ module.exports = function (eleventyConfig) {
   const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || "/";
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin, { baseHref: pathPrefix });
 
+  // Global data: expose pathPrefix to all templates
+  eleventyConfig.addGlobalData("pathPrefix", pathPrefix);
+
   // Sitemap: add collection of all pages
   eleventyConfig.addCollection("allPages", function (collectionApi) {
     return collectionApi.getAll();
