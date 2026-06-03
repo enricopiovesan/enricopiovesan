@@ -1,6 +1,6 @@
 ---
 title: White Papers
-description: Five research papers by Enrico Piovesan on software architecture, AI-native systems, and contract-driven development published between 2023 and 2025.
+description: Four research papers by Enrico Piovesan on software architecture, AI-native systems, and contract-driven development published between 2023 and 2025.
 layout: whitepapers.njk
 ogTitle: White Papers - Enrico Piovesan
 ogDescription: Five research papers on software architecture, AI-native systems, and contract-driven development.
@@ -16,10 +16,6 @@ papers:
     description: Event-driven architectures have a governance problem that schema registries and API management platforms were not designed to solve. Events cross team boundaries, service boundaries, and time boundaries. Without a way to make them discoverable, governable, and consistent at scale, they become a source of invisible coupling that compounds over years. ECCA is a blueprint for an event contract catalog that treats events as first-class architectural artifacts with declared contracts, ownership, and lifecycle.
     url: /whitepapers/Event Contract Catalog Architecture (ECCA) - White Paper.pdf
     image: /src/assets/img/ecca-paper.png
-  - title: Designing Adaptive AI Systems with UMA and MCP
-    date: June 2025
-    description: As AI agents became a real part of software systems, the question of how they participate in a UMA architecture needed a concrete answer. This paper explores how Universal Microservices Architecture and the Model Context Protocol combine to produce AI systems that can adapt to changing requirements without structural rewrites. The key idea is that agents should be able to propose and rank, while the runtime stays authoritative over validation, policy, and final execution.
-    url: https://medium.com/software-architecture-in-the-age-of-ai
   - title: Universal Microservices Architecture (UMA)
     date: August 2024
     description: The foundational paper introducing UMA as a portable, contract-driven execution model for distributed systems. The central argument is that separating business logic from runtime environment is not just a performance optimization or a deployment convenience. It is an architectural decision that changes what a system can do, where it can run, and how long it can stay coherent as requirements change. This paper establishes the vocabulary and the model that the book later expanded into 13 runnable chapters.
