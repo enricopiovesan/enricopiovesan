@@ -23,7 +23,7 @@ links:
   - label: LinkedIn
     url: https://linkedin.com/in/enricopiovesan
   - label: Medium
-    url: https://medium.com/@enricopiovesan
+    url: https://blog.enricopiovesan.com
   - label: X
     url: https://x.com/enricopiovesan
   - label: UMA

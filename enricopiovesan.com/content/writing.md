@@ -16,6 +16,6 @@ series:
     cadence: Fridays
     url: https://medium.com/the-rise-of-device-independent-architecture
     description: This is where the UMA thinking lives. Posts about WebAssembly, portable systems, device-independent architecture, and what it means to design software that runs where it makes sense instead of where the stack happens to put it. The writing here tends to be more technical. It is me working through the ideas that ended up in the book and the companion repository.
-profile_url: https://medium.com/@enricopiovesan
+profile_url: https://blog.enricopiovesan.com
 note: The follower counts on these publications are small. The ideas are not. If something resonates, the best thing you can do is read it and share it with someone who would find it useful.
 ---
