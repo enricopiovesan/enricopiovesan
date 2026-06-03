@@ -16,7 +16,6 @@ layout: base.njk
     {
       "@type": "PresentationDigitalDocument",
       "name": "Write Once, Run Where It Makes Sense",
-      "description": "The architecture of portable business logic with WebAssembly and Universal Microservices Architecture.",
       "author": { "@id": "https://enricopiovesan.com/#person" },
       "about": ["WebAssembly", "Software Architecture", "Platform Engineering"],
       "inLanguage": "en"
@@ -24,7 +23,6 @@ layout: base.njk
     {
       "@type": "PresentationDigitalDocument",
       "name": "Contract-Driven AI Development",
-      "description": "How verifiable contracts, automated reasoning, and hybrid governance change how we build AI-assisted systems.",
       "author": { "@id": "https://enricopiovesan.com/#person" },
       "about": ["AI Engineering", "Contract-Driven Development"],
       "inLanguage": "en"
@@ -32,7 +30,6 @@ layout: base.njk
     {
       "@type": "PresentationDigitalDocument",
       "name": "The Day After: Restructuring Software for the Age of AI Agents",
-      "description": "Practical patterns for making software organizations legible to AI agents without throwing everything away.",
       "author": { "@id": "https://enricopiovesan.com/#person" },
       "about": ["AI Agents", "Engineering Leadership"],
       "inLanguage": "en"
@@ -55,7 +52,13 @@ layout: base.njk
     </div>
     <div class="talk-content">
       <h2>{{ talk.title }}</h2>
-      <p>{{ talk.description }}</p>
+      {% if talk.description is string %}
+        <p>{{ talk.description }}</p>
+      {% else %}
+        {% for para in talk.description %}
+        <p>{{ para }}</p>
+        {% endfor %}
+      {% endif %}
       {% if talk.based_on %}
       <p class="talk-proof">Based on: <a href="{{ talk.based_on_url }}" target="_blank" rel="noopener">{{ talk.based_on }}</a></p>
       {% endif %}
@@ -68,7 +71,13 @@ layout: base.njk
   <p class="section-label">Speaker Bio</p>
   <div class="bio-text">
     <img src="/src/assets/img/enrico-piovesan.jpg" alt="Enrico Piovesan" class="headshot" width="120" height="120" loading="lazy" />
-    <p>{{ bio }}</p>
+    {% if bio is string %}
+      <p>{{ bio }}</p>
+    {% else %}
+      {% for para in bio %}
+      <p>{{ para }}</p>
+      {% endfor %}
+    {% endif %}
   </div>
 </section>
 
