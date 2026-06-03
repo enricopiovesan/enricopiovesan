@@ -5,7 +5,7 @@ class EpFooter extends HTMLElement {
     const year = new Date().getFullYear();
     this.innerHTML = `
       <style>
-        ep-footer { display: block; }
+        ep-footer { display: block; min-height: 64px; }
         footer {
           padding: 2rem 3rem;
           border-top: 1px solid var(--border);

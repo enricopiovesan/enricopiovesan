@@ -4,13 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>{{ title }} — Enrico Piovesan</title>
+  <title>{% if page.fileSlug and page.fileSlug !== 'home' %}{{ title }} — Enrico Piovesan{% else %}Enrico Piovesan — Platform Architect &amp; Author{% endif %}</title>
   <meta name="description" content="{{ description }}" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="{{ ogTitle or title }}" />
   <meta property="og:description" content="{{ ogDescription or description }}" />
-  <meta property="og:image" content="{{ ogImage or '/public/og-default.png' }}" />
+  <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
+  <meta property="og:url" content="https://enricopiovesan.com{{ page.url }}" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Enrico Piovesan" />
 
@@ -27,16 +28,12 @@
   <link rel="stylesheet" href="/src/assets/styles/reset.css" />
   <link rel="stylesheet" href="/src/assets/styles/global.css" />
 
+  <!-- Schema -->
+  {% block schema %}{% endblock %}
+
   <!-- Web Components -->
   <script type="module" src="/src/components/ep-nav.js"></script>
   <script type="module" src="/src/components/ep-footer.js"></script>
-  <script type="module" src="/src/components/ep-hero.js"></script>
-  <script type="module" src="/src/components/ep-book-card.js"></script>
-  <script type="module" src="/src/components/ep-project-card.js"></script>
-  <script type="module" src="/src/components/ep-talk-card.js"></script>
-  <script type="module" src="/src/components/ep-paper-card.js"></script>
-  <script type="module" src="/src/components/ep-nav-cards.js"></script>
-  <script type="module" src="/src/components/ep-writing-series.js"></script>
 </head>
 <body>
   <ep-nav active="{{ page.fileSlug }}" base="{{ pathPrefix }}"></ep-nav>

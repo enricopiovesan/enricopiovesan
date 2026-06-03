@@ -17,6 +17,7 @@ class EpNav extends HTMLElement {
     this.innerHTML = `
       <style>
         ep-nav { display: block; }
+        ep-nav { display: block; min-height: 76px; }
         nav {
           display: flex;
           justify-content: space-between;

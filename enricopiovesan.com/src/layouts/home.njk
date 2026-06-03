@@ -1,6 +1,58 @@
 ---
 layout: base.njk
 ---
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://enricopiovesan.com/#profilepage",
+      "url": "https://enricopiovesan.com/",
+      "name": "Enrico Piovesan — Platform Architect & Author",
+      "description": "Platform architect and author building frameworks for software that runs anywhere and codebases that AI agents can actually navigate.",
+      "mainEntity": { "@id": "https://enricopiovesan.com/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://enricopiovesan.com/#person",
+      "name": "Enrico Piovesan",
+      "url": "https://enricopiovesan.com/",
+      "jobTitle": "Platform Software Architect",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Autodesk",
+        "url": "https://www.autodesk.com"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Golden",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      },
+      "sameAs": [
+        "https://github.com/enricopiovesan",
+        "https://linkedin.com/in/enricopiovesan",
+        "https://medium.com/@enricopiovesan",
+        "https://x.com/enricopiovesan",
+        "https://www.amazon.com/dp/B0GTTTTQH4"
+      ],
+      "knowsAbout": ["Software Architecture", "WebAssembly", "Microservices", "AI-native Systems", "Platform Engineering"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://enricopiovesan.com/#website",
+      "url": "https://enricopiovesan.com/",
+      "name": "Enrico Piovesan",
+      "description": "Platform architect and author. Software that runs anywhere.",
+      "publisher": { "@id": "https://enricopiovesan.com/#person" },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+{% endblock %}
 <section class="hero">
   <p class="hero-label">Platform architect. Author. Open source builder.</p>
   <h1>{{ hero }}</h1>
