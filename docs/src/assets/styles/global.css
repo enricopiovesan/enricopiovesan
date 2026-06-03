@@ -1,5 +1,43 @@
 html { font-size: 16px; }
 
+/* ─── HEADSHOT ──────────────────────────────────────── */
+.headshot {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  margin-bottom: var(--space-sm);
+  filter: grayscale(20%);
+}
+
+/* ─── BOOK COVER ────────────────────────────────────── */
+.book-inner {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+}
+
+.book-cover-link { display: block; flex-shrink: 0; }
+
+.book-cover {
+  width: 120px;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-sm);
+  transition: opacity 0.15s;
+}
+
+.book-cover-link:hover .book-cover { opacity: 0.85; }
+
+.book-body { flex: 1; }
+
+@media (max-width: 640px) {
+  .book-inner { flex-direction: column; gap: var(--space-sm); }
+  .book-cover { width: 100px; }
+}
+
 body {
   background: var(--black);
   color: var(--white);

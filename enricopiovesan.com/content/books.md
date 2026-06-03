@@ -10,6 +10,7 @@ books:
     subtitle: Device-Independent Modelling for Modern Software Design with WASM
     status: published
     publisher: Amazon
+    cover: /src/assets/img/cover.png
     url: https://www.amazon.com/dp/B0GTTTTQH4
     companion_repo: https://github.com/enricopiovesan/UMA-code-examples
     companion_live: https://www.universalmicroservices.com
@@ -17,6 +18,7 @@ books:
   - title: The Day After
     subtitle: How to Restructure Your Software Company for the Age of AI Agents
     status: forthcoming
+    cover: /src/assets/img/cover-day-after.svg
     companion_repo: https://github.com/enricopiovesan/the-day-after-toolkit
     description: Most codebases are not navigable by AI agents because the intent was never declared. The tribal knowledge is locked in people's heads and there is no map. This book covers practical patterns for making software organizations legible to AI agents without throwing everything away — role by role, capability by capability.
 ---
