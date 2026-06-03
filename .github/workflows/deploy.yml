@@ -30,6 +30,8 @@ jobs:
       - name: Build
         working-directory: enricopiovesan.com
         run: npm run build
+        env:
+          ELEVENTY_PATH_PREFIX: /enricopiovesan/
 
       - name: Commit docs
         run: |

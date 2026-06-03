@@ -7,7 +7,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/components");
 
   // Plugins
-  eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
+  const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || "/";
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin, { baseHref: pathPrefix });
 
   // Sitemap: add collection of all pages
   eleventyConfig.addCollection("allPages", function (collectionApi) {
