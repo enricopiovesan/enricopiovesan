@@ -1,25 +1,25 @@
 ---
 layout: base.njk
 ---
-<article class="page-content">
-  <h1>{{ title }}</h1>
-  <p class="page-intro">{{ intro }}</p>
+<section class="hero">
+  <p class="hero-label">Projects</p>
+  <h1>{{ intro }}</h1>
+</section>
 
-  {% for project in projects %}
-  <div class="project">
-    <div class="project-header">
-      <span class="project-title">{{ project.title }}</span>
-      <span class="project-status">{{ project.status }}</span>
-    </div>
-    <div class="project-meta">
-      {% if project.type %}<span class="project-type">{{ project.type }}</span>{% endif %}
-      {% if project.stack %}<span class="project-stack">{{ project.stack }}</span>{% endif %}
-    </div>
-    {% if project.description %}<p class="project-description">{{ project.description }}</p>{% endif %}
-    <div class="project-links">
-      {% if project.github %}<a href="{{ project.github }}" target="_blank" rel="noopener">github →</a>{% endif %}
-      {% if project.url %}<a href="{{ project.url }}" target="_blank" rel="noopener">site →</a>{% endif %}
-    </div>
+{% for project in projects %}
+<div class="project">
+  <div class="project-header">
+    <span class="project-title">{{ project.title }}</span>
+    <span class="project-status">{{ project.status }}</span>
   </div>
-  {% endfor %}
-</article>
+  <div class="project-meta">
+    {% if project.type %}<span class="project-type">{{ project.type }}</span>{% endif %}
+    {% if project.stack %}<span>{{ project.stack }}</span>{% endif %}
+  </div>
+  {% if project.description %}<p class="project-description">{{ project.description }}</p>{% endif %}
+  <div class="project-links">
+    {% if project.github %}<a href="{{ project.github }}" target="_blank" rel="noopener">github →</a>{% endif %}
+    {% if project.url %}<a href="{{ project.url }}" target="_blank" rel="noopener">site →</a>{% endif %}
+  </div>
+</div>
+{% endfor %}

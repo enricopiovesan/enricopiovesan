@@ -1,10 +1,13 @@
 ---
 layout: base.njk
 ---
-<article class="page-content">
-  <h1>{{ title }}</h1>
-  <p class="page-intro">{{ intro }}</p>
+<section class="hero">
+  <p class="hero-label">Speaking</p>
+  <h1>{{ intro }}</h1>
+</section>
 
+<section class="talks-section">
+  <p class="section-label">Current Topics</p>
   {% for talk in talks %}
   <div class="talk">
     <div class="talk-meta">
@@ -19,15 +22,13 @@ layout: base.njk
     </div>
   </div>
   {% endfor %}
+</section>
 
-  <section class="bio-section">
-    <p class="section-label">Speaker Bio</p>
-    <div class="bio-text">
-      <p>{{ bio }}</p>
-    </div>
-  </section>
+<section class="bio-section">
+  <p class="section-label">Speaker Bio</p>
+  <div class="bio-text"><p>{{ bio }}</p></div>
+</section>
 
-  <section class="availability-section">
-    <p>{{ availability }} <a href="{{ contact_url }}" target="_blank" rel="noopener">Contact via LinkedIn</a></p>
-  </section>
-</article>
+<section class="availability-section">
+  <p>{{ availability }} <a href="{{ contact_url }}" target="_blank" rel="noopener">Contact via LinkedIn →</a></p>
+</section>

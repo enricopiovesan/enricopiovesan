@@ -1,19 +1,19 @@
 ---
 layout: base.njk
 ---
-<article class="page-content">
-  <h1>{{ title }}</h1>
-  <p class="page-intro">{{ intro }}</p>
+<section class="hero">
+  <p class="hero-label">White Papers</p>
+  <h1>{{ intro }}</h1>
+</section>
 
-  {% for paper in papers %}
-  <div class="paper">
-    <div class="paper-header">
-      <div class="paper-title">
-        <a href="{{ paper.url }}" target="_blank" rel="noopener">{{ paper.title }}</a>
-      </div>
-      <span class="paper-date">{{ paper.date }}</span>
+{% for paper in papers %}
+<div class="paper">
+  <div class="paper-header">
+    <div class="paper-title">
+      <a href="{{ paper.url }}" target="_blank" rel="noopener">{{ paper.title }}</a>
     </div>
-    {% if paper.description %}<p class="paper-description">{{ paper.description }}</p>{% endif %}
+    <span class="paper-date">{{ paper.date }}</span>
   </div>
-  {% endfor %}
-</article>
+  {% if paper.description %}<p class="paper-description">{{ paper.description }}</p>{% endif %}
+</div>
+{% endfor %}

@@ -5,52 +5,47 @@ class EpFooter extends HTMLElement {
     const year = new Date().getFullYear();
     this.innerHTML = `
       <style>
-        ep-footer {
-          display: block;
+        ep-footer { display: block; }
+        footer {
+          padding: 2rem 3rem;
           border-top: 1px solid var(--border);
-          margin-top: var(--space-xl);
-        }
-        .footer-inner {
-          max-width: 720px;
-          margin: 0 auto;
-          padding: var(--space-md) var(--space-sm);
           display: flex;
           justify-content: space-between;
           align-items: center;
           flex-wrap: wrap;
-          gap: var(--space-sm);
-        }
-        .footer-copy {
-          font-family: var(--mono);
-          font-size: 0.75rem;
-          color: var(--mid);
+          gap: 1rem;
         }
         .footer-links {
           display: flex;
-          gap: var(--space-sm);
+          gap: 2rem;
+          font-family: var(--mono);
+          font-size: 0.72rem;
+          letter-spacing: 0.06em;
+          color: var(--border);
           list-style: none;
         }
-        .footer-links a {
-          font-size: 0.75rem;
-          color: var(--mid);
-          text-decoration: none;
+        .footer-links a { color: var(--border); transition: color 0.15s; }
+        .footer-links a:hover { color: var(--mid); }
+        .footer-copy {
+          font-family: var(--mono);
+          font-size: 0.72rem;
+          color: var(--border);
         }
-        .footer-links a:hover {
-          color: var(--white);
+        @media (max-width: 640px) {
+          footer { padding: 1.5rem; }
+          .footer-links { gap: 1rem; flex-wrap: wrap; }
         }
       </style>
       <footer>
-        <div class="footer-inner">
-          <span class="footer-copy">© ${year} Enrico Piovesan</span>
-          <ul class="footer-links">
-            <li><a href="https://linkedin.com/in/enricopiovesan" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="https://github.com/enricopiovesan" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="https://medium.com/@enricopiovesan" target="_blank" rel="noopener">Medium</a></li>
-          </ul>
-        </div>
+        <ul class="footer-links">
+          <li><a href="https://www.universalmicroservices.com" target="_blank" rel="noopener">universalmicroservices.com</a></li>
+          <li><a href="https://www.amazon.com/dp/B0GTTTTQH4" target="_blank" rel="noopener">UMA Book</a></li>
+          <li><a href="https://github.com/enricopiovesan" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/enricopiovesan" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+        <p class="footer-copy">Enrico Piovesan</p>
       </footer>
     `;
   }
 }
-
 customElements.define('ep-footer', EpFooter);

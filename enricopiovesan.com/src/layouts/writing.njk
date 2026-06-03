@@ -1,23 +1,23 @@
 ---
 layout: base.njk
 ---
-<article class="page-content">
-  <h1>{{ title }}</h1>
-  <p class="page-intro">{{ intro }}</p>
+<section class="hero">
+  <p class="hero-label">Writing</p>
+  <h1>{{ intro }}</h1>
+</section>
 
-  {% for pub in series %}
-  <div class="writing-series">
-    <div class="series-header">
-      <div class="series-name"><a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.name }}</a></div>
-      <span class="series-followers">{{ pub.followers }} followers</span>
-    </div>
-    <p class="series-cadence">{{ pub.cadence }}</p>
-    <p class="series-topics">{{ pub.topics }}</p>
+{% for pub in series %}
+<div class="writing-series">
+  <div class="series-header">
+    <div class="series-name"><a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.name }}</a></div>
+    <span class="series-followers">{{ pub.followers }} followers</span>
   </div>
-  {% endfor %}
+  <p class="series-cadence">{{ pub.cadence }}</p>
+  <p class="series-topics">{{ pub.topics }}</p>
+</div>
+{% endfor %}
 
-  <div class="profile-link">
-    <a href="{{ profile_url }}" target="_blank" rel="noopener">Personal profile →</a>
-    <span class="profile-followers">{{ profile_followers }} followers</span>
-  </div>
-</article>
+<div class="profile-link">
+  <a href="{{ profile_url }}" target="_blank" rel="noopener">Personal profile →</a>
+  <span class="profile-followers">{{ profile_followers }} followers</span>
+</div>
