@@ -21,15 +21,14 @@ class EpFooter extends HTMLElement {
           font-family: var(--mono);
           font-size: 0.72rem;
           letter-spacing: 0.06em;
-          color: var(--border);
           list-style: none;
         }
-        .footer-links a { color: var(--border); transition: color 0.15s; }
-        .footer-links a:hover { color: var(--mid); }
+        .footer-links a { color: var(--mid); text-decoration: none; transition: color 0.15s; }
+        .footer-links a:hover { color: var(--white); }
         .footer-copy {
           font-family: var(--mono);
           font-size: 0.72rem;
-          color: var(--border);
+          color: var(--mid);
         }
         @media (max-width: 640px) {
           footer { padding: 1.5rem; }
@@ -43,7 +42,7 @@ class EpFooter extends HTMLElement {
           <li><a href="https://github.com/enricopiovesan" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://linkedin.com/in/enricopiovesan" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
-        <p class="footer-copy">Enrico Piovesan</p>
+        <p class="footer-copy">Enrico Piovesan ${year}</p>
       </footer>
     `;
   }
