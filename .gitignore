@@ -3,3 +3,4 @@
 node_modules/
 enricopiovesan.com/_site/
 .DS_Store
+.venv/
