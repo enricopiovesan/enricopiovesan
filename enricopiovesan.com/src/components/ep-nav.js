@@ -56,7 +56,7 @@ class EpNav extends HTMLElement {
       </style>
       <nav aria-label="Main navigation">
         <div class="nav-inner">
-          <a href="/" class="nav-brand">ep</a>
+          <a href="/" class="nav-brand">Enrico Piovesan</a>
           <ul class="nav-links">
             ${links.map(l => `
               <li><a href="${l.href}"${active === l.slug ? ' aria-current="page"' : ''}>${l.label}</a></li>
