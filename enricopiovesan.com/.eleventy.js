@@ -9,6 +9,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("public");
   eleventyConfig.addPassthroughCopy({ "public/404.html": "404.html" });
+  eleventyConfig.addPassthroughCopy({ "public/robots.txt": "robots.txt" });
+  eleventyConfig.addPassthroughCopy({ "public/llms.txt": "llms.txt" });
+  eleventyConfig.addPassthroughCopy({ "public/CNAME": "CNAME" });
   eleventyConfig.addPassthroughCopy("src/components");
 
   // Plugins
