@@ -1,0 +1,33 @@
+---
+layout: base.njk
+---
+<article class="page-content">
+  <h1>{{ title }}</h1>
+  <p class="page-intro">{{ intro }}</p>
+
+  {% for talk in talks %}
+  <div class="talk">
+    <div class="talk-meta">
+      <p class="talk-track">{{ talk.track }}</p>
+    </div>
+    <div class="talk-content">
+      <h2>{{ talk.title }}</h2>
+      <p>{{ talk.description }}</p>
+      {% if talk.based_on %}
+      <p class="talk-proof">Based on: <a href="{{ talk.based_on_url }}" target="_blank" rel="noopener">{{ talk.based_on }}</a></p>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+
+  <section class="bio-section">
+    <p class="section-label">Speaker Bio</p>
+    <div class="bio-text">
+      <p>{{ bio }}</p>
+    </div>
+  </section>
+
+  <section class="availability-section">
+    <p>{{ availability }} <a href="{{ contact_url }}" target="_blank" rel="noopener">Contact via LinkedIn</a></p>
+  </section>
+</article>

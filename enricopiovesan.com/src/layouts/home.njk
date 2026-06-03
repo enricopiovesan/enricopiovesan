@@ -1,0 +1,37 @@
+---
+layout: base.njk
+---
+<article class="page-content">
+
+  <section class="hero">
+    <p class="hero-label">Platform architect. Author. Open source builder.</p>
+    <h1>{{ hero }}</h1>
+  </section>
+
+  <section class="intro">
+    {% for para in intro %}
+    <p>{{ para }}</p>
+    {% endfor %}
+  </section>
+
+  <section class="nav-cards">
+    {% for card in nav_cards %}
+    <a class="nav-card" href="{{ pathPrefix | replace('//', '/') }}{{ card.href | replace('/', '', 1) if pathPrefix != '/' else card.href }}">
+      <span class="nav-card-label">{{ card.label }}</span>
+      <span class="nav-card-desc">{{ card.desc }}</span>
+    </a>
+    {% endfor %}
+  </section>
+
+  <section class="bio-section">
+    <p class="section-label">Bio</p>
+    <p class="bio-text">{{ bio }}</p>
+  </section>
+
+  <section class="links-section">
+    {% for link in links %}
+    <a class="contact-link" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
+    {% endfor %}
+  </section>
+
+</article>
