@@ -49,21 +49,37 @@ layout: base.njk
 {% endblock %}
 <section class="hero">
   <p class="hero-label">Writing</p>
+  {% if intro is string %}
   <h1>{{ intro }}</h1>
+  {% else %}
+  <h1>{{ intro[0] }}</h1>
+  {% endif %}
 </section>
+
+{% if intro is not string and intro.length > 1 %}
+<section class="section">
+  {% for i in range(1, intro.length) %}
+  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:560px;margin-bottom:1rem;">{{ intro[i] }}</p>
+  {% endfor %}
+</section>
+{% endif %}
 
 {% for pub in series %}
 <div class="writing-series">
   <div class="series-header">
     <div class="series-name"><a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.name }}</a></div>
-    <span class="series-followers">{{ pub.followers }} followers</span>
   </div>
   <p class="series-cadence">{{ pub.cadence }}</p>
-  <p class="series-topics">{{ pub.topics }}</p>
+  {% if pub.description %}<p class="series-description">{{ pub.description }}</p>{% endif %}
 </div>
 {% endfor %}
 
 <div class="profile-link">
-  <a href="{{ profile_url }}" target="_blank" rel="noopener">Personal profile →</a>
-  <span class="profile-followers">{{ profile_followers }} followers</span>
+  <a href="{{ profile_url }}" target="_blank" rel="noopener">Personal profile on Medium →</a>
 </div>
+
+{% if note %}
+<div class="writing-note">
+  <p>{{ note }}</p>
+</div>
+{% endif %}
