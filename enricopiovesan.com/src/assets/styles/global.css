@@ -564,6 +564,46 @@ a { color: inherit; text-decoration: none; }
   .nav-cards { padding-left: 1.5rem; padding-right: 1.5rem; }
 }
 
+/* ─── CONTACT CTA ───────────────────────────────────── */
+.contact-section {
+  padding: 4rem 3rem;
+  border-top: 1px solid var(--border);
+}
+
+.contact-cta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.contact-cta-text {
+  font-size: 1.05rem;
+  color: var(--mid);
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+.contact-cta-link {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 1px;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+}
+
+.contact-cta-link:hover { opacity: 0.75; }
+
+@media (max-width: 640px) {
+  .contact-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .contact-cta { flex-direction: column; gap: var(--space-sm); }
+}
+
 /* ─── CONCEPT PAGES ─────────────────────────────────── */
 .concept-list {
   margin-top: 2rem;
