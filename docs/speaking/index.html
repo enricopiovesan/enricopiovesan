@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Speaking — Enrico Piovesan</title>
+  <meta name="description" content="Enrico Piovesan speaks about portable systems, contract-driven AI development, and restructuring software for the age of AI agents." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Speaking — Enrico Piovesan" />
+  <meta property="og:description" content="Enrico Piovesan speaks about portable systems, contract-driven AI development, and restructuring software for the age of AI agents." />
+  <meta property="og:image" content="/public/og-default.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Enrico Piovesan" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://enricopiovesan.com/speaking/" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/assets/styles/tokens.css" />
+  <link rel="stylesheet" href="/src/assets/styles/reset.css" />
+  <link rel="stylesheet" href="/src/assets/styles/global.css" />
+
+  <!-- Web Components -->
+  <script type="module" src="/src/components/ep-nav.js"></script>
+  <script type="module" src="/src/components/ep-footer.js"></script>
+  <script type="module" src="/src/components/ep-hero.js"></script>
+  <script type="module" src="/src/components/ep-book-card.js"></script>
+  <script type="module" src="/src/components/ep-project-card.js"></script>
+  <script type="module" src="/src/components/ep-talk-card.js"></script>
+  <script type="module" src="/src/components/ep-paper-card.js"></script>
+</head>
+<body>
+  <ep-nav active="speaking"></ep-nav>
+
+  <main id="main-content">
+    <article class="page-content">
+  <h1>Speaking</h1>
+<p>I talk about portable systems, contract-driven AI development, and what it actually takes to restructure software for the age of AI agents. Every talk is drawn directly from published books, white papers, and shipped tooling.</p>
+<p>&lt;ep-talk-card
+title=&quot;Write Once, Run Where It Makes Sense&quot;
+track=&quot;Architecture and platform engineering&quot;
+description=&quot;The same business logic gets rewritten four or five times across browser, backend, edge, and AI pipelines. Most architectures assume the environment too early and teams pay that cost forever. This talk covers the architecture of portable business logic with WebAssembly and Universal Microservices Architecture.&quot;
+based-on=&quot;Universal Microservices Architecture (Amazon)&quot;</p>
+<blockquote>
+</ep-talk-card>
+</blockquote>
+<p>&lt;ep-talk-card
+title=&quot;Contract-Driven AI Development&quot;
+track=&quot;AI engineering and developer tooling&quot;
+description=&quot;AI coding tools can describe what software does but not why it does it. They automate structure, not understanding. This talk introduces C-DAD and how verifiable contracts change how we build AI-assisted systems.&quot;
+based-on=&quot;C-DAD White Paper&quot;</p>
+<blockquote>
+</ep-talk-card>
+</blockquote>
+<p>&lt;ep-talk-card
+title=&quot;The Day After: Restructuring Software for the Age of AI Agents&quot;
+track=&quot;Engineering leadership and CTO tracks&quot;
+description=&quot;Most codebases are not navigable by AI agents because the intent was never declared. This talk covers practical patterns for making software organizations legible to AI agents without throwing everything away.&quot;
+based-on=&quot;The Day After (forthcoming)&quot;</p>
+<blockquote>
+</ep-talk-card>
+</blockquote>
+<p>Currently accepting CFP invitations for architecture, WASM, and AI engineering tracks.
+<a href="https://linkedin.com/in/enricopiovesan">Contact via LinkedIn</a></p>
+
+</article>
+
+  </main>
+
+  <ep-footer></ep-footer>
+</body>
+</html>

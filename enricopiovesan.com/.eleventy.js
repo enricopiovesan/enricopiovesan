@@ -27,7 +27,7 @@ module.exports = function (eleventyConfig) {
     dir: {
       input: "content",
       includes: "../src/layouts",
-      output: "_site",
+      output: "../docs",
     },
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
