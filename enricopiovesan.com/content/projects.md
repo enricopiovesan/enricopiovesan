@@ -30,6 +30,4 @@ projects:
     stack: Rust/WASM, Web Components, PWA
     status: in progress (M0)
     description: A WASM-native MCP-powered personal knowledge layer. Runs entirely on GitHub Pages. No server, no database, no cost. Federation model so anyone can fork and run their own instance.
-    github: https://github.com/youaskm3/youaskm3
-    url: https://youaskm3.com
 ---

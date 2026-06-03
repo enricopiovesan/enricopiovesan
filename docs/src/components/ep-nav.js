@@ -12,6 +12,7 @@ class EpNav extends HTMLElement {
       { href: `${base}/projects/`, label: 'Projects', slug: 'projects' },
       { href: `${base}/writing/`, label: 'Writing', slug: 'writing' },
       { href: `${base}/speaking/`, label: 'Speaking', slug: 'speaking' },
+      { href: 'https://medium.com/@enricopiovesan', label: 'Blog', slug: '', external: true },
     ];
 
     this.innerHTML = `
@@ -56,7 +57,7 @@ class EpNav extends HTMLElement {
         <a href="${base}/" class="nav-name">ENRICO PIOVESAN</a>
         <ul class="nav-links">
           ${links.map(l => `
-            <li><a href="${l.href}"${active === l.slug ? ' aria-current="page"' : ''}>${l.label}</a></li>
+            <li><a href="${l.href}"${l.external ? ' target="_blank" rel="noopener"' : ''}${active === l.slug && !l.external ? ' aria-current="page"' : ''}>${l.label}</a></li>
           `).join('')}
         </ul>
       </nav>
