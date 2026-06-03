@@ -2,9 +2,9 @@
 title: Projects
 description: Open source projects by Enrico Piovesan including UMA, C-DAD, Traverse, and youaskm3.
 layout: projects.njk
-ogTitle: Projects — Enrico Piovesan
+ogTitle: Projects - Enrico Piovesan
 ogDescription: Open source tools and runtimes built from the UMA and C-DAD frameworks.
-intro: Four open source projects. Each one addresses a real problem. Each one is production-grade — spec-governed, CI-enforced, properly licensed.
+intro: Four open source projects. Each one addresses a real problem. Each one is production-grade - spec-governed, CI-enforced, properly licensed.
 projects:
   - title: UMA-code-examples
     type: Book companion

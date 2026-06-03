@@ -2,9 +2,9 @@
 title: Writing
 description: Enrico Piovesan writes about software architecture and AI-native systems on Medium every week. Two active publication series since May 2025.
 layout: writing.njk
-ogTitle: Writing — Enrico Piovesan
+ogTitle: Writing - Enrico Piovesan
 ogDescription: Weekly writing on software architecture and AI-native systems. Two Medium publication series.
-intro: Publishing every week on Medium since May 2025. Two series, two audiences, same underlying conviction — software should work for users, not for the runtime it happens to run on.
+intro: Publishing every week on Medium since May 2025. Two series, two audiences, same underlying conviction - software should work for users, not for the runtime it happens to run on.
 series:
   - name: Mastering Software Architecture for the AI Era
     cadence: Wednesdays

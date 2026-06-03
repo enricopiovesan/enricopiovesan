@@ -2,7 +2,7 @@
 title: White Papers
 description: Four research papers by Enrico Piovesan on software architecture, AI-native systems, and contract-driven development published between 2023 and 2025.
 layout: whitepapers.njk
-ogTitle: White Papers — Enrico Piovesan
+ogTitle: White Papers - Enrico Piovesan
 ogDescription: Four research papers on software architecture, AI-native systems, and contract-driven development.
 intro: Four papers published between June 2023 and November 2025. Each one built on the last.
 papers:
@@ -18,7 +18,7 @@ papers:
     image: /src/assets/img/ecca-paper.png
   - title: Universal Microservices Architecture (UMA)
     date: August 2024
-    description: The foundational paper introducing UMA — a portable, contract-driven execution model for distributed systems that separates business logic from runtime environment.
+    description: The foundational paper introducing UMA - a portable, contract-driven execution model for distributed systems that separates business logic from runtime environment.
     url: /whitepapers/Universal Microservices Architecture (UMA) - White Paper.pdf
     image: /src/assets/img/uma-paper.png
   - title: Client-Side Microservices Architecture (CSMA)

@@ -3,7 +3,7 @@ title: About
 description: Enrico Piovesan is a platform architect, author, and open source builder based in Golden, BC. He builds frameworks for software that runs anywhere and codebases that AI agents can actually navigate.
 layout: about.njk
 permalink: /about/
-ogTitle: About — Enrico Piovesan
+ogTitle: About - Enrico Piovesan
 ogDescription: Platform architect, author, and open source builder. Frameworks for software that runs anywhere.
 name: Enrico Piovesan
 role: Platform Software Architect
