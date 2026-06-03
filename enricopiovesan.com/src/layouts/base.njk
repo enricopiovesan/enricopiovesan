@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{{ title }} — Enrico Piovesan</title>
+  <meta name="description" content="{{ description }}" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ title }} — Enrico Piovesan" />
+  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:image" content="{{ ogImage or '/public/og-default.png' }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Enrico Piovesan" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://enricopiovesan.com{{ page.url }}" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/assets/styles/tokens.css" />
+  <link rel="stylesheet" href="/src/assets/styles/reset.css" />
+  <link rel="stylesheet" href="/src/assets/styles/global.css" />
+
+  <!-- Web Components -->
+  <script type="module" src="/src/components/ep-nav.js"></script>
+  <script type="module" src="/src/components/ep-footer.js"></script>
+  <script type="module" src="/src/components/ep-hero.js"></script>
+  <script type="module" src="/src/components/ep-book-card.js"></script>
+  <script type="module" src="/src/components/ep-project-card.js"></script>
+  <script type="module" src="/src/components/ep-talk-card.js"></script>
+  <script type="module" src="/src/components/ep-paper-card.js"></script>
+</head>
+<body>
+  <ep-nav active="{{ page.fileSlug }}"></ep-nav>
+
+  <main id="main-content">
+    {{ content | safe }}
+  </main>
+
+  <ep-footer></ep-footer>
+</body>
+</html>
