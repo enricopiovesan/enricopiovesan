@@ -18,6 +18,14 @@
   <!-- Canonical -->
   <link rel="canonical" href="https://enricopiovesan.com/" />
 
+  <!-- Theme: apply before paint to avoid flash -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-71P091V6MQ"></script>
   <script>

@@ -37,7 +37,7 @@
 :root {
   --black: #0a0a0a;
   --white: #f5f4f0;
-  --mid: #888580;
+  --mid: #a8a5a0;
   --accent: #c8441a;
   --border: #2a2a28;
   --mono: 'IBM Plex Mono', monospace;
@@ -50,4 +50,36 @@
   --space-md: 2rem;
   --space-lg: 3rem;
   --space-xl: 6rem;
+
+  /* Theme-aware aliases */
+  --bg: var(--black);
+  --fg: var(--white);
+  --fg-mid: var(--mid);
+  --fg-border: var(--border);
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --bg: #f5f4f0;
+  --fg: #0a0a0a;
+  --fg-mid: #555250;
+  --fg-border: #d5d2ce;
+  --border: #d5d2ce;
+  --mid: #555250;
+  --black: #f5f4f0;
+  --white: #0a0a0a;
+}
+
+/* Respect system preference unless overridden */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f5f4f0;
+    --fg: #0a0a0a;
+    --fg-mid: #555250;
+    --fg-border: #d5d2ce;
+    --border: #d5d2ce;
+    --mid: #555250;
+    --black: #f5f4f0;
+    --white: #0a0a0a;
+  }
 }
