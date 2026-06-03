@@ -2,11 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://enricopiovesan.com/books/</loc>
-    <lastmod>2026-06-03</lastmod>
-  </url>
-  
-  <url>
     <loc>https://enricopiovesan.com/</loc>
     <lastmod>2026-06-03</lastmod>
   </url>
@@ -22,12 +17,17 @@
   </url>
   
   <url>
-    <loc>https://enricopiovesan.com/whitepapers/</loc>
+    <loc>https://enricopiovesan.com/writing/</loc>
     <lastmod>2026-06-03</lastmod>
   </url>
   
   <url>
-    <loc>https://enricopiovesan.com/writing/</loc>
+    <loc>https://enricopiovesan.com/books/</loc>
+    <lastmod>2026-06-03</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://enricopiovesan.com/whitepapers/</loc>
     <lastmod>2026-06-03</lastmod>
   </url>
   
