@@ -9,7 +9,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Books — Enrico Piovesan">
-  <meta property="og:description" content="Published books by Enrico Piovesan on software architecture, WASM, and AI-native systems.">
+  <meta property="og:description" content="Two books on software architecture, WASM, and AI-native systems.">
   <meta property="og:image" content="/public/og-default.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Enrico Piovesan">
@@ -35,6 +35,8 @@
   <script type="module" src="/enricopiovesan/src/components/ep-project-card.js"></script>
   <script type="module" src="/enricopiovesan/src/components/ep-talk-card.js"></script>
   <script type="module" src="/enricopiovesan/src/components/ep-paper-card.js"></script>
+  <script type="module" src="/enricopiovesan/src/components/ep-nav-cards.js"></script>
+  <script type="module" src="/enricopiovesan/src/components/ep-writing-series.js"></script>
 </head>
 <body>
   <ep-nav active="books"></ep-nav>
@@ -42,19 +44,25 @@
   <main id="main-content">
     <article class="page-content">
   <h1>Books</h1>
+<p>Two books on software architecture. One published, one forthcoming.</p>
 <p>&lt;ep-book-card
 title=&quot;Universal Microservices Architecture&quot;
 subtitle=&quot;Device-Independent Modelling for Modern Software Design with WASM&quot;
 url=&quot;https://www.amazon.com/dp/B0GTTTTQH4&quot;
 status=&quot;published&quot;
-publisher=&quot;Amazon&quot;</p>
+publisher=&quot;Amazon&quot;
+companion-repo=&quot;https://github.com/enricopiovesan/UMA-code-examples&quot;
+companion-live=&quot;https://www.universalmicroservices.com&quot;
+description=&quot;A portable, contract-driven execution model for distributed systems. Business logic that runs where it makes sense — browser, edge, cloud, AI pipeline — without rewriting it every time. 13 chapters of runnable Rust/WASM code in the companion repo, with 100% business logic coverage enforced in CI.&quot;</p>
 <blockquote>
 
 </blockquote>
 <p>&lt;ep-book-card
 title=&quot;The Day After&quot;
 subtitle=&quot;How to Restructure Your Software Company for the Age of AI Agents&quot;
-status=&quot;forthcoming&quot;</p>
+status=&quot;forthcoming&quot;
+companion-repo=&quot;https://github.com/enricopiovesan/the-day-after-toolkit&quot;
+description=&quot;Most codebases are not navigable by AI agents because the intent was never declared. The tribal knowledge is locked in people's heads and there is no map. This book covers practical patterns for making software organizations legible to AI agents without throwing everything away — role by role, capability by capability.&quot;</p>
 <blockquote>
 
 </blockquote>

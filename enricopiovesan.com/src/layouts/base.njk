@@ -8,8 +8,8 @@
   <meta name="description" content="{{ description }}" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="{{ title }} — Enrico Piovesan" />
-  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:title" content="{{ ogTitle or title }}" />
+  <meta property="og:description" content="{{ ogDescription or description }}" />
   <meta property="og:image" content="{{ ogImage or '/public/og-default.png' }}" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Enrico Piovesan" />
@@ -35,6 +35,8 @@
   <script type="module" src="/src/components/ep-project-card.js"></script>
   <script type="module" src="/src/components/ep-talk-card.js"></script>
   <script type="module" src="/src/components/ep-paper-card.js"></script>
+  <script type="module" src="/src/components/ep-nav-cards.js"></script>
+  <script type="module" src="/src/components/ep-writing-series.js"></script>
 </head>
 <body>
   <ep-nav active="{{ page.fileSlug }}"></ep-nav>
