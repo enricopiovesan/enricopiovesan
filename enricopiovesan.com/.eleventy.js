@@ -1,6 +1,10 @@
 const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
+const markdownIt = require("markdown-it");
 
 module.exports = function (eleventyConfig) {
+  // Markdown with HTML enabled
+  eleventyConfig.setLibrary("md", markdownIt({ html: true }));
+
   // Copy assets and public folder
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("public");

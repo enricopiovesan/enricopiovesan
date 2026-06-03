@@ -5,12 +5,7 @@ layout: page.njk
 permalink: /
 ---
 
-<ep-hero
-  headline="Platform architect.<br>Author.<br>Open source builder."
-  subline="Building frameworks for software that runs anywhere and codebases that AI agents can actually navigate."
-  cta-label="Read the books →"
-  cta-href="/books/"
-></ep-hero>
+<ep-hero headline="Platform architect. Author. Open source builder." subline="Building frameworks for software that runs anywhere and codebases that AI agents can actually navigate." cta-label="Read the books →" cta-href="/books/"></ep-hero>
 
 Software should work for users, not for the runtime it happens to run on.
 
