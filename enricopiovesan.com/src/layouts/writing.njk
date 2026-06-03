@@ -48,21 +48,16 @@ layout: base.njk
 </script>
 {% endblock %}
 <section class="hero">
-  <p class="hero-label">Writing</p>
+  <p class="hero-label">Medium</p>
+  <h1>Writing</h1>
   {% if intro is string %}
-  <h1>{{ intro }}</h1>
+  <p class="hero-bio">{{ intro }}</p>
   {% else %}
-  <h1>{{ intro[0] }}</h1>
+  {% for para in intro %}
+  <p class="hero-bio" style="margin-top:{% if loop.first %}0{% else %}1rem{% endif %};">{{ para }}</p>
+  {% endfor %}
   {% endif %}
 </section>
-
-{% if intro is not string and intro.length > 1 %}
-<section class="section">
-  {% for i in range(1, intro.length) %}
-  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:560px;margin-bottom:1rem;">{{ intro[i] }}</p>
-  {% endfor %}
-</section>
-{% endif %}
 
 {% for pub in series %}
 <div class="writing-series">
