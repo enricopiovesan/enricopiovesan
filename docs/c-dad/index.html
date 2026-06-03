@@ -94,8 +94,16 @@
 
 <section class="section">
   <p class="section-label">What is C-DAD?</p>
-  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:560px;">Contract-Driven AI Development (C-DAD) is a framework where verifiable contracts - not prompts, not comments, not documentation - define how humans, AI systems, and runtimes collaborate to build software.</p>
-  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:560px;margin-top:1rem;">The difference between a specification and a contract is verifiability. A specification describes intent. A contract enforces it. C-DAD makes every piece of software behaviour a first-class, machine-readable, lifecycle-aware contract.</p>
+  <p>Contract-Driven AI Development (C-DAD) is a framework for building software systems where contracts, not code, define the collaboration between humans, AI systems, and runtimes. It is a response to a specific failure mode that becomes more expensive as AI agents become more capable: the inability of any system - human or machine - to understand why a codebase behaves the way it does.</p>
+  <p>AI coding tools are good at describing structure. They can read a function and tell you what it does. They cannot tell you why it does it, what constraint it was written to satisfy, or what would break if you changed it. That information exists in a regulatory audit from three years ago, a Slack thread from 2022, the memory of an engineer who left last year. It is not in the code.</p>
+  <p>C-DAD makes that information a first-class citizen of the software development process. Every behavior has a contract. Every contract has a declared rationale, a set of constraints, a lifecycle state, and a governance owner. The difference between a specification and a contract is verifiability: a specification describes intent, a contract enforces it.</p>
+</section>
+
+<section class="section">
+  <p class="section-label">The contract model</p>
+  <p>A C-DAD contract is not a type definition or an API schema. It is a machine-readable record that captures what a behavior does, why it exists, what it depends on, what it guarantees, who owns it, and what state it is in. Contracts have explicit lifecycle states: Draft, Active, Deprecated, and Retired. They carry provenance: who authored them, when, under what governance process.</p>
+  <p>Contracts are authored as machine-readable manifests first. Human documentation is generated from the manifest, not the other way around. This is not a bureaucratic requirement. It is the only way to ensure the machine-readable layer stays authoritative. When documentation is the source, the machine-readable layer drifts. When the manifest is the source, it cannot.</p>
+  <p>Contracts are distributed as signed, immutable artifacts. A contract that has been superseded does not disappear - it is archived with its history intact. This means the full evolution of a behavior is traceable: why it was created, what changed, why it was deprecated, what replaced it. An AI agent working with a C-DAD system can read that history. It does not have to guess.</p>
 </section>
 
 <section class="section">
@@ -103,26 +111,38 @@
   <div class="concept-list">
     <div class="concept-item">
       <h2>Contracts over code</h2>
-      <p>AI tools automate structure. They cannot automate understanding. Contracts declare why software behaves as it does - the rationale, the constraints, the governance rules. This is the layer AI tools need to reason about systems, not just describe them.</p>
+      <p>AI tools automate structure. They cannot automate understanding. Contracts declare the rationale, the constraints, the governance rules - the layer AI tools need to reason about systems, not just describe them. A codebase with contracts is navigable by AI agents. A codebase without them requires a human to translate every question.</p>
     </div>
     <div class="concept-item">
       <h2>Verifiable, not just readable</h2>
-      <p>Contracts in C-DAD are immutable units of record with explicit lifecycle states: Draft, Active, Deprecated, Retired. They carry provenance, validation results, and audit trails. They can be signed, distributed, and checked - not just read.</p>
+      <p>Contracts are immutable units of record with explicit lifecycle states. They carry provenance, validation results, and audit trails. They can be signed, distributed, and checked programmatically. A contract is not documentation. It is a commitment that can be tested against at any point in the system's lifecycle.</p>
     </div>
     <div class="concept-item">
       <h2>Hybrid governance</h2>
-      <p>Not everything should be automated. C-DAD defines explicit handoff points where human judgment is required - and makes those points visible in the contract itself. Automation handles the routine. Humans govern the consequential.</p>
+      <p>Not everything should be automated. C-DAD defines explicit handoff points where human judgment is required and makes those points visible in the contract itself. Automation handles validation, propagation, and routine lifecycle transitions. Humans govern the decisions that carry organizational consequence. The boundary between the two is declared, not assumed.</p>
     </div>
     <div class="concept-item">
       <h2>Machine-first authoring</h2>
-      <p>Contracts are authored as machine-readable manifests with human-friendly documentation generated from them - not the other way around. The machine-readable layer is the source of truth. The narrative is derived.</p>
+      <p>Contracts are authored as machine-readable manifests with human documentation generated from them. The manifest is the source of truth. This is not a preference - it is a constraint that keeps the machine-readable layer honest. When humans write the narrative first, the machine-readable layer becomes a translation that diverges over time.</p>
+    </div>
+    <div class="concept-item">
+      <h2>Lifecycle-aware distribution</h2>
+      <p>Every contract carries consumption rules tied to its lifecycle state. An Active contract can be integrated freely. A Deprecated contract signals that migration is required. A Retired contract is archived but readable. Downstream consumers know what they are binding to. The system can enforce consumption policies automatically.</p>
     </div>
   </div>
 </section>
 
 <section class="section">
+  <p class="section-label">How it changes AI-assisted development</p>
+  <p>Without contracts, an AI agent working in a codebase has access to structure and syntax. It can read functions, understand call graphs, and generate code that passes tests. What it cannot do is determine whether a proposed change violates a constraint that was never declared in code - a regulatory requirement, a performance guarantee, a non-functional invariant that the team agreed on verbally.</p>
+  <p>With contracts, the same AI agent has access to intent. It can read the contract for a capability, understand why it exists, what it is allowed to change, and what it must preserve. It can validate a proposed change against contract constraints before the change is committed. It can flag when a generated implementation would violate a governance rule. The quality of AI-assisted development rises not because the model gets better but because the codebase becomes more honest.</p>
+  <p>C-DAD also changes what teams can safely delegate to AI agents. A team that has contracted their system can delegate routine contract lifecycle transitions, validation checks, and dependency graph updates to automated agents. The humans focus on the decisions that require judgment: when to deprecate a contract, when to create a new one, when a proposed change should require a governance review. The handoff is declared in the contracts themselves.</p>
+</section>
+
+<section class="section">
   <p class="section-label">The problem it solves</p>
-  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:560px;">AI coding tools can write code that looks right. They cannot know if it is right - because right is determined by intent, and intent was never declared. C-DAD makes intent a first-class citizen of the development process. Every behaviour has a contract. Every contract has a reason. Every reason is machine-readable.</p>
+  <p>AI coding tools can write code that looks right. They cannot know if it is right - because right is determined by intent, and intent was never declared. C-DAD makes intent a first-class citizen of the development process. Every behavior has a contract. Every contract has a reason. Every reason is machine-readable.</p>
+  <p>The C-DAD white paper covers the full model: contract structure, lifecycle states, governance patterns, distribution mechanisms, and the 21 principles that define what a compliant C-DAD implementation must satisfy. The companion CLI tool, the-day-after-toolkit, audits an existing codebase for agent-readiness and scaffolds the contracts needed to fix what it finds.</p>
 </section>
 
 <section class="section">
@@ -138,11 +158,15 @@
     </a>
     <a href="https://github.com/enricopiovesan/the-day-after-toolkit" target="_blank" rel="noopener" class="resource-link">
       <span class="resource-label">Tooling</span>
-      <span class="resource-title">the-day-after-toolkit - CLI for contract scaffolding</span>
+      <span class="resource-title">the-day-after-toolkit - CLI for codebase agent-readiness auditing</span>
     </a>
     <a href="/books/" class="resource-link">
       <span class="resource-label">Book</span>
       <span class="resource-title">The Day After - forthcoming, built on C-DAD</span>
+    </a>
+    <a href="/uma/" class="resource-link">
+      <span class="resource-label">Related</span>
+      <span class="resource-title">UMA - the execution model that C-DAD contracts govern</span>
     </a>
   </div>
 </section>

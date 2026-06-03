@@ -42,8 +42,16 @@ layout: base.njk
 
 <section class="section">
   <p class="section-label">What is UMA?</p>
-  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:560px;">UMA separates business logic from runtime environment. Instead of rewriting the same logic for browser, backend, edge, and AI pipelines, you write it once as a portable, self-contained unit - a Universal Microservice - and deploy it wherever it makes sense.</p>
-  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:560px;margin-top:1rem;">Each service is governed by a contract that defines what it does, what it needs, and what it guarantees. The contract is the interface. The implementation can run in any compliant runtime - Rust, WASM, browser, edge worker, or AI pipeline.</p>
+  <p>Universal Microservices Architecture is an execution model that separates business logic from runtime environment. The central insight is simple: the environment a piece of logic runs in is a deployment decision, not an architectural one. UMA makes that separation explicit and enforces it through contracts.</p>
+  <p>In a traditional architecture, the same business rule gets written multiple times. A pricing formula lives in the backend. A version of it gets duplicated in the browser for instant feedback. A third version runs at the edge for performance. A fourth gets rewritten when the AI pipeline needs it. Nobody planned it that way. It happened because the architecture had no mechanism to prevent it.</p>
+  <p>UMA introduces that mechanism. Each business capability is packaged as a Universal Microservice: a self-describing, contract-governed unit that compiles to WebAssembly and runs identically across any compliant runtime. The contract defines what the service does, what it depends on, and what it guarantees. The implementation is compiled once. The deployment target is a configuration, not a rewrite.</p>
+</section>
+
+<section class="section">
+  <p class="section-label">The architecture model</p>
+  <p>A UMA system has three layers. The capability layer contains the Universal Microservices - the portable business logic compiled to WASM. The contract layer governs how services discover each other, declare dependencies, and validate behavior. The runtime layer provides the execution environment: browser, edge worker, cloud function, or AI pipeline.</p>
+  <p>The contract is the interface between layers. It is machine-readable, version-aware, and lifecycle-tracked. A service that satisfies a contract is interchangeable with any other service that satisfies the same contract, regardless of the runtime it runs in. This is what makes composition possible at scale without coupling teams to each other's implementation decisions.</p>
+  <p>The capability registry is where services register and discover each other at runtime. It is not a service mesh or an API gateway. It is a coordination layer that matches capability requests to available implementations based on contract signatures. A service asks for a capability by contract, not by name. The registry resolves the match. The runtime executes the result.</p>
 </section>
 
 <section class="section">
@@ -51,26 +59,38 @@ layout: base.njk
   <div class="concept-list">
     <div class="concept-item">
       <h2>Contract-first</h2>
-      <p>Every service defines its interface, dependencies, and guarantees in a machine-readable contract before implementation begins. The contract is the source of truth - not the code.</p>
+      <p>Every service defines its interface, dependencies, and guarantees in a machine-readable contract before implementation begins. The contract is the source of truth - not the code. This forces architectural decisions to happen before implementation, which is the only order in which they are cheap to make.</p>
     </div>
     <div class="concept-item">
       <h2>Runtime-agnostic</h2>
-      <p>Business logic compiled to WebAssembly runs unchanged across browser, Node, Deno, Cloudflare Workers, and AI pipelines. The execution environment is a deployment decision, not an architectural one.</p>
+      <p>Business logic compiled to WebAssembly runs unchanged across browser, Node, Deno, Cloudflare Workers, and AI pipelines. The execution environment is a deployment decision, not an architectural one. Adding a new runtime does not require touching the business logic.</p>
     </div>
     <div class="concept-item">
       <h2>Composable by design</h2>
-      <p>Services are discovered, validated, and composed at runtime through a capability registry. Systems built with UMA can adapt to new requirements without structural rewrites.</p>
+      <p>Services are discovered, validated, and composed at runtime through a capability registry. Systems built with UMA can adapt to new requirements without structural rewrites. Adding a new capability means registering a new service, not modifying existing ones.</p>
     </div>
     <div class="concept-item">
       <h2>AI-navigable</h2>
-      <p>Every service has declared intent, explicit dependencies, and a lifecycle-aware contract. AI agents can reason about what a system does, why each part exists, and how to extend it safely.</p>
+      <p>Every service has declared intent, explicit dependencies, and a lifecycle-aware contract. AI agents can reason about what a system does, why each part exists, and how to extend it safely - without reading implementation code or relying on documentation that may be stale.</p>
+    </div>
+    <div class="concept-item">
+      <h2>Behavioral coherence</h2>
+      <p>When the same business logic runs across multiple environments from a single implementation, drift becomes structurally impossible. There is one version of the truth. Changes propagate everywhere the capability is deployed. Inconsistencies between environments are detected at contract validation, not discovered in production.</p>
     </div>
   </div>
 </section>
 
 <section class="section">
+  <p class="section-label">How it differs from microservices</p>
+  <p>Traditional microservices partition a system by deployment unit. Each service is a process with a network boundary. UMA partitions a system by business capability with a contract boundary. The difference matters at scale.</p>
+  <p>A microservices architecture tells you where code runs. A UMA architecture tells you what code does, why it exists, and what it guarantees - and lets the runtime answer the where question independently. The result is a system where the same service can run as a browser module, an edge function, and a cloud service without changing a line of implementation code.</p>
+  <p>UMA is not a replacement for microservices. It is a layer above them. The runtime adapters that execute UMA capabilities can be microservices. What changes is that the business logic inside those services is portable, contract-governed, and environment-independent.</p>
+</section>
+
+<section class="section">
   <p class="section-label">The problem it solves</p>
-  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:560px;">The same business logic gets rewritten three, four, five times across browser, backend, edge, and AI pipelines. Most architectures assume the runtime too early and teams pay that cost forever - in maintenance, in drift, in onboarding time, and in the inability to adapt. UMA eliminates the assumption. Logic and runtime are separate concerns from the start.</p>
+  <p>The same business logic gets rewritten three, four, five times across browser, backend, edge, and AI pipelines. Most architectures assume the runtime too early and teams pay that cost forever - in maintenance, in drift, in onboarding time, and in the inability to adapt when a new execution environment arrives.</p>
+  <p>The UMA book documents thirteen specific patterns where this cost appears, with runnable Rust and WASM implementations for each. The companion repository enforces 100% business logic coverage in CI, which means every claim in the book has a test that proves it. The reference application at universalmicroservices.com runs the same business logic across browser and edge from a single WASM build.</p>
 </section>
 
 <section class="section">
@@ -78,7 +98,7 @@ layout: base.njk
   <div class="resource-links">
     <a href="/books/" class="resource-link">
       <span class="resource-label">Book</span>
-      <span class="resource-title">Universal Microservices Architecture - Apress</span>
+      <span class="resource-title">Universal Microservices Architecture - Apress, 2024</span>
     </a>
     <a href="/whitepapers/" class="resource-link">
       <span class="resource-label">White Paper</span>
@@ -90,11 +110,15 @@ layout: base.njk
     </a>
     <a href="https://github.com/enricopiovesan/UMA-code-examples" target="_blank" rel="noopener" class="resource-link">
       <span class="resource-label">Code</span>
-      <span class="resource-title">UMA-code-examples - 13 chapters, Rust/WASM</span>
+      <span class="resource-title">UMA-code-examples - 13 chapters, Rust/WASM, CI-enforced</span>
     </a>
     <a href="/projects/" class="resource-link">
       <span class="resource-label">Runtime</span>
       <span class="resource-title">Traverse - contract-driven Rust/WASM runtime</span>
+    </a>
+    <a href="/c-dad/" class="resource-link">
+      <span class="resource-label">Related</span>
+      <span class="resource-title">C-DAD - contract-driven AI development built on UMA principles</span>
     </a>
   </div>
 </section>
