@@ -11,20 +11,20 @@ intro:
   - That is where UMA came from. Then C-DAD. Then Traverse. Not from theory. From real problems that kept showing up.
 nav_cards:
   - label: Books
-    desc: Two books on software architecture and AI-native systems
+    desc: Two books. One on making software run anywhere without rewriting it. One on making software navigable by AI agents without throwing it away.
     href: /books/
   - label: White Papers
-    desc: Five research papers published between 2023 and 2025
+    desc: Five research papers from 2023 to 2025. Each one started as a problem I could not stop thinking about.
     href: /whitepapers/
   - label: Projects
-    desc: Open source tools and runtimes built from the frameworks
+    desc: Four open source projects built from the same frameworks. Spec-governed, CI-enforced, and running in production or pre-implementation with quality standards in place.
     href: /projects/
   - label: Writing
-    desc: Weekly publishing on Medium since May 2025
+    desc: Weekly posts on Medium since May 2025. Posts become papers. Papers become books. Writing is how I figure out what I think.
     href: /writing/
   - label: Speaking
-    desc: Conference talks on architecture, WASM, and AI-native systems
+    desc: Three conference talks drawn directly from published work and shipped tooling. Currently submitting CFPs for architecture, WASM, and AI engineering tracks.
     href: /speaking/
-bio: Platform Software Architect at Autodesk. Based in Golden, BC.
+bio: "Platform Software Architect at Autodesk. Based in Golden, BC, Purcell Mountains, Canada. I build frameworks because the problems kept showing up and nobody else was fixing them."
 about_href: /about/
 ---
