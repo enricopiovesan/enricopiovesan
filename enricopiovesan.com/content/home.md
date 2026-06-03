@@ -25,16 +25,6 @@ nav_cards:
   - label: Speaking
     desc: Conference talks on architecture, WASM, and AI-native systems
     href: /speaking/
-bio: Platform Software Architect at Autodesk. Based in Golden, BC, Purcell Mountains, Canada. Certified ski instructor. When there is fresh snow, everything else waits.
-links:
-  - label: GitHub
-    url: https://github.com/enricopiovesan
-  - label: LinkedIn
-    url: https://linkedin.com/in/enricopiovesan
-  - label: Medium
-    url: https://medium.com/@enricopiovesan
-  - label: X
-    url: https://x.com/enricopiovesan
-  - label: UMA
-    url: https://www.universalmicroservices.com
+bio: Platform Software Architect at Autodesk. Based in Golden, BC.
+about_href: /about/
 ---

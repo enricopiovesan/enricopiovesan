@@ -1,0 +1,40 @@
+---
+layout: base.njk
+---
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://enricopiovesan.com/about/" }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+<section class="hero">
+  <p class="hero-label">{{ tagline }}</p>
+  <h1>{{ name }}</h1>
+</section>
+
+<section class="bio-section">
+  <p class="section-label">{{ role }}</p>
+  <div class="bio-text">
+    <img src="/src/assets/img/enrico-piovesan.jpg" alt="{{ name }}" class="headshot" width="120" height="120" loading="lazy" />
+    {% for para in bio %}
+    <p>{{ para }}</p>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="links-section">
+  {% for link in links %}
+  <a class="contact-link" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
+  {% endfor %}
+</section>

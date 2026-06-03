@@ -77,12 +77,6 @@ layout: base.njk
   <p class="section-label">Bio</p>
   <div class="bio-text">
     <img src="/src/assets/img/enrico-piovesan.jpg" alt="Enrico Piovesan" class="headshot" width="120" height="120" loading="lazy" />
-    <p>{{ bio }}</p>
+    <p>{{ bio }} <a href="{{ about_href }}" style="color:var(--accent);">About →</a></p>
   </div>
-</section>
-
-<section class="links-section">
-  {% for link in links %}
-  <a class="contact-link" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
-  {% endfor %}
 </section>

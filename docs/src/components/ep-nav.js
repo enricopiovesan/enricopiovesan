@@ -12,6 +12,7 @@ class EpNav extends HTMLElement {
       { href: `${base}/projects/`, label: 'Projects', slug: 'projects' },
       { href: `${base}/writing/`, label: 'Writing', slug: 'writing' },
       { href: `${base}/speaking/`, label: 'Speaking', slug: 'speaking' },
+      { href: `${base}/about/`, label: 'About', slug: 'about' },
       { href: 'https://medium.com/@enricopiovesan', label: 'Blog', slug: '', external: true },
     ];
 
