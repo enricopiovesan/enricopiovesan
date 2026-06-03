@@ -31,5 +31,4 @@ projects:
     status: in progress (M0)
     description: A personal knowledge layer built on the same foundations as Traverse and UMA. WASM-native, MCP-powered, runs entirely on GitHub Pages with no server, no database, and no ongoing cost. The federation model means anyone can fork it, run their own instance, and register in a shared registry. It is an attempt to build something that reflects what I actually believe about software - portable, composable, owned by the person running it, and free to operate.
     github: https://github.com/youaskm3/youaskm3
-    url: https://youaskm3.com
 ---

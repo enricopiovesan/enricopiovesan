@@ -69,10 +69,10 @@ layout: base.njk
     {% endif %}
     <div class="paper-body">
       <div class="paper-header">
-        <div class="paper-title">
+        <h2 class="paper-title">
           <a href="{{ paper.url }}" target="_blank" rel="noopener">{{ paper.title }}</a>
-        </div>
-        <span class="paper-date">{{ paper.date }}</span>
+        </h2>
+        <time class="paper-date" datetime="{{ paper.date }}">{{ paper.date }}</time>
       </div>
       {% if paper.description %}<p class="paper-description">{{ paper.description }}</p>{% endif %}
     </div>
