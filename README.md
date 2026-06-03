@@ -42,7 +42,6 @@ Five years of thinking about portable systems, AI-native architecture, and contr
 |---|---|
 | Nov 2025 | [Contract-Driven AI Development (C-DAD)](https://drive.google.com/file/d/1HC_ZWJl9aYaMeN78qiL3ZYBVY7mAGl3f/view) |
 | Aug 2025 | [Event Contract Catalog Architecture (ECCA)](https://docs.google.com/document/d/1hpyLDZg9c1Od3vycR7GHIcxuCriWeiAxDFyCbb0h6Ro/edit) |
-| Jun 2025 | [Designing Adaptive AI Systems with UMA and MCP](https://medium.com/software-architecture-in-the-age-of-ai) |
 | Aug 2024 | [Universal Microservices Architecture (UMA)](https://docs.google.com/document/d/1MHj8ruFsGsZTNfMayP9Xck2qAMnXu-qfjTs0zWjP8OE/edit) |
 | Jun 2023 | [Client-Side Microservices Architecture (CSMA)](https://drive.google.com/file/d/1OKA_0HSFym2JkKPujx8vQdxFfzNJlw0-/view) |
 
