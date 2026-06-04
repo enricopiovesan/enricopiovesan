@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Speaking - Enrico Piovesan</title>
-  <meta name="description" content="Enrico Piovesan speaks about portable systems, contract-driven AI development, and restructuring software for the age of AI agents." />
+  <title>Speaking — Enrico Piovesan - Enrico Piovesan</title>
+  <meta name="description" content="Conference talks on portable systems, contract-driven AI development, and restructuring software for the age of AI agents." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Speaking - Enrico Piovesan" />
+  <meta property="og:title" content="Speaking — Enrico Piovesan" />
   <meta property="og:description" content="Conference talks on architecture, WASM, and AI-native systems drawn from published books and shipped tooling." />
   <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
   <meta property="og:url" content="https://enricopiovesan.com/speaking/" />
@@ -70,150 +70,38 @@
   <ep-nav active="speaking" base="/"></ep-nav>
 
   <main id="main-content">
-    
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Speaking", "item": "https://enricopiovesan.com/speaking/" }
-      ]
-    },
-    {
-      "@type": "PresentationDigitalDocument",
-      "name": "Write Once, Run Where It Makes Sense",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "about": ["WebAssembly", "Software Architecture", "Platform Engineering"],
-      "inLanguage": "en"
-    },
-    {
-      "@type": "PresentationDigitalDocument",
-      "name": "Contract-Driven AI Development",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "about": ["AI Engineering", "Contract-Driven Development"],
-      "inLanguage": "en"
-    },
-    {
-      "@type": "PresentationDigitalDocument",
-      "name": "The Day After: Restructuring Software for the Age of AI Agents",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "about": ["AI Agents", "Engineering Leadership"],
-      "inLanguage": "en"
-    }
-  ]
-}
-</script>
+    <article class="page-content">
+  <p>I talk about portable systems, contract-driven AI development, and what it actually takes to restructure software for the age of AI agents. Every talk is drawn directly from published books, white papers, and shipped tooling. These are not ideas I am exploring. They are problems I spent years running into and frameworks I built to fix them.</p>
+<h2>Write Once, Run Where It Makes Sense</h2>
+<p><strong>Architecture and platform engineering tracks</strong></p>
+<p>Every team I have worked with has the same invisible tax. The payment logic lives in the backend. A version of it lives in the browser. Another version runs at the edge. A fourth gets rewritten when the AI pipeline needs it. Nobody planned this. It just happened because the architecture made assumptions about the environment before it made decisions about the problem.</p>
+<p>This talk is about what it looks like to design the other way around. To separate business logic from execution context so it can run where it makes sense, not where the architecture happens to put it. The framework is Universal Microservices Architecture. The runtime is WebAssembly. The result is a codebase where the same logic runs across browser, backend, edge, and AI pipeline without being rewritten for each one.</p>
+<p>The talk is grounded in a published book, a 13-chapter runnable companion repo with 100% business logic coverage enforced in CI, and a live reference application.</p>
+<p>Based on: <a href="https://www.amazon.com/dp/B0GTTTTQH4">Universal Microservices Architecture</a> and the <a href="https://www.universalmicroservices.com">UMA reference implementation</a></p>
+<hr>
+<h2>Contract-Driven AI Development</h2>
+<p><strong>AI engineering and developer tooling tracks</strong></p>
+<p>AI coding tools are good at describing what software does. They are not good at knowing why it does it. The constraint that exists because of a regulatory audit three years ago. The non-goal that was obvious in the room and invisible in the repo. The exception path that one engineer carries in their head and nowhere else.</p>
+<p>When an AI agent encounters that code, it guesses. Sometimes it guesses correctly. Often it does not. The problem is not the model. The problem is that the codebase has no contracts, only code.</p>
+<p>This talk introduces Contract-Driven AI Development. The core idea is that a specification describes what a system does, but a contract describes why it can be trusted. Verifiable contracts, automated reasoning, and hybrid governance change what agentic systems can do with a codebase and what teams can safely delegate to them.</p>
+<p>Based on: <a href="/whitepapers/">C-DAD White Paper</a> and the <a href="https://github.com/enricopiovesan/the-day-after-toolkit">the-day-after-toolkit</a></p>
+<hr>
+<h2>The Day After: Restructuring Software for the Age of AI Agents</h2>
+<p><strong>Engineering leadership and CTO tracks</strong></p>
+<p>Most software organizations are not ready for AI agents. Not because the technology is immature, but because the codebases were never built to be navigable by anything other than the people who wrote them. The intent is locked in people's heads. The constraints live in Slack threads from two years ago. The capability boundaries exist in someone's memory, not in the system.</p>
+<p>When an AI agent tries to work in that environment, it does not fail loudly. It fails quietly. It produces plausible output that is wrong in ways that take weeks to find.</p>
+<p>This talk is about what it actually takes to fix that. Not a rewrite. Not a new platform. A deliberate, role-by-role process of making software organizations legible to agentic systems without throwing everything away. What the architect needs to declare. What the developer needs to own. What the PM needs to ask in discovery that a story format was never designed to hold.</p>
+<p>Based on: The Day After (forthcoming) and the <a href="/whitepapers/">C-DAD White Paper</a></p>
+<hr>
+<h2>Speaker Bio</h2>
+<p>Enrico Piovesan is a platform architect and author who spent years building products across startups in travel, education, and payments before deciding that the problems he kept running into were architectural, not incidental.</p>
+<p>He developed Universal Microservices Architecture as an answer to the portability problem and Contract-Driven AI Development as an answer to the navigability problem. His first book on UMA is available on Amazon. His second book, The Day After, is forthcoming. He has published five research papers since 2023 and maintains four open source projects built from the same frameworks.</p>
+<p>He is a Platform Software Architect at Autodesk and publishes on architecture and AI-native systems every week on Medium. He is based in Golden, BC, Purcell Mountains, Canada.</p>
+<hr>
+<p>Currently accepting CFP invitations for architecture, WASM, and AI engineering tracks. All talks are drawn from published work and shipped tooling.</p>
+<p><a href="https://linkedin.com/in/enricopiovesan">Contact via LinkedIn</a></p>
 
-<section class="hero">
-  <p class="hero-label">Conference Talks</p>
-  <h1>Speaking</h1>
-  <p class="hero-bio">I talk about portable systems, contract-driven AI development, and what it actually takes to restructure software for the age of AI agents. Every talk is drawn directly from published books, white papers, and shipped tooling. These are not ideas I am exploring. They are problems I spent years running into and frameworks I built to fix them.</p>
-</section>
-
-<section class="talks-section">
-  <p class="section-label">Current Topics</p>
-  
-  <div class="talk">
-    <div class="talk-meta">
-      <p class="talk-track">Architecture and platform engineering</p>
-    </div>
-    <div class="talk-content">
-      <h2>Write Once, Run Where It Makes Sense</h2>
-      
-        
-        <p>Every team I have worked with has the same invisible tax. The payment logic lives in the backend. A version of it lives in the browser. Another version runs at the edge. A fourth gets rewritten when the AI pipeline needs it. Nobody planned this. It just happened because the architecture made assumptions about the environment before it made decisions about the problem.</p>
-        
-        <p>This talk is about what it looks like to design the other way around. To separate business logic from execution context so it can run where it makes sense, not where the architecture happens to put it. The framework is Universal Microservices Architecture. The runtime is WebAssembly. The result is a codebase where the same logic runs across browser, backend, edge, and AI pipeline without being rewritten for each one.</p>
-        
-        <p>The talk is grounded in a published book, a 13-chapter runnable companion repo with 100% business logic coverage enforced in CI, and a live reference application.</p>
-        
-      
-      
-      <p class="talk-proof">Based on: <a href="https://www.amazon.com/dp/B0GTTTTQH4" target="_blank" rel="noopener">Universal Microservices Architecture (Amazon) and the UMA reference implementation</a></p>
-      
-    </div>
-  </div>
-  
-  <div class="talk">
-    <div class="talk-meta">
-      <p class="talk-track">AI engineering and developer tooling</p>
-    </div>
-    <div class="talk-content">
-      <h2>Contract-Driven AI Development</h2>
-      
-        
-        <p>AI coding tools are good at describing what software does. They are not good at knowing why it does it. The constraint that exists because of a regulatory audit three years ago. The non-goal that was obvious in the room and invisible in the repo. The exception path that one engineer carries in their head and nowhere else.</p>
-        
-        <p>When an AI agent encounters that code, it guesses. Sometimes it guesses correctly. Often it does not. The problem is not the model. The problem is that the codebase has no contracts, only code.</p>
-        
-        <p>This talk introduces Contract-Driven AI Development. The core idea is that a specification describes what a system does, but a contract describes why it can be trusted. Verifiable contracts, automated reasoning, and hybrid governance change what AI agents can do with a codebase and what teams can safely delegate to them.</p>
-        
-        <p>The talk is grounded in a published white paper and a CLI tool that audits codebase agent-readiness and scaffolds the contracts needed to fix it.</p>
-        
-      
-      
-      <p class="talk-proof">Based on: <a href="/whitepapers/" target="_blank" rel="noopener">C-DAD White Paper and the-day-after-toolkit</a></p>
-      
-    </div>
-  </div>
-  
-  <div class="talk">
-    <div class="talk-meta">
-      <p class="talk-track">Engineering leadership and CTO tracks</p>
-    </div>
-    <div class="talk-content">
-      <h2>The Day After: Restructuring Software for the Age of AI Agents</h2>
-      
-        
-        <p>Most software organizations are not ready for AI agents. Not because the technology is immature, but because the codebases were never built to be navigable by anything other than the people who wrote them. The intent is locked in people&#39;s heads. The constraints live in Slack threads from two years ago. The capability boundaries exist in someone&#39;s memory, not in the system.</p>
-        
-        <p>When an AI agent tries to work in that environment, it does not fail loudly. It fails quietly. It produces plausible output that is wrong in ways that take weeks to find.</p>
-        
-        <p>This talk is about what it actually takes to fix that. Not a rewrite. Not a new platform. A deliberate, role-by-role process of making software organizations legible to AI agents. What the architect needs to declare. What the developer needs to own. What the PM needs to ask in discovery that a story format was never designed to hold.</p>
-        
-        <p>The talk is grounded in a forthcoming book and a published white paper, both built from the same framework that has been in development since 2023.</p>
-        
-      
-      
-      <p class="talk-proof">Based on: <a href="/whitepapers/" target="_blank" rel="noopener">The Day After (forthcoming) and C-DAD White Paper</a></p>
-      
-    </div>
-  </div>
-  
-</section>
-
-<section class="section">
-  <p class="section-label">Format</p>
-  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:560px;">All three talks are available for conferences, meetups, and internal engineering events. Each is self-contained and can be adapted from 30 to 60 minutes. Every talk is grounded in published work and shipped tooling - no slides-only content.</p>
-  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:560px;margin-top:1rem;">Currently submitting CFPs for architecture, WASM, and AI engineering tracks. If you run a conference or meetup and one of these topics fits your audience, reach out via LinkedIn.</p>
-</section>
-
-<section class="bio-section">
-  <p class="section-label">Speaker Bio</p>
-  <div class="bio-text">
-    <img src="/src/assets/img/enrico-piovesan.jpg" alt="Enrico Piovesan" class="headshot" width="120" height="120" loading="lazy" />
-    
-      
-      <p>Enrico Piovesan is a platform architect and author who spent years building products across startups in travel, education, and payments before deciding that the problems he kept running into were architectural, not incidental.</p>
-      
-      <p>He developed Universal Microservices Architecture as an answer to the portability problem and Contract-Driven AI Development as an answer to the navigability problem. His first book on UMA is available on Amazon. His second book, The Day After, is forthcoming. He has published five research papers since 2023 and maintains four open source projects built from the same frameworks.</p>
-      
-      <p>He is a Platform Software Architect at Autodesk and publishes on architecture and AI-native systems every week on Medium. He is based in Golden, BC, Purcell Mountains, Canada.</p>
-      
-    
-  </div>
-</section>
-
-<section class="contact-section">
-  <p class="section-label">Get in touch</p>
-  <div class="contact-cta">
-    <p class="contact-cta-text">Currently accepting CFP invitations for architecture, WASM, and AI engineering tracks. All talks are drawn from published work and shipped tooling.</p>
-    <a class="contact-cta-link" href="https://linkedin.com/in/enricopiovesan" target="_blank" rel="noopener">Connect on LinkedIn →</a>
-  </div>
-</section>
+</article>
 
   </main>
 

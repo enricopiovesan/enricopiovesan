@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Books - Enrico Piovesan</title>
-  <meta name="description" content="Published books by Enrico Piovesan on software architecture, WASM, and AI-native systems." />
+  <title>Books — Enrico Piovesan - Enrico Piovesan</title>
+  <meta name="description" content="Two books on software architecture and AI-native systems by Enrico Piovesan. One published, one forthcoming." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Books - Enrico Piovesan" />
-  <meta property="og:description" content="Two books on software architecture, WASM, and AI-native systems." />
+  <meta property="og:title" content="Books — Enrico Piovesan" />
+  <meta property="og:description" content="Two books on software architecture and AI-native systems. One published, one forthcoming." />
   <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
   <meta property="og:url" content="https://enricopiovesan.com/books/" />
   <meta property="og:type" content="website" />
@@ -70,129 +70,29 @@
   <ep-nav active="books" base="/"></ep-nav>
 
   <main id="main-content">
-    
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Books", "item": "https://enricopiovesan.com/books/" }
-      ]
-    },
-    {
-      "@type": "Book",
-      "@id": "https://enricopiovesan.com/books/#uma-book",
-      "name": "Universal Microservices Architecture",
-      "subtitle": "Device-Independent Modelling for Modern Software Design with WASM",
-      "url": "https://enricopiovesan.com/books/",
-      "sameAs": "https://www.amazon.com/dp/B0GTTTTQH4",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "publisher": { "@type": "Organization", "name": "Apress" },
-      "datePublished": "2024",
-      "inLanguage": "en",
-      "bookFormat": "https://schema.org/EBook",
-      "genre": ["Software Architecture", "WebAssembly", "Distributed Systems"]
-    },
-    {
-      "@type": "Book",
-      "@id": "https://enricopiovesan.com/books/#the-day-after",
-      "name": "The Day After",
-      "subtitle": "How to Restructure Your Software Company for the Age of AI Agents",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "inLanguage": "en",
-      "bookEdition": "Forthcoming",
-      "genre": ["Software Architecture", "AI Engineering", "Engineering Leadership"]
-    }
-  ]
-}
-</script>
+    <article class="page-content">
+  <p>Two books on software architecture. One published, one forthcoming. Both came from the same place: years of watching the same problems show up in different companies, different stacks, and different teams, and deciding that the answer was architectural, not incidental.</p>
+<h2>Universal Microservices Architecture</h2>
+<p><strong>Device-Independent Modelling for Modern Software Design with WASM</strong></p>
+<p>Published. Available on Amazon.</p>
+<p>Most distributed systems have a logic problem that nobody talks about. The same business rule — a pricing formula, an eligibility check, a validation step — gets implemented separately for the browser, the backend, the edge, and now the AI pipeline. Nobody planned it that way. It happened because the architecture made assumptions about the environment before it made decisions about the behavior. Over time the copies drift. The system becomes harder to reason about, harder to change, and harder to trust.</p>
+<p>Universal Microservices Architecture is a response to that problem. It is a portable, contract-driven execution model where each business capability is packaged as a self-describing service that runs identically across browser, edge, cloud, and AI-assisted environments without duplicating the logic or losing behavioral coherence. The full model, the core concepts, and the reference application are documented at <a href="https://www.universalmicroservices.com">universalmicroservices.com</a>.</p>
+<p>The book covers the principles and building blocks of UMA, how it differs from older architectural models, and how to design distributed systems at scale that are portable, modular, and runtime-agnostic using WebAssembly. It is backed by a maintained companion repository with 13 chapters of runnable Rust code, 100% business logic coverage enforced in CI, and a live reference application.</p>
+<p>The shortest summary of what UMA makes possible is not &quot;write once, run everywhere.&quot; It is: write once, run where it makes sense.</p>
+<p><strong>Who it is for:</strong> Software architects, senior engineers, and technical leads designing modern distributed systems who are tired of paying the hidden tax of duplicated logic across runtimes.</p>
+<p><a href="https://www.amazon.com/dp/B0GTTTTQH4">Buy on Amazon</a> · <a href="https://github.com/enricopiovesan/UMA-code-examples">Companion repo</a> · <a href="https://www.universalmicroservices.com">Live reference app</a></p>
+<hr>
+<h2>The Day After</h2>
+<p><strong>How to Restructure Your Software Company for the Age of AI Agents</strong></p>
+<p>Forthcoming.</p>
+<p>Most software organizations are not ready for AI agents. Not because the models are immature. Because the codebases were never built to be navigable by anything other than the people who wrote them.</p>
+<p>The constraints live in Slack threads from two years ago. The intent is locked in the memory of engineers who may or may not still be at the company. The capability boundaries exist in someone's head, not in the system. When an AI agent tries to work in that environment it does not fail loudly. It produces plausible output that is wrong in ways that take weeks to find.</p>
+<p>The fix is not a rewrite. It is a deliberate process of making software organizations legible to agentic systems without throwing everything away. Role by role, capability by capability. The architect declares the reasoning space before the sprint begins. The developer owns a contract, not just a ticket. The PM asks in discovery what a story format was never designed to hold.</p>
+<p>The Day After is a practical guide to that process. It is built from the same framework that produced the C-DAD white paper and the companion CLI tool, both developed since 2023.</p>
+<p><strong>Who it is for:</strong> Engineering leaders, CTOs, staff architects, and senior developers who are watching AI agents become part of their teams and want a structured answer to the question of what needs to change and in what order.</p>
+<p><a href="https://github.com/enricopiovesan/the-day-after-toolkit">Companion tool</a> · <a href="/whitepapers/">C-DAD White Paper</a></p>
 
-<section class="hero">
-  <p class="hero-label">Published Work</p>
-  <h1>Books</h1>
-  <p class="hero-bio">Two books on software architecture. One published, one forthcoming. Both came from the same place: years of watching the same problems show up in different companies, different stacks, and different teams, and deciding that the answer was architectural, not incidental.</p>
-</section>
-
-
-<div class="book">
-  <div class="book-inner">
-    
-    <a class="book-cover-link" href="https://www.amazon.com/dp/B0GTTTTQH4" target="_blank" rel="noopener">
-      <img src="/src/assets/img/cover.png" alt="Universal Microservices Architecture: Device-Independent Modelling for Modern Software Design with WASM cover" class="book-cover" width="160" height="233" loading="lazy" />
-    </a>
-    
-    <div class="book-body">
-      <div class="book-header">
-        <h2 class="book-title">
-          <a href="https://www.amazon.com/dp/B0GTTTTQH4" target="_blank" rel="noopener">Universal Microservices Architecture: Device-Independent Modelling for Modern Software Design with WASM</a>
-        </h2>
-        <span class="book-status published">published</span>
-      </div>
-      
-        
-        <p class="book-description">Most distributed systems have a logic problem that nobody talks about. The same business rule - a pricing formula, an eligibility check, a validation step - gets implemented separately for the browser, the backend, the edge, and now the AI pipeline. Nobody planned it that way. It happened because the architecture made assumptions about the environment before it made decisions about the behavior. Over time the copies drift. The system becomes harder to reason about, harder to change, and harder to trust.</p>
-        
-        <p class="book-description">Universal Microservices Architecture is a response to that problem. It is a portable, contract-driven execution model where each business capability is packaged as a self-describing service that runs identically across browser, edge, cloud, and AI-assisted environments without duplicating the logic or losing behavioral coherence.</p>
-        
-        <p class="book-description">The book covers the principles and building blocks of UMA, how it differs from older architectural models, and how to design systems that are portable, modular, and runtime-agnostic using WebAssembly. It is backed by a maintained companion repository with 13 chapters of runnable Rust code, 100% business logic coverage enforced in CI, and a live reference application.</p>
-        
-        <p class="book-description">The shortest summary of what UMA makes possible is not write once, run everywhere. It is write once, run where it makes sense.</p>
-        
-      
-      
-      <p class="book-audience"><strong>For:</strong> Software architects, senior engineers, and technical leads designing modern distributed systems who are tired of paying the hidden tax of duplicated logic across runtimes.</p>
-      
-      <div class="book-links">
-        <a href="https://www.amazon.com/dp/B0GTTTTQH4" target="_blank" rel="noopener">Amazon →</a>
-        <a href="https://www.universalmicroservices.com" target="_blank" rel="noopener">reference app →</a>
-        <a href="https://github.com/enricopiovesan/UMA-code-examples" target="_blank" rel="noopener">companion repo →</a>
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="book">
-  <div class="book-inner">
-    
-    <a class="book-cover-link" >
-      <img src="/src/assets/img/cover-day-after.svg" alt="The Day After: How to Restructure Your Software Company for the Age of AI Agents cover" class="book-cover" width="160" height="233" loading="lazy" />
-    </a>
-    
-    <div class="book-body">
-      <div class="book-header">
-        <h2 class="book-title">
-          The Day After: How to Restructure Your Software Company for the Age of AI Agents
-        </h2>
-        <span class="book-status forthcoming">forthcoming</span>
-      </div>
-      
-        
-        <p class="book-description">Most software organizations are not ready for AI agents. Not because the models are immature. Because the codebases were never built to be navigable by anything other than the people who wrote them.</p>
-        
-        <p class="book-description">The constraints live in Slack threads from two years ago. The intent is locked in the memory of engineers who may or may not still be at the company. The capability boundaries exist in someone&#39;s head, not in the system. When an AI agent tries to work in that environment it does not fail loudly. It produces plausible output that is wrong in ways that take weeks to find.</p>
-        
-        <p class="book-description">The fix is not a rewrite. It is a deliberate process of making software organizations legible to AI agents without throwing everything away. Role by role, capability by capability. The architect declares the reasoning space before the sprint begins. The developer owns a contract, not just a ticket. The PM asks in discovery what a story format was never designed to hold.</p>
-        
-        <p class="book-description">The Day After is a practical guide to that process. It is built from the same framework that produced the C-DAD white paper and the companion CLI tool, both developed since 2023.</p>
-        
-      
-      
-      <p class="book-audience"><strong>For:</strong> Engineering leaders, CTOs, staff architects, and senior developers who are watching AI agents become part of their teams and want a structured answer to the question of what needs to change and in what order.</p>
-      
-      <div class="book-links">
-        
-        
-        <a href="https://github.com/enricopiovesan/the-day-after-toolkit" target="_blank" rel="noopener">companion repo →</a>
-        <a href="/whitepapers/">C-DAD white paper →</a>
-      </div>
-    </div>
-  </div>
-</div>
-
+</article>
 
   </main>
 

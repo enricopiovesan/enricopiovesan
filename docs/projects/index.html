@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Projects - Enrico Piovesan</title>
-  <meta name="description" content="Open source projects by Enrico Piovesan including UMA, C-DAD, Traverse, and youaskm3." />
+  <title>Projects — Enrico Piovesan - Enrico Piovesan</title>
+  <meta name="description" content="Four open source projects by Enrico Piovesan including UMA, C-DAD toolkit, Traverse runtime, and youaskm3 knowledge layer." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Projects - Enrico Piovesan" />
-  <meta property="og:description" content="Open source tools and runtimes built from the UMA and C-DAD frameworks." />
+  <meta property="og:title" content="Projects — Enrico Piovesan" />
+  <meta property="og:description" content="Four open source projects built from the UMA and C-DAD frameworks. Spec-governed, CI-enforced, production-grade." />
   <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
   <meta property="og:url" content="https://enricopiovesan.com/projects/" />
   <meta property="og:type" content="website" />
@@ -70,118 +70,29 @@
   <ep-nav active="projects" base="/"></ep-nav>
 
   <main id="main-content">
-    
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://enricopiovesan.com/projects/" }
-      ]
-    },
-    {
-      "@type": "SoftwareSourceCode",
-      "name": "UMA-code-examples",
-      "description": "13 chapters of runnable code companion to Universal Microservices Architecture. 100% business logic coverage enforced in CI.",
-      "codeRepository": "https://github.com/enricopiovesan/UMA-code-examples",
-      "programmingLanguage": ["Rust", "WebAssembly", "JavaScript"],
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "url": "https://www.universalmicroservices.com"
-    },
-    {
-      "@type": "SoftwareSourceCode",
-      "name": "the-day-after-toolkit",
-      "description": "A CLI that audits codebase agent-readiness and scaffolds the contracts needed to fix it.",
-      "codeRepository": "https://github.com/enricopiovesan/the-day-after-toolkit",
-      "programmingLanguage": "TypeScript",
-      "author": { "@id": "https://enricopiovesan.com/#person" }
-    },
-    {
-      "@type": "SoftwareSourceCode",
-      "name": "Traverse",
-      "description": "A contract-driven Rust/WASM runtime for discovering, validating, and composing portable business capabilities.",
-      "codeRepository": "https://github.com/enricopiovesan/Traverse",
-      "programmingLanguage": "Rust",
-      "author": { "@id": "https://enricopiovesan.com/#person" }
-    }
-  ]
-}
-</script>
+    <article class="page-content">
+  <p>I do not believe in separating thinking from building. The frameworks and papers mean nothing if I cannot show them working in real code. Seniority used to be a reason to step back from the hands-on work. With AI in the picture that era is over. Every project here exists because I needed to prove something to myself, not to anyone else.</p>
+<h2>UMA-code-examples</h2>
+<p><strong>Book companion · Rust, WASM, HTML, JS · Published</strong></p>
+<p>The companion repository to the Universal Microservices Architecture book. Thirteen chapters of runnable Rust and WASM code that follow the book chapter by chapter. Every business logic path has test coverage enforced in CI. Not because it was required but because a book about portable, contract-driven distributed systems that ships with untested code would be embarrassing. There is a live reference application running at universalmicroservices.com that anyone can inspect.</p>
+<p><a href="https://github.com/enricopiovesan/UMA-code-examples">Repo</a> · <a href="https://www.universalmicroservices.com">Live reference app</a></p>
+<hr>
+<h2>the-day-after-toolkit</h2>
+<p><strong>CLI tool · TypeScript · In progress</strong></p>
+<p>The companion tooling to The Day After book. A CLI called cdad that audits a codebase for AI agent readiness and scaffolds the contracts needed to fix what it finds. Six commands. OpenSpec-governed. Configs included for Claude, Cursor, and Codex so the tool works with the agents most teams are actually using. The book explains the thinking. This tool lets you run it against a real codebase today.</p>
+<p><a href="https://github.com/enricopiovesan/the-day-after-toolkit">Repo</a></p>
+<hr>
+<h2>Traverse</h2>
+<p><strong>Runtime · Rust · Pre-implementation</strong></p>
+<p>Traverse is where the UMA and C-DAD ideas go further. A contract-driven Rust and WASM runtime for discovering, validating, and composing portable business capabilities across multi-agent orchestration scenarios. The spec is governed, the quality standards are in place, and the ADR process is documented before a single line of implementation is written. That is not bureaucracy. That is the only way to build a runtime that stays coherent as it grows. Pre-implementation means the foundation is right, not that the work has not started.</p>
+<p><a href="https://github.com/enricopiovesan/Traverse">Repo</a></p>
+<hr>
+<h2>youaskm3</h2>
+<p><strong>Personal knowledge layer · Rust, WASM, Web Components, PWA · In progress (M0)</strong></p>
+<p>A personal knowledge layer built on the same foundations as Traverse and UMA. WASM-native, MCP-powered, designed to work with agentic systems. Runs entirely on GitHub Pages with no server, no database, and no ongoing cost. The federation model means anyone can fork it, run their own instance, and register in a shared registry. It is an attempt to build something that reflects what I actually believe about software: portable, composable, owned by the person running it, and free to operate.</p>
+<p><a href="https://github.com/youaskm3/youaskm3">Repo</a> · <a href="https://youaskm3.com">Site</a></p>
 
-<section class="hero">
-  <p class="hero-label">Open Source</p>
-  <h1>Projects</h1>
-  <p class="hero-bio">I do not believe in separating thinking from building. The frameworks and papers mean nothing if I cannot show them working in real code. Seniority used to be a reason to step back from the hands-on work. With AI in the picture that era is over. Every project here exists because I needed to prove something to myself, not to anyone else.</p>
-</section>
-
-
-<div class="project">
-  <div class="project-header">
-    <h2 class="project-title">UMA-code-examples</h2>
-    <span class="project-status">published</span>
-  </div>
-  <div class="project-meta">
-    <span class="project-type">Book companion</span>
-    <span>Rust, WASM, HTML, JS</span>
-  </div>
-  <p class="project-description">The companion repository to the Universal Microservices Architecture book. Thirteen chapters of runnable Rust and WASM code that follow the book chapter by chapter. Every business logic path has test coverage enforced in CI. Not because it was required but because a book about portable, contract-driven systems that ships with untested code would be embarrassing. There is a live reference application running at universalmicroservices.com that anyone can inspect.</p>
-  <div class="project-links">
-    <a href="https://github.com/enricopiovesan/UMA-code-examples" target="_blank" rel="noopener">github →</a>
-    <a href="https://www.universalmicroservices.com" target="_blank" rel="noopener">site →</a>
-  </div>
-</div>
-
-<div class="project">
-  <div class="project-header">
-    <h2 class="project-title">the-day-after-toolkit</h2>
-    <span class="project-status">in progress</span>
-  </div>
-  <div class="project-meta">
-    <span class="project-type">CLI tool</span>
-    <span>TypeScript</span>
-  </div>
-  <p class="project-description">The companion tooling to The Day After book. A CLI called cdad that audits a codebase for AI agent readiness and scaffolds the contracts needed to fix what it finds. Six commands. OpenSpec-governed. Configs included for Claude, Cursor, and Codex so the tool works with the agents most teams are actually using. The book explains the thinking. This tool lets you run it against a real codebase today.</p>
-  <div class="project-links">
-    <a href="https://github.com/enricopiovesan/the-day-after-toolkit" target="_blank" rel="noopener">github →</a>
-    
-  </div>
-</div>
-
-<div class="project">
-  <div class="project-header">
-    <h2 class="project-title">Traverse</h2>
-    <span class="project-status">pre-implementation</span>
-  </div>
-  <div class="project-meta">
-    <span class="project-type">Runtime / research</span>
-    <span>Rust</span>
-  </div>
-  <p class="project-description">Traverse is where the UMA and C-DAD ideas go further. A contract-driven Rust and WASM runtime for discovering, validating, and composing portable business capabilities. The spec is governed, the quality standards are in place, and the ADR process is documented before a single line of implementation is written. That is not bureaucracy. That is the only way to build a runtime that stays coherent as it grows. Pre-implementation means the foundation is right, not that the work has not started.</p>
-  <div class="project-links">
-    <a href="https://github.com/enricopiovesan/Traverse" target="_blank" rel="noopener">github →</a>
-    
-  </div>
-</div>
-
-<div class="project">
-  <div class="project-header">
-    <h2 class="project-title">youaskm3</h2>
-    <span class="project-status">in progress (M0)</span>
-  </div>
-  <div class="project-meta">
-    <span class="project-type">Personal knowledge layer</span>
-    <span>Rust, WASM, Web Components, PWA</span>
-  </div>
-  <p class="project-description">A personal knowledge layer built on the same foundations as Traverse and UMA. WASM-native, MCP-powered, runs entirely on GitHub Pages with no server, no database, and no ongoing cost. The federation model means anyone can fork it, run their own instance, and register in a shared registry. It is an attempt to build something that reflects what I actually believe about software - portable, composable, owned by the person running it, and free to operate.</p>
-  <div class="project-links">
-    <a href="https://github.com/youaskm3/youaskm3" target="_blank" rel="noopener">github →</a>
-    
-  </div>
-</div>
-
+</article>
 
   </main>
 
