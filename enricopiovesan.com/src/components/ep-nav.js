@@ -44,12 +44,15 @@ class EpNav extends HTMLElement {
     const active = this.getAttribute('active') || '';
     const base = (this.getAttribute('base') || '/').replace(/\/$/, '');
     const links = [
+      { href: `${base}/about/`, label: 'About', slug: 'about' },
       { href: `${base}/books/`, label: 'Books', slug: 'books' },
       { href: `${base}/whitepapers/`, label: 'White Papers', slug: 'whitepapers' },
       { href: `${base}/projects/`, label: 'Projects', slug: 'projects' },
       { href: `${base}/writing/`, label: 'Writing', slug: 'writing' },
       { href: `${base}/speaking/`, label: 'Speaking', slug: 'speaking' },
-      { href: `${base}/about/`, label: 'About', slug: 'about' },
+      { href: `${base}/uses/`, label: 'Uses', slug: 'uses' },
+      { href: `${base}/cfp-log/`, label: 'CFP Log', slug: 'cfp-log' },
+      { href: `${base}/concepts/`, label: 'Concepts', slug: 'concepts' },
       { href: 'https://blog.enricopiovesan.com', label: 'Blog', slug: '', external: true },
     ];
 
