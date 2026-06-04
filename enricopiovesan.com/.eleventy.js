@@ -8,6 +8,7 @@ module.exports = function (eleventyConfig) {
   // Copy assets and public folder
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("public");
+  eleventyConfig.addPassthroughCopy({ "../whitepapers": "whitepapers" });
   eleventyConfig.addPassthroughCopy({ "public/404.html": "404.html" });
   eleventyConfig.addPassthroughCopy({ "public/robots.txt": "robots.txt" });
   eleventyConfig.addPassthroughCopy({ "public/llms.txt": "llms.txt" });
