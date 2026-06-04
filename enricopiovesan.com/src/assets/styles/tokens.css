@@ -38,7 +38,7 @@
   --black: #0a0a0a;
   --white: #f5f4f0;
   --mid: #a8a5a0;
-  --accent: #c8441a;
+  --accent: #d45a25;
   --border: #2a2a28;
   --mono: 'IBM Plex Mono', monospace;
   --sans: 'IBM Plex Sans', sans-serif;
@@ -68,6 +68,7 @@
   --mid: #555250;
   --black: #f5f4f0;
   --white: #0a0a0a;
+  --accent: #b03a14;
 }
 
 /* Respect system preference unless overridden */
@@ -81,5 +82,6 @@
     --mid: #555250;
     --black: #f5f4f0;
     --white: #0a0a0a;
+    --accent: #b03a14;
   }
 }

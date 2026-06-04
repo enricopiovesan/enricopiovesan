@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  <rect x="0" y="0" width="6" height="630" fill="#c8441a"/>
+  <text x="80" y="200" font-family="monospace" font-size="22" fill="#888580" letter-spacing="3">PLATFORM ARCHITECT. AUTHOR. OPEN SOURCE BUILDER.</text>
+  <text x="80" y="310" font-family="Georgia, serif" font-size="72" font-weight="bold" fill="#f5f4f0">Enrico</text>
+  <text x="80" y="400" font-family="Georgia, serif" font-size="72" font-weight="bold" fill="#f5f4f0">Piovesan</text>
+  <text x="80" y="490" font-family="monospace" font-size="22" fill="#888580">enricopiovesan.com</text>
+  <text x="80" y="540" font-family="monospace" font-size="18" fill="#c8441a">UMA  ·  C-DAD  ·  WASM  ·  AI-NATIVE SYSTEMS</text>
+</svg>

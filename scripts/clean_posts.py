@@ -3,8 +3,8 @@
 Reduce converted Medium posts to title + headings + first paragraph per section.
 Feeds graphify with structure/concepts only, not full prose.
 
-Input:  posts/       (markitdown-converted .md files)
-Output: posts-clean/ (skeletal .md files, ~80% smaller)
+Input:  posts/ or whitepapers/ (markitdown-converted .md files)
+Output: posts-clean/ or whitepapers-clean/ (skeletal .md files, ~80% smaller)
 """
 
 import re
@@ -12,8 +12,13 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).parent.parent
-INPUT_DIR = REPO_ROOT / "posts"
-OUTPUT_DIR = REPO_ROOT / "posts-clean"
+import argparse as _ap
+_parser = _ap.ArgumentParser(add_help=False)
+_parser.add_argument("--input", default="posts")
+_parser.add_argument("--output", default=None)
+_args, _ = _parser.parse_known_args()
+INPUT_DIR = REPO_ROOT / _args.input
+OUTPUT_DIR = REPO_ROOT / (_args.output or (_args.input + "-clean"))
 
 IMAGE_RE = re.compile(r"^!\[.*?\]\(.*?\)\s*$")
 EMOJI_RE = re.compile(
