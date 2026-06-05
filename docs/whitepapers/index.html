@@ -70,34 +70,141 @@
   <ep-nav active="whitepapers" base="/"></ep-nav>
 
   <main id="main-content">
-    <article class="page-content">
-  <p>I am not an academic. These papers did not come from a research agenda. They came from problems I could not stop thinking about. After enough years in this industry you start recognizing patterns, the same structural failure showing up in different companies with different stacks and different teams. When a pattern bothers me enough and I cannot find a satisfying answer anywhere, I eventually write one down. That is where all of these came from.</p>
-<h2>Contract-Driven AI Development (C-DAD)</h2>
-<p><strong>November 2025</strong></p>
-<p>Most of the conversation about AI in software development focuses on what the models can do. This paper focuses on what the codebase needs to provide. AI agents and agentic systems can navigate software that declares its intent through contracts. They struggle with software that only has code. C-DAD introduces a foundation for building AI-native systems where contracts, not code, define collaboration between humans, machines, and runtimes. It covers verifiable contracts, automated reasoning, and hybrid governance as a coherent approach to making codebases that AI agents can actually work with.</p>
-<p><a href="/whitepapers/c-dad/">Read the paper</a></p>
-<hr>
-<h2>Event Contract Catalog Architecture (ECCA)</h2>
-<p><strong>August 2025</strong></p>
-<p>Event-driven architectures have a governance problem that schema registries and API management platforms were not designed to solve. Events cross team boundaries, service boundaries, and time boundaries. Without a way to make them discoverable, governable, and consistent at scale, they become a source of invisible coupling that compounds over years. ECCA is a blueprint for an event contract catalog that treats events as first-class architectural artifacts with declared contracts, ownership, and lifecycle.</p>
-<p><a href="/whitepapers/ecca/">Read the paper</a></p>
-<hr>
-<h2>Designing Adaptive AI Systems with UMA and MCP</h2>
-<p><strong>June 2025</strong></p>
-<p>As AI agents became a real part of software systems, the question of how they participate in a UMA architecture needed a concrete answer. This paper explores how Universal Microservices Architecture and the Model Context Protocol combine to produce AI systems that can adapt to changing requirements without structural rewrites. The key idea is that agents should be able to propose and rank, while the runtime stays authoritative over validation, policy, and final execution.</p>
-<p><a href="/whitepapers/uma-mcp/">Read the paper</a></p>
-<hr>
-<h2>Universal Microservices Architecture (UMA)</h2>
-<p><strong>August 2024</strong></p>
-<p>The foundational paper introducing UMA as a portable, contract-based execution model for distributed systems at scale. The central argument is that separating business logic from runtime environment is not just a performance optimization or a deployment convenience. It is an architectural decision that changes what a system can do, where it can run, and how long it can stay coherent as requirements change. This paper establishes the vocabulary and the model that the book later expanded into 13 runnable chapters.</p>
-<p><a href="/whitepapers/uma/">Read the paper</a></p>
-<hr>
-<h2>Client-Side Microservices Architecture (CSMA)</h2>
-<p><strong>June 2023</strong></p>
-<p>This is where the thinking started. The browser kept getting treated as a consumer of server logic rather than a legitimate execution environment in its own right. CSMA was an attempt to apply service-oriented thinking to the frontend, packaging business logic as modular, portable units that could run in the browser without depending on a server call for every decision. It was the first time I wrote down a pattern I had been circling around for years, and it became the foundation that UMA built on.</p>
-<p><a href="/whitepapers/csma/">Read the paper</a></p>
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "White Papers", "item": "https://enricopiovesan.com/whitepapers/" }
+      ]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://enricopiovesan.com/whitepapers/#cdad",
+      "name": "Contract-Driven AI Development (C-DAD)",
+      "description": "A foundation for building AI-native systems where contracts, not code, define collaboration between humans, machines, and runtimes.",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "datePublished": "2025-11-01",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://enricopiovesan.com/whitepapers/#ecca",
+      "name": "Event Contract Catalog Architecture (ECCA)",
+      "description": "A blueprint for an event contract catalog that treats events as first-class architectural artifacts with declared contracts, ownership, and lifecycle.",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "datePublished": "2025-08-01",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://enricopiovesan.com/whitepapers/#uma",
+      "name": "Universal Microservices Architecture (UMA)",
+      "description": "The foundational paper introducing UMA as a portable, contract-driven execution model for distributed systems.",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "datePublished": "2024-08-01",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://enricopiovesan.com/whitepapers/#csma",
+      "name": "Client-Side Microservices Architecture (CSMA)",
+      "description": "The original paper introducing client-side microservices as a pattern for portable, composable business logic running in the browser.",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "datePublished": "2023-06-01",
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
 
-</article>
+<section class="hero">
+  <p class="hero-label">Research</p>
+  <h1>White Papers</h1>
+  <p class="hero-bio">I am not an academic. These papers did not come from a research agenda. They came from problems I could not stop thinking about. After enough years in this industry you start recognizing patterns, the same structural failure showing up in different companies with different stacks and different teams. When a pattern bothers me enough and I cannot find a satisfying answer anywhere, I eventually write one down. That is where all of these came from.</p>
+</section>
+
+
+<div class="paper">
+  <div class="paper-inner">
+    
+    <a class="paper-cover-link" href="/whitepapers/Contract-Driven AI Development (C-DAD) - White Paper.pdf" target="_blank" rel="noopener">
+      <img src="/src/assets/img/c-dad-paper.png" alt="Contract-Driven AI Development (C-DAD) cover" class="paper-cover" width="80" height="113" loading="lazy" />
+    </a>
+    
+    <div class="paper-body">
+      <div class="paper-header">
+        <h2 class="paper-title">
+          <a href="/whitepapers/Contract-Driven AI Development (C-DAD) - White Paper.pdf" target="_blank" rel="noopener">Contract-Driven AI Development (C-DAD)</a>
+        </h2>
+        <time class="paper-date" datetime="November 2025">November 2025</time>
+      </div>
+      <p class="paper-description">Most of the conversation about AI in software development focuses on what the models can do. This paper focuses on what the codebase needs to provide. AI agents and agentic systems can navigate software that declares its intent through contracts. They struggle with software that only has code. C-DAD introduces a foundation for building AI-native systems where contracts, not code, define collaboration between humans, machines, and runtimes. It covers verifiable contracts, automated reasoning, and hybrid governance as a coherent approach to making codebases that AI agents can actually work with.</p>
+    </div>
+  </div>
+</div>
+
+<div class="paper">
+  <div class="paper-inner">
+    
+    <a class="paper-cover-link" href="/whitepapers/Event Contract Catalog Architecture (ECCA) - White Paper.pdf" target="_blank" rel="noopener">
+      <img src="/src/assets/img/ecca-paper.png" alt="Event Contract Catalog Architecture (ECCA) cover" class="paper-cover" width="80" height="113" loading="lazy" />
+    </a>
+    
+    <div class="paper-body">
+      <div class="paper-header">
+        <h2 class="paper-title">
+          <a href="/whitepapers/Event Contract Catalog Architecture (ECCA) - White Paper.pdf" target="_blank" rel="noopener">Event Contract Catalog Architecture (ECCA)</a>
+        </h2>
+        <time class="paper-date" datetime="August 2025">August 2025</time>
+      </div>
+      <p class="paper-description">Event-driven architectures have a governance problem that schema registries and API management platforms were not designed to solve. Events cross team boundaries, service boundaries, and time boundaries. Without a way to make them discoverable, governable, and consistent at scale, they become a source of invisible coupling that compounds over years. ECCA is a blueprint for an event contract catalog that treats events as first-class architectural artifacts with declared contracts, ownership, and lifecycle.</p>
+    </div>
+  </div>
+</div>
+
+<div class="paper">
+  <div class="paper-inner">
+    
+    <a class="paper-cover-link" href="/whitepapers/Universal Microservices Architecture (UMA) - White Paper.pdf" target="_blank" rel="noopener">
+      <img src="/src/assets/img/uma-paper.png" alt="Universal Microservices Architecture (UMA) cover" class="paper-cover" width="80" height="113" loading="lazy" />
+    </a>
+    
+    <div class="paper-body">
+      <div class="paper-header">
+        <h2 class="paper-title">
+          <a href="/whitepapers/Universal Microservices Architecture (UMA) - White Paper.pdf" target="_blank" rel="noopener">Universal Microservices Architecture (UMA)</a>
+        </h2>
+        <time class="paper-date" datetime="August 2024">August 2024</time>
+      </div>
+      <p class="paper-description">The foundational paper introducing UMA as a portable, contract-based execution model for distributed systems at scale. The central argument is that separating business logic from runtime environment is not just a performance optimization or a deployment convenience. It is an architectural decision that changes what a system can do, where it can run, and how long it can stay coherent as requirements change. This paper establishes the vocabulary and the model that the book later expanded into 13 runnable chapters.</p>
+    </div>
+  </div>
+</div>
+
+<div class="paper">
+  <div class="paper-inner">
+    
+    <a class="paper-cover-link" href="/whitepapers/Client-side Microservices Architecture (CSMA) - White Paper.pdf" target="_blank" rel="noopener">
+      <img src="/src/assets/img/csma-paper.png" alt="Client-Side Microservices Architecture (CSMA) cover" class="paper-cover" width="80" height="113" loading="lazy" />
+    </a>
+    
+    <div class="paper-body">
+      <div class="paper-header">
+        <h2 class="paper-title">
+          <a href="/whitepapers/Client-side Microservices Architecture (CSMA) - White Paper.pdf" target="_blank" rel="noopener">Client-Side Microservices Architecture (CSMA)</a>
+        </h2>
+        <time class="paper-date" datetime="June 2023">June 2023</time>
+      </div>
+      <p class="paper-description">This is where the thinking started. The browser kept getting treated as a consumer of server logic rather than a legitimate execution environment in its own right. CSMA was an attempt to apply service-oriented thinking to the frontend, packaging business logic as modular, portable units that could run in the browser without depending on a server call for every decision. It was the first time I wrote down a pattern I had been circling around for years, and it became the foundation that UMA built on.</p>
+    </div>
+  </div>
+</div>
+
 
   </main>
 
