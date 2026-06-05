@@ -350,6 +350,20 @@ a { color: inherit; text-decoration: none; }
   max-width: 520px;
 }
 
+.paper-pdf-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 1px;
+  transition: opacity 0.15s;
+}
+.paper-pdf-link:hover { opacity: 0.75; }
+
 /* ─── PROJECTS ──────────────────────────────────────── */
 .project {
   padding: 2.5rem 3rem;
