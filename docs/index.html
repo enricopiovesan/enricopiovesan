@@ -70,20 +70,116 @@
   <ep-nav active="home" base="/"></ep-nav>
 
   <main id="main-content">
-    <article class="page-content">
-  <p>Software should work for users, not for the runtime it happens to run on.</p>
-<p>After years building products across startups in travel, education, and payments, I kept hitting the same wall. The same business logic rewritten for every environment. Systems that worked in isolation and broke at the seams. Codebases nobody could navigate when the team changed. I stopped accepting those as facts of life and started building frameworks to fix them.</p>
-<p>That is where UMA came from. Then C-DAD. Then Traverse. Not from theory. From real problems that kept showing up.</p>
-<h2>The work</h2>
-<ul>
-<li><strong><a href="/books/">Books</a></strong> — Two books. One on making software run anywhere without rewriting it. One on making software navigable by AI agents without throwing it away.</li>
-<li><strong><a href="/whitepapers/">White Papers</a></strong> — Five research papers from 2023 to 2025. Each one started as a problem I could not stop thinking about.</li>
-<li><strong><a href="/projects/">Projects</a></strong> — Four open source projects built from the same frameworks. Spec-governed, CI-enforced, and running in production or pre-implementation with quality standards in place.</li>
-<li><strong><a href="/writing/">Writing</a></strong> — Weekly posts on Medium since May 2025. Posts become papers. Papers become books. Writing is how I figure out what I think.</li>
-<li><strong><a href="/speaking/">Speaking</a></strong> — Three conference talks drawn directly from published work and shipped tooling. Currently submitting CFPs for architecture, WASM, and AI engineering tracks.</li>
-</ul>
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://enricopiovesan.com/#profilepage",
+      "url": "https://enricopiovesan.com/",
+      "name": "Enrico Piovesan - Platform Architect & Author",
+      "description": "Platform architect and author building frameworks for software that runs anywhere and codebases that AI agents can actually navigate.",
+      "mainEntity": { "@id": "https://enricopiovesan.com/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://enricopiovesan.com/#person",
+      "name": "Enrico Piovesan",
+      "url": "https://enricopiovesan.com/",
+      "jobTitle": "Platform Software Architect",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Autodesk",
+        "url": "https://www.autodesk.com"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Golden",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      },
+      "sameAs": [
+        "https://github.com/enricopiovesan",
+        "https://linkedin.com/in/enricopiovesan",
+        "https://medium.com/@enricopiovesan",
+        "https://x.com/enricopiovesan",
+        "https://www.amazon.com/dp/B0GTTTTQH4"
+      ],
+      "knowsAbout": ["Software Architecture", "WebAssembly", "Microservices", "AI-native Systems", "Platform Engineering"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://enricopiovesan.com/#website",
+      "url": "https://enricopiovesan.com/",
+      "name": "Enrico Piovesan",
+      "description": "Platform architect and author. Software that runs anywhere.",
+      "publisher": { "@id": "https://enricopiovesan.com/#person" },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
 
-</article>
+<section class="hero">
+  <p class="hero-label">Platform architect. Author. Open source builder.</p>
+  <h1>Software should work for users, not for the runtime it happens to run on.</h1>
+  <p class="hero-bio">After years building products across startups in travel, education, and payments, I kept hitting the same wall. The same business logic rewritten for every environment. Systems that worked in isolation and broke at the seams. Codebases nobody could navigate when the team changed. I stopped accepting those as facts of life and started building frameworks to fix them.</p>
+</section>
+
+<section class="section">
+  <p class="section-label">The work</p>
+  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:520px;margin-bottom:2rem;">That is where UMA came from. Then C-DAD. Then Traverse. Not from theory. From real problems that kept showing up.</p>
+</section>
+
+<div class="nav-cards">
+  
+  <a class="nav-card" href="/books/">
+    <span class="nav-card-label">Books</span>
+    <span class="nav-card-desc">Two books. One on making software run anywhere without rewriting it. One on making software navigable by AI agents without throwing it away.</span>
+  </a>
+  
+  <a class="nav-card" href="/whitepapers/">
+    <span class="nav-card-label">White Papers</span>
+    <span class="nav-card-desc">Five research papers from 2023 to 2025. Each one started as a problem I could not stop thinking about.</span>
+  </a>
+  
+  <a class="nav-card" href="/projects/">
+    <span class="nav-card-label">Projects</span>
+    <span class="nav-card-desc">Four open source projects built from the same frameworks. Spec-governed, CI-enforced, and running in production or pre-implementation with quality standards in place.</span>
+  </a>
+  
+  <a class="nav-card" href="/writing/">
+    <span class="nav-card-label">Writing</span>
+    <span class="nav-card-desc">Weekly posts on Medium since May 2025. Posts become papers. Papers become books. Writing is how I figure out what I think.</span>
+  </a>
+  
+  <a class="nav-card" href="/speaking/">
+    <span class="nav-card-label">Speaking</span>
+    <span class="nav-card-desc">Three conference talks drawn directly from published work and shipped tooling. Currently submitting CFPs for architecture, WASM, and AI engineering tracks.</span>
+  </a>
+  
+</div>
+
+<section class="bio-section">
+  <p class="section-label">Bio</p>
+  <div class="bio-text">
+    <picture>
+      <source srcset="/src/assets/img/enrico-piovesan.webp" type="image/webp" />
+      <img src="/src/assets/img/enrico-piovesan.jpg" alt="Enrico Piovesan" class="headshot" width="80" height="80" fetchpriority="low" />
+    </picture>
+    <p>Platform Software Architect at Autodesk. Based in Golden, BC, Purcell Mountains, Canada. I build frameworks because the problems kept showing up and nobody else was fixing them. <a href="/about/" style="color:var(--accent);text-decoration:underline;">About →</a></p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <p class="section-label">Get in touch</p>
+  <div class="contact-cta">
+    <p class="contact-cta-text">Speaking invitations, collaborations, or just a question about the work.</p>
+    <a class="contact-cta-link" href="https://linkedin.com/in/enricopiovesan" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+  </div>
+</section>
 
   </main>
 
