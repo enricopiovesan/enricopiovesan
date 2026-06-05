@@ -26,6 +26,6 @@ nav_cards:
   - label: Speaking
     desc: Three conference talks drawn directly from published work and shipped tooling. Currently submitting CFPs for architecture, WASM, and AI engineering tracks.
     href: /speaking/
-bio: "Platform Software Architect at Autodesk. Based in Golden, BC, Purcell Mountains, Canada. I build frameworks because the problems kept showing up and nobody else was fixing them."
+bio: "Platform Software Architect at Autodesk. Based in Golden, BC, Purcell Mountains, Canada. Two books, five research papers, and four open source projects. The problems kept showing up and nobody else was fixing them."
 about_href: /about/
 ---
