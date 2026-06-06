@@ -10,7 +10,7 @@ ogDescription: CSMA applies service-oriented thinking to the frontend, packaging
 
 **June 2023 · Enrico Piovesan**
 
-[Download PDF](/whitepapers/Client-side Microservices Architecture (CSMA) - White Paper.pdf)
+[Download PDF](/whitepapers/Client-side%20Microservices%20Architecture%20%28CSMA%29%20-%20White%20Paper.pdf)
 
 ---
 

@@ -10,7 +10,7 @@ ogDescription: The foundational paper introducing UMA as a portable, contract-ba
 
 **August 2024 · Enrico Piovesan**
 
-[Download PDF](/whitepapers/Universal Microservices Architecture (UMA) - White Paper.pdf)
+[Download PDF](/whitepapers/Universal%20Microservices%20Architecture%20%28UMA%29%20-%20White%20Paper.pdf)
 
 ---
 

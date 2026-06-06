@@ -10,7 +10,7 @@ ogDescription: Contract-Driven AI Development (C-DAD) is a framework for buildin
 
 **November 2025 · Enrico Piovesan**
 
-[Download PDF](/whitepapers/Contract-Driven AI Development (C-DAD) - White Paper.pdf)
+[Download PDF](/whitepapers/Contract-Driven%20AI%20Development%20%28C-DAD%29%20-%20White%20Paper.pdf)
 
 ---
 

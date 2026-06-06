@@ -10,7 +10,7 @@ ogDescription: ECCA is a blueprint for an event contract catalog that treats eve
 
 **August 2025 · Enrico Piovesan**
 
-[Download PDF](/whitepapers/Event Contract Catalog Architecture (ECCA) - White Paper.pdf)
+[Download PDF](/whitepapers/Event%20Contract%20Catalog%20Architecture%20%28ECCA%29%20-%20White%20Paper.pdf)
 
 ---
 
