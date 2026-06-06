@@ -73,13 +73,3 @@ layout: base.njk
   {% endfor %}
 </div>
 
-<section class="bio-section">
-  <p class="section-label">Bio</p>
-  <div class="bio-text">
-    <picture>
-      <source srcset="/src/assets/img/enrico-piovesan.webp" type="image/webp" />
-      <img src="/src/assets/img/enrico-piovesan.jpg" alt="Enrico Piovesan" class="headshot" width="80" height="80" fetchpriority="low" />
-    </picture>
-    <p>{{ bio }} <a href="{{ about_href }}" style="color:var(--accent);text-decoration:underline;">About →</a></p>
-  </div>
-</section>

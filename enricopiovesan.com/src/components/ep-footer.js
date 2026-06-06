@@ -57,6 +57,46 @@ class EpFooter extends HTMLElement {
     this.innerHTML = `
       <style>
         ep-footer { display: block; }
+        .footer-bio {
+          padding: 2.5rem 3rem;
+          background: var(--fg);
+          display: flex;
+          align-items: flex-start;
+          gap: 1.5rem;
+          border-bottom: 1px solid rgba(10,10,10,0.15);
+        }
+        .footer-bio picture,
+        .footer-bio picture:has(img) {
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          overflow: hidden;
+          flex-shrink: 0;
+          display: block;
+        }
+        .footer-bio img {
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          object-fit: cover;
+          object-position: center top;
+          display: block;
+        }
+        .footer-bio-text {
+          font-family: var(--mono);
+          font-size: 0.72rem;
+          color: var(--bg);
+          opacity: 0.6;
+          line-height: 1.7;
+          max-width: 520px;
+        }
+        .footer-bio-text a {
+          color: var(--bg);
+          opacity: 1;
+          text-decoration: underline;
+          transition: opacity 0.15s;
+        }
+        .footer-bio-text a:hover { opacity: 0.7; }
         footer {
           padding: 2.5rem 3rem;
           background: var(--fg);
@@ -106,6 +146,13 @@ class EpFooter extends HTMLElement {
           footer { grid-template-columns: 1fr; }
         }
       </style>
+      <div class="footer-bio">
+        <picture>
+          <source srcset="/src/assets/img/enrico-piovesan.webp" type="image/webp" />
+          <img src="/src/assets/img/enrico-piovesan.jpg" alt="Enrico Piovesan" width="56" height="56" loading="lazy" />
+        </picture>
+        <p class="footer-bio-text">Platform Software Architect at Autodesk. Based in Golden, BC, Purcell Mountains, Canada. Two books, five research papers, and four open source projects. The problems kept showing up and nobody else was fixing them. <a href="${base}/about/">About →</a></p>
+      </div>
       <footer>
         ${cols.map(col => `
           <div class="footer-col">
