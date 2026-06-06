@@ -1,10 +1,10 @@
 ---
-title: Speaking — Enrico Piovesan
+title: Speaking
 description: Conference talks on portable systems, contract-driven AI development, and restructuring software for the age of AI agents.
 layout: speaking.njk
 permalink: /speaking/
 canonical: https://enricopiovesan.com/speaking/
-ogTitle: Speaking — Enrico Piovesan
+ogTitle: Speaking
 ogDescription: Conference talks on architecture, WASM, and AI-native systems drawn from published books and shipped tooling.
 intro: I talk about portable systems, contract-driven AI development, and what it actually takes to restructure software for the age of AI agents. Every talk is drawn directly from published books, white papers, and shipped tooling. These are not ideas I am exploring. They are problems I spent years running into and frameworks I built to fix them.
 talks:

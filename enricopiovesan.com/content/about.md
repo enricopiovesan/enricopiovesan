@@ -1,10 +1,10 @@
 ---
-title: About — Enrico Piovesan
+title: About
 description: Platform architect and author who spent years building products before deciding the problems he kept running into were architectural, not incidental.
 layout: about.njk
 permalink: /about/
 canonical: https://enricopiovesan.com/about/
-ogTitle: About — Enrico Piovesan
+ogTitle: About
 ogDescription: Platform architect and author who spent years building products before deciding the problems he kept running into were architectural, not incidental.
 name: Enrico Piovesan
 role: Platform Software Architect

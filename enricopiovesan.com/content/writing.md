@@ -1,10 +1,10 @@
 ---
-title: Writing — Enrico Piovesan
+title: Writing
 description: Weekly writing on software architecture and AI-native systems. Two Medium publication series since May 2025.
 layout: writing.njk
 permalink: /writing/
 canonical: https://enricopiovesan.com/writing/
-ogTitle: Writing — Enrico Piovesan
+ogTitle: Writing
 ogDescription: Weekly writing on software architecture, WASM, and AI-native systems. Two Medium publication series.
 intro:
   - I started writing to think, not to publish. A post is usually me trying to work out whether an idea holds up when I write it down. Sometimes it does not and I learn something. Sometimes it does and it becomes the seed of a white paper. Some of the white papers eventually became a book. I am not sure that is a writing strategy. It is just what happened.

@@ -1,10 +1,10 @@
 ---
-title: Thinking — Enrico Piovesan
+title: Thinking
 description: Concepts and perspectives on software architecture, AI-native systems, and portable runtimes.
 layout: page.njk
 permalink: /thinking/
 canonical: https://enricopiovesan.com/thinking/
-ogTitle: Thinking — Enrico Piovesan
+ogTitle: Thinking
 ogDescription: Concepts and perspectives on software architecture, AI-native systems, and portable runtimes.
 ---
 

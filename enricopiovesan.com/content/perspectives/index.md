@@ -1,9 +1,9 @@
 ---
-title: Perspectives — Enrico Piovesan
+title: Perspectives
 description: Enrico Piovesan's takes on emerging architectural concepts in AI engineering and software architecture — where they lead, what they miss, and what comes next.
 layout: page.njk
 canonical: https://enricopiovesan.com/perspectives/
-ogTitle: Perspectives — Enrico Piovesan
+ogTitle: Perspectives
 ogDescription: Takes on emerging architectural concepts in AI engineering and software architecture.
 ---
 

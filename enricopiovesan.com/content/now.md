@@ -1,9 +1,9 @@
 ---
-title: Now — Enrico Piovesan
+title: Now
 description: What Enrico Piovesan is working on right now.
 layout: page.njk
 canonical: https://enricopiovesan.com/now/
-ogTitle: Now — Enrico Piovesan
+ogTitle: Now
 ogDescription: What Enrico Piovesan is working on right now.
 ---
 

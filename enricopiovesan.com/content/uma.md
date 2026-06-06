@@ -4,7 +4,7 @@ description: Universal Microservices Architecture is a portable, contract-driven
 layout: uma.njk
 permalink: /uma/
 canonical: https://enricopiovesan.com/uma/
-ogTitle: Universal Microservices Architecture (UMA) — Enrico Piovesan
+ogTitle: Universal Microservices Architecture (UMA)
 ogDescription: A portable, contract-driven execution model for distributed systems. Write once, run where it makes sense.
 concept: UMA
 ---

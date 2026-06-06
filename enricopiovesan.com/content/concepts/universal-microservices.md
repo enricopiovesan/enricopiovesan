@@ -1,10 +1,10 @@
 ---
-title: Universal Microservices Architecture — Enrico Piovesan
+title: Universal Microservices Architecture
 description: Universal microservices architecture is an approach to distributed systems design where business logic is separated from runtime environment, enabling the same capability to run across browser, edge, cloud, and AI pipeline without rewriting.
 layout: page.njk
 permalink: /concepts/universal-microservices/
 canonical: https://enricopiovesan.com/concepts/universal-microservices/
-ogTitle: Universal Microservices Architecture — Enrico Piovesan
+ogTitle: Universal Microservices Architecture
 ogDescription: An approach to distributed systems where business logic runs anywhere without rewriting it for every runtime.
 ---
 

@@ -1,10 +1,10 @@
 ---
-title: Projects — Enrico Piovesan
+title: Projects
 description: Four open source projects by Enrico Piovesan including UMA, C-DAD toolkit, Traverse runtime, and youaskm3 knowledge layer.
 layout: projects.njk
 permalink: /projects/
 canonical: https://enricopiovesan.com/projects/
-ogTitle: Projects — Enrico Piovesan
+ogTitle: Projects
 ogDescription: Four open source projects built from the UMA and C-DAD frameworks. Spec-governed, CI-enforced, production-grade.
 intro: I do not believe in separating thinking from building. The frameworks and papers mean nothing if I cannot show them working in real code. Seniority used to be a reason to step back from the hands-on work. With AI in the picture that era is over. Every project here exists because I needed to prove something to myself, not to anyone else.
 projects:

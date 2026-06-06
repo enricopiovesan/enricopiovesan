@@ -1,10 +1,10 @@
 ---
-title: Books — Enrico Piovesan
+title: Books
 description: Two books on software architecture and AI-native systems by Enrico Piovesan. One published, one forthcoming.
 layout: books.njk
 permalink: /books/
 canonical: https://enricopiovesan.com/books/
-ogTitle: Books — Enrico Piovesan
+ogTitle: Books
 ogDescription: Two books on software architecture and AI-native systems. One published, one forthcoming.
 intro: "Two books on software architecture. One published, one forthcoming. Both came from the same place: years of watching the same problems show up in different companies, different stacks, and different teams, and deciding that the answer was architectural, not incidental."
 books:

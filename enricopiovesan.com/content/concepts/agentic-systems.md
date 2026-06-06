@@ -1,10 +1,10 @@
 ---
-title: Agentic Systems Architecture — Enrico Piovesan
+title: Agentic Systems Architecture
 description: Agentic systems architecture covers the structural patterns for building software that works with AI agents — multi-agent orchestration, contract-based capability boundaries, and making codebases navigable by autonomous systems.
 layout: page.njk
 permalink: /concepts/agentic-systems/
 canonical: https://enricopiovesan.com/concepts/agentic-systems/
-ogTitle: Agentic Systems Architecture — Enrico Piovesan
+ogTitle: Agentic Systems Architecture
 ogDescription: Structural patterns for building software that works with AI agents — multi-agent orchestration, contract-based boundaries, navigable codebases.
 ---
 

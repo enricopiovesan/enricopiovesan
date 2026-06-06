@@ -1,10 +1,10 @@
 ---
-title: Work — Enrico Piovesan
+title: Work
 description: Books, white papers, and open source projects by Enrico Piovesan.
 layout: page.njk
 permalink: /work/
 canonical: https://enricopiovesan.com/work/
-ogTitle: Work — Enrico Piovesan
+ogTitle: Work
 ogDescription: Books, white papers, and open source projects by Enrico Piovesan.
 ---
 

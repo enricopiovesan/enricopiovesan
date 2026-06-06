@@ -1,10 +1,10 @@
 ---
-title: Contract-Driven AI Development — Enrico Piovesan
+title: Contract-Driven AI Development
 description: Contract-driven AI development is an approach to building AI-native systems where contracts, not code, define what software does and why it can be trusted by AI agents.
 layout: page.njk
 permalink: /concepts/contract-driven-ai-development/
 canonical: https://enricopiovesan.com/concepts/contract-driven-ai-development/
-ogTitle: Contract-Driven AI Development — Enrico Piovesan
+ogTitle: Contract-Driven AI Development
 ogDescription: An approach to building AI-native systems where contracts define what software does and why it can be trusted by AI agents.
 ---
 

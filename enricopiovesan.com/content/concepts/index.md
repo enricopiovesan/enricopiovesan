@@ -1,10 +1,10 @@
 ---
-title: Concepts — Enrico Piovesan
+title: Concepts
 description: Core architectural concepts developed by Enrico Piovesan including contract-driven AI development, universal microservices architecture, and agentic systems design.
 layout: page.njk
 permalink: /concepts/
 canonical: https://enricopiovesan.com/concepts/
-ogTitle: Concepts — Enrico Piovesan
+ogTitle: Concepts
 ogDescription: Core architectural concepts including contract-driven AI development, universal microservices, and agentic systems.
 ---
 

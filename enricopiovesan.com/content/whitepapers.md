@@ -1,11 +1,11 @@
 ---
-title: White Papers — Enrico Piovesan
-description: Four research papers on software architecture, AI-native systems, contract-driven development, and agentic systems published between 2023 and 2025.
+title: White Papers
+description: Five research papers on software architecture, AI-native systems, contract-driven development, and agentic systems published between 2023 and 2025.
 layout: whitepapers.njk
 permalink: /whitepapers/
 canonical: https://enricopiovesan.com/whitepapers/
-ogTitle: White Papers — Enrico Piovesan
-ogDescription: Four research papers on software architecture, AI-native systems, and contract-driven development published between 2023 and 2025.
+ogTitle: White Papers
+ogDescription: Five research papers on software architecture, AI-native systems, and contract-driven development published between 2023 and 2025.
 intro: I am not an academic. These papers did not come from a research agenda. They came from problems I could not stop thinking about. After enough years in this industry you start recognizing patterns, the same structural failure showing up in different companies with different stacks and different teams. When a pattern bothers me enough and I cannot find a satisfying answer anywhere, I eventually write one down. That is where all of these came from.
 papers:
   - title: Contract-Driven AI Development (C-DAD)
@@ -32,4 +32,9 @@ papers:
     page: /whitepapers/csma/
     url: /whitepapers/Client-side%20Microservices%20Architecture%20%28CSMA%29%20-%20White%20Paper.pdf
     image: /src/assets/img/csma-paper.png
+  - title: Designing Adaptive AI Systems with UMA and MCP
+    date: 2025
+    description: How Universal Microservices Architecture and the Model Context Protocol combine to produce AI systems that adapt to changing requirements without structural rewrites. UMA provides the portable execution model; MCP provides the context interface. Together they make it possible to build agents that reason over live system state rather than static documentation, and to update that reasoning without redeploying the models or the services.
+    page: /whitepapers/uma-mcp/
+    image: /src/assets/img/uma-paper.png
 ---
