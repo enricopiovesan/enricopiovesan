@@ -55,7 +55,7 @@ class EpFooter extends HTMLElement {
           max-width: 1400px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           gap: 2rem;
           align-items: start;
         }
@@ -113,7 +113,7 @@ class EpFooter extends HTMLElement {
           color: var(--bg);
           opacity: 0.35;
         }
-        @media (max-width: 900px) {
+        @media (max-width: 760px) {
           footer { grid-template-columns: 1fr 1fr; padding: 2rem 1.5rem; }
         }
         @media (max-width: 480px) {
@@ -137,6 +137,12 @@ class EpFooter extends HTMLElement {
               <ul class="footer-sub">
                 <li><a href="${b}/books/">Books</a></li>
                 <li><a href="${b}/whitepapers/">White Papers</a></li>
+                <ul class="footer-sub">
+                  <li><a href="${b}/whitepapers/uma/">UMA</a></li>
+                  <li><a href="${b}/whitepapers/ecca/">ECCA</a></li>
+                  <li><a href="${b}/whitepapers/c-dad/">C-DAD</a></li>
+                  <li><a href="${b}/whitepapers/csma/">CSMA</a></li>
+                </ul>
                 <li><a href="${b}/projects/">Projects</a></li>
               </ul>
             </li>
@@ -144,6 +150,11 @@ class EpFooter extends HTMLElement {
               <a href="${b}/thinking/" class="footer-section-label">Thinking</a>
               <ul class="footer-sub">
                 <li><a href="${b}/concepts/">Concepts</a></li>
+                <ul class="footer-sub">
+                  <li><a href="${b}/concepts/universal-microservices/">Universal Microservices</a></li>
+                  <li><a href="${b}/concepts/contract-driven-ai-development/">Contract-Driven AI Dev</a></li>
+                  <li><a href="${b}/concepts/agentic-systems/">Agentic Systems</a></li>
+                </ul>
                 <li><a href="${b}/perspectives/">Perspectives</a></li>
               </ul>
             </li>
@@ -153,27 +164,6 @@ class EpFooter extends HTMLElement {
             <li><a href="${b}/uma/">UMA</a></li>
             <li><a href="${b}/c-dad/">C-DAD</a></li>
             <li><a href="${b}/now/">Now</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <p class="footer-col-label">Concepts</p>
-          <ul>
-            <li><a href="${b}/concepts/">All concepts</a></li>
-            <li><a href="${b}/concepts/universal-microservices/">Universal Microservices</a></li>
-            <li><a href="${b}/concepts/contract-driven-ai-development/">Contract-Driven AI Dev</a></li>
-            <li><a href="${b}/concepts/agentic-systems/">Agentic Systems</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <p class="footer-col-label">White Papers</p>
-          <ul>
-            <li><a href="${b}/whitepapers/">All papers</a></li>
-            <li><a href="${b}/whitepapers/uma/">UMA</a></li>
-            <li><a href="${b}/whitepapers/ecca/">ECCA</a></li>
-            <li><a href="${b}/whitepapers/c-dad/">C-DAD</a></li>
-            <li><a href="${b}/whitepapers/csma/">CSMA</a></li>
           </ul>
         </div>
 
@@ -188,6 +178,11 @@ class EpFooter extends HTMLElement {
             <li><a href="https://medium.com/@enricopiovesan" target="_blank" rel="noopener">Medium</a></li>
             <li><a href="https://x.com/enricopiovesan" target="_blank" rel="noopener">X</a></li>
           </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-label">Copyright</p>
+          <p style="font-family:var(--mono);font-size:0.7rem;color:var(--bg);opacity:0.55;line-height:1.7;">Enrico Piovesan ${year}<br>Platform architect. Author.<br>Open source builder.</p>
         </div>
 
         <p class="footer-bottom">Enrico Piovesan ${year}</p>
