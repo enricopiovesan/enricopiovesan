@@ -20,21 +20,21 @@ class EpFooter extends HTMLElement {
           justify-content: space-between;
           align-items: center;
           gap: 2rem;
-          border-bottom: 1px solid rgba(10,10,10,0.15);
+          border-bottom: 1px solid var(--border);
           flex-wrap: wrap;
         }
         .footer-contact-label {
           font-family: var(--mono);
-          font-size: 0.6rem;
+          font-size: 0.65rem;
           letter-spacing: 0.12em;
-          color: var(--bg);
-          opacity: 0.35;
+          color: var(--mid);
           text-transform: uppercase;
           margin-bottom: 0.75rem;
         }
         .footer-contact-text {
-          font-size: 0.95rem;
+          font-size: 1rem;
           color: var(--bg);
+          opacity: 0.85;
           line-height: 1.6;
           max-width: 480px;
         }
@@ -61,57 +61,69 @@ class EpFooter extends HTMLElement {
         }
         .footer-col-label {
           font-family: var(--mono);
-          font-size: 0.6rem;
+          font-size: 0.65rem;
           letter-spacing: 0.12em;
-          color: var(--bg);
-          opacity: 0.35;
+          color: var(--mid);
           text-transform: uppercase;
-          margin-bottom: 0.85rem;
+          margin-bottom: 1rem;
+          padding-bottom: 0.5rem;
+          border-bottom: 1px solid var(--border);
         }
         .footer-col ul {
           list-style: none;
           display: flex;
           flex-direction: column;
-          gap: 0.55rem;
+          gap: 0.65rem;
         }
-        .footer-col a {
+        .footer-col > ul > li > a {
           font-family: var(--mono);
-          font-size: 0.7rem;
-          letter-spacing: 0.04em;
+          font-size: 0.78rem;
+          letter-spacing: 0.03em;
           color: var(--bg);
-          opacity: 0.55;
+          opacity: 0.8;
           text-decoration: none;
           transition: opacity 0.15s;
         }
-        .footer-col a:hover { opacity: 1; }
+        .footer-col > ul > li > a:hover { opacity: 1; }
         .footer-section-label {
           font-family: var(--mono);
-          font-size: 0.7rem;
-          letter-spacing: 0.04em;
+          font-size: 0.78rem;
+          letter-spacing: 0.03em;
           color: var(--bg);
-          opacity: 0.35;
-          margin-top: 1rem;
-          margin-bottom: 0.1rem;
+          opacity: 0.5;
+          margin-top: 0.5rem;
+          margin-bottom: 0.4rem;
           display: block;
+          text-decoration: none;
+          transition: opacity 0.15s;
         }
+        .footer-section-label:hover { opacity: 0.8; }
         .footer-sub {
           list-style: none;
           display: flex;
           flex-direction: column;
-          gap: 0.45rem;
+          gap: 0.5rem;
           padding-left: 0.85rem;
-          border-left: 1px solid rgba(10,10,10,0.15);
-          margin-bottom: 0.2rem;
+          border-left: 1px solid var(--border);
+          margin-bottom: 0.25rem;
         }
-        .footer-sub a { font-size: 0.65rem; }
+        .footer-sub a {
+          font-family: var(--mono);
+          font-size: 0.72rem;
+          color: var(--bg);
+          opacity: 0.6;
+          text-decoration: none;
+          transition: opacity 0.15s;
+        }
+        .footer-sub a:hover { opacity: 1; }
         .footer-bottom {
           grid-column: 1 / -1;
-          border-top: 1px solid rgba(var(--bg-raw, 245,244,240), 0.12);
-          padding-top: 1rem;
+          border-top: 1px solid var(--border);
+          padding-top: 1.25rem;
           font-family: var(--mono);
-          font-size: 0.65rem;
+          font-size: 0.7rem;
           color: var(--bg);
-          opacity: 0.35;
+          opacity: 0.5;
         }
         @media (max-width: 760px) {
           footer { grid-template-columns: 1fr 1fr; padding: 2rem 1.5rem; }
