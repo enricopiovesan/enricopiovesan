@@ -71,7 +71,23 @@
 
   <main id="main-content">
     <article class="page-content">
-  <p>Content coming soon</p>
+  <p><strong>June 2023 · Enrico Piovesan</strong></p>
+<p>[Download PDF](/whitepapers/Client-side Microservices Architecture (CSMA) - White Paper.pdf)</p>
+<hr>
+<p>This is where the thinking started.</p>
+<p>The browser kept getting treated as a consumer of server logic rather than a legitimate execution environment in its own right. Every decision that could be made locally was deferred to a round trip. Every business rule that could run in the browser was reimplemented on the server because that was where logic was supposed to live. The frontend was a rendering layer. It was not supposed to think.</p>
+<p>That assumption made less sense every year. Browsers got faster. WASM made native-speed execution possible. Offline requirements became real. AI changed what clients needed to do. And yet the architecture stayed the same: server decides, browser displays.</p>
+<p>CSMA was an attempt to write down why that assumption was wrong and what the alternative looked like.</p>
+<h2>What the paper covers</h2>
+<p><strong>The browser as a runtime.</strong> The central argument is that the browser is a legitimate execution environment and should be treated as one architecturally. That means business logic that runs locally, not logic that is fetched and rendered.</p>
+<p><strong>Service-oriented thinking applied to the frontend.</strong> CSMA applies the same modularity principles that made backend microservices successful to the client side. Each capability is a self-contained unit with declared inputs, outputs, and contracts — not a component tied to a framework.</p>
+<p><strong>Stateful and stateless services.</strong> The paper distinguishes between capabilities that manage their own state and capabilities that are pure functions. Both have a place in a client-side service architecture. The distinction matters for lifecycle management and composition.</p>
+<p><strong>Isolation and boundaries.</strong> How client-side services communicate without coupling. The event bus pattern, capability boundaries, and the contract layer that keeps services composable as the system grows.</p>
+<p><strong>The portability seed.</strong> CSMA was the first time I wrote down a pattern I had been circling around for years. The question it left open — why stop at the browser? — became the question that UMA answered.</p>
+<h2>Who it is for</h2>
+<p>Frontend architects and senior engineers building complex client applications who are hitting the limits of component-based thinking and want a more disciplined model for managing logic at the client layer.</p>
+<hr>
+<p><a href="/whitepapers/">White Papers</a> · <a href="/whitepapers/uma/">UMA White Paper</a> · <a href="/uma/">Universal Microservices Architecture</a></p>
 
 </article>
 

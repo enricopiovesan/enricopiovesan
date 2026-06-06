@@ -71,7 +71,22 @@
 
   <main id="main-content">
     <article class="page-content">
-  <p>Content coming soon</p>
+  <p><strong>August 2025 · Enrico Piovesan</strong></p>
+<p>[Download PDF](/whitepapers/Event Contract Catalog Architecture (ECCA) - White Paper.pdf)</p>
+<hr>
+<p>Event-driven architectures have a governance problem that schema registries and API management platforms were not designed to solve.</p>
+<p>Events cross team boundaries, service boundaries, and time boundaries. A schema registry tells you what an event looks like. It does not tell you who owns it, what it means, what contracts govern its consumers, or what happens when the format changes. Without a way to make events discoverable, governable, and consistent at scale, they become a source of invisible coupling that compounds over years. By the time the problem is visible it is already expensive.</p>
+<p>ECCA is a blueprint for fixing that at the architectural level.</p>
+<h2>What the paper covers</h2>
+<p><strong>Events as first-class artifacts.</strong> The core argument is that events should be treated with the same architectural discipline as APIs and services. That means declared ownership, versioned contracts, documented lifecycle, and discoverable metadata — not just a schema in a registry.</p>
+<p><strong>The event contract catalog.</strong> A structured system for declaring what an event is, who produces it, who consumes it, what the behavioral contract between them is, and how changes are governed. Not a tool — a pattern that can be implemented with the tooling a team already has.</p>
+<p><strong>Governance without centralization.</strong> One of the failure modes in event-driven systems is governance that requires a central team to approve every change. ECCA proposes a federated model where ownership is distributed but contracts are machine-readable and enforceable at the boundary.</p>
+<p><strong>Lifecycle management.</strong> How events are versioned, deprecated, and retired without breaking consumers. The paper covers explicit versioning strategies and the contract obligations that producers carry through a deprecation cycle.</p>
+<p><strong>Discovery and AI navigability.</strong> An event contract catalog makes event-driven systems navigable by AI agents in the same way that C-DAD contracts make service logic navigable. The two frameworks are designed to compose.</p>
+<h2>Who it is for</h2>
+<p>Architects and engineering leads building event-driven systems at scale who are hitting the governance ceiling — systems that work but that nobody can fully reason about anymore.</p>
+<hr>
+<p><a href="/whitepapers/">White Papers</a> · <a href="/whitepapers/c-dad/">C-DAD White Paper</a> · <a href="/whitepapers/uma/">UMA White Paper</a></p>
 
 </article>
 

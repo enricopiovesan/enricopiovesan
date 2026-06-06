@@ -71,7 +71,22 @@
 
   <main id="main-content">
     <article class="page-content">
-  <p>Content coming soon</p>
+  <p><strong>August 2024 · Enrico Piovesan</strong></p>
+<p>[Download PDF](/whitepapers/Universal Microservices Architecture (UMA) - White Paper.pdf)</p>
+<hr>
+<p>Most distributed systems have a logic problem that nobody talks about.</p>
+<p>The same business rule — a pricing formula, an eligibility check, a validation step — gets implemented separately for the browser, the backend, the edge, and now the AI pipeline. Nobody planned it that way. It happened because the architecture made assumptions about the environment before it made decisions about the behavior. Over time the copies drift. A bug gets fixed in one place and not the others. The system becomes harder to reason about, harder to change, and harder to trust.</p>
+<p>This paper introduces Universal Microservices Architecture as a response to that problem.</p>
+<h2>What the paper covers</h2>
+<p><strong>The portability argument.</strong> Separating business logic from runtime environment is not just a performance optimization or a deployment convenience. It is an architectural decision that changes what a system can do, where it can run, and how long it can stay coherent as requirements change. The paper establishes why this matters now more than it did five years ago.</p>
+<p><strong>The UMA execution model.</strong> Each business capability is packaged as a self-describing service that declares its contracts, metadata, and execution requirements independently of any runtime. The capability runs identically across browser, edge, cloud, and AI pipeline without duplicating the logic or losing behavioral coherence.</p>
+<p><strong>WebAssembly as the enabling layer.</strong> The paper explains how WASM makes runtime-agnostic execution practical rather than theoretical. Not because WASM is the point — because WASM removes the obstacle.</p>
+<p><strong>Contract-driven composition.</strong> How UMA capabilities discover each other, compose into workflows, and maintain behavioral coherence across environments. The contract layer is what distinguishes UMA from earlier portability approaches.</p>
+<p><strong>Design sequence.</strong> How to design a UMA system from scratch — capability identification, contract definition, runtime mapping, and versioning strategy. The vocabulary the paper establishes is what the book later expanded into 13 runnable chapters.</p>
+<h2>Who it is for</h2>
+<p>Software architects, senior engineers, and technical leads designing modern distributed systems who are paying the hidden tax of duplicated logic across runtimes and want a structural answer.</p>
+<hr>
+<p><a href="/uma/">Read the full framework</a> · <a href="https://www.amazon.com/dp/B0GTTTTQH4">UMA Book</a> · <a href="https://www.universalmicroservices.com">Reference implementation</a> · <a href="/whitepapers/csma/">CSMA White Paper</a></p>
 
 </article>
 
