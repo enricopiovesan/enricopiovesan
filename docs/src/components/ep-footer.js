@@ -19,6 +19,8 @@ class EpFooter extends HTMLElement {
           { href: `${base}/uses/`, label: 'Uses' },
           { href: `${base}/uma/`, label: 'UMA' },
           { href: `${base}/c-dad/`, label: 'C-DAD' },
+          { href: `${base}/perspectives/`, label: 'Perspectives' },
+          { href: `${base}/now/`, label: 'Now' },
         ],
       },
       {

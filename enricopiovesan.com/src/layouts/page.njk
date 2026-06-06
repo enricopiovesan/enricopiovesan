@@ -1,6 +1,29 @@
 ---
 layout: base.njk
 ---
+{% block schema %}
+{% if canonical and canonical.includes('/whitepapers/') %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "{{ title }}",
+  "author": {
+    "@type": "Person",
+    "name": "Enrico Piovesan"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com"
+  },
+  "url": "{{ canonical }}",
+  "inLanguage": "en",
+  "about": "Software architecture"
+}
+</script>
+{% endif %}
+{% endblock %}
 <article class="page-content">
   <h1>{{ title | replace(" — Enrico Piovesan", "") }}</h1>
   {{ content | safe }}

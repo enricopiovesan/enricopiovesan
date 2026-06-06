@@ -59,6 +59,39 @@
   <!-- Styles -->
   <link rel="stylesheet" href="/src/assets/styles/global.css" />
 
+  <!-- Person schema (every page) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com",
+    "image": "https://enricopiovesan.com/src/assets/img/enrico-piovesan.jpg",
+    "jobTitle": "Platform Software Architect",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Autodesk"
+    },
+    "description": "Platform architect and author building frameworks for software that runs anywhere and codebases that AI agents can actually navigate.",
+    "sameAs": [
+      "https://github.com/enricopiovesan",
+      "https://linkedin.com/in/enricopiovesan",
+      "https://medium.com/@enricopiovesan",
+      "https://x.com/enricopiovesan",
+      "https://www.universalmicroservices.com"
+    ],
+    "knowsAbout": [
+      "Software Architecture",
+      "WebAssembly",
+      "Contract-Driven AI Development",
+      "Universal Microservices Architecture",
+      "Distributed Systems",
+      "Agentic Systems",
+      "Platform Engineering"
+    ]
+  }
+  </script>
+
   <!-- Schema -->
   
 
@@ -70,7 +103,10 @@
   <ep-nav active="contract-driven-ai-development" base="/"></ep-nav>
 
   <main id="main-content">
-    <article class="page-content">
+    
+
+
+<article class="page-content">
   <h1>Contract-Driven AI Development</h1>
   <p>Most software was not built to be navigated by AI agents. It was built to be read by the people who wrote it. The intent lives in someone's head. The constraints live in a Slack thread from two years ago. The exception paths live nowhere at all.</p>
 <p>When an AI agent encounters that codebase it does not fail loudly. It produces plausible output that is wrong in ways that take weeks to find. The problem is not the model. The problem is that the code has no contracts.</p>
