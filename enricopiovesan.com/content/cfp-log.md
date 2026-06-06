@@ -3,6 +3,7 @@ title: CFP Log — Enrico Piovesan
 description: A public log of conference submissions, accepted talks, and speaking engagements by Enrico Piovesan.
 layout: page.njk
 permalink: /cfp-log/
+eleventyExcludeFromCollections: true
 canonical: https://enricopiovesan.com/cfp-log/
 ogTitle: CFP Log — Enrico Piovesan
 ogDescription: Conference submission log tracking CFP submissions, accepted talks, and speaking engagements.

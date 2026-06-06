@@ -51,7 +51,6 @@ class EpNav extends HTMLElement {
       { href: `${base}/writing/`, label: 'Writing', slug: 'writing' },
       { href: `${base}/speaking/`, label: 'Speaking', slug: 'speaking' },
       { href: `${base}/uses/`, label: 'Uses', slug: 'uses' },
-      { href: `${base}/cfp-log/`, label: 'CFP Log', slug: 'cfp-log' },
       { href: `${base}/concepts/`, label: 'Concepts', slug: 'concepts' },
       { href: 'https://blog.enricopiovesan.com', label: 'Blog', slug: '', external: true },
     ];
