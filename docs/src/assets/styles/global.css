@@ -268,6 +268,8 @@ a { color: inherit; text-decoration: none; }
 
 .bio-text .headshot {
   flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .bio-paragraphs {
