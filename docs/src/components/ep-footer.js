@@ -16,7 +16,6 @@ class EpFooter extends HTMLElement {
           padding: 2.5rem 3rem;
           max-width: 1400px;
           margin: 0 auto;
-          background: var(--fg);
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -53,7 +52,6 @@ class EpFooter extends HTMLElement {
         }
         footer {
           padding: 2.5rem 3rem;
-          background: var(--fg);
           max-width: 1400px;
           margin: 0 auto;
           display: grid;
