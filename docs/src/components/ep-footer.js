@@ -7,54 +7,7 @@ class EpFooter extends HTMLElement {
     const year = new Date().getFullYear();
     const base = (this.getAttribute('base') || '/').replace(/\/$/, '');
 
-    const cols = [
-      {
-        label: 'Pages',
-        links: [
-          { href: `${base}/about/`, label: 'About' },
-          { href: `${base}/books/`, label: 'Books' },
-          { href: `${base}/projects/`, label: 'Projects' },
-          { href: `${base}/writing/`, label: 'Writing' },
-          { href: `${base}/speaking/`, label: 'Speaking' },
-          { href: `${base}/uses/`, label: 'Uses' },
-          { href: `${base}/uma/`, label: 'UMA' },
-          { href: `${base}/c-dad/`, label: 'C-DAD' },
-          { href: `${base}/perspectives/`, label: 'Perspectives' },
-          { href: `${base}/now/`, label: 'Now' },
-        ],
-      },
-      {
-        label: 'Concepts',
-        links: [
-          { href: `${base}/concepts/`, label: 'All concepts' },
-          { href: `${base}/concepts/universal-microservices/`, label: 'Universal Microservices' },
-          { href: `${base}/concepts/contract-driven-ai-development/`, label: 'Contract-Driven AI Dev' },
-          { href: `${base}/concepts/agentic-systems/`, label: 'Agentic Systems' },
-        ],
-      },
-      {
-        label: 'White Papers',
-        links: [
-          { href: `${base}/whitepapers/`, label: 'All papers' },
-          { href: `${base}/whitepapers/uma/`, label: 'UMA' },
-          { href: `${base}/whitepapers/ecca/`, label: 'ECCA' },
-          { href: `${base}/whitepapers/c-dad/`, label: 'C-DAD' },
-          { href: `${base}/whitepapers/csma/`, label: 'CSMA' },
-        ],
-      },
-      {
-        label: 'Links',
-        links: [
-          { href: 'https://blog.enricopiovesan.com', label: 'Blog', external: true },
-          { href: 'https://www.universalmicroservices.com', label: 'universalmicroservices.com', external: true },
-          { href: 'https://www.amazon.com/dp/B0GTTTTQH4', label: 'UMA Book', external: true },
-          { href: 'https://github.com/enricopiovesan', label: 'GitHub', external: true },
-          { href: 'https://linkedin.com/in/enricopiovesan', label: 'LinkedIn', external: true },
-          { href: 'https://medium.com/@enricopiovesan', label: 'Medium', external: true },
-          { href: 'https://x.com/enricopiovesan', label: 'X', external: true },
-        ],
-      },
-    ];
+    const b = base;
 
     this.innerHTML = `
       <style>
@@ -133,6 +86,26 @@ class EpFooter extends HTMLElement {
           transition: opacity 0.15s;
         }
         .footer-col a:hover { opacity: 1; }
+        .footer-section-label {
+          font-family: var(--mono);
+          font-size: 0.7rem;
+          letter-spacing: 0.04em;
+          color: var(--bg);
+          opacity: 0.35;
+          margin-top: 1rem;
+          margin-bottom: 0.1rem;
+          display: block;
+        }
+        .footer-sub {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 0.45rem;
+          padding-left: 0.85rem;
+          border-left: 1px solid rgba(10,10,10,0.15);
+          margin-bottom: 0.2rem;
+        }
+        .footer-sub a { font-size: 0.65rem; }
         .footer-bottom {
           grid-column: 1 / -1;
           border-top: 1px solid rgba(var(--bg-raw, 245,244,240), 0.12);
@@ -157,14 +130,68 @@ class EpFooter extends HTMLElement {
         <a class="footer-contact-link" href="https://linkedin.com/in/enricopiovesan" target="_blank" rel="noopener">Connect on LinkedIn →</a>
       </div>
       <footer>
-        ${cols.map(col => `
-          <div class="footer-col">
-            <p class="footer-col-label">${col.label}</p>
-            <ul>
-              ${col.links.map(l => `<li><a href="${l.href}"${l.external ? ' target="_blank" rel="noopener"' : ''}>${l.label}</a></li>`).join('')}
-            </ul>
-          </div>
-        `).join('')}
+        <div class="footer-col">
+          <p class="footer-col-label">Pages</p>
+          <ul>
+            <li><a href="${b}/about/">About</a></li>
+            <li>
+              <a href="${b}/work/" class="footer-section-label">Work</a>
+              <ul class="footer-sub">
+                <li><a href="${b}/books/">Books</a></li>
+                <li><a href="${b}/whitepapers/">White Papers</a></li>
+                <li><a href="${b}/projects/">Projects</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="${b}/thinking/" class="footer-section-label">Thinking</a>
+              <ul class="footer-sub">
+                <li><a href="${b}/concepts/">Concepts</a></li>
+                <li><a href="${b}/perspectives/">Perspectives</a></li>
+              </ul>
+            </li>
+            <li><a href="${b}/speaking/">Speaking</a></li>
+            <li><a href="${b}/writing/">Writing</a></li>
+            <li><a href="${b}/uses/">Uses</a></li>
+            <li><a href="${b}/uma/">UMA</a></li>
+            <li><a href="${b}/c-dad/">C-DAD</a></li>
+            <li><a href="${b}/now/">Now</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-label">Concepts</p>
+          <ul>
+            <li><a href="${b}/concepts/">All concepts</a></li>
+            <li><a href="${b}/concepts/universal-microservices/">Universal Microservices</a></li>
+            <li><a href="${b}/concepts/contract-driven-ai-development/">Contract-Driven AI Dev</a></li>
+            <li><a href="${b}/concepts/agentic-systems/">Agentic Systems</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-label">White Papers</p>
+          <ul>
+            <li><a href="${b}/whitepapers/">All papers</a></li>
+            <li><a href="${b}/whitepapers/uma/">UMA</a></li>
+            <li><a href="${b}/whitepapers/ecca/">ECCA</a></li>
+            <li><a href="${b}/whitepapers/c-dad/">C-DAD</a></li>
+            <li><a href="${b}/whitepapers/csma/">CSMA</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-label">Links</p>
+          <ul>
+            <li><a href="https://blog.enricopiovesan.com" target="_blank" rel="noopener">Blog</a></li>
+            <li><a href="https://www.universalmicroservices.com" target="_blank" rel="noopener">universalmicroservices.com</a></li>
+            <li><a href="https://www.amazon.com/dp/B0GTTTTQH4" target="_blank" rel="noopener">UMA Book</a></li>
+            <li><a href="https://github.com/enricopiovesan" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/enricopiovesan" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://medium.com/@enricopiovesan" target="_blank" rel="noopener">Medium</a></li>
+            <li><a href="https://x.com/enricopiovesan" target="_blank" rel="noopener">X</a></li>
+          </ul>
+        </div>
+
         <p class="footer-bottom">Enrico Piovesan ${year}</p>
       </footer>
     `;
