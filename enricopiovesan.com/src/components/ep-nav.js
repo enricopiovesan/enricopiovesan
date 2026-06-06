@@ -43,19 +43,19 @@ class EpNav extends HTMLElement {
   }
 
   _bindDropdowns() {
-    this.querySelectorAll('.nav-dropdown').forEach(item => {
-      const btn = item.querySelector('.nav-dropdown-btn');
-      const menu = item.querySelector('.nav-dropdown-menu');
+    this.querySelectorAll('.nav-dropdown-wrap').forEach(wrap => {
+      const btn = wrap.querySelector('.nav-dropdown-btn');
+      const menu = wrap.querySelector('.nav-dropdown-menu');
 
-      // Desktop: hover
-      item.addEventListener('mouseenter', () => {
-        if (window.innerWidth > 900) menu.classList.add('open');
+      // Desktop: hover on the whole wrap (includes the bridge gap)
+      wrap.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 900) { menu.classList.add('open'); btn.setAttribute('aria-expanded', true); }
       });
-      item.addEventListener('mouseleave', () => {
-        if (window.innerWidth > 900) menu.classList.remove('open');
+      wrap.addEventListener('mouseleave', () => {
+        if (window.innerWidth > 900) { menu.classList.remove('open'); btn.setAttribute('aria-expanded', false); }
       });
 
-      // Mobile/click: toggle
+      // Chevron click: toggle (mobile + desktop)
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const isOpen = menu.classList.toggle('open');
@@ -63,9 +63,9 @@ class EpNav extends HTMLElement {
       });
     });
 
-    // Close dropdowns when clicking outside
     document.addEventListener('click', () => {
       this.querySelectorAll('.nav-dropdown-menu.open').forEach(m => m.classList.remove('open'));
+      this.querySelectorAll('.nav-dropdown-btn').forEach(b => b.setAttribute('aria-expanded', false));
     });
   }
 
@@ -141,37 +141,59 @@ class EpNav extends HTMLElement {
           border-bottom: 1px solid var(--accent);
         }
 
-        /* Dropdown trigger button */
+        /* Dropdown wrapper */
+        .nav-dropdown { display: flex; align-items: center; gap: 0.1rem; }
+        .nav-dropdown-link {
+          color: var(--mid);
+          text-decoration: none;
+          transition: color 0.15s;
+          padding-bottom: 2px;
+        }
+        .nav-dropdown-link:hover { color: var(--fg); }
+        .nav-dropdown-link.active { color: var(--fg); border-bottom: 1px solid var(--accent); }
+
+        /* Dropdown chevron button */
         .nav-dropdown-btn {
           background: none;
           border: none;
           cursor: pointer;
-          font-family: var(--mono);
-          font-size: 0.72rem;
-          letter-spacing: 0.06em;
           color: var(--mid);
-          padding: 0 0 2px 0;
+          padding: 0 0 0 0.15rem;
+          line-height: 1;
+          font-size: 0.6rem;
           display: flex;
           align-items: center;
-          gap: 0.25rem;
           transition: color 0.15s;
         }
         .nav-dropdown-btn:hover { color: var(--fg); }
-        .nav-dropdown-btn.active { color: var(--fg); border-bottom: 1px solid var(--accent); }
-        .nav-dropdown-btn::after { content: '▾'; font-size: 0.6rem; opacity: 0.6; }
 
-        /* Dropdown menu */
+        /* Dropdown menu — bridge pseudo-element closes the hover gap */
+        .nav-dropdown-wrap {
+          position: relative;
+        }
         .nav-dropdown-menu {
           display: none;
           position: absolute;
-          top: calc(100% + 0.75rem);
+          top: 100%;
           left: 0;
+          padding-top: 0.6rem;
+          z-index: 200;
+          list-style: none;
+        }
+        .nav-dropdown-menu::before {
+          content: '';
+          display: block;
+          height: 0.6rem;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+        }
+        .nav-dropdown-menu-inner {
           background: var(--bg);
           border: 1px solid var(--border);
           padding: 0.5rem 0;
           min-width: 140px;
-          z-index: 200;
-          list-style: none;
         }
         .nav-dropdown-menu.open { display: block; }
         .nav-dropdown-menu a {
@@ -229,11 +251,13 @@ class EpNav extends HTMLElement {
           }
           .nav-links.open { display: flex; }
           nav { padding: 1.25rem 1.5rem; }
-          .nav-dropdown-menu {
+          .nav-dropdown-menu { padding-top: 0.25rem; }
+          .nav-dropdown-menu-inner {
             position: static;
             border: none;
-            padding: 0.25rem 0 0 1rem;
+            padding: 0.1rem 0 0 1rem;
             min-width: unset;
+            background: none;
           }
           .nav-dropdown-menu a { padding: 0.3rem 0; }
         }
@@ -244,17 +268,27 @@ class EpNav extends HTMLElement {
           <ul class="nav-links" id="nav-menu">
             <li><a href="${base}/about/"${active === 'about' ? ' aria-current="page"' : ''}>About</a></li>
 
-            <li class="nav-dropdown">
-              <button class="nav-dropdown-btn${workActive ? ' active' : ''}" aria-haspopup="true" aria-expanded="false">Work</button>
+            <li class="nav-dropdown-wrap">
+              <div class="nav-dropdown">
+                <a href="${base}/work/" class="nav-dropdown-link${workActive ? ' active' : ''}"${active === 'work' ? ' aria-current="page"' : ''}>Work</a>
+                <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label="Work submenu">▾</button>
+              </div>
               <ul class="nav-dropdown-menu" role="menu">
-                ${workLinks.map(l => `<li><a href="${l.href}"${active === l.slug ? ' aria-current="page"' : ''}>${l.label}</a></li>`).join('')}
+                <div class="nav-dropdown-menu-inner">
+                  ${workLinks.map(l => `<li><a href="${l.href}"${active === l.slug ? ' aria-current="page"' : ''}>${l.label}</a></li>`).join('')}
+                </div>
               </ul>
             </li>
 
-            <li class="nav-dropdown">
-              <button class="nav-dropdown-btn${thinkingActive ? ' active' : ''}" aria-haspopup="true" aria-expanded="false">Thinking</button>
+            <li class="nav-dropdown-wrap">
+              <div class="nav-dropdown">
+                <a href="${base}/thinking/" class="nav-dropdown-link${thinkingActive ? ' active' : ''}"${active === 'thinking' ? ' aria-current="page"' : ''}>Thinking</a>
+                <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label="Thinking submenu">▾</button>
+              </div>
               <ul class="nav-dropdown-menu" role="menu">
-                ${thinkingLinks.map(l => `<li><a href="${l.href}"${active === l.slug ? ' aria-current="page"' : ''}>${l.label}</a></li>`).join('')}
+                <div class="nav-dropdown-menu-inner">
+                  ${thinkingLinks.map(l => `<li><a href="${l.href}"${active === l.slug ? ' aria-current="page"' : ''}>${l.label}</a></li>`).join('')}
+                </div>
               </ul>
             </li>
 
