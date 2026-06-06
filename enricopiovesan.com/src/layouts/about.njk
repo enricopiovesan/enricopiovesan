@@ -56,10 +56,15 @@ layout: base.njk
 <section class="bio-section">
   <p class="section-label">{{ role }}</p>
   <div class="bio-text">
-    <img src="/src/assets/img/enrico-piovesan.jpg" alt="{{ name }}" class="headshot" width="120" height="120" loading="lazy" />
-    {% for para in bio %}
-    <p>{{ para }}</p>
-    {% endfor %}
+    <picture>
+      <source srcset="/src/assets/img/enrico-piovesan.webp" type="image/webp" />
+      <img src="/src/assets/img/enrico-piovesan.jpg" alt="{{ name }}" class="headshot" width="80" height="80" loading="lazy" />
+    </picture>
+    <div class="bio-paragraphs">
+      {% for para in bio %}
+      <p>{{ para }}</p>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
