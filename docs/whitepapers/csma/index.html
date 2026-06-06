@@ -109,20 +109,30 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ScholarlyArticle",
-  "headline": "Client-Side Microservices Architecture (CSMA)",
-  "author": {
-    "@type": "Person",
-    "name": "Enrico Piovesan"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Enrico Piovesan",
-    "url": "https://enricopiovesan.com"
-  },
-  "url": "https://enricopiovesan.com/whitepapers/csma/",
-  "inLanguage": "en",
-  "about": "Software architecture"
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "White Papers", "item": "https://enricopiovesan.com/whitepapers/" },
+        { "@type": "ListItem", "position": 3, "name": "Client-Side Microservices Architecture (CSMA)", "item": "https://enricopiovesan.com/whitepapers/csma/" }
+      ]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://enricopiovesan.com/whitepapers/csma/#article",
+      "headline": "Client-Side Microservices Architecture (CSMA)",
+      "name": "Client-Side Microservices Architecture (CSMA)",
+      "description": "CSMA applies service-oriented thinking to the frontend, packaging business logic as modular, portable units that run in the browser without depending on a server call for every decision.",
+      "datePublished": "2023-06-01",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "publisher": { "@id": "https://enricopiovesan.com/#person" },
+      "url": "https://enricopiovesan.com/whitepapers/csma/",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://enricopiovesan.com/#website" },
+      "keywords": ["Software Architecture", "Platform Engineering", "WebAssembly", "AI-native Systems", "Contract-Driven Development"]
+    }
+  ]
 }
 </script>
 

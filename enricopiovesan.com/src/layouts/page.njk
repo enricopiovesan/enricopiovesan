@@ -6,20 +6,30 @@ layout: base.njk
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ScholarlyArticle",
-  "headline": "{{ title }}",
-  "author": {
-    "@type": "Person",
-    "name": "Enrico Piovesan"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Enrico Piovesan",
-    "url": "https://enricopiovesan.com"
-  },
-  "url": "{{ canonical }}",
-  "inLanguage": "en",
-  "about": "Software architecture"
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "White Papers", "item": "https://enricopiovesan.com/whitepapers/" },
+        { "@type": "ListItem", "position": 3, "name": "{{ title }}", "item": "{{ canonical }}" }
+      ]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "{{ canonical }}#article",
+      "headline": "{{ title }}",
+      "name": "{{ title }}",
+      "description": "{{ description }}",
+      "datePublished": "{{ datePublished }}",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "publisher": { "@id": "https://enricopiovesan.com/#person" },
+      "url": "{{ canonical }}",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://enricopiovesan.com/#website" },
+      "keywords": ["Software Architecture", "Platform Engineering", "WebAssembly", "AI-native Systems", "Contract-Driven Development"]
+    }
+  ]
 }
 </script>
 {% endif %}

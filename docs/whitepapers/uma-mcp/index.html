@@ -109,20 +109,30 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ScholarlyArticle",
-  "headline": "Designing Adaptive AI Systems with UMA and MCP",
-  "author": {
-    "@type": "Person",
-    "name": "Enrico Piovesan"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Enrico Piovesan",
-    "url": "https://enricopiovesan.com"
-  },
-  "url": "https://enricopiovesan.com/whitepapers/uma-mcp/",
-  "inLanguage": "en",
-  "about": "Software architecture"
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "White Papers", "item": "https://enricopiovesan.com/whitepapers/" },
+        { "@type": "ListItem", "position": 3, "name": "Designing Adaptive AI Systems with UMA and MCP", "item": "https://enricopiovesan.com/whitepapers/uma-mcp/" }
+      ]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://enricopiovesan.com/whitepapers/uma-mcp/#article",
+      "headline": "Designing Adaptive AI Systems with UMA and MCP",
+      "name": "Designing Adaptive AI Systems with UMA and MCP",
+      "description": "How Universal Microservices Architecture and the Model Context Protocol combine to produce AI systems that adapt to changing requirements without structural rewrites.",
+      "datePublished": "2025-06-01",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "publisher": { "@id": "https://enricopiovesan.com/#person" },
+      "url": "https://enricopiovesan.com/whitepapers/uma-mcp/",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://enricopiovesan.com/#website" },
+      "keywords": ["Software Architecture", "Platform Engineering", "WebAssembly", "AI-native Systems", "Contract-Driven Development"]
+    }
+  ]
 }
 </script>
 

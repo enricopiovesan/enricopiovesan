@@ -6,6 +6,7 @@ permalink: /whitepapers/uma-mcp/
 canonical: https://enricopiovesan.com/whitepapers/uma-mcp/
 ogTitle: Designing Adaptive AI Systems with UMA and MCP
 ogDescription: How Universal Microservices Architecture and the Model Context Protocol combine to produce AI systems that adapt to changing requirements without structural rewrites.
+datePublished: "2025-06-01"
 ---
 
 **2025 · Enrico Piovesan**

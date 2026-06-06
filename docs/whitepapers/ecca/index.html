@@ -109,20 +109,30 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ScholarlyArticle",
-  "headline": "Event Contract Catalog Architecture (ECCA)",
-  "author": {
-    "@type": "Person",
-    "name": "Enrico Piovesan"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Enrico Piovesan",
-    "url": "https://enricopiovesan.com"
-  },
-  "url": "https://enricopiovesan.com/whitepapers/ecca/",
-  "inLanguage": "en",
-  "about": "Software architecture"
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "White Papers", "item": "https://enricopiovesan.com/whitepapers/" },
+        { "@type": "ListItem", "position": 3, "name": "Event Contract Catalog Architecture (ECCA)", "item": "https://enricopiovesan.com/whitepapers/ecca/" }
+      ]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://enricopiovesan.com/whitepapers/ecca/#article",
+      "headline": "Event Contract Catalog Architecture (ECCA)",
+      "name": "Event Contract Catalog Architecture (ECCA)",
+      "description": "ECCA is a blueprint for an event contract catalog that treats events as first-class architectural artifacts with declared contracts, ownership, and lifecycle.",
+      "datePublished": "2025-08-01",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "publisher": { "@id": "https://enricopiovesan.com/#person" },
+      "url": "https://enricopiovesan.com/whitepapers/ecca/",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://enricopiovesan.com/#website" },
+      "keywords": ["Software Architecture", "Platform Engineering", "WebAssembly", "AI-native Systems", "Contract-Driven Development"]
+    }
+  ]
 }
 </script>
 

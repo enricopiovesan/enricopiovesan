@@ -6,6 +6,7 @@ permalink: /whitepapers/uma/
 canonical: https://enricopiovesan.com/whitepapers/uma/
 ogTitle: Universal Microservices Architecture (UMA)
 ogDescription: The foundational paper introducing UMA as a portable, contract-based execution model for distributed systems that separates business logic from runtime environment.
+datePublished: "2024-08-01"
 ---
 
 **August 2024 · Enrico Piovesan**
