@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Contract-Driven AI Development (C-DAD) - Enrico Piovesan</title>
-  <meta name="description" content="Contract-Driven AI Development (C-DAD) is a framework for building AI-native systems where contracts, not code, define collaboration between humans, machines, and runtimes." />
+  <title>Contract-Driven AI Development — Enrico Piovesan - Enrico Piovesan</title>
+  <meta name="description" content="Contract-driven AI development is an approach to building AI-native systems where contracts, not code, define what software does and why it can be trusted by AI agents." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Contract-Driven AI Development (C-DAD) — Enrico Piovesan" />
-  <meta property="og:description" content="Contract-Driven AI Development (C-DAD) is a framework for building AI-native systems where contracts, not code, define collaboration between humans, machines, and runtimes." />
+  <meta property="og:title" content="Contract-Driven AI Development — Enrico Piovesan" />
+  <meta property="og:description" content="An approach to building AI-native systems where contracts define what software does and why it can be trusted by AI agents." />
   <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
   <meta property="og:url" content="https://enricopiovesan.com/concepts/contract-driven-ai-development/" />
   <meta property="og:type" content="website" />
@@ -71,7 +71,28 @@
 
   <main id="main-content">
     <article class="page-content">
-  <p>Content coming soon</p>
+  <p>Most software was not built to be navigated by AI agents. It was built to be read by the people who wrote it. The intent lives in someone's head. The constraints live in a Slack thread from two years ago. The exception paths live nowhere at all.</p>
+<p>When an AI agent encounters that codebase it does not fail loudly. It produces plausible output that is wrong in ways that take weeks to find. The problem is not the model. The problem is that the code has no contracts.</p>
+<p>Contract-driven AI development is the practice of making software legible to AI agents by declaring intent explicitly through contracts rather than leaving it implicit in code.</p>
+<h2>The core distinction</h2>
+<p>A specification describes what a system does. A contract describes why it can be trusted.</p>
+<p>That distinction determines what an AI agent can safely do with your codebase. An agent reading a specification can describe behavior. An agent reading a contract can validate behavior, navigate capabilities, and compose them without breaking invariants.</p>
+<p>The difference in practice is significant. Teams that adopt contract-driven AI development report faster agent onboarding, fewer hallucination-driven bugs, and cleaner capability boundaries across teams.</p>
+<h2>The three principles</h2>
+<p><strong>Declare intent explicitly.</strong> Every capability states its preconditions, postconditions, invariants, and exception flows in machine-readable form. Not comments. Not documentation. Contracts that the pipeline can read and enforce.</p>
+<p><strong>Let machines validate, not just describe.</strong> Contracts enable automated reasoning — static analysis, test generation, agent navigation — without requiring human interpretation at every step.</p>
+<p><strong>Keep humans in the authoring seat.</strong> Humans write the intent. Machines validate the implementation. The governance is hybrid. Neither replaces the other.</p>
+<h2>How it differs from what you are already doing</h2>
+<p>Spec-driven development tells agents what to build. Contract-driven AI development tells agents what they can trust. The first automates execution. The second enables reasoning.</p>
+<p>If your team is already writing OpenAPI specs, ADRs, or structured documentation you are closer than you think. The gap is making those artifacts machine-enforceable rather than human-readable.</p>
+<h2>Where to go deeper</h2>
+<p>The full framework is documented in the C-DAD white paper and the forthcoming book The Day After. The companion CLI tool audits your codebase for agent-readiness today.</p>
+<ul>
+<li><a href="/c-dad/">C-DAD — full framework</a></li>
+<li><a href="/whitepapers/">C-DAD White Paper</a></li>
+<li><a href="/books/">The Day After</a></li>
+<li><a href="https://github.com/enricopiovesan/the-day-after-toolkit">the-day-after-toolkit</a></li>
+</ul>
 
 </article>
 

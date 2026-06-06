@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Universal Microservices Architecture (UMA) - Enrico Piovesan</title>
-  <meta name="description" content="Universal Microservices Architecture is a portable, contract-driven execution model for distributed systems that separates business logic from runtime environment." />
+  <title>Universal Microservices Architecture — Enrico Piovesan - Enrico Piovesan</title>
+  <meta name="description" content="Universal microservices architecture is an approach to distributed systems design where business logic is separated from runtime environment, enabling the same capability to run across browser, edge, cloud, and AI pipeline without rewriting." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Universal Microservices Architecture (UMA) — Enrico Piovesan" />
-  <meta property="og:description" content="Universal Microservices Architecture is a portable, contract-driven execution model for distributed systems that separates business logic from runtime environment." />
+  <meta property="og:title" content="Universal Microservices Architecture — Enrico Piovesan" />
+  <meta property="og:description" content="An approach to distributed systems where business logic runs anywhere without rewriting it for every runtime." />
   <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
   <meta property="og:url" content="https://enricopiovesan.com/concepts/universal-microservices/" />
   <meta property="og:type" content="website" />
@@ -71,7 +71,25 @@
 
   <main id="main-content">
     <article class="page-content">
-  <p>Content coming soon</p>
+  <p>Every distributed system eventually develops the same problem. The same business logic exists in multiple places. The validation rule that lives in the backend also lives in the browser, also lives at the edge, also gets rewritten when the AI pipeline needs it. Nobody planned it that way. It happened because the architecture assumed the environment before it defined the behavior.</p>
+<p>Universal microservices architecture is the practice of separating what a capability does from where it runs.</p>
+<h2>The core idea</h2>
+<p>In a standard distributed system, a service is tied to its deployment environment. A backend service assumes a server. A frontend component assumes a browser. An edge function assumes a CDN runtime. When requirements change or new environments appear — like AI pipelines — the logic gets rewritten.</p>
+<p>Universal microservices architecture inverts that assumption. Each business capability is packaged as a self-describing unit that declares its contracts and execution requirements independently of any runtime. The same capability runs across browser, edge, cloud, and AI pipeline. The runtime is a deployment decision, not an architectural one.</p>
+<p>WebAssembly makes this possible at the execution level. Contracts make it trustworthy at the system level.</p>
+<h2>Why it matters now</h2>
+<p>The cost of environment-specific rewrites has increased, not decreased. AI pipelines need to invoke the same business logic the browser and backend use. Edge computing needs the same validation rules the server enforces. Teams that tied their logic to specific runtimes are now paying a compounding tax for every new environment they need to support.</p>
+<p>Universal microservices architecture was designed for exactly this moment.</p>
+<h2>How it differs from standard microservices</h2>
+<p>Standard microservices architecture reduces coupling between services. Universal microservices architecture reduces coupling between logic and runtime. The first solves the deployment problem. The second solves the portability problem. Both matter. They are not the same thing.</p>
+<h2>Where to go deeper</h2>
+<p>The full model is documented at universalmicroservices.com with a live reference application. The book covers the design sequence, tradeoffs, and 13 chapters of runnable Rust and WASM code.</p>
+<ul>
+<li><a href="/uma/">UMA — full framework</a></li>
+<li><a href="https://www.universalmicroservices.com">universalmicroservices.com</a></li>
+<li><a href="https://www.amazon.com/dp/B0GTTTTQH4">Universal Microservices Architecture — Book</a></li>
+<li><a href="/whitepapers/">UMA White Paper</a></li>
+</ul>
 
 </article>
 

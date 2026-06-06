@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Agentic Systems Architecture - Enrico Piovesan</title>
-  <meta name="description" content="Architectural patterns for building software systems that work with AI agents — multi-agent orchestration, contract-based boundaries, and agentic system design." />
+  <title>Agentic Systems Architecture — Enrico Piovesan - Enrico Piovesan</title>
+  <meta name="description" content="Agentic systems architecture covers the structural patterns for building software that works with AI agents — multi-agent orchestration, contract-based capability boundaries, and making codebases navigable by autonomous systems." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Agentic Systems Architecture — Enrico Piovesan" />
-  <meta property="og:description" content="Architectural patterns for building software systems that work with AI agents — multi-agent orchestration, contract-based boundaries, and agentic system design." />
+  <meta property="og:description" content="Structural patterns for building software that works with AI agents — multi-agent orchestration, contract-based boundaries, navigable codebases." />
   <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
   <meta property="og:url" content="https://enricopiovesan.com/concepts/agentic-systems/" />
   <meta property="og:type" content="website" />
@@ -71,7 +71,27 @@
 
   <main id="main-content">
     <article class="page-content">
-  <p>Content coming soon</p>
+  <p>AI agents are becoming a real part of software teams. Not as a future possibility. As a present reality that most engineering organizations are not structurally ready for.</p>
+<p>The gap is not model capability. The gap is architectural legibility. Agents work well in codebases that declare their intent. They work poorly in codebases that assume a human will fill in the gaps.</p>
+<p>Agentic systems architecture is the practice of designing software so that AI agents can participate meaningfully — not just execute instructions but navigate capabilities, validate behavior, and compose solutions within declared boundaries.</p>
+<h2>What makes a system agentic-ready</h2>
+<p>An agentic-ready system has three properties:</p>
+<p><strong>Declared capabilities.</strong> Every meaningful unit of behavior is named, bounded, and described in machine-readable form. Agents can discover what the system can do without reading all the code.</p>
+<p><strong>Explicit contracts.</strong> Each capability declares its preconditions, postconditions, and invariants. Agents can reason about whether a capability is appropriate for a given task without guessing.</p>
+<p><strong>Governed composition.</strong> When multiple agents work together, the boundaries between their responsibilities are explicit. Multi-agent orchestration does not collapse into chaos because the contracts prevent it.</p>
+<h2>The multi-agent challenge</h2>
+<p>Most teams think about AI agents as single assistants. The harder problem is multi-agent orchestration — multiple agents working on the same codebase, the same pipeline, or the same capability graph simultaneously.</p>
+<p>Without contracts, multi-agent systems produce conflicts that are difficult to detect and expensive to fix. One agent makes an assumption that another agent violates. The output looks correct until it does not.</p>
+<p>With contracts, each agent operates within declared boundaries. The orchestration layer can validate that agents are composing capabilities correctly before anything executes.</p>
+<h2>Where to go deeper</h2>
+<p>The full framework for building agentic-ready software is covered across C-DAD, The Day After, and the Traverse runtime.</p>
+<ul>
+<li><a href="/concepts/contract-driven-ai-development/">Contract-Driven AI Development</a></li>
+<li><a href="/c-dad/">C-DAD — full framework</a></li>
+<li><a href="/books/">The Day After</a></li>
+<li><a href="https://github.com/enricopiovesan/Traverse">Traverse</a></li>
+<li><a href="https://github.com/youaskm3/youaskm3">youaskm3</a></li>
+</ul>
 
 </article>
 
