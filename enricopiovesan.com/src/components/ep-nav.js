@@ -62,11 +62,10 @@ class EpNav extends HTMLElement {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 2rem 3rem;
+          padding: 1.5rem 3rem;
           border-bottom: 1px solid var(--border);
           position: relative;
         }
-        .nav-left { display: flex; align-items: center; gap: 2rem; }
         .nav-name {
           font-family: var(--mono);
           font-size: 0.85rem;
@@ -74,21 +73,26 @@ class EpNav extends HTMLElement {
           color: var(--mid);
           text-decoration: none;
           transition: color 0.15s;
+          flex-shrink: 0;
         }
         .nav-name:hover { color: var(--white); }
         .nav-links {
           display: flex;
-          gap: 2rem;
+          gap: 1.25rem;
           font-family: var(--mono);
-          font-size: 0.75rem;
+          font-size: 0.72rem;
           letter-spacing: 0.06em;
           list-style: none;
           flex-wrap: wrap;
+          justify-content: flex-end;
         }
-        .nav-links a { color: var(--mid); text-decoration: none; transition: color 0.15s; }
-        .nav-links a:hover,
-        .nav-links a[aria-current="page"] { color: var(--white); }
-        .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+        .nav-links a { color: var(--mid); text-decoration: none; transition: color 0.15s; padding-bottom: 2px; }
+        .nav-links a:hover { color: var(--white); }
+        .nav-links a[aria-current="page"] {
+          color: var(--white);
+          border-bottom: 1px solid var(--accent);
+        }
+        .nav-right { display: flex; align-items: center; gap: 1.25rem; margin-left: 1.25rem; }
         .theme-toggle {
           background: none;
           border: none;
@@ -134,14 +138,12 @@ class EpNav extends HTMLElement {
         }
       </style>
       <nav aria-label="Main navigation">
-        <div class="nav-left">
-          <a href="${base}/" class="nav-name">ENRICO PIOVESAN</a>
-          <ul class="nav-links" id="nav-menu">
-            ${links.map(l => `
-              <li><a href="${l.href}"${l.external ? ' target="_blank" rel="noopener"' : ''}${active === l.slug && !l.external ? ' aria-current="page"' : ''}>${l.label}</a></li>
-            `).join('')}
-          </ul>
-        </div>
+        <a href="${base}/" class="nav-name">ENRICO PIOVESAN</a>
+        <ul class="nav-links" id="nav-menu">
+          ${links.map(l => `
+            <li><a href="${l.href}"${l.external ? ' target="_blank" rel="noopener"' : ''}${active === l.slug && !l.external ? ' aria-current="page"' : ''}>${l.label}</a></li>
+          `).join('')}
+        </ul>
         <div class="nav-right">
           <button class="theme-toggle" aria-label="Toggle theme">●</button>
           <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">☰</button>

@@ -5,34 +5,38 @@ class EpFooter extends HTMLElement {
     const year = new Date().getFullYear();
     this.innerHTML = `
       <style>
-        ep-footer { display: block; min-height: 64px; }
+        ep-footer { display: block; min-height: 56px; }
         footer {
-          padding: 2rem 3rem;
-          border-top: 1px solid var(--border);
+          padding: 1.25rem 3rem;
+          background: var(--fg);
           display: flex;
           justify-content: space-between;
           align-items: center;
           flex-wrap: wrap;
-          gap: 1rem;
+          gap: 0.75rem;
         }
         .footer-links {
           display: flex;
-          gap: 2rem;
+          gap: 1.5rem;
           font-family: var(--mono);
-          font-size: 0.72rem;
+          font-size: 0.7rem;
           letter-spacing: 0.06em;
           list-style: none;
+          flex-wrap: wrap;
+          align-items: center;
         }
-        .footer-links a { color: var(--mid); text-decoration: none; transition: color 0.15s; }
-        .footer-links a:hover { color: var(--white); }
+        .footer-links a { color: var(--bg); opacity: 0.55; text-decoration: none; transition: opacity 0.15s; }
+        .footer-links a:hover { opacity: 1; }
         .footer-copy {
           font-family: var(--mono);
-          font-size: 0.72rem;
-          color: var(--mid);
+          font-size: 0.7rem;
+          color: var(--bg);
+          opacity: 0.55;
+          white-space: nowrap;
         }
         @media (max-width: 640px) {
-          footer { padding: 1.5rem; }
-          .footer-links { gap: 1rem; flex-wrap: wrap; }
+          footer { padding: 1rem 1.5rem; }
+          .footer-links { gap: 1rem; }
         }
       </style>
       <footer>
@@ -41,6 +45,7 @@ class EpFooter extends HTMLElement {
           <li><a href="https://www.amazon.com/dp/B0GTTTTQH4" target="_blank" rel="noopener">UMA Book</a></li>
           <li><a href="https://github.com/enricopiovesan" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://linkedin.com/in/enricopiovesan" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://blog.enricopiovesan.com" target="_blank" rel="noopener">Blog</a></li>
         </ul>
         <p class="footer-copy">Enrico Piovesan ${year}</p>
       </footer>

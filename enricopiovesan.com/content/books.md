@@ -13,8 +13,9 @@ books:
     publisher: Amazon
     cover: /src/assets/img/cover.png
     url: https://www.amazon.com/dp/B0GTTTTQH4
+    website: https://www.universalmicroservices.com/
     companion_repo: https://github.com/enricopiovesan/UMA-code-examples
-    companion_live: https://www.universalmicroservices.com
+    companion_live: https://www.universalmicroservices.com/reference-application/
     audience: Software architects, senior engineers, and technical leads designing modern distributed systems who are tired of paying the hidden tax of duplicated logic across runtimes.
     description:
       - Most distributed systems have a logic problem that nobody talks about. The same business rule — a pricing formula, an eligibility check, a validation step — gets implemented separately for the browser, the backend, the edge, and now the AI pipeline. Nobody planned it that way. It happened because the architecture made assumptions about the environment before it made decisions about the behavior. Over time the copies drift. The system becomes harder to reason about, harder to change, and harder to trust.
