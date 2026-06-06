@@ -6,24 +6,52 @@ class EpFooter extends HTMLElement {
   render() {
     const year = new Date().getFullYear();
     const base = (this.getAttribute('base') || '/').replace(/\/$/, '');
-    const pages = [
-      { href: `${base}/about/`, label: 'About' },
-      { href: `${base}/books/`, label: 'Books' },
-      { href: `${base}/whitepapers/`, label: 'White Papers' },
-      { href: `${base}/projects/`, label: 'Projects' },
-      { href: `${base}/writing/`, label: 'Writing' },
-      { href: `${base}/speaking/`, label: 'Speaking' },
-      { href: `${base}/uses/`, label: 'Uses' },
-      { href: `${base}/concepts/`, label: 'Concepts' },
-    ];
-    const links = [
-      { href: 'https://blog.enricopiovesan.com', label: 'Blog' },
-      { href: 'https://www.universalmicroservices.com', label: 'universalmicroservices.com' },
-      { href: 'https://www.amazon.com/dp/B0GTTTTQH4', label: 'UMA Book' },
-      { href: 'https://github.com/enricopiovesan', label: 'GitHub' },
-      { href: 'https://linkedin.com/in/enricopiovesan', label: 'LinkedIn' },
-      { href: 'https://medium.com/@enricopiovesan', label: 'Medium' },
-      { href: 'https://x.com/enricopiovesan', label: 'X' },
+
+    const cols = [
+      {
+        label: 'Pages',
+        links: [
+          { href: `${base}/about/`, label: 'About' },
+          { href: `${base}/books/`, label: 'Books' },
+          { href: `${base}/projects/`, label: 'Projects' },
+          { href: `${base}/writing/`, label: 'Writing' },
+          { href: `${base}/speaking/`, label: 'Speaking' },
+          { href: `${base}/uses/`, label: 'Uses' },
+          { href: `${base}/uma/`, label: 'UMA' },
+          { href: `${base}/c-dad/`, label: 'C-DAD' },
+        ],
+      },
+      {
+        label: 'Concepts',
+        links: [
+          { href: `${base}/concepts/`, label: 'All concepts' },
+          { href: `${base}/concepts/universal-microservices/`, label: 'Universal Microservices' },
+          { href: `${base}/concepts/contract-driven-ai-development/`, label: 'Contract-Driven AI Dev' },
+          { href: `${base}/concepts/agentic-systems/`, label: 'Agentic Systems' },
+        ],
+      },
+      {
+        label: 'White Papers',
+        links: [
+          { href: `${base}/whitepapers/`, label: 'All papers' },
+          { href: `${base}/whitepapers/uma/`, label: 'UMA' },
+          { href: `${base}/whitepapers/ecca/`, label: 'ECCA' },
+          { href: `${base}/whitepapers/c-dad/`, label: 'C-DAD' },
+          { href: `${base}/whitepapers/csma/`, label: 'CSMA' },
+        ],
+      },
+      {
+        label: 'Links',
+        links: [
+          { href: 'https://blog.enricopiovesan.com', label: 'Blog', external: true },
+          { href: 'https://www.universalmicroservices.com', label: 'universalmicroservices.com', external: true },
+          { href: 'https://www.amazon.com/dp/B0GTTTTQH4', label: 'UMA Book', external: true },
+          { href: 'https://github.com/enricopiovesan', label: 'GitHub', external: true },
+          { href: 'https://linkedin.com/in/enricopiovesan', label: 'LinkedIn', external: true },
+          { href: 'https://medium.com/@enricopiovesan', label: 'Medium', external: true },
+          { href: 'https://x.com/enricopiovesan', label: 'X', external: true },
+        ],
+      },
     ];
 
     this.innerHTML = `
@@ -33,7 +61,7 @@ class EpFooter extends HTMLElement {
           padding: 2.5rem 3rem;
           background: var(--fg);
           display: grid;
-          grid-template-columns: 1fr 1fr auto;
+          grid-template-columns: repeat(4, 1fr);
           gap: 2rem;
           align-items: start;
         }
@@ -62,40 +90,32 @@ class EpFooter extends HTMLElement {
           transition: opacity 0.15s;
         }
         .footer-col a:hover { opacity: 1; }
-        .footer-copy {
+        .footer-bottom {
+          grid-column: 1 / -1;
+          border-top: 1px solid rgba(var(--bg-raw, 245,244,240), 0.12);
+          padding-top: 1rem;
           font-family: var(--mono);
           font-size: 0.65rem;
           color: var(--bg);
           opacity: 0.35;
-          white-space: nowrap;
-          align-self: end;
-          text-align: right;
         }
-        @media (max-width: 760px) {
-          footer {
-            grid-template-columns: 1fr 1fr;
-            padding: 2rem 1.5rem;
-          }
-          .footer-copy { grid-column: 1 / -1; text-align: left; }
+        @media (max-width: 900px) {
+          footer { grid-template-columns: 1fr 1fr; padding: 2rem 1.5rem; }
         }
         @media (max-width: 480px) {
           footer { grid-template-columns: 1fr; }
         }
       </style>
       <footer>
-        <div class="footer-col">
-          <p class="footer-col-label">Pages</p>
-          <ul>
-            ${pages.map(p => `<li><a href="${p.href}">${p.label}</a></li>`).join('')}
-          </ul>
-        </div>
-        <div class="footer-col">
-          <p class="footer-col-label">Links</p>
-          <ul>
-            ${links.map(l => `<li><a href="${l.href}" target="_blank" rel="noopener">${l.label}</a></li>`).join('')}
-          </ul>
-        </div>
-        <p class="footer-copy">Enrico Piovesan ${year}</p>
+        ${cols.map(col => `
+          <div class="footer-col">
+            <p class="footer-col-label">${col.label}</p>
+            <ul>
+              ${col.links.map(l => `<li><a href="${l.href}"${l.external ? ' target="_blank" rel="noopener"' : ''}>${l.label}</a></li>`).join('')}
+            </ul>
+          </div>
+        `).join('')}
+        <p class="footer-bottom">Enrico Piovesan ${year}</p>
       </footer>
     `;
   }
