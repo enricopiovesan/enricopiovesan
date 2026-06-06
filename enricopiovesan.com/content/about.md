@@ -18,6 +18,7 @@ bio:
   - That question is where everything came from. UMA started as an answer to portability. Why should the same business logic exist in five different forms across browser, backend, edge, and AI pipeline? C-DAD started as an answer to navigability. Why can AI agents describe what software does but not why it does it? Traverse is the runtime that takes those ideas further. Each one came from a real problem that kept showing up, not from a whiteboard.
   - Two books, five research papers, and four open source projects later, the conviction has not changed. It has just gotten more specific.
   - I am a Platform Software Architect at Autodesk. Before that I spent four years as a Domain Software Architect at Ford, and before that I co-founded companies in travel, education, and payments. I moved from Italy to Canada about ten years ago and ended up in Golden, BC, which is a small town in the Purcell Mountains with exceptional snow. I am a certified ski instructor and a ski patroller. I have two daughters who think the word monolith is scary, and I have not corrected them. I still make real carbonara. No cream, no shortcuts.
+  - I do not believe in work life balance. I believe in seasons. This is mine to give everything.
 links:
   - label: GitHub
     url: https://github.com/enricopiovesan
