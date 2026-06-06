@@ -29,9 +29,7 @@ class EpNav extends HTMLElement {
     const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const isDark = theme === 'dark' || (!theme && systemDark);
     btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-    btn.innerHTML = isDark
-      ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`
-      : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+    btn.textContent = isDark ? '○' : '●';
   }
 
   _toggleMenu() {
@@ -59,12 +57,12 @@ class EpNav extends HTMLElement {
 
     this.innerHTML = `
       <style>
-        ep-nav { display: block; min-height: 64px; }
+        ep-nav { display: block; min-height: 76px; }
         nav {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 1.25rem 3rem;
+          padding: 1.5rem 3rem;
           border-bottom: 1px solid var(--border);
           position: relative;
         }
@@ -77,12 +75,7 @@ class EpNav extends HTMLElement {
           transition: color 0.15s;
           flex-shrink: 0;
         }
-        .nav-name:hover { color: var(--fg); }
-        .nav-right {
-          display: flex;
-          align-items: center;
-          gap: 1.25rem;
-        }
+        .nav-name:hover { color: var(--white); }
         .nav-links {
           display: flex;
           gap: 1.25rem;
@@ -91,26 +84,27 @@ class EpNav extends HTMLElement {
           letter-spacing: 0.06em;
           list-style: none;
           flex-wrap: wrap;
-          align-items: center;
+          justify-content: flex-end;
         }
         .nav-links a { color: var(--mid); text-decoration: none; transition: color 0.15s; padding-bottom: 2px; }
-        .nav-links a:hover { color: var(--fg); }
+        .nav-links a:hover { color: var(--white); }
         .nav-links a[aria-current="page"] {
-          color: var(--fg);
+          color: var(--white);
           border-bottom: 1px solid var(--accent);
         }
+        .nav-right { display: flex; align-items: center; gap: 1.25rem; margin-left: 1.25rem; }
         .theme-toggle {
           background: none;
           border: none;
           cursor: pointer;
+          font-family: var(--mono);
+          font-size: 0.85rem;
           color: var(--mid);
           padding: 0;
           line-height: 1;
-          display: flex;
-          align-items: center;
           transition: color 0.15s;
         }
-        .theme-toggle:hover { color: var(--fg); }
+        .theme-toggle:hover { color: var(--white); }
         .hamburger {
           display: none;
           background: none;
@@ -122,9 +116,9 @@ class EpNav extends HTMLElement {
           line-height: 1;
           transition: color 0.15s;
         }
-        .hamburger:hover { color: var(--fg); }
+        .hamburger:hover { color: var(--white); }
 
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
           .hamburger { display: block; }
           .nav-links {
             display: none;
@@ -132,7 +126,7 @@ class EpNav extends HTMLElement {
             top: 100%;
             left: 0;
             right: 0;
-            background: var(--bg);
+            background: var(--bg, var(--black));
             border-bottom: 1px solid var(--border);
             padding: 1.5rem 2rem;
             flex-direction: column;
@@ -140,18 +134,18 @@ class EpNav extends HTMLElement {
             z-index: 100;
           }
           .nav-links.open { display: flex; }
-          nav { padding: 1.25rem 1.5rem; }
+          nav { padding: 1.5rem 1.5rem; }
         }
       </style>
       <nav aria-label="Main navigation">
         <a href="${base}/" class="nav-name">ENRICO PIOVESAN</a>
+        <ul class="nav-links" id="nav-menu">
+          ${links.map(l => `
+            <li><a href="${l.href}"${l.external ? ' target="_blank" rel="noopener"' : ''}${active === l.slug && !l.external ? ' aria-current="page"' : ''}>${l.label}</a></li>
+          `).join('')}
+        </ul>
         <div class="nav-right">
-          <ul class="nav-links" id="nav-menu">
-            ${links.map(l => `
-              <li><a href="${l.href}"${l.external ? ' target="_blank" rel="noopener"' : ''}${active === l.slug && !l.external ? ' aria-current="page"' : ''}>${l.label}</a></li>
-            `).join('')}
-          </ul>
-          <button class="theme-toggle" aria-label="Toggle theme"></button>
+          <button class="theme-toggle" aria-label="Toggle theme">●</button>
           <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">☰</button>
         </div>
       </nav>
