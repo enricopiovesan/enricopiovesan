@@ -107,6 +107,8 @@ class EpNav extends HTMLElement {
           padding: 1.25rem 3rem;
           border-bottom: 1px solid var(--border);
           position: relative;
+          max-width: 1400px;
+          margin: 0 auto;
         }
         .nav-name {
           font-family: var(--mono);

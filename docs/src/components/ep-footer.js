@@ -61,6 +61,8 @@ class EpFooter extends HTMLElement {
         ep-footer { display: block; }
         .footer-contact {
           padding: 2.5rem 3rem;
+          max-width: 1400px;
+          margin: 0 auto;
           background: var(--fg);
           display: flex;
           justify-content: space-between;
@@ -99,6 +101,8 @@ class EpFooter extends HTMLElement {
         footer {
           padding: 2.5rem 3rem;
           background: var(--fg);
+          max-width: 1400px;
+          margin: 0 auto;
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 2rem;
