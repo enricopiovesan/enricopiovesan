@@ -159,11 +159,14 @@ class EpNav extends HTMLElement {
           border: none;
           cursor: pointer;
           color: var(--mid);
-          padding: 0 0 0 0.15rem;
+          padding: 4px 6px;
+          min-width: 24px;
+          min-height: 24px;
           line-height: 1;
           font-size: 0.6rem;
           display: flex;
           align-items: center;
+          justify-content: center;
           transition: color 0.15s;
         }
         .nav-dropdown-btn:hover { color: var(--fg); }

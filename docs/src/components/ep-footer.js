@@ -27,7 +27,7 @@ class EpFooter extends HTMLElement {
           font-family: var(--mono);
           font-size: 0.65rem;
           letter-spacing: 0.12em;
-          color: var(--mid);
+          color: var(--bg);
           text-transform: uppercase;
           margin-bottom: 0.75rem;
         }
@@ -41,12 +41,13 @@ class EpFooter extends HTMLElement {
         .footer-contact-link {
           font-family: var(--mono);
           font-size: 0.75rem;
-          color: var(--accent);
-          text-decoration: none;
+          color: var(--bg);
+          text-decoration: underline;
+          text-underline-offset: 3px;
           white-space: nowrap;
           transition: opacity 0.15s;
         }
-        .footer-contact-link:hover { opacity: 0.75; }
+        .footer-contact-link:hover { opacity: 0.65; }
         @media (max-width: 640px) {
           .footer-contact { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
         }
@@ -63,7 +64,7 @@ class EpFooter extends HTMLElement {
           font-family: var(--mono);
           font-size: 0.65rem;
           letter-spacing: 0.12em;
-          color: var(--mid);
+          color: var(--bg);
           text-transform: uppercase;
           margin-bottom: 1rem;
           padding-bottom: 0.5rem;
@@ -156,13 +157,15 @@ class EpFooter extends HTMLElement {
           <p class="footer-col-label">Work</p>
           <ul>
             <li><a href="${b}/books/">Books</a></li>
-            <li><a href="${b}/whitepapers/">White Papers</a></li>
-            <ul class="footer-sub">
-              <li><a href="${b}/whitepapers/uma/">UMA</a></li>
-              <li><a href="${b}/whitepapers/ecca/">ECCA</a></li>
-              <li><a href="${b}/whitepapers/c-dad/">C-DAD</a></li>
-              <li><a href="${b}/whitepapers/csma/">CSMA</a></li>
-            </ul>
+            <li>
+              <a href="${b}/whitepapers/">White Papers</a>
+              <ul class="footer-sub">
+                <li><a href="${b}/whitepapers/uma/">UMA</a></li>
+                <li><a href="${b}/whitepapers/ecca/">ECCA</a></li>
+                <li><a href="${b}/whitepapers/c-dad/">C-DAD</a></li>
+                <li><a href="${b}/whitepapers/csma/">CSMA</a></li>
+              </ul>
+            </li>
             <li><a href="${b}/projects/">Projects</a></li>
             <li><a href="${b}/uma/">UMA framework</a></li>
             <li><a href="${b}/c-dad/">C-DAD framework</a></li>
@@ -172,16 +175,20 @@ class EpFooter extends HTMLElement {
         <div class="footer-col">
           <p class="footer-col-label">Thinking</p>
           <ul>
-            <li><a href="${b}/concepts/">Concepts</a></li>
-            <ul class="footer-sub">
-              <li><a href="${b}/concepts/universal-microservices/">Universal Microservices</a></li>
-              <li><a href="${b}/concepts/contract-driven-ai-development/">Contract-Driven AI Dev</a></li>
-              <li><a href="${b}/concepts/agentic-systems/">Agentic Systems</a></li>
-            </ul>
-            <li><a href="${b}/perspectives/">Perspectives</a></li>
-            <ul class="footer-sub">
-              <li><a href="${b}/perspectives/context-engineering/">Context Engineering</a></li>
-            </ul>
+            <li>
+              <a href="${b}/concepts/">Concepts</a>
+              <ul class="footer-sub">
+                <li><a href="${b}/concepts/universal-microservices/">Universal Microservices</a></li>
+                <li><a href="${b}/concepts/contract-driven-ai-development/">Contract-Driven AI Dev</a></li>
+                <li><a href="${b}/concepts/agentic-systems/">Agentic Systems</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="${b}/perspectives/">Perspectives</a>
+              <ul class="footer-sub">
+                <li><a href="${b}/perspectives/context-engineering/">Context Engineering</a></li>
+              </ul>
+            </li>
           </ul>
         </div>
 
