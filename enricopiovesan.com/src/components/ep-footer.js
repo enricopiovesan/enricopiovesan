@@ -57,46 +57,43 @@ class EpFooter extends HTMLElement {
     this.innerHTML = `
       <style>
         ep-footer { display: block; }
-        .footer-bio {
+        .footer-contact {
           padding: 2.5rem 3rem;
           background: var(--fg);
           display: flex;
-          align-items: flex-start;
-          gap: 1.5rem;
+          justify-content: space-between;
+          align-items: center;
+          gap: 2rem;
           border-bottom: 1px solid rgba(10,10,10,0.15);
+          flex-wrap: wrap;
         }
-        .footer-bio picture,
-        .footer-bio picture:has(img) {
-          width: 56px;
-          height: 56px;
-          border-radius: 50%;
-          overflow: hidden;
-          flex-shrink: 0;
-          display: block;
-        }
-        .footer-bio img {
-          width: 56px;
-          height: 56px;
-          border-radius: 50%;
-          object-fit: cover;
-          object-position: center top;
-          display: block;
-        }
-        .footer-bio-text {
+        .footer-contact-label {
           font-family: var(--mono);
-          font-size: 0.72rem;
+          font-size: 0.6rem;
+          letter-spacing: 0.12em;
           color: var(--bg);
-          opacity: 0.6;
-          line-height: 1.7;
-          max-width: 520px;
+          opacity: 0.35;
+          text-transform: uppercase;
+          margin-bottom: 0.75rem;
         }
-        .footer-bio-text a {
+        .footer-contact-text {
+          font-size: 0.95rem;
           color: var(--bg);
-          opacity: 1;
-          text-decoration: underline;
+          line-height: 1.6;
+          max-width: 480px;
+        }
+        .footer-contact-link {
+          font-family: var(--mono);
+          font-size: 0.75rem;
+          color: var(--accent);
+          text-decoration: none;
+          white-space: nowrap;
           transition: opacity 0.15s;
         }
-        .footer-bio-text a:hover { opacity: 0.7; }
+        .footer-contact-link:hover { opacity: 0.75; }
+        @media (max-width: 640px) {
+          .footer-contact { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+        }
         footer {
           padding: 2.5rem 3rem;
           background: var(--fg);
@@ -146,12 +143,12 @@ class EpFooter extends HTMLElement {
           footer { grid-template-columns: 1fr; }
         }
       </style>
-      <div class="footer-bio">
-        <picture>
-          <source srcset="/src/assets/img/enrico-piovesan.webp" type="image/webp" />
-          <img src="/src/assets/img/enrico-piovesan.jpg" alt="Enrico Piovesan" width="56" height="56" loading="lazy" />
-        </picture>
-        <p class="footer-bio-text">Platform Software Architect at Autodesk. Based in Golden, BC, Purcell Mountains, Canada. Two books, five research papers, and four open source projects. The problems kept showing up and nobody else was fixing them. <a href="${base}/about/">About →</a></p>
+      <div class="footer-contact">
+        <div>
+          <p class="footer-contact-label">Get in touch</p>
+          <p class="footer-contact-text">Speaking invitations, collaborations, or just a question about the work.</p>
+        </div>
+        <a class="footer-contact-link" href="https://linkedin.com/in/enricopiovesan" target="_blank" rel="noopener">Connect on LinkedIn →</a>
       </div>
       <footer>
         ${cols.map(col => `
