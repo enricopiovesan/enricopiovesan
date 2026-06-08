@@ -1,6 +1,6 @@
 ---
 title: Software Architecture Books, Papers & Projects
-description: Books, white papers, and open source projects by Enrico Piovesan.
+description: Published books, research white papers, and open source tools from Enrico Piovesan — covering UMA, C-DAD, portable systems, and AI-native software architecture.
 layout: page.njk
 permalink: /work/
 canonical: https://enricopiovesan.com/work/

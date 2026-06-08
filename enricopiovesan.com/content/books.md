@@ -1,6 +1,6 @@
 ---
 title: Software Architecture Books by Enrico Piovesan
-description: Two books on software architecture and AI-native systems by Enrico Piovesan. One published, one forthcoming.
+description: Two books by Enrico Piovesan on software architecture and AI-native systems. Universal Microservices Architecture published by Apress. The Day After forthcoming, on restructuring software teams for AI agents.
 layout: books.njk
 permalink: /books/
 canonical: https://enricopiovesan.com/books/

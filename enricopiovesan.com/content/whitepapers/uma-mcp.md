@@ -9,7 +9,9 @@ ogDescription: How Universal Microservices Architecture and the Model Context Pr
 datePublished: "2025-06-01"
 ---
 
-**2025 · Enrico Piovesan**
+**June 2025 · Enrico Piovesan**
+
+[Download PDF →](/whitepapers/Designing-Adaptive-AI-Systems-with-UMA-and-MCP.pdf)
 
 ---
 

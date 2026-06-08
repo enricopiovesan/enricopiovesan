@@ -1,6 +1,6 @@
 ---
 title: "White Paper: Contract-Driven AI Development (C-DAD)"
-description: Contract-Driven AI Development (C-DAD) is a framework for building AI-native systems where contracts, not code, define collaboration between humans, machines, and runtimes.
+description: White paper introducing C-DAD — a framework where contracts, not code, define AI-native system collaboration. By Enrico Piovesan. November 2025.
 layout: page.njk
 permalink: /whitepapers/c-dad/
 canonical: https://enricopiovesan.com/whitepapers/c-dad/

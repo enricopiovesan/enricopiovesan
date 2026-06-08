@@ -1,6 +1,6 @@
 ---
 title: Architecture Concepts & Perspectives
-description: Concepts and perspectives on software architecture, AI-native systems, and portable runtimes.
+description: Concepts and perspectives on software architecture, AI-native systems, and portable runtimes — covering UMA, C-DAD, agentic systems, and context engineering.
 layout: page.njk
 permalink: /thinking/
 canonical: https://enricopiovesan.com/thinking/
@@ -10,7 +10,7 @@ ogDescription: Concepts and perspectives on software architecture, AI-native sys
 
 ## [Concepts](/concepts/)
 
-Deep explanations of the three architectural concepts behind the published work: Universal Microservices Architecture, which separates business logic from runtime environment so the same capability can run across browser, edge, cloud, and AI pipeline without being rewritten; Contract-Driven AI Development, which makes software legible to AI agents by declaring intent through machine-enforceable contracts rather than leaving it implicit in code; and Agentic Systems Architecture, which defines how to design software that AI agents can navigate, validate, and compose without human interpretation at every step. Each concept has a white paper, a companion tool, and in most cases a book behind it.
+Deep explanations of the three architectural concepts behind the published work: [Universal Microservices Architecture](/concepts/universal-microservices/), which separates business logic from runtime environment so the same capability can run across browser, edge, cloud, and AI pipeline without being rewritten; [Contract-Driven AI Development](/concepts/contract-driven-ai-development/), which makes software legible to AI agents by declaring intent through machine-enforceable contracts rather than leaving it implicit in code; and [Agentic Systems Architecture](/concepts/agentic-systems/), which defines how to design software that AI agents can navigate, validate, and compose without human interpretation at every step. Each concept has a white paper, a companion tool, and in most cases a book behind it. See also the full framework pages: [Universal Microservices Architecture (UMA)](/uma/) and [Contract-Driven AI Development (C-DAD)](/c-dad/).
 
 ## [Perspectives](/perspectives/)
 

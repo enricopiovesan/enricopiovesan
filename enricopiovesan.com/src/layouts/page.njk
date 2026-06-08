@@ -22,6 +22,7 @@ layout: base.njk
       "name": "{{ title }}",
       "description": "{{ description }}",
       "datePublished": "{{ datePublished }}",
+      "dateModified": "2026-06-08",
       "author": { "@id": "https://enricopiovesan.com/#person" },
       "url": "{{ canonical }}",
       "inLanguage": "en",
@@ -51,6 +52,7 @@ layout: base.njk
       "name": "{{ title }}",
       "description": "{{ description }}",
       "datePublished": "{{ datePublished }}",
+      "dateModified": "2026-06-08",
       "author": { "@id": "https://enricopiovesan.com/#person" },
       "publisher": { "@id": "https://enricopiovesan.com/#person" },
       "url": "{{ canonical }}",
@@ -66,5 +68,8 @@ layout: base.njk
 <article class="page-content">
   <h1>{{ title | replace(" — Enrico Piovesan", "") }}</h1>
   {% if lastUpdated %}<p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: {{ lastUpdated }}</p>{% endif %}
+  {% if canonical and canonical.includes('/whitepapers/') and not canonical.endsWith('/whitepapers/') %}
+  <p style="font-family:var(--mono);font-size:0.72rem;color:var(--mid);margin-bottom:2rem;border-left:2px solid var(--border);padding-left:0.75rem;">By <a href="/about/" style="color:var(--mid);text-decoration:underline;">Enrico Piovesan</a> — Platform Software Architect at Autodesk, author of <em>Universal Microservices Architecture</em> (Apress). Originator of UMA and C-DAD frameworks.</p>
+  {% endif %}
   {{ content | safe }}
 </article>

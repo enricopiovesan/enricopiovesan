@@ -1,6 +1,6 @@
 ---
 title: What is Universal Microservices Architecture?
-description: Universal microservices architecture is an approach to distributed systems design where business logic is separated from runtime environment, enabling the same capability to run across browser, edge, cloud, and AI pipeline without rewriting.
+description: UMA separates business logic from runtime so the same capability runs across browser, edge, cloud, and AI pipeline without rewriting. Coined by Enrico Piovesan, 2023.
 layout: page.njk
 permalink: /concepts/universal-microservices/
 canonical: https://enricopiovesan.com/concepts/universal-microservices/

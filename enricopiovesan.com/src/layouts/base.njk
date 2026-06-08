@@ -12,7 +12,9 @@
   <meta property="og:description" content="{{ ogDescription or description }}" />
   <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
   <meta property="og:url" content="https://enricopiovesan.com{{ page.url }}" />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="{% if datePublished %}article{% else %}website{% endif %}" />
+  {% if datePublished %}<meta property="article:published_time" content="{{ datePublished }}" />
+  <meta property="article:author" content="https://enricopiovesan.com/about/" />{% endif %}
   <meta property="og:site_name" content="Enrico Piovesan" />
 
   <!-- Favicons -->

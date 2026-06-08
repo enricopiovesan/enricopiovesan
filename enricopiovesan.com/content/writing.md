@@ -1,6 +1,6 @@
 ---
 title: Software Architecture Writing on Medium
-description: Weekly writing on software architecture and AI-native systems. Two Medium publication series since May 2025.
+description: Two weekly Medium series on software architecture and AI-native systems — one covering C-DAD and agentic patterns, one covering UMA, WebAssembly, and portable systems.
 layout: writing.njk
 permalink: /writing/
 canonical: https://enricopiovesan.com/writing/

@@ -1,6 +1,6 @@
 ---
 title: Client-Side Microservices Architecture (CSMA)
-description: CSMA applies service-oriented thinking to the frontend, packaging business logic as modular, portable units that run in the browser without depending on a server call for every decision.
+description: CSMA packages frontend business logic as modular, portable units that run in the browser without server calls — the precursor to Universal Microservices Architecture.
 layout: page.njk
 permalink: /whitepapers/csma/
 canonical: https://enricopiovesan.com/whitepapers/csma/
