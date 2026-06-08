@@ -8,10 +8,18 @@ ogTitle: Thinking
 ogDescription: Concepts and perspectives on software architecture, AI-native systems, and portable runtimes.
 ---
 
+The work section covers what has been built and published. This section covers how to think about the problems that motivated it. Not tutorials or summaries of what others are saying — close readings of specific ideas, where they lead, and what they leave unresolved.
+
 ## [Concepts](/concepts/)
 
-Deep explanations of the three architectural concepts behind the published work: [Universal Microservices Architecture](/concepts/universal-microservices/), which separates business logic from runtime environment so the same capability can run across browser, edge, cloud, and AI pipeline without being rewritten; [Contract-Driven AI Development](/concepts/contract-driven-ai-development/), which makes software legible to AI agents by declaring intent through machine-enforceable contracts rather than leaving it implicit in code; and [Agentic Systems Architecture](/concepts/agentic-systems/), which defines how to design software that AI agents can navigate, validate, and compose without human interpretation at every step. Each concept has a white paper, a companion tool, and in most cases a book behind it. See also the full framework pages: [Universal Microservices Architecture (UMA)](/uma/) and [Contract-Driven AI Development (C-DAD)](/c-dad/).
+Short, precise explanations of the three architectural ideas behind the published work. Each concept page answers one question directly and links to the full framework, white paper, and tooling behind it.
+
+[Universal Microservices Architecture](/concepts/universal-microservices/) addresses the portability problem: why does the same business logic get rewritten for every runtime, and what does an architecture look like that prevents it structurally? The concept page gives the short answer. The [full UMA framework page](/uma/) and the [Apress book](https://www.amazon.com/dp/B0GTTTTQH4) give the complete model.
+
+[Contract-Driven AI Development](/concepts/contract-driven-ai-development/) addresses the navigability problem: why can AI agents describe what software does but not why it does it, and what changes when contracts replace implicit intent? The concept page gives the short answer. The [full C-DAD framework page](/c-dad/) and the forthcoming book give the complete model.
+
+[Agentic Systems Architecture](/concepts/agentic-systems/) addresses the coordination problem: what does software need to provide structurally for AI agents to participate safely — not just execute instructions, but navigate capabilities, validate behavior, and compose solutions within declared boundaries?
 
 ## [Perspectives](/perspectives/)
 
-Takes on emerging terms and practices in AI engineering and software architecture. Not summaries of what others are saying — analysis of where specific ideas lead, what they miss, and what comes next. The first piece examines context engineering: what it gets right, where it stops short, and why contract-driven structure solves problems that context management cannot. New perspectives are added as the field moves.
+Longer analytical pieces on specific terms and practices the industry is actively building around. The format is always the same: what the idea gets right, what it leaves unresolved, and what structural answer fills the gap. Current piece: [Beyond Context Engineering](/perspectives/context-engineering/) — why giving agents better context is necessary but not sufficient, and why machine-enforceable contracts solve the problem that context management cannot. New perspectives are added as the field moves and specific ideas become worth examining at length.
