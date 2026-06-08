@@ -14,29 +14,45 @@ layout: base.njk
       ]
     },
     {
-      "@type": "SoftwareSourceCode",
+      "@type": "SoftwareApplication",
       "name": "UMA-code-examples",
-      "description": "13 chapters of runnable code companion to Universal Microservices Architecture. 100% business logic coverage enforced in CI.",
+      "applicationCategory": "DeveloperApplication",
+      "description": "13 chapters of runnable code companion to Universal Microservices Architecture. Business logic coverage enforced in CI. Live reference application at universalmicroservices.com.",
       "codeRepository": "https://github.com/enricopiovesan/UMA-code-examples",
       "programmingLanguage": ["Rust", "WebAssembly", "JavaScript"],
       "author": { "@id": "https://enricopiovesan.com/#person" },
-      "url": "https://www.universalmicroservices.com"
+      "url": "https://www.universalmicroservices.com",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     },
     {
-      "@type": "SoftwareSourceCode",
+      "@type": "SoftwareApplication",
       "name": "the-day-after-toolkit",
-      "description": "A CLI that audits codebase agent-readiness and scaffolds the contracts needed to fix it.",
+      "applicationCategory": "DeveloperApplication",
+      "description": "CLI that audits codebase AI-agent readiness and scaffolds the contracts needed to fix it. Configured for Claude, Cursor, and Codex.",
       "codeRepository": "https://github.com/enricopiovesan/the-day-after-toolkit",
       "programmingLanguage": "TypeScript",
-      "author": { "@id": "https://enricopiovesan.com/#person" }
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     },
     {
-      "@type": "SoftwareSourceCode",
+      "@type": "SoftwareApplication",
       "name": "Traverse",
-      "description": "A contract-driven Rust/WASM runtime for discovering, validating, and composing portable business capabilities.",
+      "applicationCategory": "DeveloperApplication",
+      "description": "Contract-driven Rust/WASM runtime for discovering, validating, and composing portable business capabilities across multi-agent orchestration scenarios.",
       "codeRepository": "https://github.com/enricopiovesan/Traverse",
       "programmingLanguage": "Rust",
-      "author": { "@id": "https://enricopiovesan.com/#person" }
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "youaskm3",
+      "applicationCategory": "WebApplication",
+      "description": "Personal knowledge layer built on WASM and MCP. Runs entirely on GitHub Pages — no server, no database, no ongoing cost. Federation model lets anyone fork, run their own instance, and register in a shared registry.",
+      "codeRepository": "https://github.com/youaskm3/youaskm3",
+      "programmingLanguage": ["Rust", "WebAssembly"],
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
   ]
 }
