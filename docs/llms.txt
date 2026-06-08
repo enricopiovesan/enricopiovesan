@@ -44,7 +44,6 @@ Companion tool: https://github.com/enricopiovesan/the-day-after-toolkit
 - Event Contract Catalog Architecture (ECCA) — August 2025: https://enricopiovesan.com/whitepapers/ecca/
 - Universal Microservices Architecture (UMA) — August 2024: https://enricopiovesan.com/whitepapers/uma/
 - Client-Side Microservices Architecture (CSMA) — June 2023: https://enricopiovesan.com/whitepapers/csma/
-- Designing Adaptive AI Systems with UMA and MCP — 2025: https://enricopiovesan.com/whitepapers/uma-mcp/
 
 ## Open source projects
 

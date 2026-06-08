@@ -14,7 +14,7 @@ Two books on software architecture and AI-native systems. The first, *Universal 
 
 ## [White Papers](/whitepapers/)
 
-Five research papers published between 2023 and 2025. They trace the development of the frameworks from first principles. CSMA (2023) applied service-oriented thinking to the browser. UMA (2024) extended that to every runtime in the stack. ECCA (2025) addressed event governance. C-DAD (2025) defined how AI agents can navigate software through contracts rather than code. The UMA + MCP paper (2025) covers how UMA and the Model Context Protocol combine to produce adaptive agentic systems.
+Four research papers published between 2023 and 2025. They trace the development of the frameworks from first principles. CSMA (2023) applied service-oriented thinking to the browser. UMA (2024) extended that to every runtime in the stack. ECCA (2025) addressed event governance. C-DAD (2025) defined how AI agents can navigate software through contracts rather than code.
 
 ## [Projects](/projects/)
 
