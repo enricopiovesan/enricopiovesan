@@ -6,6 +6,7 @@ permalink: /concepts/universal-microservices/
 canonical: https://enricopiovesan.com/concepts/universal-microservices/
 ogTitle: What is Universal Microservices Architecture?
 ogDescription: An approach to distributed systems where business logic runs anywhere without rewriting it for every runtime.
+datePublished: "2024-08-01"
 lastUpdated: "June 2026"
 ---
 

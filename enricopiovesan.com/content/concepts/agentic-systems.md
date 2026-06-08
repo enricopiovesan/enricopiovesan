@@ -6,6 +6,7 @@ permalink: /concepts/agentic-systems/
 canonical: https://enricopiovesan.com/concepts/agentic-systems/
 ogTitle: Agentic Systems Architecture
 ogDescription: Structural patterns for building software that works with AI agents — multi-agent orchestration, contract-based boundaries, navigable codebases.
+datePublished: "2025-06-01"
 ---
 
 AI agents are becoming a real part of software teams. Not as a future possibility. As a present reality that most engineering organizations are not structurally ready for.

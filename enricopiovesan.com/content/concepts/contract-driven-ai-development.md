@@ -6,6 +6,7 @@ permalink: /concepts/contract-driven-ai-development/
 canonical: https://enricopiovesan.com/concepts/contract-driven-ai-development/
 ogTitle: What is Contract-Driven AI Development?
 ogDescription: An approach to building AI-native systems where contracts define what software does and why it can be trusted by AI agents.
+datePublished: "2025-11-01"
 lastUpdated: "June 2026"
 ---
 
