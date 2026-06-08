@@ -25,13 +25,11 @@ An agentic-ready system has three properties:
 
 **Governed composition.** When multiple agents work together, the boundaries between their responsibilities are explicit. Multi-agent orchestration does not collapse into chaos because the contracts prevent it.
 
-## The multi-agent challenge
+## What is the multi-agent coordination problem?
 
-Most teams think about AI agents as single assistants. The harder problem is multi-agent orchestration — multiple agents working on the same codebase, the same pipeline, or the same capability graph simultaneously.
+Most teams encounter AI agents as single assistants operating on one task at a time. The harder and more consequential problem is multi-agent orchestration — multiple agents working concurrently on the same codebase, the same pipeline, or the same capability graph. At that scale, the failure modes are different. One agent modifies a behavior that another agent is reasoning about. A third agent generates code that satisfies the tests but violates an invariant that was never declared anywhere. The output looks correct in isolation. The system breaks at the boundary.
 
-Without contracts, multi-agent systems produce conflicts that are difficult to detect and expensive to fix. One agent makes an assumption that another agent violates. The output looks correct until it does not.
-
-With contracts, each agent operates within declared boundaries. The orchestration layer can validate that agents are composing capabilities correctly before anything executes.
+The root cause is the same one that makes codebases hard for human teams to maintain at scale: intent was never declared. An agent has no way to know whether a proposed change violates a constraint that exists only in someone's memory. It cannot distinguish a load-bearing conditional from a legacy workaround. It cannot tell which invariants are business-critical and which are implementation accidents. Without contracts, multi-agent systems produce conflicts that are expensive to detect and structurally difficult to prevent. With contracts, each agent operates within declared boundaries. The orchestration layer validates that agents are composing capabilities correctly before anything executes, and can surface conflicts as contract violations rather than runtime failures.
 
 ## Where to go deeper
 

@@ -6,6 +6,8 @@ permalink: /cfp-log/
 canonical: https://enricopiovesan.com/cfp-log/
 ogTitle: CFP Log
 ogDescription: Conference submission log tracking CFP submissions, accepted talks, and speaking engagements.
+eleventyExcludeFromCollections: true
+noindex: true
 ---
 
 A public log of every conference submission. Accepted, rejected, and pending. The transparency is intentional — building a speaking track record means showing the work, not just the results.

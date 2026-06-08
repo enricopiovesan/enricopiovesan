@@ -6,6 +6,7 @@
 
   <title>{% if page.fileSlug and page.fileSlug !== 'home' %}{{ title }} - Enrico Piovesan{% else %}Enrico Piovesan - Platform Architect &amp; Author{% endif %}</title>
   <meta name="description" content="{{ description }}" />
+  {% if noindex %}<meta name="robots" content="noindex, nofollow" />{% endif %}
 
   <!-- Open Graph -->
   <meta property="og:title" content="{{ ogTitle or title }}" />
