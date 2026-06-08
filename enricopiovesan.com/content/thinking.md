@@ -1,5 +1,5 @@
 ---
-title: Thinking
+title: Architecture Concepts & Perspectives
 description: Concepts and perspectives on software architecture, AI-native systems, and portable runtimes.
 layout: page.njk
 permalink: /thinking/

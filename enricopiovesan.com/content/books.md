@@ -1,5 +1,5 @@
 ---
-title: Books
+title: Software Architecture Books by Enrico Piovesan
 description: Two books on software architecture and AI-native systems by Enrico Piovesan. One published, one forthcoming.
 layout: books.njk
 permalink: /books/

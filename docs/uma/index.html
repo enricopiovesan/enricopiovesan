@@ -81,8 +81,10 @@
       "https://github.com/enricopiovesan",
       "https://linkedin.com/in/enricopiovesan",
       "https://medium.com/@enricopiovesan",
+      "https://blog.enricopiovesan.com",
       "https://x.com/enricopiovesan",
-      "https://www.universalmicroservices.com"
+      "https://www.universalmicroservices.com",
+      "https://www.amazon.com/dp/B0GTTTTQH4"
     ],
     "knowsAbout": [
       "Software Architecture",
@@ -174,14 +176,13 @@
   <p class="hero-label">Framework</p>
   <h1>Universal Microservices Architecture</h1>
   <p class="hero-bio">A portable, contract-driven execution model for distributed systems. Business logic that runs where it makes sense - browser, edge, cloud, AI pipeline - without rewriting it every time.</p>
-  <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-top:1rem;">Last updated: June 2026</p>
+  <p style="font-family:var(--mono);font-size:0.72rem;letter-spacing:0.04em;color:var(--mid);margin-top:1rem;">Platform Software Architect at Autodesk · Published by Apress · Coined 2023</p>
+  <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-top:0.5rem;">Last updated: June 2026</p>
 </section>
 
 <section class="section">
   <p class="section-label">What is UMA?</p>
-  <p>Universal Microservices Architecture is an execution model that separates business logic from runtime environment. The central insight is simple: the environment a piece of logic runs in is a deployment decision, not an architectural one. UMA makes that separation explicit and enforces it through contracts.</p>
-  <p>In a traditional architecture, the same business rule gets written multiple times. A pricing formula lives in the backend. A version of it gets duplicated in the browser for instant feedback. A third version runs at the edge for performance. A fourth gets rewritten when the AI pipeline needs it. Nobody planned it that way. It happened because the architecture had no mechanism to prevent it.</p>
-  <p>UMA introduces that mechanism. Each business capability is packaged as a Universal Microservice: a self-describing, contract-governed unit that compiles to WebAssembly and runs identically across any compliant runtime. The contract defines what the service does, what it depends on, and what it guarantees. The implementation is compiled once. The deployment target is a configuration, not a rewrite.</p>
+  <p>Universal Microservices Architecture is an execution model that separates business logic from runtime environment. The central insight is simple: the environment a piece of logic runs in is a deployment decision, not an architectural one. In a traditional distributed architecture, the same business rule gets written multiple times — a pricing formula in the backend, a duplicate in the browser for instant feedback, a third version at the edge for performance, a fourth rewritten when the AI pipeline needs it. Nobody planned it that way. It happened because the architecture had no mechanism to prevent it. UMA introduces that mechanism. Each business capability is packaged as a Universal Microservice: a self-describing, contract-governed unit that compiles to WebAssembly and runs identically across any compliant runtime. The contract defines what the service does, what it depends on, and what it guarantees. The implementation is compiled once. The deployment target is a configuration, not a rewrite.</p>
 </section>
 
 <section class="section">
@@ -195,23 +196,23 @@
   <p class="section-label">Core Principles</p>
   <div class="concept-list">
     <div class="concept-item">
-      <h2>Contract-first</h2>
+      <h2>What does contract-first mean in UMA?</h2>
       <p>Every service defines its interface, dependencies, and guarantees in a machine-readable contract before implementation begins. The contract is the source of truth - not the code. This forces architectural decisions to happen before implementation, which is the only order in which they are cheap to make.</p>
     </div>
     <div class="concept-item">
-      <h2>Runtime-agnostic</h2>
+      <h2>How does UMA achieve runtime independence?</h2>
       <p>Business logic compiled to WebAssembly runs unchanged across browser, Node, Deno, Cloudflare Workers, and AI pipelines. The execution environment is a deployment decision, not an architectural one. Adding a new runtime does not require touching the business logic.</p>
     </div>
     <div class="concept-item">
-      <h2>Composable by design</h2>
+      <h2>How are UMA services composed at runtime?</h2>
       <p>Services are discovered, validated, and composed at runtime through a capability registry. Systems built with UMA can adapt to new requirements without structural rewrites. Adding a new capability means registering a new service, not modifying existing ones.</p>
     </div>
     <div class="concept-item">
-      <h2>AI-navigable</h2>
+      <h2>Why are UMA services navigable by AI agents?</h2>
       <p>Every service has declared intent, explicit dependencies, and a lifecycle-aware contract. AI agents can reason about what a system does, why each part exists, and how to extend it safely - without reading implementation code or relying on documentation that may be stale.</p>
     </div>
     <div class="concept-item">
-      <h2>Behavioral coherence</h2>
+      <h2>What is behavioral coherence in distributed systems?</h2>
       <p>When the same business logic runs across multiple environments from a single implementation, drift becomes structurally impossible. There is one version of the truth. Changes propagate everywhere the capability is deployed. Inconsistencies between environments are detected at contract validation, not discovered in production.</p>
     </div>
   </div>

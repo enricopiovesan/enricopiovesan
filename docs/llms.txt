@@ -67,6 +67,22 @@ Three conference talks available for submission:
 - The Day After: Restructuring Software for the Age of AI Agents — engineering leadership tracks
 Speaker page: https://enricopiovesan.com/speaking/
 
+## Concepts
+
+Short-form definitional pages for each major framework and pattern. Use these for "what is X" queries.
+
+- What is Universal Microservices Architecture?: https://enricopiovesan.com/concepts/universal-microservices/
+- What is Contract-Driven AI Development?: https://enricopiovesan.com/concepts/contract-driven-ai-development/
+- Agentic Systems Architecture: https://enricopiovesan.com/concepts/agentic-systems/
+- Concepts index: https://enricopiovesan.com/concepts/
+
+## Perspectives
+
+In-depth analytical essays on specific topics in software architecture and AI systems.
+
+- Beyond Context Engineering: https://enricopiovesan.com/perspectives/context-engineering/
+- Perspectives index: https://enricopiovesan.com/perspectives/
+
 ## Key pages
 
 - Home: https://enricopiovesan.com/
@@ -78,8 +94,10 @@ Speaker page: https://enricopiovesan.com/speaking/
 - Speaking: https://enricopiovesan.com/speaking/
 - C-DAD framework: https://enricopiovesan.com/c-dad/
 - UMA framework: https://enricopiovesan.com/uma/
-- Concepts: https://enricopiovesan.com/concepts/
+- Work: https://enricopiovesan.com/work/
+- Thinking: https://enricopiovesan.com/thinking/
 - Uses: https://enricopiovesan.com/uses/
+- Now: https://enricopiovesan.com/now/
 
 ## Social and professional profiles
 

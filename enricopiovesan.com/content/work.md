@@ -1,5 +1,5 @@
 ---
-title: Work
+title: Software Architecture Books, Papers & Projects
 description: Books, white papers, and open source projects by Enrico Piovesan.
 layout: page.njk
 permalink: /work/

@@ -45,6 +45,10 @@ layout: base.njk
   <p class="hero-label">Published Work</p>
   <h1>Books</h1>
   <p class="hero-bio">{{ intro }}</p>
+  <p style="font-family:var(--mono);font-size:0.72rem;letter-spacing:0.04em;color:var(--mid);margin-top:1rem;">Published by Apress · Platform Software Architect at Autodesk</p>
+  <div style="margin-top:1.5rem;">
+    <a href="https://www.amazon.com/dp/B0GTTTTQH4" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:0.78rem;color:var(--fg);border:1px solid var(--border);padding:0.6rem 1.2rem;text-decoration:none;transition:opacity 0.15s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Buy on Amazon →</a>
+  </div>
 </section>
 
 {% for book in books %}

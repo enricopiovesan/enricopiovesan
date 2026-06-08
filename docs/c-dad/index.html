@@ -81,8 +81,10 @@
       "https://github.com/enricopiovesan",
       "https://linkedin.com/in/enricopiovesan",
       "https://medium.com/@enricopiovesan",
+      "https://blog.enricopiovesan.com",
       "https://x.com/enricopiovesan",
-      "https://www.universalmicroservices.com"
+      "https://www.universalmicroservices.com",
+      "https://www.amazon.com/dp/B0GTTTTQH4"
     ],
     "knowsAbout": [
       "Software Architecture",
@@ -174,14 +176,13 @@
   <p class="hero-label">Framework</p>
   <h1>Contract-Driven AI Development</h1>
   <p class="hero-bio">The missing foundation in AI-assisted software development. AI tools can describe what code does - but not why. Contracts fill that gap.</p>
-  <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-top:1rem;">Last updated: June 2026</p>
+  <p style="font-family:var(--mono);font-size:0.72rem;letter-spacing:0.04em;color:var(--mid);margin-top:1rem;">Platform Software Architect at Autodesk · First published November 2025</p>
+  <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-top:0.5rem;">Last updated: June 2026</p>
 </section>
 
 <section class="section">
   <p class="section-label">What is C-DAD?</p>
-  <p>Contract-Driven AI Development (C-DAD) is a framework for building software systems where contracts, not code, define the collaboration between humans, AI systems, and runtimes. It is a response to a specific failure mode that becomes more expensive as AI agents become more capable: the inability of any system - human or machine - to understand why a codebase behaves the way it does.</p>
-  <p>AI coding tools are good at describing structure. They can read a function and tell you what it does. They cannot tell you why it does it, what constraint it was written to satisfy, or what would break if you changed it. That information exists in a regulatory audit from three years ago, a Slack thread from 2022, the memory of an engineer who left last year. It is not in the code.</p>
-  <p>C-DAD makes that information a first-class citizen of the software development process. Every behavior has a contract. Every contract has a declared rationale, a set of constraints, a lifecycle state, and a governance owner. The difference between a specification and a contract is verifiability: a specification describes intent, a contract enforces it.</p>
+  <p>Contract-Driven AI Development (C-DAD) is a framework for building software systems where contracts, not code, define the collaboration between humans, AI systems, and runtimes. It is a response to a specific failure mode that becomes more expensive as AI agents become more capable: the inability of any system — human or machine — to understand why a codebase behaves the way it does. AI coding tools are good at describing structure. They can read a function and tell you what it does. They cannot tell you why it does it, what constraint it was written to satisfy, or what would break if you changed it. That information exists in a regulatory audit from three years ago, a Slack thread from 2022, the memory of an engineer who left last year. It is not in the code. C-DAD makes that information a first-class citizen of the software development process. Every behavior has a contract. Every contract has a declared rationale, a set of constraints, a lifecycle state, and a governance owner. The difference between a specification and a contract is verifiability: a specification describes intent, a contract enforces it.</p>
 </section>
 
 <section class="section">
@@ -195,23 +196,23 @@
   <p class="section-label">Core Principles</p>
   <div class="concept-list">
     <div class="concept-item">
-      <h2>Contracts over code</h2>
+      <h2>Why do contracts matter more than code for AI agents?</h2>
       <p>AI tools automate structure. They cannot automate understanding. Contracts declare the rationale, the constraints, the governance rules - the layer AI tools need to reason about systems, not just describe them. A codebase with contracts is navigable by AI agents. A codebase without them requires a human to translate every question.</p>
     </div>
     <div class="concept-item">
-      <h2>Verifiable, not just readable</h2>
+      <h2>What makes a C-DAD contract verifiable?</h2>
       <p>Contracts are immutable units of record with explicit lifecycle states. They carry provenance, validation results, and audit trails. They can be signed, distributed, and checked programmatically. A contract is not documentation. It is a commitment that can be tested against at any point in the system's lifecycle.</p>
     </div>
     <div class="concept-item">
-      <h2>Hybrid governance</h2>
+      <h2>How does C-DAD define the boundary between human and machine decisions?</h2>
       <p>Not everything should be automated. C-DAD defines explicit handoff points where human judgment is required and makes those points visible in the contract itself. Automation handles validation, propagation, and routine lifecycle transitions. Humans govern the decisions that carry organizational consequence. The boundary between the two is declared, not assumed.</p>
     </div>
     <div class="concept-item">
-      <h2>Machine-first authoring</h2>
+      <h2>Why are C-DAD contracts authored as machine-readable manifests first?</h2>
       <p>Contracts are authored as machine-readable manifests with human documentation generated from them. The manifest is the source of truth. This is not a preference - it is a constraint that keeps the machine-readable layer honest. When humans write the narrative first, the machine-readable layer becomes a translation that diverges over time.</p>
     </div>
     <div class="concept-item">
-      <h2>Lifecycle-aware distribution</h2>
+      <h2>How does lifecycle-aware distribution work in C-DAD?</h2>
       <p>Every contract carries consumption rules tied to its lifecycle state. An Active contract can be integrated freely. A Deprecated contract signals that migration is required. A Retired contract is archived but readable. Downstream consumers know what they are binding to. The system can enforce consumption policies automatically.</p>
     </div>
   </div>

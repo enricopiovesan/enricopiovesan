@@ -1,5 +1,5 @@
 ---
-title: Writing
+title: Software Architecture Writing on Medium
 description: Weekly writing on software architecture and AI-native systems. Two Medium publication series since May 2025.
 layout: writing.njk
 permalink: /writing/
