@@ -66,6 +66,13 @@ layout: base.njk
   </div>
   <p class="series-cadence">{{ pub.cadence }}</p>
   {% if pub.description %}<p class="series-description">{{ pub.description }}</p>{% endif %}
+  {% if pub.recent %}
+  <ul class="series-recent" style="list-style:none;margin-top:0.75rem;display:flex;flex-direction:column;gap:0.4rem;">
+    {% for post in pub.recent %}
+    <li style="font-family:var(--mono);font-size:0.72rem;"><a href="{{ post.url }}" target="_blank" rel="noopener" style="color:var(--mid);text-decoration:none;transition:color 0.15s;" onmouseover="this.style.color='var(--fg)'" onmouseout="this.style.color='var(--mid)'">→ {{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
 </div>
 {% endfor %}
 

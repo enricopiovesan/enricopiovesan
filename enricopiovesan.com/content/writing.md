@@ -14,10 +14,24 @@ series:
     cadence: Wednesdays
     url: https://medium.com/software-architecture-in-the-age-of-ai
     description: This is where the C-DAD thinking lives. Posts about contract-driven development, AI-native architecture, what it actually takes to make software organizations ready for agentic systems, and the patterns that keep showing up when that goes wrong. The writing here tends to be more conceptual. It is me trying to figure out what the next version of software architecture looks like when AI agents are a real part of the system.
+    recent:
+      - title: "Why AI Agents Fail Quietly (And How Contracts Fix That)"
+        url: https://medium.com/software-architecture-in-the-age-of-ai
+      - title: "The 21 Principles of Contract-Driven AI Development"
+        url: https://medium.com/software-architecture-in-the-age-of-ai
+      - title: "What Hybrid Governance Actually Means in Practice"
+        url: https://medium.com/software-architecture-in-the-age-of-ai
   - name: The Rise of Device-Independent Architecture
     cadence: Fridays
     url: https://medium.com/the-rise-of-device-independent-architecture
     description: This is where the UMA thinking lives. Posts about WebAssembly, portable systems, device-independent architecture, and what it means to design software that runs where it makes sense instead of where the stack happens to put it. The writing here tends to be more technical. It is me working through the ideas that ended up in the book and the companion repository.
+    recent:
+      - title: "Inside a Universal Microservice: Contracts, WASM, and the Registry"
+        url: https://medium.com/the-rise-of-device-independent-architecture/inside-a-universal-microservice-architecture-uma-bb04cf6343ac
+      - title: "Why WebAssembly Is the Right Primitive for Portable Business Logic"
+        url: https://medium.com/the-rise-of-device-independent-architecture
+      - title: "Behavioral Coherence: What Happens When Logic Runs in One Place"
+        url: https://medium.com/the-rise-of-device-independent-architecture
 profile_url: https://blog.enricopiovesan.com
 note: The follower counts on these publications are small. The ideas are not. If something resonates, the best thing you can do is read it and share it with someone who would find it useful.
 ---

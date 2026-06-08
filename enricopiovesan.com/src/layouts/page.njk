@@ -2,6 +2,34 @@
 layout: base.njk
 ---
 {% block schema %}
+{% if canonical and canonical.includes('/concepts/') and not canonical.endsWith('/concepts/') %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Concepts", "item": "https://enricopiovesan.com/concepts/" },
+        { "@type": "ListItem", "position": 3, "name": "{{ title }}", "item": "{{ canonical }}" }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "{{ canonical }}#article",
+      "headline": "{{ title }}",
+      "name": "{{ title }}",
+      "description": "{{ description }}",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "url": "{{ canonical }}",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://enricopiovesan.com/#website" }
+    }
+  ]
+}
+</script>
+{% endif %}
 {% if canonical and canonical.includes('/whitepapers/') %}
 <script type="application/ld+json">
 {
@@ -36,5 +64,6 @@ layout: base.njk
 {% endblock %}
 <article class="page-content">
   <h1>{{ title | replace(" — Enrico Piovesan", "") }}</h1>
+  {% if lastUpdated %}<p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: {{ lastUpdated }}</p>{% endif %}
   {{ content | safe }}
 </article>

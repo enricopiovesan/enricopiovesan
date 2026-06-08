@@ -28,6 +28,36 @@ layout: base.njk
         "@type": "SpeakableSpecification",
         "cssSelector": [".hero-bio", ".section p"]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Contract-Driven AI Development?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Contract-Driven AI Development (C-DAD) is a framework for building AI-native systems where contracts, not code, define the collaboration between humans, AI agents, and runtimes. Every capability declares its preconditions, postconditions, invariants, and rationale in machine-readable form. This enables AI agents to navigate, validate, and compose behaviors without guessing at intent that was never declared in code." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a spec and a contract?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A specification describes what a system does. A contract describes why it can be trusted. A spec tells an AI agent what a function does. A contract tells the agent what the function is responsible for, what constraints it must satisfy, who owns the governance, and under what conditions it can be trusted. That difference determines what AI agents can safely do with your codebase: agents with specs can describe behavior, agents with contracts can validate and compose it." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why can't AI agents navigate code without contracts?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because code encodes behavior, not intent. The reason a constraint exists — a regulatory requirement, a domain invariant, a safety boundary — is not in the code. It was decided in a meeting, lived in someone's head, and disappeared when that person left. An AI agent reading the code sees the conditional but cannot tell whether it is load-bearing or legacy. Contracts make that information explicit and machine-readable for the first time." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does C-DAD differ from OpenAPI or schema-first development?",
+          "acceptedAnswer": { "@type": "Answer", "text": "OpenAPI and schema-first development describe interfaces. C-DAD declares accountability. An OpenAPI spec tells a consumer what endpoints exist and what they return. A C-DAD contract tells an AI agent what the endpoint is responsible for, what invariants it must preserve, who governs it, and what its current lifecycle state is. Contracts are verifiable, signed, lifecycle-tracked commitments — not structural descriptions." }
+        },
+        {
+          "@type": "Question",
+          "name": "What changes when a team adopts C-DAD?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Architects declare intent before implementation begins. Developers own contracts as well as code. Product managers capture constraints in discovery that a story format was never designed to hold. AI agents gain the context they need to contribute reliably without guessing. The codebase becomes navigable by anything — human or machine — not just the people who originally wrote it." }
+        }
+      ]
     }
   ]
 }
@@ -38,6 +68,7 @@ layout: base.njk
   <p class="hero-label">Framework</p>
   <h1>Contract-Driven AI Development</h1>
   <p class="hero-bio">The missing foundation in AI-assisted software development. AI tools can describe what code does - but not why. Contracts fill that gap.</p>
+  {% if lastUpdated %}<p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-top:1rem;">Last updated: {{ lastUpdated }}</p>{% endif %}
 </section>
 
 <section class="section">

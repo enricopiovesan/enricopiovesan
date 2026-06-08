@@ -28,6 +28,36 @@ layout: base.njk
         "@type": "SpeakableSpecification",
         "cssSelector": [".hero-bio", ".section p"]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Universal Microservices Architecture?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Universal Microservices Architecture (UMA) is a portable, contract-driven execution model for distributed systems. Each business capability is packaged as a self-describing service that compiles to WebAssembly and runs identically across browser, edge, cloud, and AI pipeline without rewriting the logic for each environment. The runtime is a deployment decision, not an architectural one." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does UMA use WebAssembly?",
+          "acceptedAnswer": { "@type": "Answer", "text": "UMA compiles each business capability to WebAssembly (WASM), which provides a portable binary format that executes identically across any compliant runtime — browser, Node, Deno, Cloudflare Workers, or AI pipeline. The compilation happens once. The runtime target is a deployment configuration, not a code change. WebAssembly makes portability possible at the execution level; UMA contracts make it trustworthy at the system level." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does UMA differ from standard microservices?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Standard microservices reduce coupling between services but leave the coupling between logic and runtime intact. A microservice in a container is still tied to a server environment. UMA removes that coupling: a UMA capability compiles to WASM and runs anywhere a UMA runtime exists, without changing the implementation. Standard microservices solve the deployment problem. UMA solves the portability problem. Both matter and they are not the same thing." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do teams rewrite the same business logic multiple times?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because standard architectures make runtime assumptions before defining behavior. The backend assumes a server, the frontend assumes a browser, the edge layer gets its own rewrite, and when an AI pipeline arrives it gets rewritten again. Nobody plans it that way — it happens because the architecture has no mechanism to prevent it. UMA introduces that mechanism: capabilities are defined once, and the runtime is a configuration rather than a constraint." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a UMA contract?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A UMA contract is a machine-readable declaration of what a business capability does, what it depends on, and what it guarantees. Contracts are version-aware and lifecycle-tracked. A service that satisfies a contract is interchangeable with any other implementation of the same contract, regardless of the runtime it runs in. This is what makes composition possible at scale without coupling teams to each other's implementation decisions." }
+        }
+      ]
     }
   ]
 }
@@ -38,6 +68,7 @@ layout: base.njk
   <p class="hero-label">Framework</p>
   <h1>Universal Microservices Architecture</h1>
   <p class="hero-bio">A portable, contract-driven execution model for distributed systems. Business logic that runs where it makes sense - browser, edge, cloud, AI pipeline - without rewriting it every time.</p>
+  {% if lastUpdated %}<p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-top:1rem;">Last updated: {{ lastUpdated }}</p>{% endif %}
 </section>
 
 <section class="section">

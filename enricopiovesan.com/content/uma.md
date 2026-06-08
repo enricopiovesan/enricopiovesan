@@ -7,6 +7,7 @@ canonical: https://enricopiovesan.com/uma/
 ogTitle: Universal Microservices Architecture (UMA)
 ogDescription: A portable, contract-driven execution model for distributed systems. Write once, run where it makes sense.
 concept: UMA
+lastUpdated: "June 2026"
 ---
 
 Every team I have worked with has the same invisible tax. The payment logic lives in the backend. A version of it lives in the browser. Another version runs at the edge. A fourth gets rewritten when the AI pipeline needs it. Nobody planned this. It just happened because the architecture made assumptions about the environment before it made decisions about the problem. Over time the copies drift. A bug gets fixed in one place and not the others. A business rule changes and three of the four versions get updated. The system becomes harder to reason about, harder to change, and harder to trust. The tax compounds. Universal Microservices Architecture is a response to that problem.

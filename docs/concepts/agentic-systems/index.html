@@ -34,6 +34,9 @@
     })();
   </script>
 
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-71P091V6MQ"></script>
   <script>
@@ -106,9 +109,38 @@
   <main id="main-content">
     
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Concepts", "item": "https://enricopiovesan.com/concepts/" },
+        { "@type": "ListItem", "position": 3, "name": "Agentic Systems Architecture", "item": "https://enricopiovesan.com/concepts/agentic-systems/" }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://enricopiovesan.com/concepts/agentic-systems/#article",
+      "headline": "Agentic Systems Architecture",
+      "name": "Agentic Systems Architecture",
+      "description": "Agentic systems architecture covers the structural patterns for building software that works with AI agents — multi-agent orchestration, contract-based capability boundaries, and making codebases navigable by autonomous systems.",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "url": "https://enricopiovesan.com/concepts/agentic-systems/",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://enricopiovesan.com/#website" }
+    }
+  ]
+}
+</script>
+
+
 
 <article class="page-content">
   <h1>Agentic Systems Architecture</h1>
+  
   <p>AI agents are becoming a real part of software teams. Not as a future possibility. As a present reality that most engineering organizations are not structurally ready for.</p>
 <p>The gap is not model capability. The gap is architectural legibility. Agents work well in codebases that declare their intent. They work poorly in codebases that assume a human will fill in the gaps.</p>
 <p>Agentic systems architecture is the practice of designing software so that AI agents can participate meaningfully — not just execute instructions but navigate capabilities, validate behavior, and compose solutions within declared boundaries.</p>
