@@ -141,64 +141,70 @@
   <h1>Knowledge Graph</h1>
   <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: June 2026</p>
   
-  <p>This graph maps the relationships between the frameworks, whitepapers, tools, and concepts published on this site. Core abstractions are connected by edges extracted from the actual content — architectural papers, perspectives, and code.</p>
-<h2>Core Abstractions</h2>
-<p>The most connected nodes in the graph — concepts that bridge the most ideas:</p>
+  <p>This graph maps the ideas, concepts, and arguments across 250+ articles and four white papers. Every node is a topic, framework, or argument — extracted from the writing itself, not from code or site structure.</p>
+<h2>Core Concepts</h2>
+<p>The most connected ideas across all writing:</p>
 <ul>
-<li><strong><a href="/cdad/">Contract-Driven AI Development (C-DAD)</a></strong> — the framework for building AI-native software using machine-enforceable contracts, declared capabilities, and governed composition. Bridges agentic systems, context engineering, and distributed architecture.</li>
-<li><strong><a href="/uma/">Universal Microservices Architecture (UMA)</a></strong> — runtime-portable microservices via WebAssembly. Connects CSMA, ECCA, and the broader ecosystem of open-source tools.</li>
-<li><strong><a href="/whitepapers/ecca/">Event Contract Catalog Architecture (ECCA)</a></strong> — federated governance layer for event-driven systems, schema registries, and policy evaluation.</li>
-<li><strong><a href="/whitepapers/csma/">Client-side Microservices Architecture (CSMA)</a></strong> — the original distributed runtime model, predecessor to UMA.</li>
+<li><strong><a href="/cdad/">Contract-Driven AI Development (C-DAD)</a></strong> — machine-enforceable contracts, declared capabilities, and governed composition as the foundation for AI-native software.</li>
+<li><strong><a href="/uma/">Universal Microservices Architecture (UMA)</a></strong> — runtime-portable services via WebAssembly; the runtime is a deployment decision, not an architectural one.</li>
+<li><strong><a href="/whitepapers/ecca/">Event Contract Catalog Architecture (ECCA)</a></strong> — federated governance for event-driven systems via schema registries and policy evaluation.</li>
+<li><strong><a href="/whitepapers/csma/">Client-side Microservices Architecture (CSMA)</a></strong> — the original distributed client runtime model, predecessor to UMA.</li>
+<li><strong>WebAssembly</strong> — the portable execution substrate connecting all four frameworks.</li>
+<li><strong>Agentic Systems</strong> — AI agents as first-class consumers of software architecture.</li>
 </ul>
-<h2>Architectural Evolution</h2>
-<p>The four frameworks follow a deliberate progression:</p>
-<ol>
-<li><strong>CSMA</strong> — client-side runtime isolation and service decomposition</li>
-<li><strong>UMA</strong> — runtime portability via WebAssembly, server and client unified</li>
-<li><strong>ECCA</strong> — event contract governance across federated systems</li>
-<li><strong>C-DAD</strong> — contracts as the primary interface for AI-native and agentic systems</li>
-</ol>
-<p>Each framework builds on the contract-first design philosophy introduced in CSMA and extended through to C-DAD's machine-first manifests.</p>
-<h2>Framework Clusters</h2>
+<h2>Idea Clusters</h2>
 <table>
 <thead>
 <tr>
 <th>Cluster</th>
-<th>Key Concepts</th>
+<th>Key Ideas</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Context Engineering &amp; UMA</td>
-<td>Runtime portability, WebAssembly, UMA framework, context engineering</td>
+<td>Contract-Driven AI Trust</td>
+<td>Agent drift, contract feedback loops, AI consistency</td>
 </tr>
 <tr>
-<td>Intellectual Frameworks</td>
-<td>C-DAD, agentic systems, AI-native software, AI navigability</td>
+<td>Agent Runtime &amp; Capabilities</td>
+<td>Capability discovery, agent planning, UMA descriptors</td>
 </tr>
 <tr>
-<td>Author &amp; Whitepapers</td>
-<td>Enrico Piovesan, CSMA/UMA/ECCA/C-DAD white papers</td>
+<td>Zero Trust Runtime Security</td>
+<td>Code signing, attestation, capability least-privilege</td>
 </tr>
 <tr>
-<td>Web Components</td>
-<td>Navigation, hero, footer, book/paper/talk/project cards</td>
+<td>Agentic Systems &amp; App Collapse</td>
+<td>Application layer collapse, capability surfaces, SaaS disruption</td>
 </tr>
 <tr>
-<td>Build &amp; Deploy</td>
-<td>Eleventy config, CI pipeline, scripts</td>
+<td>AI-Native Architecture</td>
+<td>Architecture as metadata, discoverability, machine-readable design</td>
+</tr>
+<tr>
+<td>Wasm Edge &amp; AI Inference</td>
+<td>Portable AI, edge inference, WASI NN, embedded Wasm</td>
+</tr>
+<tr>
+<td>Legacy Modernization</td>
+<td>Extract vs. refactor, contracts over code, vibe coding limits</td>
+</tr>
+<tr>
+<td>Architectural Evolution</td>
+<td>CSMA → UMA → ECCA → C-DAD progression</td>
 </tr>
 </tbody>
 </table>
-<h2>Hyperedge Groups</h2>
-<p>Groups of concepts that co-occur across multiple documents:</p>
+<h2>Concept Groups</h2>
+<p>Co-occurring idea clusters found across multiple articles:</p>
 <ul>
-<li><strong>Enrico Piovesan Core Frameworks</strong> — UMA + C-DAD as co-defined, co-dependent systems</li>
-<li><strong>Architectural Evolution: CSMA → UMA → ECCA → C-DAD</strong> — the four-framework progression</li>
-<li><strong>AI Agent Navigability Cluster</strong> — C-DAD, agentic systems, context engineering, AI-native software</li>
-<li><strong>Three Structural Properties of AI-Native Software</strong> — declared capabilities, machine-enforceable contracts, governed composition</li>
-<li><strong>C-DAD Ecosystem</strong> — framework, whitepapers, The Day After toolkit, Traverse, The Day After (book)</li>
+<li><strong>Piovesan Architecture Family</strong> — CSMA, UMA, ECCA, C-DAD as a single evolving system</li>
 <li><strong>Contract-First Design Philosophy</strong> — immutable contracts, event contracts, CloudEvents, machine-first manifests</li>
+<li><strong>Three Properties of AI-Native Software</strong> — declared capabilities, machine-enforceable contracts, governed composition</li>
+<li><strong>UMA Runtime Architecture</strong> — universal runtime, low-latency server runtime, microservices registry, abstraction layer</li>
+<li><strong>ECCA Governance Stack</strong> — schema registry, event catalog, runtime observability, federated governance, policy engine</li>
+<li><strong>AI Agent Navigability</strong> — C-DAD, agentic systems, context engineering, AI navigability</li>
+<li><strong>Wasm AI Inference Stack</strong> — ONNX runtime, TensorFlow.js, Candle, local-first AI execution</li>
 </ul>
 <h2>Interactive Graph</h2>
 <div style="width:min(860px,100%);margin-left:calc((min(860px,100%) - 100%) / 2 * -1);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:2rem;margin-bottom:2rem;">
@@ -211,7 +217,7 @@
     loading="lazy"
   ></iframe>
 </div>
-<p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);">345 nodes · 444 edges · 45 communities. Built with <a href="https://github.com/safishamsi/graphifyy" style="color:var(--mid);">graphify</a> from the site's own content.</p>
+<p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);">577 nodes · 602 edges · 82 communities. Built with <a href="https://github.com/safishamsi/graphifyy" style="color:var(--mid);">graphify</a> from 250+ articles and 4 white papers.</p>
 <h2>Related</h2>
 <ul>
 <li><a href="/whitepapers/">White Papers</a> — full technical papers for each framework</li>

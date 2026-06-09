@@ -10,48 +10,43 @@ ogImage: og-default.png
 lastUpdated: June 2026
 ---
 
-This graph maps the relationships between the frameworks, whitepapers, tools, and concepts published on this site. Core abstractions are connected by edges extracted from the actual content — architectural papers, perspectives, and code.
+This graph maps the ideas, concepts, and arguments across 250+ articles and four white papers. Every node is a topic, framework, or argument — extracted from the writing itself, not from code or site structure.
 
-## Core Abstractions
+## Core Concepts
 
-The most connected nodes in the graph — concepts that bridge the most ideas:
+The most connected ideas across all writing:
 
-- **[Contract-Driven AI Development (C-DAD)](/cdad/)** — the framework for building AI-native software using machine-enforceable contracts, declared capabilities, and governed composition. Bridges agentic systems, context engineering, and distributed architecture.
-- **[Universal Microservices Architecture (UMA)](/uma/)** — runtime-portable microservices via WebAssembly. Connects CSMA, ECCA, and the broader ecosystem of open-source tools.
-- **[Event Contract Catalog Architecture (ECCA)](/whitepapers/ecca/)** — federated governance layer for event-driven systems, schema registries, and policy evaluation.
-- **[Client-side Microservices Architecture (CSMA)](/whitepapers/csma/)** — the original distributed runtime model, predecessor to UMA.
+- **[Contract-Driven AI Development (C-DAD)](/cdad/)** — machine-enforceable contracts, declared capabilities, and governed composition as the foundation for AI-native software.
+- **[Universal Microservices Architecture (UMA)](/uma/)** — runtime-portable services via WebAssembly; the runtime is a deployment decision, not an architectural one.
+- **[Event Contract Catalog Architecture (ECCA)](/whitepapers/ecca/)** — federated governance for event-driven systems via schema registries and policy evaluation.
+- **[Client-side Microservices Architecture (CSMA)](/whitepapers/csma/)** — the original distributed client runtime model, predecessor to UMA.
+- **WebAssembly** — the portable execution substrate connecting all four frameworks.
+- **Agentic Systems** — AI agents as first-class consumers of software architecture.
 
-## Architectural Evolution
+## Idea Clusters
 
-The four frameworks follow a deliberate progression:
-
-1. **CSMA** — client-side runtime isolation and service decomposition
-2. **UMA** — runtime portability via WebAssembly, server and client unified
-3. **ECCA** — event contract governance across federated systems
-4. **C-DAD** — contracts as the primary interface for AI-native and agentic systems
-
-Each framework builds on the contract-first design philosophy introduced in CSMA and extended through to C-DAD's machine-first manifests.
-
-## Framework Clusters
-
-| Cluster | Key Concepts |
+| Cluster | Key Ideas |
 |---|---|
-| Context Engineering & UMA | Runtime portability, WebAssembly, UMA framework, context engineering |
-| Intellectual Frameworks | C-DAD, agentic systems, AI-native software, AI navigability |
-| Author & Whitepapers | Enrico Piovesan, CSMA/UMA/ECCA/C-DAD white papers |
-| Web Components | Navigation, hero, footer, book/paper/talk/project cards |
-| Build & Deploy | Eleventy config, CI pipeline, scripts |
+| Contract-Driven AI Trust | Agent drift, contract feedback loops, AI consistency |
+| Agent Runtime & Capabilities | Capability discovery, agent planning, UMA descriptors |
+| Zero Trust Runtime Security | Code signing, attestation, capability least-privilege |
+| Agentic Systems & App Collapse | Application layer collapse, capability surfaces, SaaS disruption |
+| AI-Native Architecture | Architecture as metadata, discoverability, machine-readable design |
+| Wasm Edge & AI Inference | Portable AI, edge inference, WASI NN, embedded Wasm |
+| Legacy Modernization | Extract vs. refactor, contracts over code, vibe coding limits |
+| Architectural Evolution | CSMA → UMA → ECCA → C-DAD progression |
 
-## Hyperedge Groups
+## Concept Groups
 
-Groups of concepts that co-occur across multiple documents:
+Co-occurring idea clusters found across multiple articles:
 
-- **Enrico Piovesan Core Frameworks** — UMA + C-DAD as co-defined, co-dependent systems
-- **Architectural Evolution: CSMA → UMA → ECCA → C-DAD** — the four-framework progression
-- **AI Agent Navigability Cluster** — C-DAD, agentic systems, context engineering, AI-native software
-- **Three Structural Properties of AI-Native Software** — declared capabilities, machine-enforceable contracts, governed composition
-- **C-DAD Ecosystem** — framework, whitepapers, The Day After toolkit, Traverse, The Day After (book)
+- **Piovesan Architecture Family** — CSMA, UMA, ECCA, C-DAD as a single evolving system
 - **Contract-First Design Philosophy** — immutable contracts, event contracts, CloudEvents, machine-first manifests
+- **Three Properties of AI-Native Software** — declared capabilities, machine-enforceable contracts, governed composition
+- **UMA Runtime Architecture** — universal runtime, low-latency server runtime, microservices registry, abstraction layer
+- **ECCA Governance Stack** — schema registry, event catalog, runtime observability, federated governance, policy engine
+- **AI Agent Navigability** — C-DAD, agentic systems, context engineering, AI navigability
+- **Wasm AI Inference Stack** — ONNX runtime, TensorFlow.js, Candle, local-first AI execution
 
 ## Interactive Graph
 
@@ -66,7 +61,7 @@ Groups of concepts that co-occur across multiple documents:
   ></iframe>
 </div>
 
-<p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);">345 nodes · 444 edges · 45 communities. Built with <a href="https://github.com/safishamsi/graphifyy" style="color:var(--mid);">graphify</a> from the site's own content.</p>
+<p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);">577 nodes · 602 edges · 82 communities. Built with <a href="https://github.com/safishamsi/graphifyy" style="color:var(--mid);">graphify</a> from 250+ articles and 4 white papers.</p>
 
 ## Related
 
