@@ -167,6 +167,7 @@ class EpFooter extends HTMLElement {
               </ul>
             </li>
             <li><a href="${b}/projects/">Projects</a></li>
+            <li><a href="${b}/teaching/">Teaching</a></li>
             <li><a href="${b}/uma/">UMA framework</a></li>
             <li><a href="${b}/c-dad/">C-DAD framework</a></li>
           </ul>
@@ -189,6 +190,7 @@ class EpFooter extends HTMLElement {
                 <li><a href="${b}/perspectives/context-engineering/">Context Engineering</a></li>
               </ul>
             </li>
+            <li><a href="${b}/knowledge-graph/">Knowledge Graph</a></li>
           </ul>
         </div>
 

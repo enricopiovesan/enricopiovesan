@@ -73,8 +73,8 @@ class EpNav extends HTMLElement {
     const active = this.getAttribute('active') || '';
     const base = (this.getAttribute('base') || '/').replace(/\/$/, '');
 
-    const workSlugs = ['books', 'whitepapers', 'projects'];
-    const thinkingSlugs = ['concepts', 'perspectives'];
+    const workSlugs = ['books', 'whitepapers', 'projects', 'teaching'];
+    const thinkingSlugs = ['concepts', 'perspectives', 'knowledge-graph'];
     const workActive = workSlugs.includes(active);
     const thinkingActive = thinkingSlugs.includes(active);
 
@@ -90,11 +90,13 @@ class EpNav extends HTMLElement {
       { href: `${base}/books/`, label: 'Books', slug: 'books' },
       { href: `${base}/whitepapers/`, label: 'White Papers', slug: 'whitepapers' },
       { href: `${base}/projects/`, label: 'Projects', slug: 'projects' },
+      { href: `${base}/teaching/`, label: 'Teaching', slug: 'teaching' },
     ];
 
     const thinkingLinks = [
       { href: `${base}/concepts/`, label: 'Concepts', slug: 'concepts' },
       { href: `${base}/perspectives/`, label: 'Perspectives', slug: 'perspectives' },
+      { href: `${base}/knowledge-graph/`, label: 'Knowledge Graph', slug: 'knowledge-graph' },
     ];
 
     this.innerHTML = `
@@ -298,7 +300,6 @@ class EpNav extends HTMLElement {
 
             <li><a href="${base}/speaking/"${active === 'speaking' ? ' aria-current="page"' : ''}>Speaking</a></li>
             <li><a href="${base}/writing/"${active === 'writing' ? ' aria-current="page"' : ''}>Writing</a></li>
-            <li><a href="${base}/knowledge-graph/"${active === 'knowledge-graph' ? ' aria-current="page"' : ''}>Knowledge Graph</a></li>
             <li><a href="${base}/uses/"${active === 'uses' ? ' aria-current="page"' : ''}>Uses</a></li>
             <li><a href="https://blog.enricopiovesan.com" target="_blank" rel="noopener">Blog</a></li>
           </ul>
