@@ -1,6 +1,6 @@
 ---
-title: Perspectives
-description: Enrico Piovesan's takes on emerging architectural concepts in AI engineering and software architecture — where they lead, what they miss, and what comes next.
+title: Perspectives on AI Engineering & Software Architecture
+description: "Takes on context engineering, AI-native architecture, and software design for agentic systems — where each idea leads, what it misses, and what fills the gap."
 layout: page.njk
 canonical: https://enricopiovesan.com/perspectives/
 ogTitle: Perspectives on AI Engineering & Software Architecture

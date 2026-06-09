@@ -66,6 +66,76 @@ layout: base.njk
 }
 </script>
 {% endif %}
+{% if canonical == "https://enricopiovesan.com/perspectives/" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://enricopiovesan.com/perspectives/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Perspectives", "item": "https://enricopiovesan.com/perspectives/" }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://enricopiovesan.com/perspectives/#list",
+      "name": "Perspectives on AI Engineering & Software Architecture",
+      "description": "Takes on context engineering, AI-native architecture, and software design for agentic systems.",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "url": "https://enricopiovesan.com/perspectives/",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://enricopiovesan.com/perspectives/context-engineering/",
+          "name": "Beyond Context Engineering"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://enricopiovesan.com/perspectives/ai-native-architecture/",
+          "name": "What Makes Software AI-Native?"
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endif %}
+{% if canonical and canonical.includes('/perspectives/') and not canonical.endsWith('/perspectives/') %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{ canonical }}#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Perspectives", "item": "https://enricopiovesan.com/perspectives/" },
+        { "@type": "ListItem", "position": 3, "name": "{{ title }}", "item": "{{ canonical }}" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "{{ canonical }}#article",
+      "headline": "{{ title }}",
+      "name": "{{ title }}",
+      "description": "{{ description }}",
+      "datePublished": "{{ datePublished }}",
+      "dateModified": "{{ datePublished }}",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "url": "{{ canonical }}",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://enricopiovesan.com/perspectives/#list" }
+    }
+  ]
+}
+</script>
+{% endif %}
 {% endblock %}
 <article class="page-content">
   <h1>{{ title | replace(" — Enrico Piovesan", "") }}</h1>
