@@ -55,7 +55,7 @@ Groups of concepts that co-occur across multiple documents:
 
 ## Interactive Graph
 
-<div style="position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;width:100vw;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-top:2rem;margin-bottom:2rem;">
+<div style="width:min(860px,100%);margin-left:calc((min(860px,100%) - 100%) / 2 * -1);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:2rem;margin-bottom:2rem;">
   <iframe
     src="/public/knowledge-graph-viz.html"
     width="100%"
