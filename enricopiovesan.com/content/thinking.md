@@ -1,7 +1,7 @@
 ---
 title: Architecture Concepts & Perspectives
 description: Concepts and perspectives on software architecture, AI-native systems, and portable runtimes — covering UMA, C-DAD, agentic systems, and context engineering.
-layout: page.njk
+layout: thinking.njk
 permalink: /thinking/
 canonical: https://enricopiovesan.com/thinking/
 ogTitle: Thinking

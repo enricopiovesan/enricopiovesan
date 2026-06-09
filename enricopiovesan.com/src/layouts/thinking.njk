@@ -1,0 +1,44 @@
+---
+layout: base.njk
+---
+<div class="section-shell">
+  <aside class="section-nav-aside" aria-label="Thinking navigation">
+    <a class="section-nav-label" href="/thinking/">Thinking</a>
+    <ul class="section-nav-links">
+      <li><a href="/concepts/"{% if page.url == '/concepts/' %} class="active" aria-current="page"{% endif %}>Concepts</a></li>
+      <li><a href="/perspectives/"{% if page.url == '/perspectives/' %} class="active" aria-current="page"{% endif %}>Perspectives</a></li>
+      <li><a href="/knowledge-graph/"{% if page.url == '/knowledge-graph/' %} class="active" aria-current="page"{% endif %}>Knowledge Graph</a></li>
+    </ul>
+  </aside>
+
+  <main class="section-main">
+    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        {% if page.url != '/thinking/' %}
+        <li><a href="/thinking/">Thinking</a></li>
+        <li><span aria-current="page">{{ title }}</span></li>
+        {% else %}
+        <li><span aria-current="page">Thinking</span></li>
+        {% endif %}
+      </ol>
+    </nav>
+
+    <article class="page-content" style="padding: 0;">
+      <h1>{{ title | replace(" — Enrico Piovesan", "") }}</h1>
+      {% if lastUpdated %}<p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: {{ lastUpdated }}</p>{% endif %}
+      {{ content | safe }}
+    </article>
+  </main>
+
+  <aside class="section-toc-aside" aria-label="On this page">
+    <span class="section-toc-label">On this page</span>
+    <ul class="section-toc-links">
+      {% if page.url == '/thinking/' %}
+      <li><a href="#concepts">Concepts</a></li>
+      <li><a href="#perspectives">Perspectives</a></li>
+      <li><a href="#knowledge-graph">Knowledge Graph</a></li>
+      {% endif %}
+    </ul>
+  </aside>
+</div>
