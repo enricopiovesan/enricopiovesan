@@ -27,6 +27,16 @@ This piece examines what context engineering gets right, traces the class of pro
 
 [Read the full piece →](/perspectives/context-engineering/)
 
+## [What Makes Software AI-Native?](/perspectives/ai-native-architecture/)
+
+*Published June 2026*
+
+"AI-native" has become one of those terms that everyone uses and nobody defines. Teams describe their products as AI-native because they call an LLM API. Vendors use it to mean they have a chat interface. The word is doing too much work — and that vagueness has a cost, because the architecture question it points to is real.
+
+There is a meaningful difference between software that has AI features and software that is structurally designed to work with AI agents. That difference is not aesthetic. It determines what AI agents can actually do with your codebase and where they fail in ways you cannot trace. This piece defines AI-native precisely — three structural properties that must all be present — and explains why most software that calls itself AI-native is actually AI-augmented, which is a different and less capable thing.
+
+[Read the full piece →](/perspectives/ai-native-architecture/)
+
 ---
 
 *New perspectives are added as the field moves. The frameworks and concepts on this site — UMA and C-DAD — are the primary lens. Each perspective connects to one or both.*
