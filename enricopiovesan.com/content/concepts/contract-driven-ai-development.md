@@ -32,11 +32,11 @@ An agent reading a specification can describe behavior — it knows what inputs 
 
 ## Why does AI navigability matter now?
 
-Before AI agents became part of software teams, the gap between implicit intent and explicit contracts was expensive but manageable. Developers read the codebase, asked colleagues, consulted documentation, and filled in the gaps from context. The cost was onboarding time and maintenance overhead — real costs, but bounded.
+Before AI agents joined software teams, the gap between implicit intent and explicit contracts was expensive but manageable. Developers filled that gap from context — asking colleagues, consulting documentation, inferring from history. Costly, but bounded.
 
-AI agents change the calculus. An agent has no colleague to ask. It cannot tell whether a conditional is load-bearing or a legacy workaround. It cannot distinguish a business invariant from an implementation accident. When an agent works in a codebase that has only code and no contracts, it does not refuse — it reasons from what it can infer. The output is usually plausible. The failures are usually invisible until they reach production.
+AI agents change the calculus. An agent has no colleague to ask. It cannot tell whether a conditional is load-bearing or a legacy workaround. It cannot distinguish a business invariant from an implementation accident. When an agent works in a codebase with only code and no contracts, it does not refuse — it reasons from what it can infer. The output is usually plausible. The failures are usually invisible until they reach production.
 
-The timing matters because the agentic era is not coming — it is here. Teams are using AI agents in CI pipelines, in code review, in test generation, and in feature development. Most of those codebases were not designed to be agent-navigable. C-DAD is the framework for closing that gap before the compound failures accumulate.
+The timing matters because the agentic era is not coming — it is here. Teams are using AI agents in CI pipelines, code review, test generation, and feature development. Most of those codebases were not designed to be agent-navigable. C-DAD is the framework for closing that gap before the compound failures accumulate.
 
 ## How does C-DAD differ from what most teams already do?
 

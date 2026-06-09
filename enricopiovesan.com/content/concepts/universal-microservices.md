@@ -22,15 +22,15 @@ Universal Microservices Architecture inverts that assumption. Each business capa
 
 ## Why does runtime portability matter now?
 
-The cost of environment-specific rewrites has increased, not decreased. Three forces converged around 2023–2024 that made portability urgent rather than nice to have.
+The cost of environment-specific rewrites has increased. Three forces converged around 2023–2024 that made portability urgent rather than nice to have.
 
-The first is AI pipelines. Every team adding LLM-based features to an existing product needs to invoke business logic — validation rules, pricing calculations, eligibility checks — from within an AI pipeline. That logic already exists in the backend. It usually also exists in the browser and the edge. Each copy diverges over time. The AI pipeline version is typically the most out of sync, because it was added last and nobody owns the divergence problem explicitly.
+The first is AI pipelines. Every team adding LLM-based features needs to invoke existing business logic — validation rules, pricing calculations, eligibility checks — from within an AI pipeline. That logic already exists in the backend and usually in the browser. Each copy diverges over time. The AI pipeline version is typically the most out of sync, added last with no one owning the divergence problem explicitly.
 
-The second is edge computing at scale. Edge functions run close to users and have strict memory and startup constraints. WASM is the natural compilation target for edge — lightweight, sandboxed, fast to initialize. But rewriting business logic specifically for edge defeats the purpose. UMA lets the same capability run at the edge that runs everywhere else, without a rewrite.
+The second is edge computing. WASM is the natural compilation target for edge functions — lightweight, sandboxed, fast to initialize. But rewriting logic specifically for edge defeats the purpose. UMA lets the same capability run at the edge that runs everywhere else, without modification.
 
-The third is agentic systems. AI agents need to invoke capabilities on behalf of users. If those capabilities are runtime-specific, agents cannot invoke them portably. A UMA-compatible capability is invocable from any agent runtime by design.
+The third is agentic systems. AI agents invoking capabilities on behalf of users need portable interfaces. A UMA-compatible capability is invocable from any agent runtime by design.
 
-Teams paying the rewrite tax for each new environment are not failing at execution. They are using an architecture that was never designed for a multi-runtime world.
+Teams paying the rewrite tax for each new environment are not failing at execution. They are using an architecture never designed for a multi-runtime world.
 
 ## How does UMA differ from standard microservices?
 

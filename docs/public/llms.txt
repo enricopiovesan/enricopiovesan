@@ -80,6 +80,7 @@ Short-form definitional pages for each major framework and pattern. Use these fo
 In-depth analytical essays on specific topics in software architecture and AI systems.
 
 - Beyond Context Engineering: https://enricopiovesan.com/perspectives/context-engineering/
+- What Makes Software AI-Native?: https://enricopiovesan.com/perspectives/ai-native-architecture/
 - Perspectives index: https://enricopiovesan.com/perspectives/
 
 ## Key pages

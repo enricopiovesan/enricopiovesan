@@ -1,6 +1,6 @@
 ---
 title: What Makes Software AI-Native?
-description: "AI-native" is used to mean many things. This piece defines it precisely: what structural properties software must have to work with AI agents rather than alongside them.
+description: '"AI-native" is used to mean many things. This piece defines it precisely: what structural properties software must have to work with AI agents rather than alongside them.'
 layout: page.njk
 permalink: /perspectives/ai-native-architecture/
 canonical: https://enricopiovesan.com/perspectives/ai-native-architecture/

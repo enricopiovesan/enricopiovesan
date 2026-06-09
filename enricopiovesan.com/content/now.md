@@ -2,6 +2,7 @@
 title: Now
 description: "What Enrico Piovesan is working on right now — current projects, writing, speaking submissions, and what has his focus as of June 2026."
 layout: page.njk
+noindex: true
 canonical: https://enricopiovesan.com/now/
 ogTitle: "Now — Enrico Piovesan"
 ogDescription: "Current focus: C-DAD tooling, The Day After book, and conference submissions on portable systems and AI-native software architecture."
