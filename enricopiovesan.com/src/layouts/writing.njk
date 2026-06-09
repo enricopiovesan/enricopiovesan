@@ -62,7 +62,7 @@ layout: base.njk
 {% for pub in series %}
 <div class="writing-series">
   <div class="series-header">
-    <div class="series-name"><a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.name }}</a></div>
+    <h2 class="series-name"><a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.name }}</a></h2>
   </div>
   <p class="series-cadence">{{ pub.cadence }}</p>
   {% if pub.description %}<p class="series-description">{{ pub.description }}</p>{% endif %}

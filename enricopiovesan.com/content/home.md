@@ -15,7 +15,7 @@ nav_cards:
     desc: Two books. One on making software run anywhere without rewriting it. One on making software navigable by AI agents without throwing it away.
     href: /books/
   - label: White Papers
-    desc: Five research papers from 2023 to 2025. Each one started as a problem I could not stop thinking about.
+    desc: Four research papers from 2023 to 2025. Each one started as a problem I could not stop thinking about.
     href: /whitepapers/
   - label: Projects
     desc: Four open source projects built from the same frameworks. Spec-governed, CI-enforced, and running in production or pre-implementation with quality standards in place.
@@ -26,6 +26,6 @@ nav_cards:
   - label: Speaking
     desc: Three conference talks drawn directly from published work and shipped tooling. Currently submitting CFPs for architecture, WASM, and AI engineering tracks.
     href: /speaking/
-bio: "Platform Software Architect at Autodesk. Based in Golden, BC, Purcell Mountains, Canada. Two books, five research papers, and four open source projects. The problems kept showing up and nobody else was fixing them."
+bio: "Platform Software Architect at Autodesk. Author of Universal Microservices Architecture (Apress). Based in Golden, BC, Canada. Two books, four research papers, four open source projects."
 about_href: /about/
 ---
