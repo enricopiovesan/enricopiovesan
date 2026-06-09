@@ -6,7 +6,7 @@ permalink: /whitepapers/
 canonical: https://enricopiovesan.com/whitepapers/
 ogTitle: White Papers
 ogDescription: Four research papers on software architecture, AI-native systems, and contract-driven development published between 2023 and 2025.
-ogImage: og-whitepapers.svg
+ogImage: og-whitepapers.png
 intro: I am not an academic. These papers did not come from a research agenda. They came from problems I could not stop thinking about. After enough years in this industry you start recognizing patterns, the same structural failure showing up in different companies with different stacks and different teams. When a pattern bothers me enough and I cannot find a satisfying answer anywhere, I eventually write one down. That is where all of these came from.
 papers:
   - title: Contract-Driven AI Development (C-DAD)

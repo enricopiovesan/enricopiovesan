@@ -6,7 +6,7 @@ permalink: /uma/
 canonical: https://enricopiovesan.com/uma/
 ogTitle: Universal Microservices Architecture (UMA)
 ogDescription: A portable, contract-driven execution model for distributed systems. Write once, run where it makes sense.
-ogImage: og-uma.svg
+ogImage: og-uma.png
 concept: UMA
 lastUpdated: "June 2026"
 ---

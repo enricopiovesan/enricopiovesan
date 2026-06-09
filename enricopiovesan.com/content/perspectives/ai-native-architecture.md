@@ -6,7 +6,7 @@ permalink: /perspectives/ai-native-architecture/
 canonical: https://enricopiovesan.com/perspectives/ai-native-architecture/
 ogTitle: What Makes Software AI-Native?
 ogDescription: AI-native means more than using LLMs. It describes software structurally designed so AI agents can navigate, validate, and compose capabilities without human interpretation at every step.
-ogImage: og-default.png
+ogImage: og-perspectives.png
 datePublished: "2026-06-09"
 lastUpdated: "June 2026"
 ---
