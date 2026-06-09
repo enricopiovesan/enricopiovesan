@@ -23,3 +23,7 @@ Short, precise explanations of the three architectural ideas behind the publishe
 ## [Perspectives](/perspectives/)
 
 Longer analytical pieces on specific terms and practices the industry is actively building around. The format is always the same: what the idea gets right, what it leaves unresolved, and what structural answer fills the gap. Current piece: [Beyond Context Engineering](/perspectives/context-engineering/) — why giving agents better context is necessary but not sufficient, and why machine-enforceable contracts solve the problem that context management cannot. New perspectives are added as the field moves and specific ideas become worth examining at length.
+
+## [Knowledge Graph](/knowledge-graph/)
+
+An interactive map of the concepts, arguments, and connections across the published writing — books, white papers, and articles. 577 nodes, 602 edges, 82 communities. Built from the intellectual content only, not the site structure. Useful for finding how ideas connect across different frameworks and pieces.
