@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Applied AI at Work — Practical Skills for Professionals and Small Businesses - Enrico Piovesan</title>
+  <meta name="description" content="An in-person, hands-on applied AI course that helps professionals and small business operators move from AI confusion to repeatable workflows for everyday work. Proposed for College of the Rockies, Golden, BC." />
+  
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Applied AI at Work — Enrico Piovesan" />
+  <meta property="og:description" content="Practical AI skills for professionals and small businesses, focused on problem definition, workflow design, verification, and responsible use." />
+  <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
+  <meta property="og:url" content="https://enricopiovesan.com/teaching/applied-ai-at-work/" />
+  <meta property="og:type" content="website" />
+  
+  <meta property="og:site_name" content="Enrico Piovesan" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/src/assets/img/ep-favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/src/assets/img/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/img/ep-favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/img/ep-favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/src/assets/img/ep-favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/img/ep-favicon-180.png" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://enricopiovesan.com/teaching/applied-ai-at-work/" />
+
+  <!-- Theme: apply before paint to avoid flash -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+
+  <!-- Google Analytics: deferred until after page interactive to avoid main-thread blocking -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-71P091V6MQ');
+    window.addEventListener('load', function() {
+      var s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-71P091V6MQ';
+      s.async = true;
+      document.head.appendChild(s);
+    });
+  </script>
+
+  <!-- Font preloads: tell browser to fetch before CSS is parsed -->
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-sans-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-sans-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Critical styles inlined to eliminate render-blocking requests -->
+  <style>
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:300;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-300.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-300.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-400.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
+:root{--black:#0a0a0a;--white:#f5f4f0;--mid:#a8a5a0;--accent:#d45a25;--border:#2a2a28;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem;--bg:var(--black);--fg:var(--white);--fg-mid:var(--mid);--fg-border:var(--border)}
+[data-theme="light"]{--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
+  </style>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/assets/styles/global.css" />
+
+  <!-- Person schema (every page) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://enricopiovesan.com/#person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com",
+    "image": "https://enricopiovesan.com/src/assets/img/enrico-piovesan.jpg",
+    "jobTitle": "Platform Software Architect",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Autodesk"
+    },
+    "description": "Platform architect and author building frameworks for software that runs anywhere and codebases that AI agents can actually navigate.",
+    "sameAs": [
+      "https://github.com/enricopiovesan",
+      "https://linkedin.com/in/enricopiovesan",
+      "https://medium.com/@enricopiovesan",
+      "https://blog.enricopiovesan.com",
+      "https://x.com/enricopiovesan",
+      "https://www.universalmicroservices.com",
+      "https://www.amazon.com/dp/B0GTTTTQH4"
+    ],
+    "knowsAbout": [
+      "Software Architecture",
+      "WebAssembly",
+      "Contract-Driven AI Development",
+      "Universal Microservices Architecture",
+      "Distributed Systems",
+      "Agentic Systems",
+      "Platform Engineering"
+    ]
+  }
+  </script>
+
+  <!-- Schema -->
+  
+
+  <!-- Web Components -->
+  <script type="module" src="/src/components/ep-nav.js"></script>
+  <script type="module" src="/src/components/ep-footer.js"></script>
+</head>
+<body>
+  <ep-nav active="applied-ai-at-work" base="/"></ep-nav>
+  <noscript>
+    <nav aria-label="Main navigation" style="padding:1rem 2rem;font-size:0.85rem;">
+      <a href="/">Enrico Piovesan</a> —
+      <a href="/about/">About</a> ·
+      <a href="/work/">Work</a> · <a href="/books/">Books</a> · <a href="/whitepapers/">White Papers</a> · <a href="/projects/">Projects</a> ·
+      <a href="/thinking/">Thinking</a> · <a href="/concepts/">Concepts</a> · <a href="/perspectives/">Perspectives</a> · <a href="/knowledge-graph/">Knowledge Graph</a> ·
+      <a href="/uma/">UMA</a> · <a href="/c-dad/">C-DAD</a> ·
+      <a href="/speaking/">Speaking</a> · <a href="/writing/">Writing</a>
+    </nav>
+  </noscript>
+
+  <main id="main-content">
+    
+
+
+
+
+
+<article class="page-content">
+  <h1>Applied AI at Work — Practical Skills for Professionals and Small Businesses</h1>
+  
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Applied AI at Work: Practical Skills for Professionals and Small Businesses",
+  "description": "An in-person, hands-on applied AI course that helps professionals and small business operators move from AI confusion to repeatable workflows for everyday work.",
+  "provider": {
+    "@type": "Person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com"
+  },
+  "instructor": {
+    "@type": "Person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com"
+  },
+  "courseMode": "in-person",
+  "educationalLevel": "professional development",
+  "inLanguage": "en",
+  "url": "https://enricopiovesan.com/teaching/applied-ai-at-work/"
+}
+</script>
+<h1>Applied AI at Work</h1>
+<h2>Practical skills for professionals and small businesses</h2>
+<p>Move from AI confusion to repeatable workflows for everyday work.</p>
+<p>Applied AI at Work is an in-person, hands-on course that helps professionals and small business operators learn how to apply AI to real work. No hype. No shortcuts. No generic prompt tricks. Just a practical method that participants can use in their own work from the first week.</p>
+<hr>
+<h2>The problem this course addresses</h2>
+<p>AI is everywhere, but clarity is not.</p>
+<p>Professionals are being bombarded with AI tools, headlines, social media claims, and unrealistic promises. Many people have tried AI tools, but few have learned how to apply them safely and repeatably to real work.</p>
+<p>The real skill is not memorizing prompts. The real skill is learning how to define a problem clearly, design a useful workflow, verify the output, and decide what should stay human.</p>
+<p>That is what this course teaches.</p>
+<hr>
+<h2>What participants will learn</h2>
+<p>By the end of the course, participants will be able to:</p>
+<ol>
+<li>Understand what modern AI tools can and cannot do in practical workplace settings</li>
+<li>Identify where AI can create value in their own work, business, or role</li>
+<li>Define problems clearly enough for AI to support useful solutions</li>
+<li>Design repeatable AI-assisted workflows for communication, planning, documents, research, and decision support</li>
+<li>Use structured prompting techniques based on context, constraints, desired output, and success criteria</li>
+<li>Verify AI-generated outputs for accuracy, usefulness, risk, and fit</li>
+<li>Apply safe and responsible AI practices, including privacy and confidential information boundaries</li>
+<li>Create practical business artifacts such as templates, checklists, summaries, plans, and workflow documents</li>
+<li>Build a personal AI Workflow Playbook they can continue using after the course</li>
+</ol>
+<hr>
+<h2>Who this course is for</h2>
+<p>This course is designed for working professionals and business operators across industries, including:</p>
+<ul>
+<li>Small business owners and operators</li>
+<li>Managers and team leads</li>
+<li>Tourism and hospitality professionals</li>
+<li>Airbnb and property managers</li>
+<li>Outdoor and guiding professionals</li>
+<li>Trades and landscaping businesses</li>
+<li>Administrative professionals</li>
+<li>Nonprofit and community organization staff</li>
+<li>Real estate and service professionals</li>
+<li>Anyone who uses writing, planning, communication, documents, research, or decision-making in their work</li>
+</ul>
+<p>No AI experience is required. Participants should be comfortable using a laptop, email, documents, web browsing, and basic online tools.</p>
+<hr>
+<h2>Course format</h2>
+<ul>
+<li>8 weeks</li>
+<li>In person only</li>
+<li>3 hours live instruction per week</li>
+<li>1 hour guided applied work per week</li>
+<li>32 total learning hours</li>
+<li>Laptop required</li>
+<li>ChatGPT Plus subscription required for the duration of the course</li>
+<li>Hands-on from the beginning</li>
+<li>Final AI Workflow Playbook and capstone workflow</li>
+</ul>
+<p>Preferred delivery location: College of the Rockies, Golden campus.</p>
+<p>Preferred schedule: weekend format, with weekday evenings also possible depending on participant demand and scheduling.</p>
+<p>Suggested cohort size: 10 to 20 participants. A minimum of 10 participants is recommended before the course runs, with an ideal cohort size of 12 to 16 participants to support discussion, peer learning, and hands-on coaching.</p>
+<hr>
+<h2>Weekly outline</h2>
+<h3>Week 1: AI Without the Noise</h3>
+<p>Set the baseline. Clear confusion about what AI is, what it is not, what it can do, where it fails, and how to use it responsibly. Introduce the course method and the AI Workflow Playbook. Participants complete a Work Friction Inventory to identify real workplace problems before the next session.</p>
+<h3>Week 2: Finding Work Friction</h3>
+<p>Participants learn how to observe their own work, identify repeated tasks, information overload, unclear processes, communication loops, and business problems that may benefit from AI support.</p>
+<h3>Week 3: Defining Problems for AI</h3>
+<p>Participants learn how to turn vague needs into clear problem statements with context, goals, constraints, risks, and success criteria. This is the hardest and most important skill in the course.</p>
+<h3>Week 4: Prompting as Structured Communication</h3>
+<p>Participants learn reusable prompt patterns that help AI produce more useful, specific, and reliable outputs. The focus is on transferable technique, not tool-specific tricks.</p>
+<h3>Week 5: Communication and Customer Workflows</h3>
+<p>Participants build workflows for emails, customer replies, service descriptions, meeting preparation, internal communication, and public-facing writing.</p>
+<h3>Week 6: Documents, Research, and Verification</h3>
+<p>Participants learn how to use AI for summarizing, comparing, researching, reviewing, and organizing information while verifying outputs and avoiding blind trust.</p>
+<h3>Week 7: From Problem to Artifact</h3>
+<p>Participants use AI to create practical business artifacts such as templates, checklists, forms, lightweight tools, plans, and workflow documents. No coding experience is required.</p>
+<h3>Week 8: AI Workflow Playbook and Capstone</h3>
+<p>Participants finalize and present one practical AI-assisted workflow they can use in their work, along with their personal AI Workflow Playbook and responsible-use checklist.</p>
+<hr>
+<h2>The AI Workflow Playbook</h2>
+<p>Rather than leaving with general knowledge or a list of prompts, each participant leaves with a practical AI Workflow Playbook tailored to their own work or business.</p>
+<p>The playbook includes:</p>
+<ul>
+<li>Work-friction map</li>
+<li>Problem definition templates</li>
+<li>Reusable prompt patterns</li>
+<li>Responsible-use checklist</li>
+<li>Verification checklist</li>
+<li>Minimum three practical AI-supported workflows</li>
+<li>One polished capstone workflow</li>
+<li>30-day adoption plan</li>
+</ul>
+<p>The capstone workflow is reviewed using a simple practical checklist focused on clarity, usefulness, repeatability, verification, and responsible use. No exams. No academic grading.</p>
+<hr>
+<h2>What this course is not</h2>
+<p>This is not a ChatGPT tricks course.</p>
+<p>This is not a prompt library.</p>
+<p>This is not a coding course.</p>
+<p>This is not an AI hype session.</p>
+<p>This is not a replacement for professional judgment.</p>
+<p>This is a practical course about applying AI to real work through problem definition, workflow design, verification, and responsible use.</p>
+<hr>
+<h2>Requirements</h2>
+<p>Participants need:</p>
+<ul>
+<li>A laptop</li>
+<li>A ChatGPT Plus subscription for the duration of the course</li>
+<li>Basic comfort with email, documents, web browsing, and online tools</li>
+<li>No AI experience required</li>
+<li>No coding required</li>
+</ul>
+<p>ChatGPT Plus is used as the shared classroom platform. The course teaches transferable AI workflow skills that participants can apply across tools and roles. The course is not about learning one product.</p>
+<hr>
+<h2>Frequently asked questions</h2>
+<h3>Is this a ChatGPT course?</h3>
+<p>No. ChatGPT Plus is used as the shared classroom platform, but the course teaches transferable AI workflow skills that work across tools and roles.</p>
+<h3>Do I need AI experience?</h3>
+<p>No. The course starts by setting a clear baseline and resetting expectations. Week 1 is specifically designed to reduce confusion and build confidence before any applied work begins.</p>
+<h3>Do I need to code?</h3>
+<p>No. The course is designed for business and professional users. No technical background is required.</p>
+<h3>Why is ChatGPT Plus required?</h3>
+<p>The course requires a shared classroom platform so everyone can work from the same baseline. Free plans may have usage limits that interrupt hands-on learning. ChatGPT Plus is broad, widely recognized, and practical for business workflows.</p>
+<h3>Why is the course 8 weeks?</h3>
+<p>A short workshop can create awareness but cannot build durable professional skill. Participants need repeated practice, feedback, real workplace application, and time to build their AI Workflow Playbook.</p>
+<h3>What will I leave with?</h3>
+<p>You will leave with an AI Workflow Playbook, practical workflows, prompt patterns, verification habits, a responsible-use checklist, and one polished capstone workflow you can apply to your own work immediately.</p>
+<h3>Is this useful for my industry?</h3>
+<p>The course teaches a method that can be applied across industries. The examples and final workflow are adapted to your own work, role, or business.</p>
+<h3>Is this for beginners?</h3>
+<p>Yes, but it is not a passive beginner class. It starts from a clear baseline and moves into applied work that participants choose based on their own work and business context.</p>
+<h3>What about privacy?</h3>
+<p>Responsible use is covered from Week 1. Participants are instructed not to use confidential, private, customer, employee, legal, medical, financial, or sensitive data in class. The course teaches privacy boundaries and human review points throughout.</p>
+<h3>How is this different from free online content?</h3>
+<p>Free online content often focuses on tools, tips, hype, or generic prompts. This course is local, in-person, hands-on, guided, and focused on each participant's actual work and business context.</p>
+<h3>Why in person only?</h3>
+<p>The first version is designed around hands-on support, trust, local examples, peer learning, and direct coaching. In-person delivery also differentiates the course from the large volume of generic online AI content.</p>
+<hr>
+<h2>For organizations</h2>
+<p>The course can be adapted for employer-sponsored cohorts or custom workforce training for organizations that want to upskill their teams in applied AI workflow design.</p>
+<p>If you are interested in bringing Applied AI at Work to your organization or team, contact me to discuss delivery format, cohort size, and custom content options.</p>
+<hr>
+<h2>Instructor</h2>
+<p>Enrico Piovesan is a platform software architect with extensive experience in software architecture, AI-enabled workflows, platform thinking, and technology adoption at enterprise scale.</p>
+<p>His work focuses on helping people and organizations understand how technology changes the way work is structured, delivered, and improved. Applied AI at Work translates that experience into practical training for professionals and small businesses who want to use AI with clarity, responsibility, and real-world value.</p>
+<p><a href="https://enricopiovesan.com/about/">Full bio and background</a></p>
+<hr>
+<h2>Contact</h2>
+<p>Interested in the course, employer cohorts, or future training opportunities?</p>
+<p><a href="https://linkedin.com/in/enricopiovesan">Get in touch via LinkedIn</a></p>
+
+</article>
+
+  </main>
+
+  <ep-footer base="/"></ep-footer>
+  <noscript>
+    <footer style="padding:1.5rem 2rem;font-size:0.8rem;">
+      <a href="/">Home</a> · <a href="/about/">About</a> · <a href="/books/">Books</a> · <a href="/whitepapers/">White Papers</a> · <a href="/projects/">Projects</a> · <a href="/speaking/">Speaking</a> · <a href="/writing/">Writing</a> · <a href="/uma/">UMA</a> · <a href="/c-dad/">C-DAD</a> · <a href="/concepts/">Concepts</a> · <a href="/perspectives/">Perspectives</a> · <a href="/knowledge-graph/">Knowledge Graph</a>
+    </footer>
+  </noscript>
+</body>
+</html>
