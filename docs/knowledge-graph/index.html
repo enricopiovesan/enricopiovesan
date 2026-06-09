@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Knowledge Graph — Enrico Piovesan - Enrico Piovesan</title>
+  <meta name="description" content="Interactive knowledge graph mapping the relationships between UMA, C-DAD, ECCA, CSMA, and the broader architecture and AI-native software concepts developed by Enrico Piovesan." />
+  
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Knowledge Graph" />
+  <meta property="og:description" content="Explore the interconnected frameworks and concepts behind UMA, C-DAD, ECCA, and CSMA — mapped as a navigable knowledge graph." />
+  <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
+  <meta property="og:url" content="https://enricopiovesan.com/knowledge-graph/" />
+  <meta property="og:type" content="website" />
+  
+  <meta property="og:site_name" content="Enrico Piovesan" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/src/assets/img/ep-favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/src/assets/img/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/img/ep-favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/img/ep-favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/src/assets/img/ep-favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/img/ep-favicon-180.png" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://enricopiovesan.com/knowledge-graph/" />
+
+  <!-- Theme: apply before paint to avoid flash -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+
+  <!-- Google Analytics: deferred until after page interactive to avoid main-thread blocking -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-71P091V6MQ');
+    window.addEventListener('load', function() {
+      var s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-71P091V6MQ';
+      s.async = true;
+      document.head.appendChild(s);
+    });
+  </script>
+
+  <!-- Font preloads: tell browser to fetch before CSS is parsed -->
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-sans-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-sans-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Critical styles inlined to eliminate render-blocking requests -->
+  <style>
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:300;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-300.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-300.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-400.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
+:root{--black:#0a0a0a;--white:#f5f4f0;--mid:#a8a5a0;--accent:#d45a25;--border:#2a2a28;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem;--bg:var(--black);--fg:var(--white);--fg-mid:var(--mid);--fg-border:var(--border)}
+[data-theme="light"]{--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
+  </style>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/assets/styles/global.css" />
+
+  <!-- Person schema (every page) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://enricopiovesan.com/#person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com",
+    "image": "https://enricopiovesan.com/src/assets/img/enrico-piovesan.jpg",
+    "jobTitle": "Platform Software Architect",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Autodesk"
+    },
+    "description": "Platform architect and author building frameworks for software that runs anywhere and codebases that AI agents can actually navigate.",
+    "sameAs": [
+      "https://github.com/enricopiovesan",
+      "https://linkedin.com/in/enricopiovesan",
+      "https://medium.com/@enricopiovesan",
+      "https://blog.enricopiovesan.com",
+      "https://x.com/enricopiovesan",
+      "https://www.universalmicroservices.com",
+      "https://www.amazon.com/dp/B0GTTTTQH4"
+    ],
+    "knowsAbout": [
+      "Software Architecture",
+      "WebAssembly",
+      "Contract-Driven AI Development",
+      "Universal Microservices Architecture",
+      "Distributed Systems",
+      "Agentic Systems",
+      "Platform Engineering"
+    ]
+  }
+  </script>
+
+  <!-- Schema -->
+  
+
+  <!-- Web Components -->
+  <script type="module" src="/src/components/ep-nav.js"></script>
+  <script type="module" src="/src/components/ep-footer.js"></script>
+</head>
+<body>
+  <ep-nav active="knowledge-graph" base="/"></ep-nav>
+  <noscript>
+    <nav aria-label="Main navigation" style="padding:1rem 2rem;font-size:0.85rem;">
+      <a href="/">Enrico Piovesan</a> —
+      <a href="/about/">About</a> ·
+      <a href="/work/">Work</a> · <a href="/books/">Books</a> · <a href="/whitepapers/">White Papers</a> · <a href="/projects/">Projects</a> ·
+      <a href="/thinking/">Thinking</a> · <a href="/concepts/">Concepts</a> · <a href="/perspectives/">Perspectives</a> ·
+      <a href="/uma/">UMA</a> · <a href="/c-dad/">C-DAD</a> ·
+      <a href="/speaking/">Speaking</a> · <a href="/writing/">Writing</a>
+    </nav>
+  </noscript>
+
+  <main id="main-content">
+    
+
+
+
+
+
+<article class="page-content">
+  <h1>Knowledge Graph</h1>
+  <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: June 2026</p>
+  
+  <p>This graph maps the relationships between the frameworks, whitepapers, tools, and concepts published on this site. Core abstractions are connected by edges extracted from the actual content — architectural papers, perspectives, and code.</p>
+<h2>Core Abstractions</h2>
+<p>The most connected nodes in the graph — concepts that bridge the most ideas:</p>
+<ul>
+<li><strong><a href="/cdad/">Contract-Driven AI Development (C-DAD)</a></strong> — the framework for building AI-native software using machine-enforceable contracts, declared capabilities, and governed composition. Bridges agentic systems, context engineering, and distributed architecture.</li>
+<li><strong><a href="/uma/">Universal Microservices Architecture (UMA)</a></strong> — runtime-portable microservices via WebAssembly. Connects CSMA, ECCA, and the broader ecosystem of open-source tools.</li>
+<li><strong><a href="/whitepapers/ecca/">Event Contract Catalog Architecture (ECCA)</a></strong> — federated governance layer for event-driven systems, schema registries, and policy evaluation.</li>
+<li><strong><a href="/whitepapers/csma/">Client-side Microservices Architecture (CSMA)</a></strong> — the original distributed runtime model, predecessor to UMA.</li>
+</ul>
+<h2>Architectural Evolution</h2>
+<p>The four frameworks follow a deliberate progression:</p>
+<ol>
+<li><strong>CSMA</strong> — client-side runtime isolation and service decomposition</li>
+<li><strong>UMA</strong> — runtime portability via WebAssembly, server and client unified</li>
+<li><strong>ECCA</strong> — event contract governance across federated systems</li>
+<li><strong>C-DAD</strong> — contracts as the primary interface for AI-native and agentic systems</li>
+</ol>
+<p>Each framework builds on the contract-first design philosophy introduced in CSMA and extended through to C-DAD's machine-first manifests.</p>
+<h2>Framework Clusters</h2>
+<table>
+<thead>
+<tr>
+<th>Cluster</th>
+<th>Key Concepts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Context Engineering &amp; UMA</td>
+<td>Runtime portability, WebAssembly, UMA framework, context engineering</td>
+</tr>
+<tr>
+<td>Intellectual Frameworks</td>
+<td>C-DAD, agentic systems, AI-native software, AI navigability</td>
+</tr>
+<tr>
+<td>Author &amp; Whitepapers</td>
+<td>Enrico Piovesan, CSMA/UMA/ECCA/C-DAD white papers</td>
+</tr>
+<tr>
+<td>Web Components</td>
+<td>Navigation, hero, footer, book/paper/talk/project cards</td>
+</tr>
+<tr>
+<td>Build &amp; Deploy</td>
+<td>Eleventy config, CI pipeline, scripts</td>
+</tr>
+</tbody>
+</table>
+<h2>Hyperedge Groups</h2>
+<p>Groups of concepts that co-occur across multiple documents:</p>
+<ul>
+<li><strong>Enrico Piovesan Core Frameworks</strong> — UMA + C-DAD as co-defined, co-dependent systems</li>
+<li><strong>Architectural Evolution: CSMA → UMA → ECCA → C-DAD</strong> — the four-framework progression</li>
+<li><strong>AI Agent Navigability Cluster</strong> — C-DAD, agentic systems, context engineering, AI-native software</li>
+<li><strong>Three Structural Properties of AI-Native Software</strong> — declared capabilities, machine-enforceable contracts, governed composition</li>
+<li><strong>C-DAD Ecosystem</strong> — framework, whitepapers, The Day After toolkit, Traverse, The Day After (book)</li>
+<li><strong>Contract-First Design Philosophy</strong> — immutable contracts, event contracts, CloudEvents, machine-first manifests</li>
+</ul>
+<h2>Interactive Graph</h2>
+<div style="width:100%;border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:2rem 0;">
+  <iframe
+    src="/public/knowledge-graph-viz.html"
+    width="100%"
+    height="700"
+    style="border:none;display:block;"
+    title="Enrico Piovesan — Knowledge Graph"
+    loading="lazy"
+  ></iframe>
+</div>
+<p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);">345 nodes · 444 edges · 45 communities. Built with <a href="https://github.com/safishamsi/graphifyy" style="color:var(--mid);">graphify</a> from the site's own content.</p>
+<h2>Related</h2>
+<ul>
+<li><a href="/whitepapers/">White Papers</a> — full technical papers for each framework</li>
+<li><a href="/cdad/">C-DAD Framework</a> — contract-driven AI development</li>
+<li><a href="/uma/">UMA Framework</a> — universal microservices architecture</li>
+<li><a href="/perspectives/">Perspectives</a> — takes on context engineering and AI-native architecture</li>
+</ul>
+
+</article>
+
+  </main>
+
+  <ep-footer base="/"></ep-footer>
+  <noscript>
+    <footer style="padding:1.5rem 2rem;font-size:0.8rem;">
+      <a href="/">Home</a> · <a href="/about/">About</a> · <a href="/books/">Books</a> · <a href="/whitepapers/">White Papers</a> · <a href="/projects/">Projects</a> · <a href="/speaking/">Speaking</a> · <a href="/writing/">Writing</a> · <a href="/uma/">UMA</a> · <a href="/c-dad/">C-DAD</a> · <a href="/concepts/">Concepts</a> · <a href="/perspectives/">Perspectives</a>
+    </footer>
+  </noscript>
+</body>
+</html>
