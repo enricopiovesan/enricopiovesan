@@ -74,7 +74,7 @@ class EpNav extends HTMLElement {
     const base = (this.getAttribute('base') || '/').replace(/\/$/, '');
 
     const workSlugs = ['books', 'whitepapers', 'projects'];
-    const thinkingSlugs = ['concepts', 'perspectives'];
+    const thinkingSlugs = ['concepts', 'perspectives', 'knowledge-graph'];
     const workActive = workSlugs.includes(active);
     const thinkingActive = thinkingSlugs.includes(active);
 
@@ -95,6 +95,7 @@ class EpNav extends HTMLElement {
     const thinkingLinks = [
       { href: `${base}/concepts/`, label: 'Concepts', slug: 'concepts' },
       { href: `${base}/perspectives/`, label: 'Perspectives', slug: 'perspectives' },
+      { href: `${base}/knowledge-graph/`, label: 'Knowledge Graph', slug: 'knowledge-graph' },
     ];
 
     this.innerHTML = `
