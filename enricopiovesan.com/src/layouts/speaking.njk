@@ -15,6 +15,7 @@ layout: base.njk
     },
     {
       "@type": "PresentationDigitalDocument",
+      "@id": "https://enricopiovesan.com/speaking/#talk-wasm",
       "name": "Write Once, Run Where It Makes Sense",
       "author": { "@id": "https://enricopiovesan.com/#person" },
       "about": ["WebAssembly", "Software Architecture", "Platform Engineering"],
@@ -22,6 +23,7 @@ layout: base.njk
     },
     {
       "@type": "PresentationDigitalDocument",
+      "@id": "https://enricopiovesan.com/speaking/#talk-cdad",
       "name": "Contract-Driven AI Development",
       "author": { "@id": "https://enricopiovesan.com/#person" },
       "about": ["AI Engineering", "Contract-Driven Development"],
@@ -29,26 +31,21 @@ layout: base.njk
     },
     {
       "@type": "PresentationDigitalDocument",
+      "@id": "https://enricopiovesan.com/speaking/#talk-tda",
       "name": "The Day After: Restructuring Software for the Age of AI Agents",
       "author": { "@id": "https://enricopiovesan.com/#person" },
       "about": ["AI Agents", "Engineering Leadership"],
       "inLanguage": "en"
+    },
+    {
+      "@id": "https://enricopiovesan.com/#person",
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Conference Speaker",
+        "description": "Speaks on portable systems, contract-driven AI development, and restructuring software for the age of AI agents"
+      }
     }
   ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://enricopiovesan.com/#person",
-  "name": "Enrico Piovesan",
-  "url": "https://enricopiovesan.com",
-  "hasOccupation": {
-    "@type": "Occupation",
-    "name": "Conference Speaker",
-    "description": "Speaks on portable systems, contract-driven AI development, and restructuring software for the age of AI agents"
-  }
 }
 </script>
 {% endblock %}

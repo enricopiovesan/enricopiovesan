@@ -1,5 +1,5 @@
 ---
-title: About Enrico Piovesan
+title: "Enrico Piovesan — Platform Software Architect at Autodesk"
 description: Platform Software Architect at Autodesk, author of Universal Microservices Architecture (Apress), and originator of the C-DAD framework. Based in Golden, BC, Canada.
 layout: about.njk
 permalink: /about/
