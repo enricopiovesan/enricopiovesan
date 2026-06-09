@@ -190,6 +190,17 @@
 </div>
 
 
+<section class="section" style="margin-top:3rem;max-width:680px;">
+  <h2>The frameworks</h2>
+<p>Two architectural frameworks, each developed to address a structural problem that kept appearing in different companies with different stacks.</p>
+<p><a href="/uma/">Universal Microservices Architecture (UMA)</a> addresses the portability problem. Most distributed systems treat the runtime as an assumption baked into the architecture — a backend service assumes a server, a browser component assumes a browser, an edge function assumes a CDN. When AI pipelines became part of the stack, teams discovered they had to rewrite the same business logic for a fourth environment. UMA inverts that assumption. Business logic is defined once as a portable, contract-bound unit compiled to WebAssembly and deployed to any runtime — browser, edge, cloud, or AI pipeline — without modification. The runtime becomes a deployment decision, not an architectural one. The <a href="https://www.amazon.com/dp/B0GTTTTQH4">Apress book</a> covers the full model across 13 runnable chapters in Rust and WASM.</p>
+<p><a href="/c-dad/">Contract-Driven AI Development (C-DAD)</a> addresses the navigability problem. AI agents can read code and infer behavior. What they cannot do is reason about why a system is designed the way it is, which constraints are load-bearing, and which invariants must never be violated. Without that information, agents produce output that looks correct and fails at the boundary — not with a visible error, but with a plausible result that violates a constraint nobody declared. C-DAD replaces implicit intent with machine-enforceable contracts that agents can validate against before anything executes. The forthcoming book <a href="/books/">The Day After</a> covers how to restructure software organizations around this model.</p>
+<p>Both frameworks have white papers, open source tooling, and conference talks behind them. All of it is on this site.</p>
+
+</section>
+
+
+
   </main>
 
   <ep-footer base="/"></ep-footer>
