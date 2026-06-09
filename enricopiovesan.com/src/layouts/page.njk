@@ -9,6 +9,7 @@ layout: base.njk
   "@graph": [
     {
       "@type": "BreadcrumbList",
+      "@id": "{{ canonical }}#breadcrumb",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
         { "@type": "ListItem", "position": 2, "name": "Concepts", "item": "https://enricopiovesan.com/concepts/" },
@@ -39,6 +40,7 @@ layout: base.njk
   "@graph": [
     {
       "@type": "BreadcrumbList",
+      "@id": "{{ canonical }}#breadcrumb",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
         { "@type": "ListItem", "position": 2, "name": "White Papers", "item": "https://enricopiovesan.com/whitepapers/" },
