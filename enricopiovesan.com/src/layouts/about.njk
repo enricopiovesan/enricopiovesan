@@ -39,9 +39,13 @@ layout: base.njk
       <img src="/src/assets/img/enrico-piovesan.jpg" alt="{{ name }}" class="headshot" width="80" height="80" loading="lazy" />
     </picture>
     <div class="bio-paragraphs">
-      {% for para in bio %}
-      <p>{{ para }}</p>
-      {% endfor %}
+      {% if content %}
+        {{ content | safe }}
+      {% else %}
+        {% for para in bio %}
+        <p>{{ para }}</p>
+        {% endfor %}
+      {% endif %}
     </div>
   </div>
 </section>

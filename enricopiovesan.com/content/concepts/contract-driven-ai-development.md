@@ -16,13 +16,11 @@ When an AI agent encounters that codebase it does not fail loudly. It produces p
 
 Contract-driven AI development is the practice of making software legible to AI agents by declaring intent explicitly through contracts rather than leaving it implicit in code.
 
-## The core distinction
+## What is the core distinction between a specification and a contract?
 
-A specification describes what a system does. A contract describes why it can be trusted.
+A specification describes what a system does. A contract describes why it can be trusted. That distinction is the foundation of Contract-Driven AI Development, and it determines what an AI agent can safely do with a codebase.
 
-That distinction determines what an AI agent can safely do with your codebase. An agent reading a specification can describe behavior. An agent reading a contract can validate behavior, navigate capabilities, and compose them without breaking invariants.
-
-The difference in practice is significant. Teams that adopt contract-driven AI development report faster agent onboarding, fewer hallucination-driven bugs, and cleaner capability boundaries across teams.
+An agent reading a specification can describe behavior — it knows what inputs a function accepts and what outputs it returns. An agent reading a contract can validate behavior, navigate capabilities, and compose them without breaking invariants — it knows the preconditions that must hold before the capability runs, the postconditions that must hold after, the invariants that must never be violated, and the exception flows that govern edge cases. The difference in what the agent can do is not incremental. It is the difference between describing a system and reasoning about it. Teams that adopt contract-driven AI development report faster agent onboarding, fewer hallucination-driven bugs, and cleaner capability boundaries — not because the models improved, but because the codebase gave the agents something real to reason against. The contract graph replaces the assumption graph.
 
 ## The three principles
 

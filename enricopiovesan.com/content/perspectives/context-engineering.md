@@ -5,7 +5,11 @@ layout: page.njk
 canonical: https://enricopiovesan.com/perspectives/context-engineering/
 ogTitle: Beyond Context Engineering
 ogDescription: Context engineering tells agents what to know. It does not tell agents what they can trust. Here is what comes next.
+datePublished: "2025-06-01"
+lastUpdated: "June 2026"
 ---
+
+*By [Enrico Piovesan](https://enricopiovesan.com/about/) — Platform Software Architect at Autodesk, author of [Universal Microservices Architecture](https://www.amazon.com/dp/B0GTTTTQH4) (Apress)*
 
 Context engineering has become one of the most discussed practices in AI development. The core idea is sound: the quality of what an AI agent produces depends heavily on the quality of the context it receives. Structured prompts, retrieved documents, conversation history, tool outputs — all of it shapes what the agent can do.
 
@@ -13,13 +17,13 @@ Most teams investing in context engineering are solving a real problem. Poorly s
 
 But context engineering solves the input problem. It does not solve the trust problem.
 
-## What context engineering gets right
+## What does context engineering get right?
 
 Context engineering recognizes that AI agents are not magic. They work with what they are given. Give them better inputs — clearer structure, more relevant retrieval, better-formatted tool outputs — and they produce better outputs.
 
 This is real progress. Teams that have invested in context engineering report more consistent agent behavior, fewer hallucinations on known data, and faster agent onboarding to new tasks.
 
-## Where context engineering falls short
+## Where does context engineering fall short?
 
 Context engineering tells an agent what to know for a given task. It does not tell the agent what the system is responsible for, what it is not allowed to do, or under what conditions its outputs can be trusted.
 
@@ -29,7 +33,7 @@ What context engineering cannot provide is the why. The regulatory constraint th
 
 When an agent operates without that information, it does not fail loudly. It produces plausible output that violates constraints nobody declared. The bug looks like a logic error. It is actually an architectural gap.
 
-## The distinction that matters
+## What is the distinction that matters?
 
 A specification describes what a system does. A contract describes why it can be trusted.
 
@@ -37,7 +41,7 @@ Context engineering is about specifications — giving agents accurate, well-str
 
 Both matter. They solve different problems. Most teams have started on context engineering and have not yet started on contract-driven development.
 
-## What comes next
+## What comes after context engineering?
 
 The teams that move beyond context engineering are the ones that start treating their codebase as a contract graph, not a collection of functions. Each capability declares its preconditions, postconditions, invariants, and exception flows. Agents navigate that graph rather than guessing from context alone.
 

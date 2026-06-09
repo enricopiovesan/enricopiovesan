@@ -14,13 +14,11 @@ Every distributed system eventually develops the same problem. The same business
 
 Universal microservices architecture is the practice of separating what a capability does from where it runs.
 
-## The core idea
+## What is the core idea of Universal Microservices Architecture?
 
-In a standard distributed system, a service is tied to its deployment environment. A backend service assumes a server. A frontend component assumes a browser. An edge function assumes a CDN runtime. When requirements change or new environments appear — like AI pipelines — the logic gets rewritten.
+In a standard distributed system, a service is tied to its deployment environment. A backend service assumes a server. A frontend component assumes a browser. An edge function assumes a CDN runtime. When requirements change or new environments appear — AI pipelines, for example — the logic gets rewritten for each one. Teams that have lived through this recognize the pattern: not a deployment problem, not a team problem, but an architectural assumption baked in so early it became invisible.
 
-Universal microservices architecture inverts that assumption. Each business capability is packaged as a self-describing unit that declares its contracts and execution requirements independently of any runtime. The same capability runs across browser, edge, cloud, and AI pipeline. The runtime is a deployment decision, not an architectural one.
-
-WebAssembly makes this possible at the execution level. Contracts make it trustworthy at the system level.
+Universal Microservices Architecture inverts that assumption. Each business capability is packaged as a self-describing unit that declares its contracts and execution requirements independently of any specific runtime. The same capability runs across browser, edge, cloud, and AI pipeline without modification. The runtime becomes a deployment decision, not an architectural one. WebAssembly makes this possible at the execution level — it provides a portable, sandboxed compilation target that any runtime can host. Contracts make it trustworthy at the system level — they declare what each capability does and under what conditions it can be relied on. The combination is what makes portability a first-class property rather than an afterthought.
 
 ## Why it matters now
 
