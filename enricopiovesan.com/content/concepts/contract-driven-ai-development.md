@@ -30,11 +30,19 @@ An agent reading a specification can describe behavior — it knows what inputs 
 
 **Keep humans in the authoring seat.** Humans write the intent. Machines validate the implementation. The governance is hybrid. Neither replaces the other.
 
-## How it differs from what you are already doing
+## Why does AI navigability matter now?
+
+Before AI agents became part of software teams, the gap between implicit intent and explicit contracts was expensive but manageable. Developers read the codebase, asked colleagues, consulted documentation, and filled in the gaps from context. The cost was onboarding time and maintenance overhead — real costs, but bounded.
+
+AI agents change the calculus. An agent has no colleague to ask. It cannot tell whether a conditional is load-bearing or a legacy workaround. It cannot distinguish a business invariant from an implementation accident. When an agent works in a codebase that has only code and no contracts, it does not refuse — it reasons from what it can infer. The output is usually plausible. The failures are usually invisible until they reach production.
+
+The timing matters because the agentic era is not coming — it is here. Teams are using AI agents in CI pipelines, in code review, in test generation, and in feature development. Most of those codebases were not designed to be agent-navigable. C-DAD is the framework for closing that gap before the compound failures accumulate.
+
+## How does C-DAD differ from what most teams already do?
 
 Spec-driven development tells agents what to build. Contract-driven AI development tells agents what they can trust. The first automates execution. The second enables reasoning.
 
-If your team is already writing OpenAPI specs, ADRs, or structured documentation you are closer than you think. The gap is making those artifacts machine-enforceable rather than human-readable.
+Teams already writing OpenAPI specs, ADRs, architecture decision records, or structured technical documentation are closer than they think. An OpenAPI spec declares endpoints and types. A C-DAD contract extends that to declare the conditions under which those endpoints can be trusted — the preconditions that must hold, the postconditions that must be true, the invariants that must never break, and the governance rules that apply. The gap is making those artifacts machine-enforceable rather than human-readable. That gap is what separates a codebase that AI agents can describe from one they can reason about.
 
 ## Where to go deeper
 

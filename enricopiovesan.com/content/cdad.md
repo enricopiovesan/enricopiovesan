@@ -6,6 +6,7 @@ permalink: /c-dad/
 canonical: https://enricopiovesan.com/c-dad/
 ogTitle: Contract-Driven AI Development (C-DAD)
 ogDescription: A framework for building AI-native systems where contracts, not code, define collaboration between humans, machines, and runtimes.
+ogImage: og-cdad.svg
 concept: C-DAD
 lastUpdated: "June 2026"
 ---

@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:title" content="{{ ogTitle or title }}" />
   <meta property="og:description" content="{{ ogDescription or description }}" />
-  <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
+  <meta property="og:image" content="https://enricopiovesan.com/public/{% if ogImage %}{{ ogImage }}{% else %}og-default.png{% endif %}" />
   <meta property="og:url" content="https://enricopiovesan.com{{ page.url }}" />
   <meta property="og:type" content="{% if datePublished %}article{% else %}website{% endif %}" />
   {% if datePublished %}<meta property="article:published_time" content="{{ datePublished }}" />

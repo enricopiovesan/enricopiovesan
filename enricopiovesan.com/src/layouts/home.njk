@@ -49,3 +49,9 @@ layout: base.njk
   {% endfor %}
 </div>
 
+{% if content %}
+<section class="section" style="margin-top:3rem;max-width:680px;">
+  {{ content | safe }}
+</section>
+{% endif %}
+

@@ -29,3 +29,13 @@ nav_cards:
 bio: "Platform Software Architect at Autodesk. Author of Universal Microservices Architecture (Apress). Based in Golden, BC, Canada. Two books, four research papers, four open source projects."
 about_href: /about/
 ---
+
+## The frameworks
+
+Two architectural frameworks, each developed to address a structural problem that kept appearing in different companies with different stacks.
+
+[Universal Microservices Architecture (UMA)](/uma/) addresses the portability problem. Most distributed systems treat the runtime as an assumption baked into the architecture — a backend service assumes a server, a browser component assumes a browser, an edge function assumes a CDN. When AI pipelines became part of the stack, teams discovered they had to rewrite the same business logic for a fourth environment. UMA inverts that assumption. Business logic is defined once as a portable, contract-bound unit compiled to WebAssembly and deployed to any runtime — browser, edge, cloud, or AI pipeline — without modification. The runtime becomes a deployment decision, not an architectural one. The [Apress book](https://www.amazon.com/dp/B0GTTTTQH4) covers the full model across 13 runnable chapters in Rust and WASM.
+
+[Contract-Driven AI Development (C-DAD)](/c-dad/) addresses the navigability problem. AI agents can read code and infer behavior. What they cannot do is reason about why a system is designed the way it is, which constraints are load-bearing, and which invariants must never be violated. Without that information, agents produce output that looks correct and fails at the boundary — not with a visible error, but with a plausible result that violates a constraint nobody declared. C-DAD replaces implicit intent with machine-enforceable contracts that agents can validate against before anything executes. The forthcoming book [The Day After](/books/) covers how to restructure software organizations around this model.
+
+Both frameworks have white papers, open source tooling, and conference talks behind them. All of it is on this site.

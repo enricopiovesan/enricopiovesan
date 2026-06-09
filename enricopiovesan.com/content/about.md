@@ -6,6 +6,7 @@ permalink: /about/
 canonical: https://enricopiovesan.com/about/
 ogTitle: About Enrico Piovesan
 ogDescription: Platform Software Architect at Autodesk, author of Universal Microservices Architecture (Apress), and originator of the C-DAD framework.
+ogImage: og-about.svg
 name: Enrico Piovesan
 role: Platform Software Architect
 employer: Autodesk

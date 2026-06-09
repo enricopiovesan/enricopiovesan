@@ -6,6 +6,7 @@ permalink: /books/
 canonical: https://enricopiovesan.com/books/
 ogTitle: Books
 ogDescription: Two books on software architecture and AI-native systems. One published, one forthcoming.
+ogImage: og-books.svg
 intro: "Two books on software architecture. One published, one forthcoming. Both came from the same place: years of watching the same problems show up in different companies, different stacks, and different teams, and deciding that the answer was architectural, not incidental."
 books:
   - title: "Universal Microservices Architecture: Device-Independent Modelling for Modern Software Design with WASM"
