@@ -72,7 +72,7 @@ Short-form definitional pages for each major framework and pattern. Use these fo
 
 - What is Universal Microservices Architecture?: https://enricopiovesan.com/concepts/universal-microservices/
 - What is Contract-Driven AI Development?: https://enricopiovesan.com/concepts/contract-driven-ai-development/
-- Agentic Systems Architecture: https://enricopiovesan.com/concepts/agentic-systems/
+- What is Agentic Systems Architecture?: https://enricopiovesan.com/concepts/agentic-systems/
 - Concepts index: https://enricopiovesan.com/concepts/
 
 ## Perspectives
