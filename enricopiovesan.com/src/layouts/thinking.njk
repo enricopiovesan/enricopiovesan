@@ -24,11 +24,11 @@ layout: base.njk
       </ol>
     </nav>
 
-    <article class="page-content" style="padding: 0;">
-      <h1>{{ title | replace(" — Enrico Piovesan", "") }}</h1>
+    <div class="section-body">
+      <h1 class="section-h1">{{ title | replace(" — Enrico Piovesan", "") }}</h1>
       {% if lastUpdated %}<p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: {{ lastUpdated }}</p>{% endif %}
       {{ content | safe }}
-    </article>
+    </div>
   </main>
 
   <aside class="section-toc-aside" aria-label="On this page">
