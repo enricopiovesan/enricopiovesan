@@ -51,7 +51,7 @@ function parseRSS(xml) {
         const src = im[1];
         // skip tiny tracking/gif images
         if (!src.endsWith(".gif")) {
-          image = src.replace(/\/max\/\d+\//, "/max/112/");
+          image = src.replace(/\/max\/\d+\//, "/max/56/");
           break;
         }
       }
