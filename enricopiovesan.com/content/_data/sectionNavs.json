@@ -1,0 +1,69 @@
+{
+  "thinking": {
+    "label": "Thinking",
+    "url": "/thinking/",
+    "links": [
+      { "href": "/concepts/", "label": "Concepts" },
+      { "href": "/perspectives/", "label": "Perspectives" },
+      { "href": "/knowledge-graph/", "label": "Knowledge Graph" }
+    ]
+  },
+  "work": {
+    "label": "Work",
+    "url": "/work/",
+    "links": [
+      { "href": "/books/", "label": "Books" },
+      { "href": "/whitepapers/", "label": "White Papers" },
+      { "href": "/projects/", "label": "Projects" },
+      { "href": "/teaching/", "label": "Teaching" }
+    ]
+  },
+  "whitepapers": {
+    "label": "White Papers",
+    "url": "/whitepapers/",
+    "links": [
+      { "href": "/whitepapers/uma/", "label": "Universal Microservices Architecture" },
+      { "href": "/whitepapers/c-dad/", "label": "Contract-Driven AI Development" },
+      { "href": "/whitepapers/csma/", "label": "Cognitive Systems Modelling" },
+      { "href": "/whitepapers/ecca/", "label": "Edge-Cloud Collaborative Architecture" }
+    ]
+  },
+  "concepts": {
+    "label": "Concepts",
+    "url": "/concepts/",
+    "links": [
+      { "href": "/concepts/universal-microservices/", "label": "Universal Microservices Architecture" },
+      { "href": "/concepts/contract-driven-ai-development/", "label": "Contract-Driven AI Development" },
+      { "href": "/concepts/agentic-systems/", "label": "Agentic Systems Architecture" }
+    ]
+  },
+  "perspectives": {
+    "label": "Perspectives",
+    "url": "/perspectives/",
+    "links": [
+      { "href": "/perspectives/context-engineering/", "label": "Beyond Context Engineering" },
+      { "href": "/perspectives/ai-native-architecture/", "label": "What Makes Software AI-Native?" }
+    ]
+  },
+  "teaching": {
+    "label": "Teaching",
+    "url": "/teaching/",
+    "links": [
+      { "href": "/teaching/applied-ai-at-work/", "label": "Applied AI at Work" }
+    ]
+  },
+  "about": {
+    "label": "About",
+    "url": "/about/",
+    "links": [
+      { "href": "/about/", "label": "About" },
+      { "href": "/uses/", "label": "Uses" },
+      { "href": "/now/", "label": "Now" }
+    ]
+  },
+  "standalone": {
+    "label": "",
+    "url": "",
+    "links": []
+  }
+}
