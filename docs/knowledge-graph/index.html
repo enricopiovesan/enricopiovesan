@@ -254,8 +254,10 @@
 <li><strong>Wasm AI Inference Stack.</strong> ONNX runtime, TensorFlow.js, Candle, local-first AI execution</li>
 </ul>
 <h2 id="interactive-graph">Interactive Graph</h2>
-<div style="width:min(860px,100%);margin-left:calc((min(860px,100%) - 100%) / 2 * -1);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:2rem;margin-bottom:2rem;">
+<div id="graph-wrap" style="width:min(860px,100%);margin-left:calc((min(860px,100%) - 100%) / 2 * -1);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:2rem;margin-bottom:2rem;position:relative;">
+  <button id="graph-fs-btn" onclick="toggleGraphFS()" title="Toggle fullscreen" style="position:absolute;top:8px;right:8px;z-index:10;background:rgba(0,0,0,0.55);border:1px solid rgba(255,255,255,0.15);border-radius:3px;color:#ccc;cursor:pointer;font-size:13px;line-height:1;padding:5px 7px;">⛶</button>
   <iframe
+    id="graph-iframe"
     src="/public/knowledge-graph-viz.html"
     width="100%"
     height="820"
@@ -264,6 +266,29 @@
     loading="lazy"
   ></iframe>
 </div>
+<script>
+function toggleGraphFS() {
+  var wrap = document.getElementById('graph-wrap');
+  var btn = document.getElementById('graph-fs-btn');
+  var iframe = document.getElementById('graph-iframe');
+  if (!wrap._fs) {
+    wrap._fs = true;
+    wrap.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;margin:0;border:none;border-radius:0;z-index:9999;';
+    iframe.style.height = '100%';
+    btn.textContent = '✕';
+    btn.title = 'Exit fullscreen';
+  } else {
+    wrap._fs = false;
+    wrap.style.cssText = 'width:min(860px,100%);margin-left:calc((min(860px,100%) - 100%) / 2 * -1);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:2rem;margin-bottom:2rem;position:relative;';
+    iframe.style.height = '820px';
+    btn.textContent = '⛶';
+    btn.title = 'Toggle fullscreen';
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && document.getElementById('graph-wrap')._fs) toggleGraphFS();
+});
+</script>
 <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);">488 nodes · 558 edges · 64 communities. Built with <a href="https://github.com/safishamsi/graphifyy" style="color:var(--mid);">graphify</a> from 250+ articles, 4 white papers, and the UMA book.</p>
 <h2 id="related">Related</h2>
 <ul>
