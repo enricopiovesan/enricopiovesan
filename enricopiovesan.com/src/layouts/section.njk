@@ -7,7 +7,7 @@ layout: base.njk
 
   <aside class="section-nav-aside" aria-label="{{ nav.label }} navigation">
     {% if nav.url %}
-    <a class="section-nav-label" href="{{ nav.url }}">{{ nav.label }}</a>
+    <a class="section-nav-label{% if page.url == nav.url %} active{% endif %}" href="{{ nav.url }}">{{ nav.label }}</a>
     {% else %}
     <span class="section-nav-label">{{ nav.label }}</span>
     {% endif %}
