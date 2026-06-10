@@ -32,6 +32,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "public/robots.txt": "robots.txt" });
   eleventyConfig.addPassthroughCopy({ "public/llms.txt": "llms.txt" });
   eleventyConfig.addPassthroughCopy({ "public/CNAME": "CNAME" });
+  eleventyConfig.addPassthroughCopy({ "public/144faf601dec405f8c503fbf9411fe58.txt": "144faf601dec405f8c503fbf9411fe58.txt" });
   eleventyConfig.addPassthroughCopy("src/components");
 
   // Plugins

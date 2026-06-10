@@ -7,7 +7,7 @@ layout: base.njk
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebPage",
+      "@type": "ProfilePage",
       "@id": "https://enricopiovesan.com/#homepage",
       "url": "https://enricopiovesan.com/",
       "name": "Enrico Piovesan - Platform Architect & Author",
@@ -107,7 +107,7 @@ layout: base.njk
     <div class="home-book-cover-wrap">
       <picture>
         <source srcset="/src/assets/img/cover.webp" type="image/webp">
-        <img class="home-book-cover" src="/src/assets/img/cover-small.png" alt="Universal Microservices Architecture book cover" width="120" height="175" loading="lazy">
+        <img class="home-book-cover" src="/src/assets/img/cover-small.png" alt="Universal Microservices Architecture book cover" width="120" height="175" loading="eager" fetchpriority="high">
       </picture>
     </div>
     <div class="home-book-content">
