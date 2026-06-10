@@ -36,4 +36,13 @@ frameworks:
     abbr_title: Contract-Driven AI Development
     href: /c-dad/
     desc: A framework for building AI-native systems where contracts, not code, define what software does and why it can be trusted by AI agents.
+opensource:
+  - name: Traverse
+    stack: Rust / WASM
+    href: https://github.com/enricopiovesan/Traverse
+    desc: A contract-driven Rust and WASM runtime for discovering, validating, and composing portable business capabilities across multi-agent orchestration scenarios.
+  - name: youaskm3
+    stack: Rust / WASM / PWA
+    href: https://github.com/youaskm3/youaskm3
+    desc: A personal knowledge layer built on UMA foundations. WASM-native, MCP-powered, designed to work with agentic systems. Runs on GitHub Pages with no server or database.
 ---

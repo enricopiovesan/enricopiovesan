@@ -58,18 +58,33 @@ layout: base.njk
       </ul>
     </section>
 
-    <section class="home-section">
-      <h2 class="home-section-label">The frameworks</h2>
-      <div class="home-frameworks">
-        {% for fw in frameworks %}
-        <a class="home-framework-card" href="{{ fw.href }}">
-          <span class="home-framework-abbr"><abbr title="{{ fw.abbr_title }}">{{ fw.abbr }}</abbr></span>
-          <span class="home-framework-name">{{ fw.name }}</span>
-          <span class="home-framework-desc">{{ fw.desc }}</span>
-        </a>
-        {% endfor %}
-      </div>
-    </section>
+    <div class="home-right-col">
+      <section class="home-section">
+        <h2 class="home-section-label">The frameworks</h2>
+        <div class="home-frameworks">
+          {% for fw in frameworks %}
+          <a class="home-framework-card" href="{{ fw.href }}">
+            <span class="home-framework-abbr"><abbr title="{{ fw.abbr_title }}">{{ fw.abbr }}</abbr></span>
+            <span class="home-framework-name">{{ fw.name }}</span>
+            <span class="home-framework-desc">{{ fw.desc }}</span>
+          </a>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="home-section">
+        <h2 class="home-section-label">Open source</h2>
+        <div class="home-frameworks">
+          {% for proj in opensource %}
+          <a class="home-framework-card" href="{{ proj.href }}" target="_blank" rel="noopener">
+            <span class="home-framework-abbr">{{ proj.stack }}</span>
+            <span class="home-framework-name">{{ proj.name }}</span>
+            <span class="home-framework-desc">{{ proj.desc }}</span>
+          </a>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
 
   </div>
 

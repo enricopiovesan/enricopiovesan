@@ -129,10 +129,9 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 2.75rem;
 }
 
-/* accent on "users" — lime in dark mode, dark green in light */
 .home-tagline em {
   font-style: normal;
-  color: var(--accent);
+  color: var(--link);
 }
 
 .home-intro {
@@ -216,7 +215,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 0.78rem;
   line-height: 1.6;
   color: var(--fg);
-  opacity: 0.45;
+  opacity: 0.62;
 }
 
 /* Framework cards */
@@ -227,9 +226,9 @@ a { color: inherit; text-decoration: none; }
 
 .home-framework-card {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 4rem 1fr;
   grid-template-rows: auto auto;
-  column-gap: 1rem;
+  column-gap: 0.75rem;
   row-gap: 0.3rem;
   padding: 1.25rem 0;
   border-bottom: 1px solid var(--border);
@@ -241,15 +240,16 @@ a { color: inherit; text-decoration: none; }
 
 .home-framework-abbr {
   font-family: var(--mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--link);
   font-weight: 400;
   padding-top: 0.15rem;
   grid-row: 1 / 3;
   align-self: start;
-  min-width: 3.5rem;
+  word-break: break-word;
+  line-height: 1.5;
 }
 .home-framework-abbr abbr { text-decoration: none; }
 
@@ -266,8 +266,10 @@ a { color: inherit; text-decoration: none; }
   font-size: 0.78rem;
   line-height: 1.65;
   color: var(--fg);
-  opacity: 0.45;
+  opacity: 0.62;
 }
+
+.home-right-col { display: flex; flex-direction: column; min-width: 0; }
 
 /* ── Book Banner ── */
 .home-book-banner {
@@ -275,6 +277,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 3.5rem;
   padding: 4rem 3rem;
+  margin-top: 3rem;
   background: var(--accent);
   /* lime is always light — always use dark ink */
   color: #001f3f;
@@ -377,6 +380,7 @@ a { color: inherit; text-decoration: none; }
   .home-body { grid-template-columns: 1fr; gap: 0; padding: 0 1.5rem; }
   .home-posts { padding: 3rem 1.5rem 4rem; }
   .home-posts-grid { grid-template-columns: 1fr; }
+
 }
 @media (max-width: 600px) {
   .home-hero { padding: 3.5rem 1.5rem 4rem; }
