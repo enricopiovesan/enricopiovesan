@@ -1,6 +1,6 @@
 ---
 title: Teaching — Enrico Piovesan
-description: Professional training and workshops on applied AI, software architecture, and workflow design by Enrico Piovesan.
+description: Courses, workshops, and training programs on applied AI, software architecture, workflow design, and practical technology adoption.
 layout: section.njk
 sectionGroup: teaching
 breadcrumb:
@@ -13,10 +13,16 @@ ogTitle: Teaching — Enrico Piovesan
 ogDescription: Professional training and workshops on applied AI, software architecture, and workflow design.
 ---
 
-## Teaching and training
+Courses, workshops, and training programs focused on applied AI, software architecture, workflow design, and practical technology adoption.
 
-Professional development courses and workshops on applied AI, software architecture, and workflow design.
+My teaching work is built around one idea: technology only matters when people can use it to think better, work better, and make better decisions.
 
-## [Applied AI at Work](/teaching/applied-ai-at-work/)
+## Courses and workshops
 
-Practical skills for professionals and small businesses. An in-person, hands-on course that helps working professionals move from AI confusion to repeatable workflows for everyday work.
+### Applied AI at Work
+
+Practical skills for professionals and small businesses.
+
+An in-person, hands-on course that helps working professionals and small business operators move from AI confusion to repeatable workflows for everyday work.
+
+[View the course](./applied-ai-at-work/)
