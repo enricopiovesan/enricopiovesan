@@ -65,6 +65,24 @@ module.exports = function (eleventyConfig) {
     return d.toISOString().split("T")[0];
   });
 
+  // Filter: last git commit date for a source file (falls back to page.date)
+  const { execSync } = require("child_process");
+  eleventyConfig.addFilter("gitDate", (page) => {
+    try {
+      const inputPath = page.inputPath;
+      if (!inputPath) throw new Error("no inputPath");
+      const out = execSync(
+        `git log -1 --format="%ci" -- "${inputPath}"`,
+        { cwd: __dirname, timeout: 3000, encoding: "utf8" }
+      ).trim();
+      if (!out) throw new Error("no git output");
+      return new Date(out).toISOString().split("T")[0];
+    } catch {
+      const d = page.date instanceof Date ? page.date : new Date(page.date);
+      return d.toISOString().split("T")[0];
+    }
+  });
+
   return {
     dir: {
       input: "content",

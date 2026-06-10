@@ -18,3 +18,4 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://enricopiovesan.com/sitemap.xml
+IndexNow: https://enricopiovesan.com/144faf601dec405f8c503fbf9411fe58.txt

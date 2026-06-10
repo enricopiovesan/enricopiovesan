@@ -1,0 +1,40 @@
+name: IndexNow submission
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/**'
+      - 'public/**'
+      - 'src/**'
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit sitemap to IndexNow
+        run: |
+          curl -s -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{
+              "host": "enricopiovesan.com",
+              "key": "144faf601dec405f8c503fbf9411fe58",
+              "keyLocation": "https://enricopiovesan.com/144faf601dec405f8c503fbf9411fe58.txt",
+              "urlList": [
+                "https://enricopiovesan.com/",
+                "https://enricopiovesan.com/about/",
+                "https://enricopiovesan.com/books/",
+                "https://enricopiovesan.com/whitepapers/",
+                "https://enricopiovesan.com/whitepapers/uma/",
+                "https://enricopiovesan.com/whitepapers/c-dad/",
+                "https://enricopiovesan.com/whitepapers/ecca/",
+                "https://enricopiovesan.com/whitepapers/csma/",
+                "https://enricopiovesan.com/projects/",
+                "https://enricopiovesan.com/writing/",
+                "https://enricopiovesan.com/speaking/",
+                "https://enricopiovesan.com/uma/",
+                "https://enricopiovesan.com/c-dad/",
+                "https://enricopiovesan.com/concepts/",
+                "https://enricopiovesan.com/perspectives/"
+              ]
+            }'

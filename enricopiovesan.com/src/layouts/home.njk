@@ -12,6 +12,7 @@ layout: base.njk
       "url": "https://enricopiovesan.com/",
       "name": "Enrico Piovesan - Platform Architect & Author",
       "description": "Platform architect and author building frameworks for software that runs anywhere and codebases that AI agents can actually navigate.",
+      "isPartOf": { "@id": "https://enricopiovesan.com/#website" },
       "about": { "@id": "https://enricopiovesan.com/#person" }
     },
     { "@id": "https://enricopiovesan.com/#person" },
@@ -23,6 +24,19 @@ layout: base.njk
       "description": "Platform architect and author. Software that runs anywhere.",
       "publisher": { "@id": "https://enricopiovesan.com/#person" },
       "inLanguage": "en"
+    },
+    {
+      "@type": "Book",
+      "@id": "https://enricopiovesan.com/#book-uma",
+      "name": "Universal Microservices Architecture",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "publisher": { "@type": "Organization", "name": "Apress" },
+      "datePublished": "2026",
+      "isbn": "B0GTTTTQH4",
+      "url": "https://www.amazon.com/dp/B0GTTTTQH4",
+      "description": "The complete guide to portable, runtime-agnostic service design with working examples and architecture diagrams.",
+      "inLanguage": "en",
+      "genre": "Technology"
     }
   ]
 }
@@ -117,7 +131,7 @@ layout: base.njk
         <a class="home-post-card-link" href="{{ post.url }}" target="_blank" rel="noopener">
           {% if post.image %}
           <div class="home-post-img-wrap">
-            <img class="home-post-img" src="{{ post.image }}" alt="{{ post.title }}" loading="lazy" width="320" height="180">
+            <img class="home-post-img" src="{{ post.image }}" alt="{{ post.title }}" loading="lazy" width="112" height="63">
           </div>
           {% endif %}
           <div class="home-post-body">
