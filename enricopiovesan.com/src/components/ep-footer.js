@@ -27,13 +27,13 @@ class EpFooter extends HTMLElement {
           font-family: var(--mono);
           font-size: 0.65rem;
           letter-spacing: 0.12em;
-          color: var(--bg);
+          color: var(--footer-fg);
           text-transform: uppercase;
           margin-bottom: 0.75rem;
         }
         .footer-contact-text {
           font-size: 1rem;
-          color: var(--bg);
+          color: var(--footer-fg);
           opacity: 0.85;
           line-height: 1.6;
           max-width: 480px;
@@ -41,7 +41,7 @@ class EpFooter extends HTMLElement {
         .footer-contact-link {
           font-family: var(--mono);
           font-size: 0.75rem;
-          color: var(--bg);
+          color: var(--footer-fg);
           text-decoration: underline;
           text-underline-offset: 3px;
           white-space: nowrap;
@@ -64,7 +64,7 @@ class EpFooter extends HTMLElement {
           font-family: var(--mono);
           font-size: 0.65rem;
           letter-spacing: 0.12em;
-          color: var(--bg);
+          color: var(--footer-fg);
           text-transform: uppercase;
           margin-bottom: 1rem;
           padding-bottom: 0.5rem;
@@ -80,7 +80,7 @@ class EpFooter extends HTMLElement {
           font-family: var(--mono);
           font-size: 0.78rem;
           letter-spacing: 0.03em;
-          color: var(--bg);
+          color: var(--footer-fg);
           opacity: 0.8;
           text-decoration: none;
           transition: opacity 0.15s;
@@ -90,7 +90,7 @@ class EpFooter extends HTMLElement {
           font-family: var(--mono);
           font-size: 0.78rem;
           letter-spacing: 0.03em;
-          color: var(--bg);
+          color: var(--footer-fg);
           opacity: 0.5;
           margin-top: 0.5rem;
           margin-bottom: 0.4rem;
@@ -111,7 +111,7 @@ class EpFooter extends HTMLElement {
         .footer-sub a {
           font-family: var(--mono);
           font-size: 0.72rem;
-          color: var(--bg);
+          color: var(--footer-fg);
           opacity: 0.6;
           text-decoration: none;
           transition: opacity 0.15s;
@@ -123,7 +123,7 @@ class EpFooter extends HTMLElement {
           padding-top: 1.25rem;
           font-family: var(--mono);
           font-size: 0.7rem;
-          color: var(--bg);
+          color: var(--footer-fg);
           opacity: 0.5;
         }
         @media (max-width: 900px) {

@@ -107,7 +107,7 @@ class EpNav extends HTMLElement {
 
     this.innerHTML = `
       <style>
-        ep-nav { display: block; min-height: 64px; }
+        ep-nav { display: block; min-height: 64px; background: var(--header-bg); }
         nav {
           display: flex;
           justify-content: space-between;
@@ -121,12 +121,13 @@ class EpNav extends HTMLElement {
           font-family: var(--mono);
           font-size: 0.85rem;
           letter-spacing: 0.08em;
-          color: var(--mid);
+          color: var(--header-fg);
+          opacity: 0.6;
           text-decoration: none;
-          transition: color 0.15s;
+          transition: opacity 0.15s;
           flex-shrink: 0;
         }
-        .nav-name:hover { color: var(--fg); }
+        .nav-name:hover { opacity: 1; }
         .nav-right {
           display: flex;
           align-items: center;
@@ -143,30 +144,33 @@ class EpNav extends HTMLElement {
           align-items: center;
         }
         .nav-links > li { position: relative; }
-        .nav-links a { color: var(--mid); text-decoration: none; transition: color 0.15s; padding-bottom: 2px; }
-        .nav-links a:hover { color: var(--fg); }
+        .nav-links a { color: var(--header-fg); opacity: 0.6; text-decoration: none; transition: opacity 0.15s; padding-bottom: 2px; }
+        .nav-links a:hover { opacity: 1; }
         .nav-links a[aria-current="page"] {
-          color: var(--fg);
+          opacity: 1;
+          color: var(--header-fg);
           border-bottom: 1px solid var(--accent);
         }
 
         /* Dropdown wrapper */
         .nav-dropdown { display: flex; align-items: center; gap: 0.1rem; }
         .nav-dropdown-link {
-          color: var(--mid);
+          color: var(--header-fg);
+          opacity: 0.6;
           text-decoration: none;
-          transition: color 0.15s;
+          transition: opacity 0.15s;
           padding-bottom: 2px;
         }
-        .nav-dropdown-link:hover { color: var(--fg); }
-        .nav-dropdown-link.active { color: var(--fg); border-bottom: 1px solid var(--accent); }
+        .nav-dropdown-link:hover { opacity: 1; }
+        .nav-dropdown-link.active { opacity: 1; color: var(--header-fg); border-bottom: 1px solid var(--accent); }
 
         /* Dropdown chevron button */
         .nav-dropdown-btn {
           background: none;
           border: none;
           cursor: pointer;
-          color: var(--mid);
+          color: var(--header-fg);
+          opacity: 0.6;
           padding: 4px 6px;
           min-width: 24px;
           min-height: 24px;
@@ -175,9 +179,9 @@ class EpNav extends HTMLElement {
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: color 0.15s;
+          transition: opacity 0.15s;
         }
-        .nav-dropdown-btn:hover { color: var(--fg); }
+        .nav-dropdown-btn:hover { opacity: 1; }
 
         /* Dropdown menu — bridge pseudo-element closes the hover gap */
         .nav-dropdown-wrap {
@@ -202,7 +206,7 @@ class EpNav extends HTMLElement {
           right: 0;
         }
         .nav-dropdown-menu-inner {
-          background: var(--bg);
+          background: var(--header-bg);
           border: 1px solid var(--border);
           padding: 0.5rem 0;
           min-width: 140px;
@@ -211,39 +215,42 @@ class EpNav extends HTMLElement {
         .nav-dropdown-menu a {
           display: block;
           padding: 0.4rem 1rem;
-          color: var(--mid);
+          color: var(--header-fg);
+          opacity: 0.6;
           text-decoration: none;
           white-space: nowrap;
-          transition: color 0.15s;
+          transition: opacity 0.15s;
           border-bottom: none;
         }
-        .nav-dropdown-menu a:hover { color: var(--fg); }
-        .nav-dropdown-menu a[aria-current="page"] { color: var(--fg); }
+        .nav-dropdown-menu a:hover { opacity: 1; }
+        .nav-dropdown-menu a[aria-current="page"] { opacity: 1; }
 
         .theme-toggle {
           background: none;
           border: none;
           cursor: pointer;
-          color: var(--mid);
+          color: var(--header-fg);
+          opacity: 0.6;
           padding: 0;
           line-height: 1;
           display: flex;
           align-items: center;
-          transition: color 0.15s;
+          transition: opacity 0.15s;
         }
-        .theme-toggle:hover { color: var(--fg); }
+        .theme-toggle:hover { opacity: 1; }
         .hamburger {
           display: none;
           background: none;
           border: none;
           cursor: pointer;
           font-size: 1.1rem;
-          color: var(--mid);
+          color: var(--header-fg);
+          opacity: 0.6;
           padding: 0;
           line-height: 1;
-          transition: color 0.15s;
+          transition: opacity 0.15s;
         }
-        .hamburger:hover { color: var(--fg); }
+        .hamburger:hover { opacity: 1; }
 
         @media (max-width: 900px) {
           .hamburger { display: block; }
@@ -253,7 +260,7 @@ class EpNav extends HTMLElement {
             top: 100%;
             left: 0;
             right: 0;
-            background: var(--bg);
+            background: var(--header-bg);
             border-bottom: 1px solid var(--border);
             padding: 1.5rem 2rem;
             flex-direction: column;
