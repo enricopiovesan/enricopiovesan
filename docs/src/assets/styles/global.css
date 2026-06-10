@@ -366,7 +366,7 @@ a { color: inherit; text-decoration: none; }
 .home-post-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
 .home-post-date {
   font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.07em;
-  color: var(--fg); opacity: 0.55; flex-shrink: 0;
+  color: var(--mid); flex-shrink: 0;
 }
 .home-post-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
 .home-post-tag {
