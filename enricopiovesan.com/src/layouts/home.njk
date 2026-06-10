@@ -28,30 +28,80 @@ layout: base.njk
 }
 </script>
 {% endblock %}
-<section class="hero">
-  <p class="hero-label">Platform architect. Author. Open source builder.</p>
-  <h1>{{ hero }}</h1>
-  <p class="hero-bio">{{ intro[0] }}</p>
-  <p style="font-family:var(--mono);font-size:0.72rem;letter-spacing:0.04em;color:var(--mid);margin-top:1.5rem;">Platform Software Architect at Autodesk · 1 published book (Apress) · 4 white papers · 4 open source projects</p>
-</section>
 
-<section class="section">
-  <p class="section-label">The work</p>
-  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:520px;margin-bottom:2rem;">{{ intro[1] }}</p>
-</section>
+<div class="home-wrap">
 
-<div class="nav-cards">
-  {% for card in nav_cards %}
-  <a class="nav-card" href="{{ card.href }}">
-    <span class="nav-card-label">{{ card.label }}</span>
-    <span class="nav-card-desc">{{ card.desc }}</span>
-  </a>
-  {% endfor %}
+  {# ── HERO ───────────────────────────────────────────── #}
+  <header class="home-hero">
+    <div class="home-hero-content">
+      <h1 class="home-tagline">Software should work for <em>users</em>, not for the runtime it happens to run on.</h1>
+
+      <p class="home-intro">{{ intro }}</p>
+    </div>
+  </header>
+
+  {# ── SECTIONS ───────────────────────────────────────── #}
+  <div class="home-body">
+
+    <section class="home-section">
+      <h2 class="home-section-label">The work</h2>
+      <ul class="home-work-list">
+        {% for item in work %}
+        <li class="home-work-item">
+          <a class="home-work-link" href="{{ item.href }}">
+            <span class="home-work-name">{{ item.label }}</span>
+            <span class="home-work-arrow">→</span>
+          </a>
+          <span class="home-work-desc">{{ item.desc }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="home-section">
+      <h2 class="home-section-label">The frameworks</h2>
+      <div class="home-frameworks">
+        {% for fw in frameworks %}
+        <a class="home-framework-card" href="{{ fw.href }}">
+          <span class="home-framework-abbr"><abbr title="{{ fw.abbr_title }}">{{ fw.abbr }}</abbr></span>
+          <span class="home-framework-name">{{ fw.name }}</span>
+          <span class="home-framework-desc">{{ fw.desc }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+
+  </div>
+
+  {# ── RECENT WRITING ─────────────────────────────────── #}
+  {% if blogPosts and blogPosts.length %}
+  <section class="home-posts">
+    <h2 class="home-section-label home-posts-label">Recent writing</h2>
+    <ul class="home-posts-grid">
+      {% for post in blogPosts %}
+      <li class="home-post-card">
+        <a class="home-post-card-link" href="{{ post.url }}" target="_blank" rel="noopener">
+          {% if post.image %}
+          <div class="home-post-img-wrap">
+            <img class="home-post-img" src="{{ post.image }}" alt="{{ post.title }}" loading="lazy" width="320" height="180">
+          </div>
+          {% endif %}
+          <div class="home-post-body">
+            <span class="home-post-title">{{ post.title }}</span>
+            <span class="home-post-meta">
+              {% if post.date %}<span class="home-post-date">{{ post.date }}</span>{% endif %}
+              {% if post.tags.length %}
+              <span class="home-post-tags">
+                {% for tag in post.tags %}<span class="home-post-tag">{{ tag }}</span>{% endfor %}
+              </span>
+              {% endif %}
+            </span>
+          </div>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
 </div>
-
-{% if content %}
-<section class="section" style="margin-top:3rem;max-width:680px;">
-  {{ content | safe }}
-</section>
-{% endif %}
-

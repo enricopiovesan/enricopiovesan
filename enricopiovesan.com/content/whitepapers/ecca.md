@@ -26,13 +26,13 @@ Event-driven architectures have a governance problem that schema registries and 
 
 Events cross team boundaries, service boundaries, and time boundaries. A schema registry tells you what an event looks like. It does not tell you who owns it, what it means, what contracts govern its consumers, or what happens when the format changes. Without a way to make events discoverable, governable, and consistent at scale, they become a source of invisible coupling that compounds over years. By the time the problem is visible it is already expensive.
 
-ECCA is a blueprint for fixing that at the architectural level.
+<abbr title="Event Contract Catalog Architecture">ECCA</abbr> is a blueprint for fixing that at the architectural level.
 
 ## What the paper covers
 
-**Events as first-class artifacts.** The core argument is that events should be treated with the same architectural discipline as APIs and services. That means declared ownership, versioned contracts, documented lifecycle, and discoverable metadata — not just a schema in a registry.
+**Events as first-class artifacts.** The core argument is that events should be treated with the same architectural discipline as APIs and services. That means declared ownership, versioned contracts, documented lifecycle, and discoverable metadata. Not just a schema in a registry.
 
-**The event contract catalog.** A structured system for declaring what an event is, who produces it, who consumes it, what the behavioral contract between them is, and how changes are governed. Not a tool — a pattern that can be implemented with the tooling a team already has.
+**The event contract catalog.** A structured system for declaring what an event is, who produces it, who consumes it, what the behavioral contract between them is, and how changes are governed. Not a tool. A pattern that can be implemented with the tooling a team already has.
 
 **Governance without centralization.** One of the failure modes in event-driven systems is governance that requires a central team to approve every change. ECCA proposes a federated model where ownership is distributed but contracts are machine-readable and enforceable at the boundary.
 
@@ -42,7 +42,7 @@ ECCA is a blueprint for fixing that at the architectural level.
 
 ## Who it is for
 
-Architects and engineering leads building event-driven systems at scale who are hitting the governance ceiling — systems that work but that nobody can fully reason about anymore.
+Architects and engineering leads building event-driven systems at scale who are hitting the governance ceiling: systems that work but that nobody can fully reason about anymore.
 
 ---
 

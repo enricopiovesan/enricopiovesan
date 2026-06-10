@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Agentic Systems Architecture - Enrico Piovesan</title>
-  <meta name="description" content="Structural patterns for software that works with AI agents — multi-agent orchestration, contract-based capability boundaries, and navigable codebases." />
+  <meta name="description" content="Structural patterns for software that works with AI agents. Multi-agent orchestration, contract-based capability boundaries, and navigable codebases." />
   
 
   <!-- Open Graph -->
@@ -39,6 +39,9 @@
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
   <!-- Google Analytics: deferred until after page interactive to avoid main-thread blocking -->
   <script>
@@ -66,9 +69,9 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
-:root{--bg:#172b36;--fg:#f1f6f4;--link:#ffc801;--accent:#ff9932;--border:rgba(241,246,244,0.2);--mid:#d9e8e2;--header-bg:#172b36;--header-fg:#f1f6f4;--footer-bg:#ffc801;--footer-fg:#172b36;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
-[data-theme="light"]{--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}}
+:root{--bg:#001f3f;--fg:#f6f7ed;--link:#dbe64c;--accent:#dbe64c;--border:rgba(246,247,237,0.2);--mid:#74c365;--header-bg:#001f3f;--header-fg:#f6f7ed;--footer-bg:#dbe64c;--footer-fg:#001f3f;--mono:'IBM Plex Mono',monospace;--sans:'Lato',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
@@ -178,23 +181,23 @@
     <div class="section-body">
       <h1 class="section-h1">Agentic Systems Architecture</h1>
       <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: June 2026</p>
-      <p><em>By <a href="https://enricopiovesan.com/about/">Enrico Piovesan</a> — Platform Software Architect at Autodesk, author of <a href="https://www.amazon.com/dp/B0GTTTTQH4">Universal Microservices Architecture</a> (Apress)</em></p>
+      <p><em>By <a href="https://enricopiovesan.com/about/">Enrico Piovesan</a>, author of <a href="https://www.amazon.com/dp/B0GTTTTQH4">Universal Microservices Architecture</a> (Apress)</em></p>
 <p>AI agents are becoming a real part of software teams. Not as a future possibility. As a present reality that most engineering organizations are not structurally ready for.</p>
 <p>The gap is not model capability. The gap is architectural legibility. Agents work well in codebases that declare their intent. They work poorly in codebases that assume a human will fill in the gaps.</p>
-<p>Agentic systems architecture is the practice of designing software so that AI agents can participate meaningfully — not just execute instructions but navigate capabilities, validate behavior, and compose solutions within declared boundaries.</p>
+<p>Agentic systems architecture is the practice of designing software so that AI agents can participate meaningfully. Not just to execute instructions, but to navigate capabilities, validate behavior, and compose solutions within declared boundaries.</p>
 <h2 id="what-makes-a-system-agentic-ready">What makes a system agentic-ready</h2>
 <p>An agentic-ready system has three properties:</p>
 <p><strong>Declared capabilities.</strong> Every meaningful unit of behavior is named, bounded, and described in machine-readable form. Agents can discover what the system can do without reading all the code.</p>
 <p><strong>Explicit contracts.</strong> Each capability declares its preconditions, postconditions, and invariants. Agents can reason about whether a capability is appropriate for a given task without guessing.</p>
 <p><strong>Governed composition.</strong> When multiple agents work together, the boundaries between their responsibilities are explicit. Multi-agent orchestration does not collapse into chaos because the contracts prevent it.</p>
 <h2 id="what-is-the-multi-agent-coordination-problem">What is the multi-agent coordination problem?</h2>
-<p>Most teams encounter AI agents as single assistants operating on one task at a time. The harder and more consequential problem is multi-agent orchestration — multiple agents working concurrently on the same codebase, the same pipeline, or the same capability graph. At that scale, the failure modes are different. One agent modifies a behavior that another agent is reasoning about. A third agent generates code that satisfies the tests but violates an invariant that was never declared anywhere. The output looks correct in isolation. The system breaks at the boundary.</p>
+<p>Most teams encounter AI agents as single assistants operating on one task at a time. The harder and more consequential problem is multi-agent orchestration: multiple agents working concurrently on the same codebase, the same pipeline, or the same capability graph. At that scale, the failure modes are different. One agent modifies a behavior that another agent is reasoning about. A third agent generates code that satisfies the tests but violates an invariant that was never declared anywhere. The output looks correct in isolation. The system breaks at the boundary.</p>
 <p>The root cause is the same one that makes codebases hard for human teams to maintain at scale: intent was never declared. An agent has no way to know whether a proposed change violates a constraint that exists only in someone's memory. It cannot distinguish a load-bearing conditional from a legacy workaround. It cannot tell which invariants are business-critical and which are implementation accidents. Without contracts, multi-agent systems produce conflicts that are expensive to detect and structurally difficult to prevent. With contracts, each agent operates within declared boundaries. The orchestration layer validates that agents are composing capabilities correctly before anything executes, and can surface conflicts as contract violations rather than runtime failures.</p>
 <h2 id="where-to-go-deeper">Where to go deeper</h2>
 <p>The full framework for building agentic-ready software is covered across C-DAD, The Day After, and the Traverse runtime.</p>
 <ul>
 <li><a href="/concepts/contract-driven-ai-development/">Contract-Driven AI Development</a></li>
-<li><a href="/c-dad/">C-DAD — full framework</a></li>
+<li><a href="/c-dad/">C-DAD full framework</a></li>
 <li><a href="/books/">The Day After</a></li>
 <li><a href="https://github.com/enricopiovesan/Traverse">Traverse</a></li>
 <li><a href="https://github.com/youaskm3/youaskm3">youaskm3</a></li>

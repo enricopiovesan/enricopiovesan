@@ -16,9 +16,9 @@ datePublished: "2025-06-01"
 lastUpdated: "June 2026"
 ---
 
-*By [Enrico Piovesan](https://enricopiovesan.com/about/) — Platform Software Architect at Autodesk, author of [Universal Microservices Architecture](https://www.amazon.com/dp/B0GTTTTQH4) (Apress)*
+*By [Enrico Piovesan](https://enricopiovesan.com/about/), author of [Universal Microservices Architecture](https://www.amazon.com/dp/B0GTTTTQH4) (Apress)*
 
-Context engineering has become one of the most discussed practices in AI development. The core idea is sound: the quality of what an AI agent produces depends heavily on the quality of the context it receives. Structured prompts, retrieved documents, conversation history, tool outputs — all of it shapes what the agent can do.
+Context engineering has become one of the most discussed practices in AI development. The core idea is sound: the quality of what an AI agent produces depends heavily on the quality of the context it receives. Structured prompts, retrieved documents, conversation history, and tool outputs all shape what the agent can do.
 
 Most teams investing in context engineering are solving a real problem. Poorly structured context produces inconsistent, unreliable agent behavior. Better context produces better results.
 
@@ -26,7 +26,7 @@ But context engineering solves the input problem. It does not solve the trust pr
 
 ## What does context engineering get right?
 
-Context engineering recognizes that AI agents are not magic. They work with what they are given. Give them better inputs — clearer structure, more relevant retrieval, better-formatted tool outputs — and they produce better outputs.
+Context engineering recognizes that AI agents are not magic. They work with what they are given. Give them better inputs (clearer structure, more relevant retrieval, better-formatted tool outputs) and they produce better outputs.
 
 This is real progress. Teams that have invested in context engineering report more consistent agent behavior, fewer hallucinations on known data, and faster agent onboarding to new tasks.
 
@@ -44,7 +44,7 @@ When an agent operates without that information, it does not fail loudly. It pro
 
 A specification describes what a system does. A contract describes why it can be trusted.
 
-Context engineering is about specifications — giving agents accurate, well-structured descriptions of the current state. Contract-driven AI development is about contracts — giving agents machine-readable declarations of what each capability is responsible for and under what conditions it can be trusted.
+Context engineering is about specifications: giving agents accurate, well-structured descriptions of the current state. <abbr title="Contract-Driven AI Development">C-DAD</abbr> is about contracts: giving agents machine-readable declarations of what each capability is responsible for and under what conditions it can be trusted.
 
 Both matter. They solve different problems. Most teams have started on context engineering and have not yet started on contract-driven development.
 
@@ -54,7 +54,7 @@ The teams that move beyond context engineering are the ones that start treating 
 
 This is the foundation of Contract-Driven AI Development.
 
-- [C-DAD — the full framework](/c-dad/)
+- [C-DAD, the full framework](/c-dad/)
 - [C-DAD White Paper](/whitepapers/c-dad/)
-- [The Day After](/books/) — the book on restructuring software organizations for the age of AI agents
-- [Contract-Driven AI Development — concept page](/concepts/contract-driven-ai-development/)
+- [The Day After](/books/), the book on restructuring software organizations for the age of AI agents
+- [Contract-Driven AI Development concept page](/concepts/contract-driven-ai-development/)

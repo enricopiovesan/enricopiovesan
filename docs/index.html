@@ -38,6 +38,9 @@
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
   <!-- Google Analytics: deferred until after page interactive to avoid main-thread blocking -->
   <script>
@@ -65,9 +68,9 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
-:root{--bg:#172b36;--fg:#f1f6f4;--link:#ffc801;--accent:#ff9932;--border:rgba(241,246,244,0.2);--mid:#d9e8e2;--header-bg:#172b36;--header-fg:#f1f6f4;--footer-bg:#ffc801;--footer-fg:#172b36;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
-[data-theme="light"]{--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}}
+:root{--bg:#001f3f;--fg:#f6f7ed;--link:#dbe64c;--accent:#dbe64c;--border:rgba(246,247,237,0.2);--mid:#74c365;--header-bg:#001f3f;--header-fg:#f6f7ed;--footer-bg:#dbe64c;--footer-fg:#001f3f;--mono:'IBM Plex Mono',monospace;--sans:'Lato',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
@@ -158,58 +161,310 @@
 }
 </script>
 
-<section class="hero">
-  <p class="hero-label">Platform architect. Author. Open source builder.</p>
-  <h1>Software should work for users, not for the runtime it happens to run on.</h1>
-  <p class="hero-bio">After years building products across startups in travel, education, and payments, I kept hitting the same wall. The same business logic rewritten for every environment. Systems that worked in isolation and broke at the seams. Codebases nobody could navigate when the team changed. I stopped accepting those as facts of life and started building frameworks to fix them.</p>
-  <p style="font-family:var(--mono);font-size:0.72rem;letter-spacing:0.04em;color:var(--mid);margin-top:1.5rem;">Platform Software Architect at Autodesk · 1 published book (Apress) · 4 white papers · 4 open source projects</p>
-</section>
 
-<section class="section">
-  <p class="section-label">The work</p>
-  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:520px;margin-bottom:2rem;">That is where UMA came from. Then C-DAD. Then Traverse. Not from theory. From real problems that kept showing up.</p>
-</section>
+<div class="home-wrap">
 
-<div class="nav-cards">
   
-  <a class="nav-card" href="/books/">
-    <span class="nav-card-label">Books</span>
-    <span class="nav-card-desc">Two books. One on making software run anywhere without rewriting it. One on making software navigable by AI agents without throwing it away.</span>
-  </a>
+  <header class="home-hero">
+    <div class="home-hero-content">
+      <h1 class="home-tagline">Software should work for <em>users</em>, not for the runtime it happens to run on.</h1>
+
+      <p class="home-intro">After years building products across startups in travel, education, and payments, I kept hitting the same wall. The same business logic rewritten for every environment. Systems that worked in isolation and broke at the seams. Codebases nobody could navigate when the team changed. I stopped accepting those as facts of life and started building frameworks to fix them.</p>
+    </div>
+  </header>
+
   
-  <a class="nav-card" href="/whitepapers/">
-    <span class="nav-card-label">White Papers</span>
-    <span class="nav-card-desc">Four research papers from 2023 to 2025. Each one started as a problem I could not stop thinking about.</span>
-  </a>
+  <div class="home-body">
+
+    <section class="home-section">
+      <h2 class="home-section-label">The work</h2>
+      <ul class="home-work-list">
+        
+        <li class="home-work-item">
+          <a class="home-work-link" href="/books/">
+            <span class="home-work-name">Books</span>
+            <span class="home-work-arrow">→</span>
+          </a>
+          <span class="home-work-desc">Two books. One on making software run anywhere without rewriting it. One on making software navigable by AI agents without throwing it away.</span>
+        </li>
+        
+        <li class="home-work-item">
+          <a class="home-work-link" href="/whitepapers/">
+            <span class="home-work-name">White Papers</span>
+            <span class="home-work-arrow">→</span>
+          </a>
+          <span class="home-work-desc">Four research papers from 2023 to 2025. Each one started as a problem I could not stop thinking about.</span>
+        </li>
+        
+        <li class="home-work-item">
+          <a class="home-work-link" href="/projects/">
+            <span class="home-work-name">Projects</span>
+            <span class="home-work-arrow">→</span>
+          </a>
+          <span class="home-work-desc">Four open source projects built from the same frameworks. Spec-governed, CI-enforced, running in production.</span>
+        </li>
+        
+        <li class="home-work-item">
+          <a class="home-work-link" href="/writing/">
+            <span class="home-work-name">Writing</span>
+            <span class="home-work-arrow">→</span>
+          </a>
+          <span class="home-work-desc">Weekly posts on Medium since May 2025. Posts become papers. Papers become books.</span>
+        </li>
+        
+        <li class="home-work-item">
+          <a class="home-work-link" href="/speaking/">
+            <span class="home-work-name">Speaking</span>
+            <span class="home-work-arrow">→</span>
+          </a>
+          <span class="home-work-desc">Three conference talks drawn from published work and shipped tooling.</span>
+        </li>
+        
+      </ul>
+    </section>
+
+    <section class="home-section">
+      <h2 class="home-section-label">The frameworks</h2>
+      <div class="home-frameworks">
+        
+        <a class="home-framework-card" href="/uma/">
+          <span class="home-framework-abbr"><abbr title="Universal Microservices Architecture">UMA</abbr></span>
+          <span class="home-framework-name">Universal Microservices Architecture</span>
+          <span class="home-framework-desc">A portable, contract-driven execution model for distributed systems. Business logic defined once, deployed anywhere. Write once, run where it makes sense.</span>
+        </a>
+        
+        <a class="home-framework-card" href="/c-dad/">
+          <span class="home-framework-abbr"><abbr title="Contract-Driven AI Development">C-DAD</abbr></span>
+          <span class="home-framework-name">Contract-Driven AI Development</span>
+          <span class="home-framework-desc">A framework for building AI-native systems where contracts, not code, define what software does and why it can be trusted by AI agents.</span>
+        </a>
+        
+      </div>
+    </section>
+
+  </div>
+
   
-  <a class="nav-card" href="/projects/">
-    <span class="nav-card-label">Projects</span>
-    <span class="nav-card-desc">Four open source projects built from the same frameworks. Spec-governed, CI-enforced, and running in production or pre-implementation with quality standards in place.</span>
-  </a>
   
-  <a class="nav-card" href="/writing/">
-    <span class="nav-card-label">Writing</span>
-    <span class="nav-card-desc">Weekly posts on Medium since May 2025. Posts become papers. Papers become books. Writing is how I figure out what I think.</span>
-  </a>
+  <section class="home-posts">
+    <h2 class="home-section-label home-posts-label">Recent writing</h2>
+    <ul class="home-posts-grid">
+      
+      <li class="home-post-card">
+        <a class="home-post-card-link" href="https://medium.com/the-rise-of-device-independent-architecture/your-deployment-decision-is-already-too-late-d0c7988438df" target="_blank" rel="noopener">
+          
+          <div class="home-post-img-wrap">
+            <img class="home-post-img" src="https://cdn-images-1.medium.com/max/112/1*eihtk7fC_vyBE-mBb57lHQ.png" alt="Your deployment decision is already too late" loading="lazy" width="320" height="180">
+          </div>
+          
+          <div class="home-post-body">
+            <span class="home-post-title">Your deployment decision is already too late</span>
+            <span class="home-post-meta">
+              <span class="home-post-date">Jun 2026</span>
+              
+              <span class="home-post-tags">
+                <span class="home-post-tag">Software Architecture</span><span class="home-post-tag">Webassembly Runtime</span><span class="home-post-tag">Uma</span>
+              </span>
+              
+            </span>
+          </div>
+        </a>
+      </li>
+      
+      <li class="home-post-card">
+        <a class="home-post-card-link" href="https://medium.com/software-architecture-in-the-age-of-ai/agents-didnt-take-the-work-they-took-the-proof-258bcab0cd82" target="_blank" rel="noopener">
+          
+          <div class="home-post-img-wrap">
+            <img class="home-post-img" src="https://cdn-images-1.medium.com/max/112/1*A9n4xKqpazmU7jbHNCNONQ.png" alt="Agents didn’t take the work. They took the proof." loading="lazy" width="320" height="180">
+          </div>
+          
+          <div class="home-post-body">
+            <span class="home-post-title">Agents didn’t take the work. They took the proof.</span>
+            <span class="home-post-meta">
+              <span class="home-post-date">Jun 2026</span>
+              
+              <span class="home-post-tags">
+                <span class="home-post-tag">Ai Agent</span><span class="home-post-tag">Role Transformation</span><span class="home-post-tag">Engineering Leadership</span>
+              </span>
+              
+            </span>
+          </div>
+        </a>
+      </li>
+      
+      <li class="home-post-card">
+        <a class="home-post-card-link" href="https://medium.com/the-rise-of-device-independent-architecture/the-40ms-your-system-cant-explain-3d5bb80298a8" target="_blank" rel="noopener">
+          
+          <div class="home-post-img-wrap">
+            <img class="home-post-img" src="https://cdn-images-1.medium.com/max/112/1*hpEktwyu7ylQ85l_RPMH0A.png" alt="The 40ms Your System Can’t Explain" loading="lazy" width="320" height="180">
+          </div>
+          
+          <div class="home-post-body">
+            <span class="home-post-title">The 40ms Your System Can’t Explain</span>
+            <span class="home-post-meta">
+              <span class="home-post-date">May 2026</span>
+              
+              <span class="home-post-tags">
+                <span class="home-post-tag">Runtime</span><span class="home-post-tag">Wasm</span><span class="home-post-tag">Webassembly</span>
+              </span>
+              
+            </span>
+          </div>
+        </a>
+      </li>
+      
+      <li class="home-post-card">
+        <a class="home-post-card-link" href="https://medium.com/software-architecture-in-the-age-of-ai/the-bugs-you-never-see-coming-93ad57ed8c46" target="_blank" rel="noopener">
+          
+          <div class="home-post-img-wrap">
+            <img class="home-post-img" src="https://cdn-images-1.medium.com/max/112/1*kQb-o0CvHFxfV9pE7dvILA.png" alt="The Bugs You Never See Coming" loading="lazy" width="320" height="180">
+          </div>
+          
+          <div class="home-post-body">
+            <span class="home-post-title">The Bugs You Never See Coming</span>
+            <span class="home-post-meta">
+              <span class="home-post-date">Dec 2025</span>
+              
+              <span class="home-post-tags">
+                <span class="home-post-tag">Schemaregistry</span><span class="home-post-tag">C Dad</span><span class="home-post-tag">Runtime Validation</span>
+              </span>
+              
+            </span>
+          </div>
+        </a>
+      </li>
+      
+      <li class="home-post-card">
+        <a class="home-post-card-link" href="https://medium.com/the-rise-of-device-independent-architecture/why-agents-make-bad-decisions-in-distributed-systems-0bc1e11e1604" target="_blank" rel="noopener">
+          
+          <div class="home-post-img-wrap">
+            <img class="home-post-img" src="https://cdn-images-1.medium.com/max/112/1*YuNV75dP0XnjsrEhWVKnPw.png" alt="Why Agents Make Bad Decisions in Distributed Systems" loading="lazy" width="320" height="180">
+          </div>
+          
+          <div class="home-post-body">
+            <span class="home-post-title">Why Agents Make Bad Decisions in Distributed Systems</span>
+            <span class="home-post-meta">
+              <span class="home-post-date">Dec 2025</span>
+              
+              <span class="home-post-tags">
+                <span class="home-post-tag">Multi Agent Coordination</span><span class="home-post-tag">Distributed Systems</span><span class="home-post-tag">Universal Microservices</span>
+              </span>
+              
+            </span>
+          </div>
+        </a>
+      </li>
+      
+      <li class="home-post-card">
+        <a class="home-post-card-link" href="https://medium.com/software-architecture-in-the-age-of-ai/why-software-breaks-in-the-spaces-between-services-fe9aec2fb839" target="_blank" rel="noopener">
+          
+          <div class="home-post-img-wrap">
+            <img class="home-post-img" src="https://cdn-images-1.medium.com/max/112/1*tJp08Db1DmSitdhbZxxqkw.png" alt="Why Software Breaks in the Spaces Between Services" loading="lazy" width="320" height="180">
+          </div>
+          
+          <div class="home-post-body">
+            <span class="home-post-title">Why Software Breaks in the Spaces Between Services</span>
+            <span class="home-post-meta">
+              <span class="home-post-date">Nov 2025</span>
+              
+              <span class="home-post-tags">
+                <span class="home-post-tag">C Dad</span><span class="home-post-tag">Spec Driven Development</span><span class="home-post-tag">Contract Driven</span>
+              </span>
+              
+            </span>
+          </div>
+        </a>
+      </li>
+      
+      <li class="home-post-card">
+        <a class="home-post-card-link" href="https://medium.com/the-rise-of-device-independent-architecture/the-hidden-layer-that-makes-agents-actually-useful-6cc0c01076f5" target="_blank" rel="noopener">
+          
+          <div class="home-post-img-wrap">
+            <img class="home-post-img" src="https://cdn-images-1.medium.com/max/112/1*_JMnIYZP4epF4YZfy4s3FQ.png" alt="The Hidden Layer That Makes Agents Actually Useful" loading="lazy" width="320" height="180">
+          </div>
+          
+          <div class="home-post-body">
+            <span class="home-post-title">The Hidden Layer That Makes Agents Actually Useful</span>
+            <span class="home-post-meta">
+              <span class="home-post-date">Nov 2025</span>
+              
+              <span class="home-post-tags">
+                <span class="home-post-tag">Universal Microservices</span><span class="home-post-tag">Capability Discovery</span><span class="home-post-tag">Ai Agent</span>
+              </span>
+              
+            </span>
+          </div>
+        </a>
+      </li>
+      
+      <li class="home-post-card">
+        <a class="home-post-card-link" href="https://medium.com/wasm-radar/the-rise-of-wasm-native-runtimes-for-ai-tools-91b2da07b2ad" target="_blank" rel="noopener">
+          
+          <div class="home-post-img-wrap">
+            <img class="home-post-img" src="https://cdn-images-1.medium.com/max/112/1*V7dvHa6fcp2yhc1NdFR38g.png" alt="The Rise of WASM-Native Runtimes for AI Tools" loading="lazy" width="320" height="180">
+          </div>
+          
+          <div class="home-post-body">
+            <span class="home-post-title">The Rise of WASM-Native Runtimes for AI Tools</span>
+            <span class="home-post-meta">
+              <span class="home-post-date">Nov 2025</span>
+              
+              <span class="home-post-tags">
+                <span class="home-post-tag">Universal Microservices</span><span class="home-post-tag">Webassembly</span><span class="home-post-tag">Wasm</span>
+              </span>
+              
+            </span>
+          </div>
+        </a>
+      </li>
+      
+      <li class="home-post-card">
+        <a class="home-post-card-link" href="https://medium.com/software-architecture-in-the-age-of-ai/the-missing-structure-in-ai-development-that-no-one-talks-about-eaa43934a490" target="_blank" rel="noopener">
+          
+          <div class="home-post-img-wrap">
+            <img class="home-post-img" src="https://cdn-images-1.medium.com/max/112/1*6eNBq1r55R-ZYSXdiAu-Kg.png" alt="The Missing Structure in AI Development That No One Talks About" loading="lazy" width="320" height="180">
+          </div>
+          
+          <div class="home-post-body">
+            <span class="home-post-title">The Missing Structure in AI Development That No One Talks About</span>
+            <span class="home-post-meta">
+              <span class="home-post-date">Nov 2025</span>
+              
+              <span class="home-post-tags">
+                <span class="home-post-tag">C Dad</span><span class="home-post-tag">Ai Development</span><span class="home-post-tag">Ai Assisted Development</span>
+              </span>
+              
+            </span>
+          </div>
+        </a>
+      </li>
+      
+      <li class="home-post-card">
+        <a class="home-post-card-link" href="https://medium.com/software-architecture-in-the-age-of-ai/your-system-is-moving-even-when-you-think-it-is-not-03cae718aa2b" target="_blank" rel="noopener">
+          
+          <div class="home-post-img-wrap">
+            <img class="home-post-img" src="https://cdn-images-1.medium.com/max/112/1*W57u5-9f1PWjPWOnz-oPbQ.png" alt="Your System Is Moving Even When You Think It Is Not" loading="lazy" width="320" height="180">
+          </div>
+          
+          <div class="home-post-body">
+            <span class="home-post-title">Your System Is Moving Even When You Think It Is Not</span>
+            <span class="home-post-meta">
+              <span class="home-post-date">Nov 2025</span>
+              
+              <span class="home-post-tags">
+                <span class="home-post-tag">Spec Driven Development</span><span class="home-post-tag">Contract Validation</span><span class="home-post-tag">C Dad</span>
+              </span>
+              
+            </span>
+          </div>
+        </a>
+      </li>
+      
+    </ul>
+  </section>
   
-  <a class="nav-card" href="/speaking/">
-    <span class="nav-card-label">Speaking</span>
-    <span class="nav-card-desc">Three conference talks drawn directly from published work and shipped tooling. Currently submitting CFPs for architecture, WASM, and AI engineering tracks.</span>
-  </a>
-  
+
 </div>
-
-
-<section class="section" style="margin-top:3rem;max-width:680px;">
-  <h2 id="the-frameworks">The frameworks</h2>
-<p>Two architectural frameworks, each developed to address a structural problem that kept appearing in different companies with different stacks.</p>
-<p><a href="/uma/">Universal Microservices Architecture (UMA)</a> addresses the portability problem. Most distributed systems treat the runtime as an assumption baked into the architecture — a backend service assumes a server, a browser component assumes a browser, an edge function assumes a CDN. When AI pipelines became part of the stack, teams discovered they had to rewrite the same business logic for a fourth environment. UMA inverts that assumption. Business logic is defined once as a portable, contract-bound unit compiled to WebAssembly and deployed to any runtime — browser, edge, cloud, or AI pipeline — without modification. The runtime becomes a deployment decision, not an architectural one. The <a href="https://www.amazon.com/dp/B0GTTTTQH4">Apress book</a> covers the full model across 13 runnable chapters in Rust and WASM.</p>
-<p><a href="/c-dad/">Contract-Driven AI Development (C-DAD)</a> addresses the navigability problem. AI agents can read code and infer behavior. What they cannot do is reason about why a system is designed the way it is, which constraints are load-bearing, and which invariants must never be violated. Without that information, agents produce output that looks correct and fails at the boundary — not with a visible error, but with a plausible result that violates a constraint nobody declared. C-DAD replaces implicit intent with machine-enforceable contracts that agents can validate against before anything executes. The forthcoming book <a href="/books/">The Day After</a> covers how to restructure software organizations around this model.</p>
-<p>Both frameworks have white papers, open source tooling, and conference talks behind them. All of it is on this site.</p>
-
-</section>
-
-
 
   </main>
 

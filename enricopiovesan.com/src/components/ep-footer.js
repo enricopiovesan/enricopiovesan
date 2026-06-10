@@ -57,7 +57,7 @@ class EpFooter extends HTMLElement {
           max-width: 1400px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(4, 1fr);
           gap: 2rem;
           align-items: start;
         }
@@ -127,6 +127,9 @@ class EpFooter extends HTMLElement {
           color: var(--footer-fg);
           opacity: 0.5;
         }
+        @media (max-width: 1100px) {
+          footer { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 900px) {
           footer { grid-template-columns: 1fr 1fr; padding: 2rem 1.5rem; }
         }
@@ -156,6 +159,8 @@ class EpFooter extends HTMLElement {
               </ul>
             </li>
             <li><a href="${b}/projects/">Projects</a></li>
+            <li><a href="${b}/writing/">Writing</a></li>
+            <li><a href="${b}/speaking/">Speaking</a></li>
             <li><a href="${b}/teaching/">Teaching</a></li>
             <li><a href="${b}/uma/">UMA framework</a></li>
             <li><a href="${b}/c-dad/">C-DAD framework</a></li>
@@ -177,9 +182,19 @@ class EpFooter extends HTMLElement {
               <a href="${b}/perspectives/">Perspectives</a>
               <ul class="footer-sub">
                 <li><a href="${b}/perspectives/context-engineering/">Context Engineering</a></li>
+                <li><a href="${b}/perspectives/ai-native-architecture/">What Makes Software AI-Native?</a></li>
               </ul>
             </li>
             <li><a href="${b}/knowledge-graph/">Knowledge Graph</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-label">About</p>
+          <ul>
+            <li><a href="${b}/about/">About</a></li>
+            <li><a href="${b}/uses/">Uses</a></li>
+            <li><a href="${b}/now/">Now</a></li>
           </ul>
         </div>
 

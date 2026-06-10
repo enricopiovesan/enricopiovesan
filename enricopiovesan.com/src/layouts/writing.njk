@@ -13,36 +13,6 @@ layout: base.njk
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
         { "@type": "ListItem", "position": 2, "name": "Writing", "item": "https://enricopiovesan.com/writing/" }
       ]
-    },
-    {
-      "@type": "ItemList",
-      "name": "Writing Series by Enrico Piovesan",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "item": {
-            "@type": "Periodical",
-            "name": "Mastering Software Architecture for the AI Era",
-            "url": "https://medium.com/software-architecture-in-the-age-of-ai",
-            "author": { "@id": "https://enricopiovesan.com/#person" },
-            "about": ["Software Architecture", "AI-native Systems", "C-DAD"],
-            "inLanguage": "en"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "item": {
-            "@type": "Periodical",
-            "name": "The Rise of Device-Independent Architecture",
-            "url": "https://medium.com/the-rise-of-device-independent-architecture",
-            "author": { "@id": "https://enricopiovesan.com/#person" },
-            "about": ["WebAssembly", "UMA", "Device-Independent Architecture"],
-            "inLanguage": "en"
-          }
-        }
-      ]
     }
   ]
 }
@@ -51,8 +21,9 @@ layout: base.njk
 
 {% set nav = sectionNavs[sectionGroup] %}
 <div class="section-shell">
+
   <aside class="section-nav-aside" aria-label="{{ nav.label }} navigation">
-    {% if nav.url %}<a class="section-nav-label" href="{{ nav.url }}">{{ nav.label }}</a>{% else %}<span class="section-nav-label">{{ nav.label }}</span>{% endif %}
+    {% if nav.url %}<a class="section-nav-label{% if page.url == nav.url %} active{% endif %}" href="{{ nav.url }}">{{ nav.label }}</a>{% else %}<span class="section-nav-label">{{ nav.label }}</span>{% endif %}
     {% if nav.links %}
     <ul class="section-nav-links">
       {% for link in nav.links %}
@@ -73,52 +44,41 @@ layout: base.njk
             {% endif %}
           {% endfor %}
         {% else %}
-        <li><span aria-current="page">{{ title }}</span></li>
+        <li><span aria-current="page">Writing</span></li>
         {% endif %}
       </ol>
     </nav>
 
     <div class="section-body">
+      <h1 class="section-h1">Writing</h1>
+      {% if intro is string %}
+      <p>{{ intro }}</p>
+      {% else %}
+        {% for para in intro %}
+        <p>{{ para }}</p>
+        {% endfor %}
+      {% endif %}
 
-<section class="hero">
-  <p class="hero-label">Medium</p>
-  <h1>Writing</h1>
-  {% if intro is string %}
-  <p class="hero-bio">{{ intro }}</p>
-  {% else %}
-  {% for para in intro %}
-  <p class="hero-bio" style="margin-top:{% if loop.first %}0{% else %}1rem{% endif %};">{{ para }}</p>
-  {% endfor %}
-  {% endif %}
-</section>
+      {% for pub in series %}
+      <div class="writing-entry" id="{{ toc[loop.index0].id if toc[loop.index0] else '' }}">
+        <span class="writing-entry-cadence">{{ pub.cadence }}</span>
+        <h2 class="writing-entry-title"><a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.name }}</a></h2>
+        {% if pub.description %}<p>{{ pub.description }}</p>{% endif %}
+        {% if pub.recent %}
+        <div class="writing-entry-links">
+          {% for post in pub.recent %}
+          <a href="{{ post.url }}" target="_blank" rel="noopener">{{ post.title }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
 
-{% for pub in series %}
-<div class="writing-series">
-  <div class="series-header">
-    <h2 class="series-name"><a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.name }}</a></h2>
-  </div>
-  <p class="series-cadence">{{ pub.cadence }}</p>
-  {% if pub.description %}<p class="series-description">{{ pub.description }}</p>{% endif %}
-  {% if pub.recent %}
-  <ul class="series-recent" style="list-style:none;margin-top:0.75rem;display:flex;flex-direction:column;gap:0.4rem;">
-    {% for post in pub.recent %}
-    <li style="font-family:var(--mono);font-size:0.72rem;"><a href="{{ post.url }}" target="_blank" rel="noopener" style="color:var(--mid);text-decoration:none;transition:color 0.15s;" onmouseover="this.style.color='var(--fg)'" onmouseout="this.style.color='var(--mid)'">→ {{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-</div>
-{% endfor %}
-
-<div class="profile-link">
-  <a href="{{ profile_url }}" target="_blank" rel="noopener">Personal profile on Medium →</a>
-</div>
-
-{% if note %}
-<div class="writing-note">
-  <p>{{ note }}</p>
-</div>
-{% endif %}
-
+      {% if profile_url %}
+      <div class="writing-entry">
+        <p><a href="{{ profile_url }}" target="_blank" rel="noopener">Personal profile on Medium →</a></p>
+      </div>
+      {% endif %}
     </div>
   </main>
 
@@ -130,4 +90,5 @@ layout: base.njk
     </ul>
     {% endif %}
   </aside>
+
 </div>

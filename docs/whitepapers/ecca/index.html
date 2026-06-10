@@ -39,6 +39,9 @@
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
   <!-- Google Analytics: deferred until after page interactive to avoid main-thread blocking -->
   <script>
@@ -66,9 +69,9 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
-:root{--bg:#172b36;--fg:#f1f6f4;--link:#ffc801;--accent:#ff9932;--border:rgba(241,246,244,0.2);--mid:#d9e8e2;--header-bg:#172b36;--header-fg:#f1f6f4;--footer-bg:#ffc801;--footer-fg:#172b36;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
-[data-theme="light"]{--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}}
+:root{--bg:#001f3f;--fg:#f6f7ed;--link:#dbe64c;--accent:#dbe64c;--border:rgba(246,247,237,0.2);--mid:#74c365;--header-bg:#001f3f;--header-fg:#f6f7ed;--footer-bg:#dbe64c;--footer-fg:#001f3f;--mono:'IBM Plex Mono',monospace;--sans:'Lato',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
@@ -147,9 +150,9 @@
       
       <li><a href="/whitepapers/c-dad/">Contract-Driven AI Development</a></li>
       
-      <li><a href="/whitepapers/csma/">Cognitive Systems Modelling</a></li>
+      <li><a href="/whitepapers/csma/">Client-Side Microservices Architecture</a></li>
       
-      <li><a href="/whitepapers/ecca/" class="active" aria-current="page">Edge-Cloud Collaborative Architecture</a></li>
+      <li><a href="/whitepapers/ecca/" class="active" aria-current="page">Event Contract Catalog Architecture</a></li>
       
     </ul>
     
@@ -185,15 +188,15 @@
 <hr>
 <p>Event-driven architectures have a governance problem that schema registries and API management platforms were not designed to solve.</p>
 <p>Events cross team boundaries, service boundaries, and time boundaries. A schema registry tells you what an event looks like. It does not tell you who owns it, what it means, what contracts govern its consumers, or what happens when the format changes. Without a way to make events discoverable, governable, and consistent at scale, they become a source of invisible coupling that compounds over years. By the time the problem is visible it is already expensive.</p>
-<p>ECCA is a blueprint for fixing that at the architectural level.</p>
+<p><abbr title="Event Contract Catalog Architecture">ECCA</abbr> is a blueprint for fixing that at the architectural level.</p>
 <h2 id="what-the-paper-covers">What the paper covers</h2>
-<p><strong>Events as first-class artifacts.</strong> The core argument is that events should be treated with the same architectural discipline as APIs and services. That means declared ownership, versioned contracts, documented lifecycle, and discoverable metadata — not just a schema in a registry.</p>
-<p><strong>The event contract catalog.</strong> A structured system for declaring what an event is, who produces it, who consumes it, what the behavioral contract between them is, and how changes are governed. Not a tool — a pattern that can be implemented with the tooling a team already has.</p>
+<p><strong>Events as first-class artifacts.</strong> The core argument is that events should be treated with the same architectural discipline as APIs and services. That means declared ownership, versioned contracts, documented lifecycle, and discoverable metadata. Not just a schema in a registry.</p>
+<p><strong>The event contract catalog.</strong> A structured system for declaring what an event is, who produces it, who consumes it, what the behavioral contract between them is, and how changes are governed. Not a tool. A pattern that can be implemented with the tooling a team already has.</p>
 <p><strong>Governance without centralization.</strong> One of the failure modes in event-driven systems is governance that requires a central team to approve every change. ECCA proposes a federated model where ownership is distributed but contracts are machine-readable and enforceable at the boundary.</p>
 <p><strong>Lifecycle management.</strong> How events are versioned, deprecated, and retired without breaking consumers. The paper covers explicit versioning strategies and the contract obligations that producers carry through a deprecation cycle.</p>
 <p><strong>Discovery and AI navigability.</strong> An event contract catalog makes event-driven systems navigable by AI agents in the same way that C-DAD contracts make service logic navigable. The two frameworks are designed to compose.</p>
 <h2 id="who-it-is-for">Who it is for</h2>
-<p>Architects and engineering leads building event-driven systems at scale who are hitting the governance ceiling — systems that work but that nobody can fully reason about anymore.</p>
+<p>Architects and engineering leads building event-driven systems at scale who are hitting the governance ceiling: systems that work but that nobody can fully reason about anymore.</p>
 <hr>
 <p><a href="/whitepapers/">White Papers</a> · <a href="/whitepapers/c-dad/">C-DAD White Paper</a> · <a href="/whitepapers/uma/">UMA White Paper</a></p>
 

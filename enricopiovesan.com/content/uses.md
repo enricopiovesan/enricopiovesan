@@ -1,6 +1,6 @@
 ---
 title: Uses
-description: How Enrico Piovesan works — the setup, tools, and workflow behind the architecture work, writing, and open source projects.
+description: How Enrico Piovesan works. The setup, tools, and workflow behind the architecture work, writing, and open source projects.
 layout: section.njk
 sectionGroup: about
 breadcrumb:
@@ -27,7 +27,7 @@ This applies to greenfield and brownfield equally. The approach does not change.
 
 My workflow runs on AI. Not as a tool I reach for occasionally but as the operating system my day runs on.
 
-I work with multiple agents running in parallel across multiple projects simultaneously. When an agent needs input it waits. We run a focused session, I provide the context or decision it needs, and it continues. The output is a backlog item, a contract, a spec, or a code slice — depending on what the session was for.
+I work with multiple agents running in parallel across multiple projects simultaneously. When an agent needs input it waits. We run a focused session, I provide the context or decision it needs, and it continues. The output is a backlog item, a contract, a spec, or a code slice, depending on what the session was for.
 
 All agent work is managed through Claude Code, Codex, and Cursor. The choice between them depends on the task and the project context.
 

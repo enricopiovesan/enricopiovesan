@@ -18,30 +18,17 @@ layout: base.njk
       "@type": "Book",
       "@id": "https://enricopiovesan.com/books/#uma-book",
       "name": "Universal Microservices Architecture",
-      "subtitle": "Device-Independent Modelling for Modern Software Design with WASM",
-      "url": "https://www.amazon.com/dp/B0GTTTTQH4",
-      "sameAs": "https://www.amazon.com/dp/B0GTTTTQH4",
-      "identifier": { "@type": "PropertyValue", "propertyID": "ASIN", "value": "B0GTTTTQH4" },
       "author": { "@id": "https://enricopiovesan.com/#person" },
-      "publisher": { "@type": "Organization", "name": "Apress", "url": "https://www.apress.com" },
-      "datePublished": "2024-01-01",
-      "inLanguage": "en",
-      "bookFormat": "EBook",
-      "genre": ["Software Architecture", "WebAssembly", "Distributed Systems"]
+      "publisher": { "@type": "Organization", "name": "Apress" },
+      "url": "https://www.amazon.com/dp/B0GTTTTQH4"
     },
     {
       "@type": "Book",
       "@id": "https://enricopiovesan.com/books/#the-day-after",
       "name": "The Day After",
-      "subtitle": "How to Restructure Your Software Company for the Age of AI Agents",
-      "url": "https://enricopiovesan.com/books/",
       "author": { "@id": "https://enricopiovesan.com/#person" },
-      "publisher": { "@type": "Organization", "name": "Apress", "url": "https://www.apress.com" },
-      "inLanguage": "en",
-      "bookFormat": "EBook",
-      "datePublished": "2026-01-01",
-      "bookEdition": "Forthcoming",
-      "genre": ["Software Architecture", "AI Engineering", "Engineering Leadership"]
+      "publisher": { "@type": "Organization", "name": "Apress" },
+      "bookEdition": "Forthcoming"
     }
   ]
 }
@@ -50,8 +37,9 @@ layout: base.njk
 
 {% set nav = sectionNavs[sectionGroup] %}
 <div class="section-shell">
+
   <aside class="section-nav-aside" aria-label="{{ nav.label }} navigation">
-    {% if nav.url %}<a class="section-nav-label" href="{{ nav.url }}">{{ nav.label }}</a>{% else %}<span class="section-nav-label">{{ nav.label }}</span>{% endif %}
+    {% if nav.url %}<a class="section-nav-label{% if page.url == nav.url %} active{% endif %}" href="{{ nav.url }}">{{ nav.label }}</a>{% else %}<span class="section-nav-label">{{ nav.label }}</span>{% endif %}
     {% if nav.links %}
     <ul class="section-nav-links">
       {% for link in nav.links %}
@@ -72,68 +60,53 @@ layout: base.njk
             {% endif %}
           {% endfor %}
         {% else %}
-        <li><span aria-current="page">{{ title }}</span></li>
+        <li><span aria-current="page">Books</span></li>
         {% endif %}
       </ol>
     </nav>
 
     <div class="section-body">
+      <h1 class="section-h1">Books</h1>
+      <p>{{ intro }}</p>
 
-<section class="hero">
-  <p class="hero-label">Published Work</p>
-  <h1>Books</h1>
-  <p class="hero-bio">{{ intro }}</p>
-  <p style="font-family:var(--mono);font-size:0.72rem;letter-spacing:0.04em;color:var(--mid);margin-top:1rem;">Published by Apress · Platform Software Architect at Autodesk</p>
-  <div style="margin-top:1.5rem;">
-    <a href="https://www.amazon.com/dp/B0GTTTTQH4" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:0.78rem;color:var(--fg);border:1px solid var(--border);padding:0.6rem 1.2rem;text-decoration:none;transition:opacity 0.15s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Buy on Amazon →</a>
-  </div>
-</section>
-
-{% for book in books %}
-<div class="book">
-  <div class="book-inner">
-    {% if book.cover %}
-    <a class="book-cover-link" {% if book.url %}href="{{ book.url }}" target="_blank" rel="noopener"{% endif %}>
-      <img src="{{ book.cover }}" alt="{{ book.title }} cover" class="book-cover" width="160" height="233" loading="lazy" />
-    </a>
-    {% endif %}
-    <div class="book-body">
-      <div class="book-header">
-        <h2 class="book-title">
-          {% if book.url %}<a href="{{ book.url }}" target="_blank" rel="noopener">{{ book.title }}</a>{% else %}{{ book.title }}{% endif %}
-        </h2>
-        <span class="book-status {{ book.status }}">{{ book.status }}</span>
+      {% for book in books %}
+      <div class="book-entry" id="{{ toc[loop.index0].id if toc[loop.index0] else '' }}">
+        <div class="book-entry-header">
+          <span class="book-entry-status">{{ book.status }}</span>
+          {% if book.url %}
+          <a class="book-entry-title" href="{{ book.url }}" target="_blank" rel="noopener">{{ book.title }}</a>
+          {% else %}
+          <span class="book-entry-title">{{ book.title }}</span>
+          {% endif %}
+        </div>
+        <div class="book-entry-body">
+          {% if book.cover %}
+          <a class="book-entry-cover-link" {% if book.url %}href="{{ book.url }}" target="_blank" rel="noopener"{% endif %}>
+            <img src="{{ book.cover }}" alt="{{ book.title }} cover" class="book-entry-cover" width="120" loading="lazy" />
+          </a>
+          {% endif %}
+          <div class="book-entry-text">
+            {% if book.description is string %}
+            <p>{{ book.description }}</p>
+            {% else %}
+              {% for para in book.description %}
+              <p>{{ para }}</p>
+              {% endfor %}
+            {% endif %}
+            {% if book.audience %}
+            <p class="book-entry-audience">For: {{ book.audience }}</p>
+            {% endif %}
+            <div class="book-entry-links">
+              {% if book.url %}<a href="{{ book.url }}" target="_blank" rel="noopener">Amazon →</a>{% endif %}
+              {% if book.website %}<a href="{{ book.website }}" target="_blank" rel="noopener">Website →</a>{% endif %}
+              {% if book.companion_live %}<a href="{{ book.companion_live }}" target="_blank" rel="noopener">Reference app →</a>{% endif %}
+              {% if book.companion_repo %}<a href="{{ book.companion_repo }}" target="_blank" rel="noopener">Companion repo →</a>{% endif %}
+              {% if book.whitepaper %}<a href="{{ book.whitepaper }}">C-DAD white paper →</a>{% endif %}
+            </div>
+          </div>
+        </div>
       </div>
-      {% if book.description is string %}
-        <p class="book-description">{{ book.description }}</p>
-      {% else %}
-        {% for para in book.description %}
-        <p class="book-description">{{ para }}</p>
-        {% endfor %}
-      {% endif %}
-      {% if book.audience %}
-      <p class="book-audience"><strong>For:</strong> {{ book.audience }}</p>
-      {% endif %}
-      <div class="book-links">
-        {% if book.url and book.publisher %}<a href="{{ book.url }}" target="_blank" rel="noopener">{{ book.publisher }} →</a>{% endif %}
-        {% if book.website %}<a href="{{ book.website }}" target="_blank" rel="noopener">website →</a>{% endif %}
-        {% if book.companion_live %}<a href="{{ book.companion_live }}" target="_blank" rel="noopener">reference app →</a>{% endif %}
-        {% if book.companion_repo %}<a href="{{ book.companion_repo }}" target="_blank" rel="noopener">companion repo →</a>{% endif %}
-        {% if book.whitepaper %}<a href="{{ book.whitepaper }}">C-DAD white paper →</a>{% endif %}
-      </div>
-    </div>
-  </div>
-</div>
-{% endfor %}
-
-<section style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);">
-  <p style="font-family:var(--mono);font-size:0.72rem;color:var(--mid);margin-bottom:1rem;letter-spacing:0.04em;">THE FRAMEWORKS BEHIND THE BOOKS</p>
-  <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
-    <a href="/uma/" style="font-family:var(--mono);font-size:0.78rem;color:var(--fg);border:1px solid var(--border);padding:0.6rem 1.2rem;text-decoration:none;transition:opacity 0.15s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Universal Microservices Architecture →</a>
-    <a href="/c-dad/" style="font-family:var(--mono);font-size:0.78rem;color:var(--fg);border:1px solid var(--border);padding:0.6rem 1.2rem;text-decoration:none;transition:opacity 0.15s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Contract-Driven AI Development →</a>
-  </div>
-</section>
-
+      {% endfor %}
     </div>
   </main>
 
@@ -145,4 +118,5 @@ layout: base.njk
     </ul>
     {% endif %}
   </aside>
+
 </div>

@@ -40,5 +40,16 @@ bio:
   - He developed Universal Microservices Architecture as an answer to the portability problem and Contract-Driven AI Development as an answer to the navigability problem. His first book on UMA is available on Amazon. His second book, The Day After, is forthcoming. He has published five research papers since 2023 and maintains four open source projects built from the same frameworks.
   - He is a Platform Software Architect at Autodesk and publishes on architecture and AI-native systems every week on Medium. He is based in Golden, BC, Purcell Mountains, Canada.
 availability: Currently accepting CFP invitations for architecture, WASM, and AI engineering tracks. All talks are drawn from published work and shipped tooling.
+toc:
+  - id: write-once-run-where-it-makes-sense
+    label: Write Once, Run Where It Makes Sense
+  - id: contract-driven-ai-development
+    label: Contract-Driven AI Development
+  - id: the-day-after
+    label: The Day After
+  - id: bio
+    label: Speaker bio
+  - id: contact
+    label: Book a talk
 contact_url: https://linkedin.com/in/enricopiovesan
 ---

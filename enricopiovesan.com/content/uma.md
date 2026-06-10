@@ -1,7 +1,7 @@
 ---
 title: Universal Microservices Architecture (UMA)
 description: Universal Microservices Architecture is a portable, contract-driven execution model for distributed systems that separates business logic from runtime environment.
-layout: uma.njk
+layout: section.njk
 sectionGroup: standalone
 breadcrumb:
   - label: UMA Framework
@@ -26,7 +26,7 @@ Most distributed architectures make environment assumptions too early. The datab
 
 ## How does UMA differ from standard microservices?
 
-Standard microservices architectures reduce coupling between services but do not address the coupling between logic and runtime. A microservice running in a container is still tied to a server environment. UMA takes the portability further: the capability itself is runtime-agnostic. This is a different class of problem. Standard microservices solve the deployment problem — one service, one deployment unit. UMA solves the portability problem — one implementation, any deployment environment. Both matter. They are not the same thing, and solving one does not solve the other.
+Standard microservices architectures reduce coupling between services but do not address the coupling between logic and runtime. A microservice running in a container is still tied to a server environment. <abbr title="Universal Microservices Architecture">UMA</abbr> takes the portability further: the capability itself is runtime-agnostic. This is a different class of problem. Standard microservices solve the deployment problem (one service, one deployment unit). UMA solves the portability problem (one implementation, any deployment environment). Both matter. They are not the same thing, and solving one does not solve the other.
 
 ## Where did UMA come from?
 
@@ -34,8 +34,8 @@ UMA evolved from Client-Side Microservices Architecture, a 2023 paper that appli
 
 ## The work
 
-- [universalmicroservices.com](https://www.universalmicroservices.com) — the full model, reference app, and documentation
-- [Universal Microservices Architecture — Book](https://www.amazon.com/dp/B0GTTTTQH4) — the full implementation guide. Published on Amazon.
-- [UMA-code-examples](https://github.com/enricopiovesan/UMA-code-examples) — 13 chapters of runnable Rust and WASM code
-- [UMA White Paper](/whitepapers/) — the foundational paper. August 2024.
-- [CSMA White Paper](/whitepapers/) — where the thinking started. June 2023.
+- [universalmicroservices.com](https://www.universalmicroservices.com), the full model, reference app, and documentation
+- [Universal Microservices Architecture Book](https://www.amazon.com/dp/B0GTTTTQH4), the full implementation guide. Published on Amazon.
+- [UMA-code-examples](https://github.com/enricopiovesan/UMA-code-examples), 13 chapters of runnable Rust and WASM code
+- [UMA White Paper](/whitepapers/), the foundational paper. August 2024.
+- [<abbr title="Client-Side Microservices Architecture">CSMA</abbr> White Paper](/whitepapers/), where the thinking started. June 2023.

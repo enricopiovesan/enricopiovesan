@@ -13,42 +13,6 @@ layout: base.njk
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
         { "@type": "ListItem", "position": 2, "name": "White Papers", "item": "https://enricopiovesan.com/whitepapers/" }
       ]
-    },
-    {
-      "@type": "ScholarlyArticle",
-      "@id": "https://enricopiovesan.com/whitepapers/#cdad",
-      "name": "Contract-Driven AI Development (C-DAD)",
-      "description": "A foundation for building AI-native systems where contracts, not code, define collaboration between humans, machines, and runtimes.",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "datePublished": "2025-11-01",
-      "inLanguage": "en"
-    },
-    {
-      "@type": "ScholarlyArticle",
-      "@id": "https://enricopiovesan.com/whitepapers/#ecca",
-      "name": "Event Contract Catalog Architecture (ECCA)",
-      "description": "A blueprint for an event contract catalog that treats events as first-class architectural artifacts with declared contracts, ownership, and lifecycle.",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "datePublished": "2025-08-01",
-      "inLanguage": "en"
-    },
-    {
-      "@type": "ScholarlyArticle",
-      "@id": "https://enricopiovesan.com/whitepapers/#uma",
-      "name": "Universal Microservices Architecture (UMA)",
-      "description": "The foundational paper introducing UMA as a portable, contract-driven execution model for distributed systems.",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "datePublished": "2024-08-01",
-      "inLanguage": "en"
-    },
-    {
-      "@type": "ScholarlyArticle",
-      "@id": "https://enricopiovesan.com/whitepapers/#csma",
-      "name": "Client-Side Microservices Architecture (CSMA)",
-      "description": "The original paper introducing client-side microservices as a pattern for portable, composable business logic running in the browser.",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "datePublished": "2023-06-01",
-      "inLanguage": "en"
     }
   ]
 }
@@ -57,8 +21,9 @@ layout: base.njk
 
 {% set nav = sectionNavs[sectionGroup] %}
 <div class="section-shell">
+
   <aside class="section-nav-aside" aria-label="{{ nav.label }} navigation">
-    {% if nav.url %}<a class="section-nav-label" href="{{ nav.url }}">{{ nav.label }}</a>{% else %}<span class="section-nav-label">{{ nav.label }}</span>{% endif %}
+    {% if nav.url %}<a class="section-nav-label{% if page.url == nav.url %} active{% endif %}" href="{{ nav.url }}">{{ nav.label }}</a>{% else %}<span class="section-nav-label">{{ nav.label }}</span>{% endif %}
     {% if nav.links %}
     <ul class="section-nav-links">
       {% for link in nav.links %}
@@ -79,43 +44,37 @@ layout: base.njk
             {% endif %}
           {% endfor %}
         {% else %}
-        <li><span aria-current="page">{{ title }}</span></li>
+        <li><span aria-current="page">White Papers</span></li>
         {% endif %}
       </ol>
     </nav>
 
     <div class="section-body">
+      <h1 class="section-h1">White Papers</h1>
+      <p>{{ intro }}</p>
 
-<section class="hero">
-  <p class="hero-label">Research</p>
-  <h1>White Papers</h1>
-  <p class="hero-bio">{{ intro }}</p>
-</section>
-
-{% for paper in papers %}
-<div class="paper">
-  <div class="paper-inner">
-    {% if paper.image %}
-    <a class="paper-cover-link" href="{{ paper.page or paper.url }}"{% if not paper.page %} target="_blank" rel="noopener"{% endif %}>
-      <img src="{{ paper.image }}" alt="{{ paper.title }} cover" class="paper-cover" width="80" height="113" loading="lazy" />
-    </a>
-    {% endif %}
-    <div class="paper-body">
-      <div class="paper-header">
-        <h2 class="paper-title">
-          <a href="{{ paper.page or paper.url }}"{% if not paper.page %} target="_blank" rel="noopener"{% endif %}>{{ paper.title }}</a>
-        </h2>
-        <time class="paper-date" datetime="{{ paper.date }}">{{ paper.date }}</time>
+      {% for paper in papers %}
+      <div class="paper-entry" id="{{ paper.id }}">
+        <div class="paper-entry-header">
+          <time class="paper-entry-date">{{ paper.date }}</time>
+          <a class="paper-entry-title" href="{{ paper.page or paper.url }}"{% if not paper.page %} target="_blank" rel="noopener"{% endif %}>{{ paper.title }}</a>
+        </div>
+        <div class="paper-entry-body">
+          {% if paper.image %}
+          <a class="paper-entry-cover-link" href="{{ paper.page or paper.url }}"{% if not paper.page %} target="_blank" rel="noopener"{% endif %}>
+            <img src="{{ paper.image }}" alt="{{ paper.title }}" class="paper-entry-cover" width="70" loading="lazy" />
+          </a>
+          {% endif %}
+          <div class="paper-entry-text">
+            {% if paper.description %}<p>{{ paper.description }}</p>{% endif %}
+            <div class="paper-entry-links">
+              {% if paper.page %}<a href="{{ paper.page }}">Read →</a>{% endif %}
+              {% if paper.url %}<a href="{{ paper.url }}" target="_blank" rel="noopener">Download PDF →</a>{% endif %}
+            </div>
+          </div>
+        </div>
       </div>
-      {% if paper.description %}<p class="paper-description">{{ paper.description }}</p>{% endif %}
-      {% if paper.page and paper.url %}
-      <a class="paper-pdf-link" href="{{ paper.url }}" target="_blank" rel="noopener">Download PDF →</a>
-      {% endif %}
-    </div>
-  </div>
-</div>
-{% endfor %}
-
+      {% endfor %}
     </div>
   </main>
 
@@ -127,4 +86,5 @@ layout: base.njk
     </ul>
     {% endif %}
   </aside>
+
 </div>

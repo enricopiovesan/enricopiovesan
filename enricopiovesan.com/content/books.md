@@ -2,6 +2,11 @@
 title: Software Architecture Books by Enrico Piovesan
 description: Two books by Enrico Piovesan on software architecture and AI-native systems. Universal Microservices Architecture published by Apress. The Day After forthcoming, on restructuring software teams for AI agents.
 layout: books.njk
+toc:
+  - id: universal-microservices-architecture
+    label: Universal Microservices Architecture
+  - id: the-day-after
+    label: The Day After
 sectionGroup: work
 breadcrumb:
   - href: /work/
@@ -24,7 +29,7 @@ books:
     companion_live: https://www.universalmicroservices.com/reference-application/
     audience: Software architects, senior engineers, and technical leads designing modern distributed systems who are tired of paying the hidden tax of duplicated logic across runtimes.
     description:
-      - Most distributed systems have a logic problem that nobody talks about. The same business rule — a pricing formula, an eligibility check, a validation step — gets implemented separately for the browser, the backend, the edge, and now the AI pipeline. Nobody planned it that way. It happened because the architecture made assumptions about the environment before it made decisions about the behavior. Over time the copies drift. The system becomes harder to reason about, harder to change, and harder to trust.
+      - Most distributed systems have a logic problem that nobody talks about. The same business rule (a pricing formula, an eligibility check, a validation step) gets implemented separately for the browser, the backend, the edge, and now the AI pipeline. Nobody planned it that way. It happened because the architecture made assumptions about the environment before it made decisions about the behavior. Over time the copies drift. The system becomes harder to reason about, harder to change, and harder to trust.
       - Universal Microservices Architecture is a response to that problem. It is a portable, contract-driven execution model where each business capability is packaged as a self-describing service that runs identically across browser, edge, cloud, and AI-assisted environments without duplicating the logic or losing behavioral coherence. The full model, the core concepts, and the reference application are documented at universalmicroservices.com.
       - The book covers the principles and building blocks of UMA, how it differs from older architectural models, and how to design distributed systems at scale that are portable, modular, and runtime-agnostic using WebAssembly. It is backed by a maintained companion repository with 13 chapters of runnable Rust code, 100% business logic coverage enforced in CI, and a live reference application.
       - "The shortest summary of what UMA makes possible is not write once, run everywhere. It is: write once, run where it makes sense."

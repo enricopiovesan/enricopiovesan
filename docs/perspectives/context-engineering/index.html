@@ -39,6 +39,9 @@
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
   <!-- Google Analytics: deferred until after page interactive to avoid main-thread blocking -->
   <script>
@@ -66,9 +69,9 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
-:root{--bg:#172b36;--fg:#f1f6f4;--link:#ffc801;--accent:#ff9932;--border:rgba(241,246,244,0.2);--mid:#d9e8e2;--header-bg:#172b36;--header-fg:#f1f6f4;--footer-bg:#ffc801;--footer-fg:#172b36;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
-[data-theme="light"]{--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}}
+:root{--bg:#001f3f;--fg:#f6f7ed;--link:#dbe64c;--accent:#dbe64c;--border:rgba(246,247,237,0.2);--mid:#74c365;--header-bg:#001f3f;--header-fg:#f6f7ed;--footer-bg:#dbe64c;--footer-fg:#001f3f;--mono:'IBM Plex Mono',monospace;--sans:'Lato',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
@@ -176,12 +179,12 @@
     <div class="section-body">
       <h1 class="section-h1">Beyond Context Engineering</h1>
       <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: June 2026</p>
-      <p><em>By <a href="https://enricopiovesan.com/about/">Enrico Piovesan</a> — Platform Software Architect at Autodesk, author of <a href="https://www.amazon.com/dp/B0GTTTTQH4">Universal Microservices Architecture</a> (Apress)</em></p>
-<p>Context engineering has become one of the most discussed practices in AI development. The core idea is sound: the quality of what an AI agent produces depends heavily on the quality of the context it receives. Structured prompts, retrieved documents, conversation history, tool outputs — all of it shapes what the agent can do.</p>
+      <p><em>By <a href="https://enricopiovesan.com/about/">Enrico Piovesan</a>, author of <a href="https://www.amazon.com/dp/B0GTTTTQH4">Universal Microservices Architecture</a> (Apress)</em></p>
+<p>Context engineering has become one of the most discussed practices in AI development. The core idea is sound: the quality of what an AI agent produces depends heavily on the quality of the context it receives. Structured prompts, retrieved documents, conversation history, and tool outputs all shape what the agent can do.</p>
 <p>Most teams investing in context engineering are solving a real problem. Poorly structured context produces inconsistent, unreliable agent behavior. Better context produces better results.</p>
 <p>But context engineering solves the input problem. It does not solve the trust problem.</p>
 <h2 id="what-does-context-engineering-get-right">What does context engineering get right?</h2>
-<p>Context engineering recognizes that AI agents are not magic. They work with what they are given. Give them better inputs — clearer structure, more relevant retrieval, better-formatted tool outputs — and they produce better outputs.</p>
+<p>Context engineering recognizes that AI agents are not magic. They work with what they are given. Give them better inputs (clearer structure, more relevant retrieval, better-formatted tool outputs) and they produce better outputs.</p>
 <p>This is real progress. Teams that have invested in context engineering report more consistent agent behavior, fewer hallucinations on known data, and faster agent onboarding to new tasks.</p>
 <h2 id="where-does-context-engineering-fall-short">Where does context engineering fall short?</h2>
 <p>Context engineering tells an agent what to know for a given task. It does not tell the agent what the system is responsible for, what it is not allowed to do, or under what conditions its outputs can be trusted.</p>
@@ -190,16 +193,16 @@
 <p>When an agent operates without that information, it does not fail loudly. It produces plausible output that violates constraints nobody declared. The bug looks like a logic error. It is actually an architectural gap.</p>
 <h2 id="what-is-the-distinction-that-matters">What is the distinction that matters?</h2>
 <p>A specification describes what a system does. A contract describes why it can be trusted.</p>
-<p>Context engineering is about specifications — giving agents accurate, well-structured descriptions of the current state. Contract-driven AI development is about contracts — giving agents machine-readable declarations of what each capability is responsible for and under what conditions it can be trusted.</p>
+<p>Context engineering is about specifications: giving agents accurate, well-structured descriptions of the current state. <abbr title="Contract-Driven AI Development">C-DAD</abbr> is about contracts: giving agents machine-readable declarations of what each capability is responsible for and under what conditions it can be trusted.</p>
 <p>Both matter. They solve different problems. Most teams have started on context engineering and have not yet started on contract-driven development.</p>
 <h2 id="what-comes-after-context-engineering">What comes after context engineering?</h2>
 <p>The teams that move beyond context engineering are the ones that start treating their codebase as a contract graph, not a collection of functions. Each capability declares its preconditions, postconditions, invariants, and exception flows. Agents navigate that graph rather than guessing from context alone.</p>
 <p>This is the foundation of Contract-Driven AI Development.</p>
 <ul>
-<li><a href="/c-dad/">C-DAD — the full framework</a></li>
+<li><a href="/c-dad/">C-DAD, the full framework</a></li>
 <li><a href="/whitepapers/c-dad/">C-DAD White Paper</a></li>
-<li><a href="/books/">The Day After</a> — the book on restructuring software organizations for the age of AI agents</li>
-<li><a href="/concepts/contract-driven-ai-development/">Contract-Driven AI Development — concept page</a></li>
+<li><a href="/books/">The Day After</a>, the book on restructuring software organizations for the age of AI agents</li>
+<li><a href="/concepts/contract-driven-ai-development/">Contract-Driven AI Development concept page</a></li>
 </ul>
 
     </div>

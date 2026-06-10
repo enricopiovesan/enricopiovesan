@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Now - Enrico Piovesan</title>
-  <meta name="description" content="What Enrico Piovesan is working on right now — current projects, writing, speaking submissions, and what has his focus as of June 2026." />
+  <meta name="description" content="What Enrico Piovesan is working on right now. Current projects, writing, speaking submissions, and what has his focus as of June 2026." />
   <meta name="robots" content="noindex, nofollow" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Now — Enrico Piovesan" />
+  <meta property="og:title" content="Now, Enrico Piovesan" />
   <meta property="og:description" content="Current focus: C-DAD tooling, The Day After book, and conference submissions on portable systems and AI-native software architecture." />
   <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
   <meta property="og:url" content="https://enricopiovesan.com/now/" />
@@ -38,6 +38,9 @@
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
   <!-- Google Analytics: deferred until after page interactive to avoid main-thread blocking -->
   <script>
@@ -65,9 +68,9 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
-:root{--bg:#172b36;--fg:#f1f6f4;--link:#ffc801;--accent:#ff9932;--border:rgba(241,246,244,0.2);--mid:#d9e8e2;--header-bg:#172b36;--header-fg:#f1f6f4;--footer-bg:#ffc801;--footer-fg:#172b36;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
-[data-theme="light"]{--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}}
+:root{--bg:#001f3f;--fg:#f6f7ed;--link:#dbe64c;--accent:#dbe64c;--border:rgba(246,247,237,0.2);--mid:#74c365;--header-bg:#001f3f;--header-fg:#f6f7ed;--footer-bg:#dbe64c;--footer-fg:#001f3f;--mono:'IBM Plex Mono',monospace;--sans:'Lato',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
@@ -171,15 +174,14 @@
     <div class="section-body">
       <h1 class="section-h1">Now</h1>
       
-      <p><em>Updated June 2026. Inspired by nownownow.com.</em></p>
+      <p>This page is updated regularly and reflects what actually has my attention. Not what I plan to do, not what I have done. What I am working on right now.</p>
 <h2 id="what-i-am-working-on">What I am working on</h2>
-<p><strong>The Day After</strong> — negotiating publication with Apress. The companion CLI tool (cdad) is built and in progress. The book covers what it actually takes to restructure a software organization for the age of AI agents.</p>
-<p><strong>youaskm3</strong> — a WASM-native, MCP-powered personal knowledge layer. Runs entirely on GitHub Pages. No server, no database, no cost. Working through the milestone roadmap. M1 is next.</p>
-<p><strong>Traverse</strong> — a contract-driven Rust and WASM runtime for portable business capabilities. Pre-implementation, spec-governed. Foundation is in place.</p>
-<p><strong>Writing</strong> — publishing every Wednesday and Friday on Medium. Two active series on software architecture and AI-native systems.</p>
-<p><strong>Speaking</strong> — actively submitting CFPs for architecture, WASM, and AI engineering tracks.</p>
-<h2 id="where-i-am">Where I am</h2>
-<p>Golden, BC. Purcell Mountains, Canada. Remote by choice, available to travel one week per month.</p>
+<p><strong>Universal Microservices Architecture.</strong> The Apress book publishes August 26, 2026. Thirteen runnable chapters in Rust and WebAssembly. 100% business logic coverage enforced in CI. Available on <a href="https://www.amazon.com/dp/B0GTTTTQH4">Amazon</a>.</p>
+<p><strong>The Day After.</strong> Negotiating publication with Apress. The companion CLI tool (cdad) is built and in progress. The book covers what it actually takes to restructure a software organization for the age of AI agents.</p>
+<p><strong>youaskm3.</strong> A WASM-native, MCP-powered personal knowledge layer. Runs entirely on GitHub Pages. No server, no database, no cost. Working through the milestone roadmap. M1 is next.</p>
+<p><strong>Traverse.</strong> A contract-driven Rust and WASM runtime for portable business capabilities. Pre-implementation, spec-governed. Foundation is in place.</p>
+<p><strong>Writing.</strong> Publishing every Wednesday and Friday on Medium. Two active series on software architecture and AI-native systems.</p>
+<p><strong>Speaking.</strong> Actively submitting CFPs for architecture, WASM, and AI engineering tracks.</p>
 
     </div>
   </main>
@@ -190,8 +192,6 @@
     <ul class="section-toc-links">
       
       <li><a href="#what-i-am-working-on">What I am working on</a></li>
-      
-      <li><a href="#where-i-am">Where I am</a></li>
       
     </ul>
     

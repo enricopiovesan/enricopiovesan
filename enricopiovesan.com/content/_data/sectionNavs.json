@@ -24,8 +24,8 @@
     "links": [
       { "href": "/whitepapers/uma/", "label": "Universal Microservices Architecture" },
       { "href": "/whitepapers/c-dad/", "label": "Contract-Driven AI Development" },
-      { "href": "/whitepapers/csma/", "label": "Cognitive Systems Modelling" },
-      { "href": "/whitepapers/ecca/", "label": "Edge-Cloud Collaborative Architecture" }
+      { "href": "/whitepapers/csma/", "label": "Client-Side Microservices Architecture" },
+      { "href": "/whitepapers/ecca/", "label": "Event Contract Catalog Architecture" }
     ]
   },
   "concepts": {

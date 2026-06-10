@@ -38,6 +38,9 @@
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
   <!-- Google Analytics: deferred until after page interactive to avoid main-thread blocking -->
   <script>
@@ -65,9 +68,9 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
-:root{--bg:#172b36;--fg:#f1f6f4;--link:#ffc801;--accent:#ff9932;--border:rgba(241,246,244,0.2);--mid:#d9e8e2;--header-bg:#172b36;--header-fg:#f1f6f4;--footer-bg:#ffc801;--footer-fg:#172b36;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
-[data-theme="light"]{--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}}
+:root{--bg:#001f3f;--fg:#f6f7ed;--link:#dbe64c;--accent:#dbe64c;--border:rgba(246,247,237,0.2);--mid:#74c365;--header-bg:#001f3f;--header-fg:#f6f7ed;--footer-bg:#dbe64c;--footer-fg:#001f3f;--mono:'IBM Plex Mono',monospace;--sans:'Lato',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
@@ -132,74 +135,13 @@
 
   <main id="main-content">
     
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://enricopiovesan.com/uma/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Universal Microservices Architecture", "item": "https://enricopiovesan.com/uma/" }
-      ]
-    },
-    {
-      "@type": "TechArticle",
-      "@id": "https://enricopiovesan.com/uma/",
-      "name": "Universal Microservices Architecture (UMA)",
-      "headline": "What is Universal Microservices Architecture?",
-      "description": "UMA is a portable, contract-driven execution model for distributed systems. Business logic that runs in browser, edge, cloud, and AI pipelines without rewriting it for each environment.",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "datePublished": "2024-08-01",
-      "dateModified": "2026-06-08",
-      "inLanguage": "en",
-      "about": ["WebAssembly", "Microservices", "Software Architecture", "Portable Systems"],
-      "url": "https://enricopiovesan.com/uma/",
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": [".hero-bio", ".section p"]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is Universal Microservices Architecture?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Universal Microservices Architecture (UMA) is a portable, contract-driven execution model for distributed systems. Each business capability is packaged as a self-describing service that compiles to WebAssembly and runs identically across browser, edge, cloud, and AI pipeline without rewriting the logic for each environment. The runtime is a deployment decision, not an architectural one." }
-        },
-        {
-          "@type": "Question",
-          "name": "How does UMA use WebAssembly?",
-          "acceptedAnswer": { "@type": "Answer", "text": "UMA compiles each business capability to WebAssembly (WASM), which provides a portable binary format that executes identically across any compliant runtime — browser, Node, Deno, Cloudflare Workers, or AI pipeline. The compilation happens once. The runtime target is a deployment configuration, not a code change. WebAssembly makes portability possible at the execution level; UMA contracts make it trustworthy at the system level." }
-        },
-        {
-          "@type": "Question",
-          "name": "How does UMA differ from standard microservices?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Standard microservices reduce coupling between services but leave the coupling between logic and runtime intact. A microservice in a container is still tied to a server environment. UMA removes that coupling: a UMA capability compiles to WASM and runs anywhere a UMA runtime exists, without changing the implementation. Standard microservices solve the deployment problem. UMA solves the portability problem. Both matter and they are not the same thing." }
-        },
-        {
-          "@type": "Question",
-          "name": "Why do teams rewrite the same business logic multiple times?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Because standard architectures make runtime assumptions before defining behavior. The backend assumes a server, the frontend assumes a browser, the edge layer gets its own rewrite, and when an AI pipeline arrives it gets rewritten again. Nobody plans it that way — it happens because the architecture has no mechanism to prevent it. UMA introduces that mechanism: capabilities are defined once, and the runtime is a configuration rather than a constraint." }
-        },
-        {
-          "@type": "Question",
-          "name": "What is a UMA contract?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A UMA contract is a machine-readable declaration of what a business capability does, what it depends on, and what it guarantees. Contracts are version-aware and lifecycle-tracked. A service that satisfies a contract is interchangeable with any other implementation of the same contract, regardless of the runtime it runs in. This is what makes composition possible at scale without coupling teams to each other's implementation decisions." }
-        }
-      ]
-    }
-  ]
-}
-</script>
-
-
 
 <div class="section-shell">
+
   <aside class="section-nav-aside" aria-label=" navigation">
+    
     <span class="section-nav-label"></span>
+    
     
     <ul class="section-nav-links">
       
@@ -213,6 +155,7 @@
         <li><a href="/">Home</a></li>
         
           
+            
             <li><span aria-current="page">UMA Framework</span></li>
             
           
@@ -221,102 +164,48 @@
     </nav>
 
     <div class="section-body">
-
-<section class="hero">
-  <p class="hero-label">Framework</p>
-  <h1>Universal Microservices Architecture</h1>
-  <p class="hero-bio">A portable, contract-driven execution model for distributed systems. Business logic that runs where it makes sense - browser, edge, cloud, AI pipeline - without rewriting it every time.</p>
-  <p style="font-family:var(--mono);font-size:0.72rem;letter-spacing:0.04em;color:var(--mid);margin-top:1rem;">Platform Software Architect at Autodesk · Published by Apress · Coined 2023</p>
-  <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-top:0.5rem;">Last updated: June 2026</p>
-</section>
-
-<section class="section">
-  <p class="section-label">What is UMA?</p>
-  <p>Universal Microservices Architecture is an execution model that separates business logic from runtime environment. The central insight is simple: the environment a piece of logic runs in is a deployment decision, not an architectural one. In a traditional distributed architecture, the same business rule gets written multiple times — a pricing formula in the backend, a duplicate in the browser for instant feedback, a third version at the edge for performance, a fourth rewritten when the AI pipeline needs it. Nobody planned it that way. It happened because the architecture had no mechanism to prevent it. UMA introduces that mechanism. Each business capability is packaged as a Universal Microservice: a self-describing, contract-governed unit that compiles to WebAssembly and runs identically across any compliant runtime. The contract defines what the service does, what it depends on, and what it guarantees. The implementation is compiled once. The deployment target is a configuration, not a rewrite.</p>
-</section>
-
-<section class="section">
-  <p class="section-label">The architecture model</p>
-  <p>A UMA system has three layers. The capability layer contains the Universal Microservices - the portable business logic compiled to WASM. The contract layer governs how services discover each other, declare dependencies, and validate behavior. The runtime layer provides the execution environment: browser, edge worker, cloud function, or AI pipeline.</p>
-  <p>The contract is the interface between layers. It is machine-readable, version-aware, and lifecycle-tracked. A service that satisfies a contract is interchangeable with any other service that satisfies the same contract, regardless of the runtime it runs in. This is what makes composition possible at scale without coupling teams to each other's implementation decisions.</p>
-  <p>The capability registry is where services register and discover each other at runtime. It is not a service mesh or an API gateway. It is a coordination layer that matches capability requests to available implementations based on contract signatures. A service asks for a capability by contract, not by name. The registry resolves the match. The runtime executes the result.</p>
-</section>
-
-<section class="section">
-  <p class="section-label">Core Principles</p>
-  <div class="concept-list">
-    <div class="concept-item">
-      <h2>What does contract-first mean in UMA?</h2>
-      <p>Every service defines its interface, dependencies, and guarantees in a machine-readable contract before implementation begins. The contract is the source of truth - not the code. This forces architectural decisions to happen before implementation, which is the only order in which they are cheap to make.</p>
-    </div>
-    <div class="concept-item">
-      <h2>How does UMA achieve runtime independence?</h2>
-      <p>Business logic compiled to WebAssembly runs unchanged across browser, Node, Deno, Cloudflare Workers, and AI pipelines. The execution environment is a deployment decision, not an architectural one. Adding a new runtime does not require touching the business logic.</p>
-    </div>
-    <div class="concept-item">
-      <h2>How are UMA services composed at runtime?</h2>
-      <p>Services are discovered, validated, and composed at runtime through a capability registry. Systems built with UMA can adapt to new requirements without structural rewrites. Adding a new capability means registering a new service, not modifying existing ones.</p>
-    </div>
-    <div class="concept-item">
-      <h2>Why are UMA services navigable by AI agents?</h2>
-      <p>Every service has declared intent, explicit dependencies, and a lifecycle-aware contract. AI agents can reason about what a system does, why each part exists, and how to extend it safely - without reading implementation code or relying on documentation that may be stale.</p>
-    </div>
-    <div class="concept-item">
-      <h2>What is behavioral coherence in distributed systems?</h2>
-      <p>When the same business logic runs across multiple environments from a single implementation, drift becomes structurally impossible. There is one version of the truth. Changes propagate everywhere the capability is deployed. Inconsistencies between environments are detected at contract validation, not discovered in production.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <p class="section-label">How it differs from microservices</p>
-  <p>Traditional microservices partition a system by deployment unit. Each service is a process with a network boundary. UMA partitions a system by business capability with a contract boundary. The difference matters at scale.</p>
-  <p>A microservices architecture tells you where code runs. A UMA architecture tells you what code does, why it exists, and what it guarantees - and lets the runtime answer the where question independently. The result is a system where the same service can run as a browser module, an edge function, and a cloud service without changing a line of implementation code.</p>
-  <p>UMA is not a replacement for microservices. It is a layer above them. The runtime adapters that execute UMA capabilities can be microservices. What changes is that the business logic inside those services is portable, contract-governed, and environment-independent.</p>
-</section>
-
-<section class="section">
-  <p class="section-label">The problem it solves</p>
-  <p>The same business logic gets rewritten three, four, five times across browser, backend, edge, and AI pipelines. Most architectures assume the runtime too early and teams pay that cost forever - in maintenance, in drift, in onboarding time, and in the inability to adapt when a new execution environment arrives.</p>
-  <p>The UMA book documents thirteen specific patterns where this cost appears, with runnable Rust and WASM implementations for each. The companion repository enforces 100% business logic coverage in CI, which means every claim in the book has a test that proves it. The reference application at universalmicroservices.com runs the same business logic across browser and edge from a single WASM build.</p>
-</section>
-
-<section class="section">
-  <p class="section-label">Resources</p>
-  <div class="resource-links">
-    <a href="/books/" class="resource-link">
-      <span class="resource-label">Book</span>
-      <span class="resource-title">Universal Microservices Architecture - Apress, 2024</span>
-    </a>
-    <a href="/whitepapers/" class="resource-link">
-      <span class="resource-label">White Paper</span>
-      <span class="resource-title">Universal Microservices Architecture (UMA) - August 2024</span>
-    </a>
-    <a href="https://www.universalmicroservices.com" target="_blank" rel="noopener" class="resource-link">
-      <span class="resource-label">Reference App</span>
-      <span class="resource-title">universalmicroservices.com - live implementation</span>
-    </a>
-    <a href="https://github.com/enricopiovesan/UMA-code-examples" target="_blank" rel="noopener" class="resource-link">
-      <span class="resource-label">Code</span>
-      <span class="resource-title">UMA-code-examples - 13 chapters, Rust/WASM, CI-enforced</span>
-    </a>
-    <a href="/projects/" class="resource-link">
-      <span class="resource-label">Runtime</span>
-      <span class="resource-title">Traverse - contract-driven Rust/WASM runtime</span>
-    </a>
-    <a href="/c-dad/" class="resource-link">
-      <span class="resource-label">Related</span>
-      <span class="resource-title">C-DAD - contract-driven AI development built on UMA principles</span>
-    </a>
-  </div>
-</section>
+      <h1 class="section-h1">Universal Microservices Architecture (UMA)</h1>
+      <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: June 2026</p>
+      <p>Every team I have worked with has the same invisible tax. The payment logic lives in the backend. A version of it lives in the browser. Another version runs at the edge. A fourth gets rewritten when the AI pipeline needs it. Nobody planned this. It just happened because the architecture made assumptions about the environment before it made decisions about the problem. Over time the copies drift. A bug gets fixed in one place and not the others. A business rule changes and three of the four versions get updated. The system becomes harder to reason about, harder to change, and harder to trust. The tax compounds. Universal Microservices Architecture is a response to that problem.</p>
+<h2 id="what-is-universal-microservices-architecture">What is Universal Microservices Architecture?</h2>
+<p>A portable, contract-driven execution model for distributed systems. Each business capability is packaged as a self-describing service that declares its contracts, metadata, and execution requirements independently of any runtime. The same capability runs identically across browser, edge, cloud, and AI pipeline without duplicating the logic or losing behavioral coherence. The shortest summary is not &quot;write once, run everywhere.&quot; It is: write once, run where it makes sense. The capability is defined once, tested once, versioned once. The runtime is a deployment decision, not an architectural one. WebAssembly makes this possible at the execution level. Contracts make it trustworthy at the system level.</p>
+<h2 id="why-do-environment-assumptions-compound-over-time">Why do environment assumptions compound over time?</h2>
+<p>Most distributed architectures make environment assumptions too early. The database layer assumes a server. The UI layer assumes a browser. The edge layer gets its own rewrite. Each assumption creates a coupling that limits where logic can run and multiplies the cost of every change. When AI pipelines arrive, they need to invoke the same business logic that the browser and backend use. Edge computing needs the same validation rules that the server enforces. The cost of environment-specific rewrites has gone up, not down. Teams that built their architecture with runtime assumptions baked in are now paying for those assumptions with every new environment they need to support.</p>
+<h2 id="how-does-uma-differ-from-standard-microservices">How does UMA differ from standard microservices?</h2>
+<p>Standard microservices architectures reduce coupling between services but do not address the coupling between logic and runtime. A microservice running in a container is still tied to a server environment. <abbr title="Universal Microservices Architecture">UMA</abbr> takes the portability further: the capability itself is runtime-agnostic. This is a different class of problem. Standard microservices solve the deployment problem (one service, one deployment unit). UMA solves the portability problem (one implementation, any deployment environment). Both matter. They are not the same thing, and solving one does not solve the other.</p>
+<h2 id="where-did-uma-come-from">Where did UMA come from?</h2>
+<p>UMA evolved from Client-Side Microservices Architecture, a 2023 paper that applied service-oriented thinking to the browser. The question was simple: why should the browser always be a consumer of server logic rather than a legitimate execution environment in its own right? That question expanded into UMA, which asked the same thing of every runtime in the stack. The UMA white paper was published in August 2024. The book followed with 13 chapters of runnable Rust and WASM code, 100% business logic coverage enforced in CI, and a live reference application. The full model, concepts, and reference implementation live at universalmicroservices.com.</p>
+<h2 id="the-work">The work</h2>
+<ul>
+<li><a href="https://www.universalmicroservices.com">universalmicroservices.com</a>, the full model, reference app, and documentation</li>
+<li><a href="https://www.amazon.com/dp/B0GTTTTQH4">Universal Microservices Architecture Book</a>, the full implementation guide. Published on Amazon.</li>
+<li><a href="https://github.com/enricopiovesan/UMA-code-examples">UMA-code-examples</a>, 13 chapters of runnable Rust and WASM code</li>
+<li><a href="/whitepapers/">UMA White Paper</a>, the foundational paper. August 2024.</li>
+<li><a href="/whitepapers/"><abbr title="Client-Side Microservices Architecture">CSMA</abbr> White Paper</a>, where the thinking started. June 2023.</li>
+</ul>
 
     </div>
   </main>
 
   <aside class="section-toc-aside" aria-label="On this page">
     
+    <span class="section-toc-label">On this page</span>
+    <ul class="section-toc-links">
+      
+      <li><a href="#what-is-universal-microservices-architecture">What is Universal Microservices Architecture?</a></li>
+      
+      <li><a href="#why-do-environment-assumptions-compound-over-time">Why do environment assumptions compound over time?</a></li>
+      
+      <li><a href="#how-does-uma-differ-from-standard-microservices">How does UMA differ from standard microservices?</a></li>
+      
+      <li><a href="#where-did-uma-come-from">Where did UMA come from?</a></li>
+      
+      <li><a href="#the-work">The work</a></li>
+      
+    </ul>
+    
   </aside>
+
 </div>
 
   </main>

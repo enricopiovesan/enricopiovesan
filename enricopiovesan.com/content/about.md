@@ -38,21 +38,21 @@ At some point I stopped treating those as facts of life and started asking why t
 
 The frameworks I have developed address two structural problems that keep showing up in different forms.
 
-[Universal Microservices Architecture (UMA)](/uma/) is the answer to the portability problem. Why should the same business logic exist in five different forms across browser, backend, edge, and AI pipeline? UMA separates what a capability does from where it runs. The same capability executes across any runtime — browser, edge, cloud, AI agent — packaged as a portable, contract-bound unit compiled to WebAssembly. It is the architectural model behind [the book published by Apress](https://www.amazon.com/dp/B0GTTTTQH4) and the live reference application at [universalmicroservices.com](https://www.universalmicroservices.com).
+[Universal Microservices Architecture (<abbr title="Universal Microservices Architecture">UMA</abbr>)](/uma/) is the answer to the portability problem. Why should the same business logic exist in five different forms across browser, backend, edge, and AI pipeline? <abbr title="Universal Microservices Architecture">UMA</abbr> separates what a capability does from where it runs. The same capability executes across any runtime (browser, edge, cloud, AI agent), packaged as a portable, contract-bound unit compiled to WebAssembly. It is the architectural model behind [the book published by Apress](https://www.amazon.com/dp/B0GTTTTQH4) and the live reference application at [universalmicroservices.com](https://www.universalmicroservices.com).
 
-[Contract-Driven AI Development (C-DAD)](/c-dad/) is the answer to the navigability problem. Why can AI agents describe what software does but not why it does it — and why does that gap produce bugs nobody planned for? C-DAD makes software legible to AI agents by declaring intent through machine-enforceable contracts rather than leaving it implicit in code. It is the model behind the forthcoming book [The Day After](/books/) and the [the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit) CLI.
+[Contract-Driven AI Development (<abbr title="Contract-Driven AI Development">C-DAD</abbr>)](/c-dad/) is the answer to the navigability problem. Why can AI agents describe what software does but not why it does it? That gap is what produces bugs nobody planned for. <abbr title="Contract-Driven AI Development">C-DAD</abbr> makes software legible to AI agents by declaring intent through machine-enforceable contracts rather than leaving it implicit in code. It is the model behind the forthcoming book [The Day After](/books/) and the [the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit) CLI.
 
 Both frameworks came from real problems I could not stop thinking about. They are documented in white papers, implemented in open source tools, and tested in production.
 
 ## Published work
 
 **Books**
-- *[Universal Microservices Architecture](https://www.amazon.com/dp/B0GTTTTQH4)* — Apress, 2024. 13 runnable chapters in Rust and WebAssembly. 100% business logic coverage enforced in CI.
-- *The Day After* — Apress, forthcoming. Restructuring software organizations for the age of AI agents.
+- *[Universal Microservices Architecture](https://www.amazon.com/dp/B0GTTTTQH4)*, Apress, 2024. 13 runnable chapters in Rust and WebAssembly. 100% business logic coverage enforced in CI.
+- *The Day After*, Apress, forthcoming. Restructuring software organizations for the age of AI agents.
 
-**White papers** — four research papers published 2023–2025: [CSMA](/whitepapers/csma/), [UMA](/whitepapers/uma/), [ECCA](/whitepapers/ecca/), [C-DAD](/whitepapers/c-dad/).
+**White papers.** Four research papers published 2023–2025: [<abbr title="Client-Side Microservices Architecture">CSMA</abbr>](/whitepapers/csma/), [<abbr title="Universal Microservices Architecture">UMA</abbr>](/whitepapers/uma/), [<abbr title="Event Contract Catalog Architecture">ECCA</abbr>](/whitepapers/ecca/), [<abbr title="Contract-Driven AI Development">C-DAD</abbr>](/whitepapers/c-dad/).
 
-**Open source** — [UMA-code-examples](https://github.com/enricopiovesan/UMA-code-examples), [the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit), [Traverse](https://github.com/enricopiovesan/Traverse), [youaskm3](https://github.com/youaskm3/youaskm3).
+**Open source.** [UMA-code-examples](https://github.com/enricopiovesan/UMA-code-examples), [the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit), [Traverse](https://github.com/enricopiovesan/Traverse), [youaskm3](https://github.com/youaskm3/youaskm3).
 
 ## Background
 

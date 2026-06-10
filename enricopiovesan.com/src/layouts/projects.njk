@@ -13,54 +13,6 @@ layout: base.njk
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
         { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://enricopiovesan.com/projects/" }
       ]
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": "https://github.com/enricopiovesan/UMA-code-examples",
-      "name": "UMA-code-examples",
-      "applicationCategory": "DeveloperApplication",
-      "description": "13 chapters of runnable code companion to Universal Microservices Architecture. Business logic coverage enforced in CI. Live reference application at universalmicroservices.com.",
-      "codeRepository": "https://github.com/enricopiovesan/UMA-code-examples",
-      "programmingLanguage": ["Rust", "WebAssembly", "JavaScript"],
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "url": "https://www.universalmicroservices.com",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": "https://github.com/enricopiovesan/the-day-after-toolkit",
-      "name": "the-day-after-toolkit",
-      "applicationCategory": "DeveloperApplication",
-      "description": "CLI that audits codebase AI-agent readiness and scaffolds the contracts needed to fix it. Configured for Claude, Cursor, and Codex.",
-      "url": "https://github.com/enricopiovesan/the-day-after-toolkit",
-      "codeRepository": "https://github.com/enricopiovesan/the-day-after-toolkit",
-      "programmingLanguage": "TypeScript",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": "https://github.com/enricopiovesan/Traverse",
-      "name": "Traverse",
-      "applicationCategory": "DeveloperApplication",
-      "description": "Contract-driven Rust/WASM runtime for discovering, validating, and composing portable business capabilities across multi-agent orchestration scenarios.",
-      "url": "https://github.com/enricopiovesan/Traverse",
-      "codeRepository": "https://github.com/enricopiovesan/Traverse",
-      "programmingLanguage": "Rust",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": "https://github.com/youaskm3/youaskm3",
-      "name": "youaskm3",
-      "applicationCategory": "WebApplication",
-      "description": "Personal knowledge layer built on WASM and MCP. Runs entirely on GitHub Pages — no server, no database, no ongoing cost. Federation model lets anyone fork, run their own instance, and register in a shared registry.",
-      "url": "https://github.com/youaskm3/youaskm3",
-      "codeRepository": "https://github.com/youaskm3/youaskm3",
-      "programmingLanguage": ["Rust", "WebAssembly"],
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
   ]
 }
@@ -69,8 +21,9 @@ layout: base.njk
 
 {% set nav = sectionNavs[sectionGroup] %}
 <div class="section-shell">
+
   <aside class="section-nav-aside" aria-label="{{ nav.label }} navigation">
-    {% if nav.url %}<a class="section-nav-label" href="{{ nav.url }}">{{ nav.label }}</a>{% else %}<span class="section-nav-label">{{ nav.label }}</span>{% endif %}
+    {% if nav.url %}<a class="section-nav-label{% if page.url == nav.url %} active{% endif %}" href="{{ nav.url }}">{{ nav.label }}</a>{% else %}<span class="section-nav-label">{{ nav.label }}</span>{% endif %}
     {% if nav.links %}
     <ul class="section-nav-links">
       {% for link in nav.links %}
@@ -91,37 +44,51 @@ layout: base.njk
             {% endif %}
           {% endfor %}
         {% else %}
-        <li><span aria-current="page">{{ title }}</span></li>
+        <li><span aria-current="page">Projects</span></li>
         {% endif %}
       </ol>
     </nav>
 
     <div class="section-body">
+      <h1 class="section-h1">Projects</h1>
+      <p>{{ intro }}</p>
 
-<section class="hero">
-  <p class="hero-label">Open Source</p>
-  <h1>Projects</h1>
-  <p class="hero-bio">{{ intro }}</p>
-</section>
+      <h2 class="section-body-section-label" id="architecture-projects">Architecture projects</h2>
+      {% for project in projects %}
+      <div class="project-entry" id="{{ project.id }}">
+        <div class="project-entry-header">
+          <span class="project-entry-meta">
+            {% if project.type %}{{ project.type }}{% endif %}
+            {% if project.stack %} · {{ project.stack }}{% endif %}
+          </span>
+          <span class="project-entry-status">{{ project.status }}</span>
+        </div>
+        <h2 class="project-entry-title">{{ project.title }}</h2>
+        {% if project.description %}<p>{{ project.description }}</p>{% endif %}
+        <div class="project-entry-links">
+          {% if project.github %}<a href="{{ project.github }}" target="_blank" rel="noopener">GitHub →</a>{% endif %}
+          {% if project.url %}<a href="{{ project.url }}" target="_blank" rel="noopener">Site →</a>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
 
-{% for project in projects %}
-<div class="project">
-  <div class="project-header">
-    <h2 class="project-title">{{ project.title }}</h2>
-    <span class="project-status">{{ project.status }}</span>
-  </div>
-  <div class="project-meta">
-    {% if project.type %}<span class="project-type">{{ project.type }}</span>{% endif %}
-    {% if project.stack %}<span>{{ project.stack }}</span>{% endif %}
-  </div>
-  {% if project.description %}<p class="project-description">{{ project.description }}</p>{% endif %}
-  <div class="project-links">
-    {% if project.github %}<a href="{{ project.github }}" target="_blank" rel="noopener">github →</a>{% endif %}
-    {% if project.url %}<a href="{{ project.url }}" target="_blank" rel="noopener">site →</a>{% endif %}
-  </div>
-</div>
-{% endfor %}
-
+      {% if community %}
+      <h2 class="section-body-section-label" id="community-projects">Community projects</h2>
+      {% for project in community %}
+      <div class="project-entry" id="{{ project.id }}">
+        <div class="project-entry-header">
+          <span class="project-entry-meta">{{ project.type }}</span>
+          <span class="project-entry-status">{{ project.status }}</span>
+        </div>
+        <h2 class="project-entry-title">{{ project.title }}</h2>
+        {% if project.description %}<p>{{ project.description }}</p>{% endif %}
+        <div class="project-entry-links">
+          {% if project.github %}<a href="{{ project.github }}" target="_blank" rel="noopener">GitHub →</a>{% endif %}
+          {% if project.url %}<a href="{{ project.url }}" target="_blank" rel="noopener">Site →</a>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
     </div>
   </main>
 
@@ -133,4 +100,5 @@ layout: base.njk
     </ul>
     {% endif %}
   </aside>
+
 </div>

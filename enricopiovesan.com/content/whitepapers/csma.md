@@ -1,6 +1,6 @@
 ---
 title: Client-Side Microservices Architecture (CSMA)
-description: CSMA packages frontend business logic as modular, portable units that run in the browser without server calls — the precursor to Universal Microservices Architecture.
+description: CSMA packages frontend business logic as modular, portable units that run in the browser without server calls. It is the precursor to Universal Microservices Architecture.
 layout: section.njk
 sectionGroup: whitepapers
 breadcrumb:
@@ -34,13 +34,13 @@ CSMA was an attempt to write down why that assumption was wrong and what the alt
 
 **The browser as a runtime.** The central argument is that the browser is a legitimate execution environment and should be treated as one architecturally. That means business logic that runs locally, not logic that is fetched and rendered.
 
-**Service-oriented thinking applied to the frontend.** CSMA applies the same modularity principles that made backend microservices successful to the client side. Each capability is a self-contained unit with declared inputs, outputs, and contracts — not a component tied to a framework.
+**Service-oriented thinking applied to the frontend.** <abbr title="Client-Side Microservices Architecture">CSMA</abbr> applies the same modularity principles that made backend microservices successful to the client side. Each capability is a self-contained unit with declared inputs, outputs, and contracts. Not a component tied to a framework.
 
 **Stateful and stateless services.** The paper distinguishes between capabilities that manage their own state and capabilities that are pure functions. Both have a place in a client-side service architecture. The distinction matters for lifecycle management and composition.
 
 **Isolation and boundaries.** How client-side services communicate without coupling. The event bus pattern, capability boundaries, and the contract layer that keeps services composable as the system grows.
 
-**The portability seed.** CSMA was the first time I wrote down a pattern I had been circling around for years. The question it left open — why stop at the browser? — became the question that UMA answered.
+**The portability seed.** CSMA was the first time I wrote down a pattern I had been circling around for years. The question it left open (why stop at the browser?) became the question that <abbr title="Universal Microservices Architecture">UMA</abbr> answered.
 
 ## Who it is for
 

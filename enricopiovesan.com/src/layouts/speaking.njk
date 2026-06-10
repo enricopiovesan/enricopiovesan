@@ -13,38 +13,6 @@ layout: base.njk
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
         { "@type": "ListItem", "position": 2, "name": "Speaking", "item": "https://enricopiovesan.com/speaking/" }
       ]
-    },
-    {
-      "@type": "PresentationDigitalDocument",
-      "@id": "https://enricopiovesan.com/speaking/#talk-wasm",
-      "name": "Write Once, Run Where It Makes Sense",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "about": ["WebAssembly", "Software Architecture", "Platform Engineering"],
-      "inLanguage": "en"
-    },
-    {
-      "@type": "PresentationDigitalDocument",
-      "@id": "https://enricopiovesan.com/speaking/#talk-cdad",
-      "name": "Contract-Driven AI Development",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "about": ["AI Engineering", "Contract-Driven Development"],
-      "inLanguage": "en"
-    },
-    {
-      "@type": "PresentationDigitalDocument",
-      "@id": "https://enricopiovesan.com/speaking/#talk-tda",
-      "name": "The Day After: Restructuring Software for the Age of AI Agents",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "about": ["AI Agents", "Engineering Leadership"],
-      "inLanguage": "en"
-    },
-    {
-      "@id": "https://enricopiovesan.com/#person",
-      "hasOccupation": {
-        "@type": "Occupation",
-        "name": "Conference Speaker",
-        "description": "Speaks on portable systems, contract-driven AI development, and restructuring software for the age of AI agents"
-      }
     }
   ]
 }
@@ -53,8 +21,9 @@ layout: base.njk
 
 {% set nav = sectionNavs[sectionGroup] %}
 <div class="section-shell">
+
   <aside class="section-nav-aside" aria-label="{{ nav.label }} navigation">
-    {% if nav.url %}<a class="section-nav-label" href="{{ nav.url }}">{{ nav.label }}</a>{% else %}<span class="section-nav-label">{{ nav.label }}</span>{% endif %}
+    {% if nav.url %}<a class="section-nav-label{% if page.url == nav.url %} active{% endif %}" href="{{ nav.url }}">{{ nav.label }}</a>{% else %}<span class="section-nav-label">{{ nav.label }}</span>{% endif %}
     {% if nav.links %}
     <ul class="section-nav-links">
       {% for link in nav.links %}
@@ -75,66 +44,48 @@ layout: base.njk
             {% endif %}
           {% endfor %}
         {% else %}
-        <li><span aria-current="page">{{ title }}</span></li>
+        <li><span aria-current="page">Speaking</span></li>
         {% endif %}
       </ol>
     </nav>
 
     <div class="section-body">
+      <h1 class="section-h1">Speaking</h1>
+      <p>{{ intro }}</p>
 
-<section class="hero">
-  <p class="hero-label">Conference Talks</p>
-  <h1>Speaking</h1>
-  <p class="hero-bio">{{ intro }}</p>
-  <div style="margin-top:2rem;display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;">
-    <a href="{{ contact_url }}" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:0.78rem;color:var(--bg);background:var(--accent);border:1px solid var(--accent);padding:0.6rem 1.2rem;text-decoration:none;transition:opacity 0.15s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Book a talk → LinkedIn</a>
-  </div>
-</section>
-
-<section class="talks-section">
-  <p class="section-label">Current Topics</p>
-  {% for talk in talks %}
-  <div class="talk">
-    <div class="talk-meta">
-      <p class="talk-track">{{ talk.track }}</p>
-    </div>
-    <div class="talk-content">
-      <h2>{{ talk.title }}</h2>
-      {% if talk.description is string %}
+      {% for talk in talks %}
+      <div class="talk-entry" id="{{ toc[loop.index0].id if toc[loop.index0] else '' }}">
+        <span class="talk-entry-track">{{ talk.track }}</span>
+        <h2 class="talk-entry-title">{{ talk.title }}</h2>
+        {% if talk.description is string %}
         <p>{{ talk.description }}</p>
-      {% else %}
-        {% for para in talk.description %}
-        <p>{{ para }}</p>
-        {% endfor %}
-      {% endif %}
-      {% if talk.based_on %}
-      <p class="talk-proof">Based on: <a href="{{ talk.based_on_url }}" target="_blank" rel="noopener">{{ talk.based_on }}</a></p>
-      {% endif %}
-    </div>
-  </div>
-  {% endfor %}
-</section>
-
-<section class="section">
-  <p class="section-label">Format</p>
-  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:560px;">All three talks are available for conferences, meetups, and internal engineering events. Each is self-contained and can be adapted from 30 to 60 minutes. Every talk is grounded in published work and shipped tooling - no slides-only content.</p>
-  <p style="font-size:0.95rem;color:var(--mid);line-height:1.8;max-width:560px;margin-top:1rem;">Currently submitting CFPs for architecture, WASM, and AI engineering tracks. If you run a conference or meetup and one of these topics fits your audience, reach out via LinkedIn.</p>
-</section>
-
-<section class="bio-section">
-  <p class="section-label">Speaker Bio</p>
-  <div class="bio-text">
-    <img src="/src/assets/img/enrico-piovesan.jpg" alt="Enrico Piovesan" class="headshot" width="120" height="120" loading="lazy" />
-    {% if bio is string %}
-      <p>{{ bio }}</p>
-    {% else %}
-      {% for para in bio %}
-      <p>{{ para }}</p>
+        {% else %}
+          {% for para in talk.description %}
+          <p>{{ para }}</p>
+          {% endfor %}
+        {% endif %}
+        {% if talk.based_on %}
+        <p class="talk-entry-source">Based on: <a href="{{ talk.based_on_url }}">{{ talk.based_on }}</a></p>
+        {% endif %}
+      </div>
       {% endfor %}
-    {% endif %}
-  </div>
-</section>
 
+      <div class="talk-entry" id="bio">
+        <h2 class="talk-entry-title">Speaker bio</h2>
+        {% if bio is string %}
+        <p>{{ bio }}</p>
+        {% else %}
+          {% for para in bio %}
+          <p>{{ para }}</p>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="talk-entry" id="contact">
+        <h2 class="talk-entry-title">Book a talk</h2>
+        <p>{{ availability }}</p>
+        <p><a href="{{ contact_url }}" target="_blank" rel="noopener">Connect on LinkedIn →</a></p>
+      </div>
     </div>
   </main>
 
@@ -146,4 +97,5 @@ layout: base.njk
     </ul>
     {% endif %}
   </aside>
+
 </div>

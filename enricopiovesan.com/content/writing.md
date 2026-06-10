@@ -1,6 +1,6 @@
 ---
 title: Software Architecture Writing on Medium
-description: Two weekly Medium series on software architecture and AI-native systems — one covering C-DAD and agentic patterns, one covering UMA, WebAssembly, and portable systems.
+description: Two weekly Medium series on software architecture and AI-native systems. One covering C-DAD and agentic patterns, one covering UMA, WebAssembly, and portable systems.
 layout: writing.njk
 sectionGroup: standalone
 breadcrumb:
@@ -29,16 +29,21 @@ series:
         url: https://medium.com/the-rise-of-device-independent-architecture/inside-a-universal-microservice-architecture-uma-bb04cf6343ac
       - title: "Read on Medium →"
         url: https://medium.com/the-rise-of-device-independent-architecture
+toc:
+  - id: mastering-software-architecture
+    label: Software Architecture for AI Era
+  - id: device-independent-architecture
+    label: Device-Independent Architecture
 profile_url: https://blog.enricopiovesan.com
 note: The follower counts on these publications are small. The ideas are not. If something resonates, the best thing you can do is read it and share it with someone who would find it useful.
 ---
 
 ## What the writing covers
 
-The two series cover the same underlying problem from different angles. One is more conceptual — the organizational and architectural shifts required when AI agents become part of software teams. The other is more technical — the execution model, the tooling, and the concrete decisions that make software portable and agent-navigable.
+The two series cover the same underlying problem from different angles. One is more conceptual, covering the organizational and architectural shifts required when AI agents become part of software teams. The other is more technical, covering the execution model, the tooling, and the concrete decisions that make software portable and agent-navigable.
 
 **Mastering Software Architecture for the AI Era** covers contract-driven development, AI-native architecture, agentic systems design, and what software organizations need to change structurally when AI agents move from tools to participants. Topics include: how to design software that AI agents can reason about (not just execute), why context engineering alone is insufficient, what makes a codebase agent-ready versus agent-adjacent, and how governance changes when humans and machines share authorship of software decisions. This is the C-DAD thinking developed in writing before it became a white paper or a book.
 
-**The Rise of Device-Independent Architecture** covers WebAssembly, portable runtime design, Universal Microservices Architecture, and what it means to separate business logic from execution environment at the architectural level. Topics include: how to structure a universal microservice, what the contract-runtime interface looks like in practice, how WASM changes the deployment model for distributed systems, and why portability needs to be an architectural first-class property rather than a build-time configuration. This is the UMA thinking — from the early pattern recognition through to the design decisions that ended up in the book.
+**The Rise of Device-Independent Architecture** covers WebAssembly, portable runtime design, Universal Microservices Architecture, and what it means to separate business logic from execution environment at the architectural level. Topics include: how to structure a universal microservice, what the contract-runtime interface looks like in practice, how WASM changes the deployment model for distributed systems, and why portability needs to be an architectural first-class property rather than a build-time configuration. This is the <abbr title="Universal Microservices Architecture">UMA</abbr> thinking, from the early pattern recognition through to the design decisions that ended up in the book.
 
 Posts appear weekly. The series that precedes papers and books is usually the one where ideas are still being stress-tested. If a post changes your thinking, the white paper behind it has the formal model.

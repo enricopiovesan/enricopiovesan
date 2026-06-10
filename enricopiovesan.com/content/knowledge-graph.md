@@ -15,18 +15,18 @@ ogImage: og-default.png
 lastUpdated: June 2026
 ---
 
-This graph maps the ideas, concepts, and arguments across 250+ articles and four white papers. Every node is a topic, framework, or argument — extracted from the writing itself, not from code or site structure.
+This graph maps the ideas, concepts, and arguments across 250+ articles and four white papers. Every node is a topic, framework, or argument, extracted from the writing itself, not from code or site structure.
 
 ## Core Concepts
 
 The most connected ideas across all writing:
 
-- **[Contract-Driven AI Development (C-DAD)](/cdad/)** — machine-enforceable contracts, declared capabilities, and governed composition as the foundation for AI-native software.
-- **[Universal Microservices Architecture (UMA)](/uma/)** — runtime-portable services via WebAssembly; the runtime is a deployment decision, not an architectural one.
-- **[Event Contract Catalog Architecture (ECCA)](/whitepapers/ecca/)** — federated governance for event-driven systems via schema registries and policy evaluation.
-- **[Client-side Microservices Architecture (CSMA)](/whitepapers/csma/)** — the original distributed client runtime model, predecessor to UMA.
-- **WebAssembly** — the portable execution substrate connecting all four frameworks.
-- **Agentic Systems** — AI agents as first-class consumers of software architecture.
+- **[Contract-Driven AI Development (<abbr title="Contract-Driven AI Development">C-DAD</abbr>)](/cdad/).** Machine-enforceable contracts, declared capabilities, and governed composition as the foundation for AI-native software.
+- **[Universal Microservices Architecture (<abbr title="Universal Microservices Architecture">UMA</abbr>)](/uma/).** Runtime-portable services via WebAssembly. The runtime is a deployment decision, not an architectural one.
+- **[Event Contract Catalog Architecture (<abbr title="Event Contract Catalog Architecture">ECCA</abbr>)](/whitepapers/ecca/).** Federated governance for event-driven systems via schema registries and policy evaluation.
+- **[Client-side Microservices Architecture (<abbr title="Client-Side Microservices Architecture">CSMA</abbr>)](/whitepapers/csma/).** The original distributed client runtime model, predecessor to UMA.
+- **WebAssembly.** The portable execution substrate connecting all four frameworks.
+- **Agentic Systems.** AI agents as first-class consumers of software architecture.
 
 ## Idea Clusters
 
@@ -45,13 +45,13 @@ The most connected ideas across all writing:
 
 Co-occurring idea clusters found across multiple articles:
 
-- **Piovesan Architecture Family** — CSMA, UMA, ECCA, C-DAD as a single evolving system
-- **Contract-First Design Philosophy** — immutable contracts, event contracts, CloudEvents, machine-first manifests
-- **Three Properties of AI-Native Software** — declared capabilities, machine-enforceable contracts, governed composition
-- **UMA Runtime Architecture** — universal runtime, low-latency server runtime, microservices registry, abstraction layer
-- **ECCA Governance Stack** — schema registry, event catalog, runtime observability, federated governance, policy engine
-- **AI Agent Navigability** — C-DAD, agentic systems, context engineering, AI navigability
-- **Wasm AI Inference Stack** — ONNX runtime, TensorFlow.js, Candle, local-first AI execution
+- **Piovesan Architecture Family.** <abbr title="Client-Side Microservices Architecture">CSMA</abbr>, <abbr title="Universal Microservices Architecture">UMA</abbr>, <abbr title="Event Contract Catalog Architecture">ECCA</abbr>, <abbr title="Contract-Driven AI Development">C-DAD</abbr> as a single evolving system
+- **Contract-First Design Philosophy.** Immutable contracts, event contracts, CloudEvents, machine-first manifests
+- **Three Properties of AI-Native Software.** Declared capabilities, machine-enforceable contracts, governed composition
+- **UMA Runtime Architecture.** Universal runtime, low-latency server runtime, microservices registry, abstraction layer
+- **ECCA Governance Stack.** Schema registry, event catalog, runtime observability, federated governance, policy engine
+- **AI Agent Navigability.** C-DAD, agentic systems, context engineering, AI navigability
+- **Wasm AI Inference Stack.** ONNX runtime, TensorFlow.js, Candle, local-first AI execution
 
 ## Interactive Graph
 
@@ -70,7 +70,7 @@ Co-occurring idea clusters found across multiple articles:
 
 ## Related
 
-- [White Papers](/whitepapers/) — full technical papers for each framework
-- [C-DAD Framework](/cdad/) — contract-driven AI development
-- [UMA Framework](/uma/) — universal microservices architecture
-- [Perspectives](/perspectives/) — takes on context engineering and AI-native architecture
+- [White Papers](/whitepapers/), full technical papers for each framework
+- [C-DAD Framework](/cdad/), contract-driven AI development
+- [UMA Framework](/uma/), universal microservices architecture
+- [Perspectives](/perspectives/), takes on context engineering and AI-native architecture

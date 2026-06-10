@@ -25,4 +25,4 @@ How to separate business logic from runtime environment so the same capability r
 
 ## [Agentic Systems Architecture](/concepts/agentic-systems/)
 
-The structural patterns for building software that works with AI agents — multi-agent orchestration, contract-based capability boundaries, and making codebases navigable by autonomous systems.
+The structural patterns for building software that works with AI agents: multi-agent orchestration, contract-based capability boundaries, and making codebases navigable by autonomous systems.
