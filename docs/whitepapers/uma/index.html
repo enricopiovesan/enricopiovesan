@@ -66,9 +66,9 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
-:root{--black:#0a0a0a;--white:#f5f4f0;--mid:#a8a5a0;--accent:#d45a25;--border:#2a2a28;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem;--bg:var(--black);--fg:var(--white);--fg-mid:var(--mid);--fg-border:var(--border)}
-[data-theme="light"]{--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}}
+:root{--bg:#172b36;--fg:#f1f6f4;--link:#ffc801;--accent:#ff9932;--border:rgba(241,246,244,0.2);--mid:#d9e8e2;--header-bg:#172b36;--header-fg:#f1f6f4;--footer-bg:#ffc801;--footer-fg:#172b36;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
@@ -134,66 +134,86 @@
   <main id="main-content">
     
 
+<div class="section-shell">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://enricopiovesan.com/whitepapers/uma/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
-        { "@type": "ListItem", "position": 2, "name": "White Papers", "item": "https://enricopiovesan.com/whitepapers/" },
-        { "@type": "ListItem", "position": 3, "name": "White Paper: Universal Microservices Architecture (UMA)", "item": "https://enricopiovesan.com/whitepapers/uma/" }
-      ]
-    },
-    {
-      "@type": "ScholarlyArticle",
-      "@id": "https://enricopiovesan.com/whitepapers/uma/#article",
-      "headline": "White Paper: Universal Microservices Architecture (UMA)",
-      "name": "White Paper: Universal Microservices Architecture (UMA)",
-      "description": "The foundational paper introducing UMA as a portable, contract-based execution model for distributed systems that separates business logic from runtime environment.",
-      "datePublished": "2024-08-01",
-      "dateModified": "2026-06-08",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "publisher": { "@id": "https://enricopiovesan.com/#person" },
-      "url": "https://enricopiovesan.com/whitepapers/uma/",
-      "inLanguage": "en",
-      "isPartOf": { "@id": "https://enricopiovesan.com/#website" },
-      "keywords": ["Software Architecture", "Platform Engineering", "WebAssembly", "AI-native Systems", "Contract-Driven Development"]
-    }
-  ]
-}
-</script>
+  <aside class="section-nav-aside" aria-label="White Papers navigation">
+    
+    <a class="section-nav-label" href="/whitepapers/">White Papers</a>
+    
+    
+    <ul class="section-nav-links">
+      
+      <li><a href="/whitepapers/uma/" class="active" aria-current="page">Universal Microservices Architecture</a></li>
+      
+      <li><a href="/whitepapers/c-dad/">Contract-Driven AI Development</a></li>
+      
+      <li><a href="/whitepapers/csma/">Cognitive Systems Modelling</a></li>
+      
+      <li><a href="/whitepapers/ecca/">Edge-Cloud Collaborative Architecture</a></li>
+      
+    </ul>
+    
+  </aside>
 
+  <main class="section-main">
+    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        
+          
+            
+            <li><a href="/work/">Work</a></li>
+            
+          
+            
+            <li><a href="/whitepapers/">White Papers</a></li>
+            
+          
+            
+            <li><span aria-current="page">Universal Microservices Architecture</span></li>
+            
+          
+        
+      </ol>
+    </nav>
 
-
-
-<article class="page-content">
-  <h1>White Paper: Universal Microservices Architecture (UMA)</h1>
-  
-  
-  <p style="font-family:var(--mono);font-size:0.72rem;color:var(--mid);margin-bottom:2rem;border-left:2px solid var(--border);padding-left:0.75rem;">By <a href="/about/" style="color:var(--mid);text-decoration:underline;">Enrico Piovesan</a> — Platform Software Architect at Autodesk, author of <em>Universal Microservices Architecture</em> (Apress). Originator of UMA and C-DAD frameworks.</p>
-  
-  <p><strong>August 2024 · Enrico Piovesan</strong></p>
+    <div class="section-body">
+      <h1 class="section-h1">White Paper: Universal Microservices Architecture (UMA)</h1>
+      
+      <p><strong>August 2024 · Enrico Piovesan</strong></p>
 <p><a href="/whitepapers/Universal%20Microservices%20Architecture%20%28UMA%29%20-%20White%20Paper.pdf">Download PDF</a></p>
 <hr>
 <p>Most distributed systems have a logic problem that nobody talks about.</p>
 <p>The same business rule — a pricing formula, an eligibility check, a validation step — gets implemented separately for the browser, the backend, the edge, and now the AI pipeline. Nobody planned it that way. It happened because the architecture made assumptions about the environment before it made decisions about the behavior. Over time the copies drift. A bug gets fixed in one place and not the others. The system becomes harder to reason about, harder to change, and harder to trust.</p>
 <p>This paper introduces Universal Microservices Architecture as a response to that problem.</p>
-<h2>What the paper covers</h2>
+<h2 id="what-the-paper-covers">What the paper covers</h2>
 <p><strong>The portability argument.</strong> Separating business logic from runtime environment is not just a performance optimization or a deployment convenience. It is an architectural decision that changes what a system can do, where it can run, and how long it can stay coherent as requirements change. The paper establishes why this matters now more than it did five years ago.</p>
 <p><strong>The UMA execution model.</strong> Each business capability is packaged as a self-describing service that declares its contracts, metadata, and execution requirements independently of any runtime. The capability runs identically across browser, edge, cloud, and AI pipeline without duplicating the logic or losing behavioral coherence.</p>
 <p><strong>WebAssembly as the enabling layer.</strong> The paper explains how WASM makes runtime-agnostic execution practical rather than theoretical. Not because WASM is the point — because WASM removes the obstacle.</p>
 <p><strong>Contract-driven composition.</strong> How UMA capabilities discover each other, compose into workflows, and maintain behavioral coherence across environments. The contract layer is what distinguishes UMA from earlier portability approaches.</p>
 <p><strong>Design sequence.</strong> How to design a UMA system from scratch — capability identification, contract definition, runtime mapping, and versioning strategy. The vocabulary the paper establishes is what the book later expanded into 13 runnable chapters.</p>
-<h2>Who it is for</h2>
+<h2 id="who-it-is-for">Who it is for</h2>
 <p>Software architects, senior engineers, and technical leads designing modern distributed systems who are paying the hidden tax of duplicated logic across runtimes and want a structural answer.</p>
 <hr>
 <p><a href="/uma/">Read the full framework</a> · <a href="https://www.amazon.com/dp/B0GTTTTQH4">UMA Book</a> · <a href="https://www.universalmicroservices.com">Reference implementation</a> · <a href="/whitepapers/csma/">CSMA White Paper</a></p>
 
-</article>
+    </div>
+  </main>
+
+  <aside class="section-toc-aside" aria-label="On this page">
+    
+    <span class="section-toc-label">On this page</span>
+    <ul class="section-toc-links">
+      
+      <li><a href="#what-the-paper-covers">What the paper covers</a></li>
+      
+      <li><a href="#who-it-is-for">Who it is for</a></li>
+      
+    </ul>
+    
+  </aside>
+
+</div>
 
   </main>
 

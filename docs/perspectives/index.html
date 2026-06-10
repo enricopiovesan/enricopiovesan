@@ -65,9 +65,9 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
-:root{--black:#0a0a0a;--white:#f5f4f0;--mid:#a8a5a0;--accent:#d45a25;--border:#2a2a28;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem;--bg:var(--black);--fg:var(--white);--fg-mid:var(--mid);--fg-border:var(--border)}
-[data-theme="light"]{--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}}
+:root{--bg:#172b36;--fg:#f1f6f4;--link:#ffc801;--accent:#ff9932;--border:rgba(241,246,244,0.2);--mid:#d9e8e2;--header-bg:#172b36;--header-fg:#f1f6f4;--footer-bg:#ffc801;--footer-fg:#172b36;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
@@ -133,63 +133,55 @@
   <main id="main-content">
     
 
+<div class="section-shell">
 
+  <aside class="section-nav-aside" aria-label="Perspectives navigation">
+    
+    <a class="section-nav-label" href="/perspectives/">Perspectives</a>
+    
+    
+    <ul class="section-nav-links">
+      
+      <li><a href="/perspectives/context-engineering/">Beyond Context Engineering</a></li>
+      
+      <li><a href="/perspectives/ai-native-architecture/">What Makes Software AI-Native?</a></li>
+      
+    </ul>
+    
+  </aside>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://enricopiovesan.com/perspectives/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Perspectives", "item": "https://enricopiovesan.com/perspectives/" }
-      ]
-    },
-    {
-      "@type": "ItemList",
-      "@id": "https://enricopiovesan.com/perspectives/#list",
-      "name": "Perspectives on AI Engineering & Software Architecture",
-      "description": "Takes on context engineering, AI-native architecture, and software design for agentic systems.",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "url": "https://enricopiovesan.com/perspectives/",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "url": "https://enricopiovesan.com/perspectives/context-engineering/",
-          "name": "Beyond Context Engineering"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "url": "https://enricopiovesan.com/perspectives/ai-native-architecture/",
-          "name": "What Makes Software AI-Native?"
-        }
-      ]
-    }
-  ]
-}
-</script>
+  <main class="section-main">
+    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        
+          
+            
+            <li><a href="/thinking/">Thinking</a></li>
+            
+          
+            
+            <li><span aria-current="page">Perspectives</span></li>
+            
+          
+        
+      </ol>
+    </nav>
 
-
-
-<article class="page-content">
-  <h1>Perspectives on AI Engineering &amp; Software Architecture</h1>
-  
-  
-  <p>Industry terms come and go. The problems they describe are usually real. The solutions they point to are usually incomplete. Most discourse around AI engineering and software architecture is either too shallow to be useful or too specific to one tool to generalize. These pages sit in the middle: they take a concept the industry is actively discussing, describe it honestly without promotional framing, trace where it leads when followed to its logical conclusion, and explain where it falls short and what fills the gap.</p>
+    <div class="section-body">
+      <h1 class="section-h1">Perspectives on AI Engineering &amp; Software Architecture</h1>
+      
+      <p>Industry terms come and go. The problems they describe are usually real. The solutions they point to are usually incomplete. Most discourse around AI engineering and software architecture is either too shallow to be useful or too specific to one tool to generalize. These pages sit in the middle: they take a concept the industry is actively discussing, describe it honestly without promotional framing, trace where it leads when followed to its logical conclusion, and explain where it falls short and what fills the gap.</p>
 <p>The goal is not to dismiss what the industry is building toward. Context engineering, agentic systems, AI-native architecture — these are real shifts. The goal is to be specific about what each idea actually solves and what it leaves unresolved. Vague optimism does not help teams make better architectural decisions. Specific analysis does.</p>
 <p>Each perspective is written by <a href="https://enricopiovesan.com/about/">Enrico Piovesan</a> — Platform Software Architect at Autodesk and author of <a href="https://www.amazon.com/dp/B0GTTTTQH4">Universal Microservices Architecture</a> (Apress). Not analyst commentary on what others are building, but direct observations from designing and building systems where these ideas are the actual constraints. The primary analytical lens is always the same: what does the architectural structure need to provide, and what does the current conversation leave structurally unresolved?</p>
 <p>The two frameworks developed here — <a href="/uma/">Universal Microservices Architecture</a> and <a href="/c-dad/">Contract-Driven AI Development</a> — exist because existing approaches left specific structural problems unsolved. Each perspective traces how that gap shows up in practice and what fills it.</p>
-<h2><a href="/perspectives/context-engineering/">Beyond Context Engineering</a></h2>
+<h2 id="beyond-context-engineeringperspectivescontext-engineering"><a href="/perspectives/context-engineering/">Beyond Context Engineering</a></h2>
 <p><em>Published June 2025</em></p>
 <p>Context engineering has become the dominant practice for improving AI agent behavior — and for good reason. Better-structured inputs produce more consistent outputs. The investment is real and the returns are real.</p>
 <p>But context engineering solves the input problem. It does not solve the trust problem. An agent with excellent context still has no way to know what a capability is responsible for, what conditions it must never violate, and when its output can be trusted. Context tells agents what to know. It does not tell agents what they can trust. The gap between those two things is where most AI-assisted development fails in practice — not with a visible error, but with plausible output that violates constraints nobody declared.</p>
 <p>This piece examines what context engineering gets right, traces the class of problems it structurally cannot address, and explains why machine-enforceable contracts are the answer that context management cannot provide.</p>
 <p><a href="/perspectives/context-engineering/">Read the full piece →</a></p>
-<h2><a href="/perspectives/ai-native-architecture/">What Makes Software AI-Native?</a></h2>
+<h2 id="what-makes-software-ai-nativeperspectivesai-native-architecture"><a href="/perspectives/ai-native-architecture/">What Makes Software AI-Native?</a></h2>
 <p><em>Published June 2026</em></p>
 <p>&quot;AI-native&quot; has become one of those terms that everyone uses and nobody defines. Teams describe their products as AI-native because they call an LLM API. Vendors use it to mean they have a chat interface. The word is doing too much work — and that vagueness has a cost, because the architecture question it points to is real.</p>
 <p>There is a meaningful difference between software that has AI features and software that is structurally designed to work with AI agents. That difference is not aesthetic. It determines what AI agents can actually do with your codebase and where they fail in ways you cannot trace. This piece defines AI-native precisely — three structural properties that must all be present — and explains why most software that calls itself AI-native is actually AI-augmented, which is a different and less capable thing.</p>
@@ -197,7 +189,23 @@
 <hr>
 <p><em>New perspectives are added as the field moves. The frameworks and concepts on this site — UMA and C-DAD — are the primary lens. Each perspective connects to one or both.</em></p>
 
-</article>
+    </div>
+  </main>
+
+  <aside class="section-toc-aside" aria-label="On this page">
+    
+    <span class="section-toc-label">On this page</span>
+    <ul class="section-toc-links">
+      
+      <li><a href="#beyond-context-engineering">Beyond Context Engineering</a></li>
+      
+      <li><a href="#what-makes-software-ai-native">What Makes Software AI-Native?</a></li>
+      
+    </ul>
+    
+  </aside>
+
+</div>
 
   </main>
 
