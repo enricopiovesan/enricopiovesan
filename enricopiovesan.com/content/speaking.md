@@ -2,6 +2,9 @@
 title: Conference Speaking on Software Architecture & AI
 description: Conference talks on portable systems, contract-driven AI development, and restructuring software for the age of AI agents.
 layout: speaking.njk
+sectionGroup: standalone
+breadcrumb:
+  - label: Speaking
 permalink: /speaking/
 canonical: https://enricopiovesan.com/speaking/
 ogTitle: Speaking

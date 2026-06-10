@@ -2,6 +2,11 @@
 title: White Papers
 description: Four research papers on software architecture, AI-native systems, and contract-driven development published between 2023 and 2025.
 layout: whitepapers.njk
+sectionGroup: whitepapers
+breadcrumb:
+  - href: /work/
+    label: Work
+  - label: White Papers
 permalink: /whitepapers/
 canonical: https://enricopiovesan.com/whitepapers/
 ogTitle: White Papers

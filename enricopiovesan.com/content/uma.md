@@ -2,6 +2,9 @@
 title: Universal Microservices Architecture (UMA)
 description: Universal Microservices Architecture is a portable, contract-driven execution model for distributed systems that separates business logic from runtime environment.
 layout: uma.njk
+sectionGroup: standalone
+breadcrumb:
+  - label: UMA Framework
 permalink: /uma/
 canonical: https://enricopiovesan.com/uma/
 ogTitle: Universal Microservices Architecture (UMA)

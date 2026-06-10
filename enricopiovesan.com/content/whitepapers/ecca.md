@@ -1,7 +1,14 @@
 ---
 title: Event Contract Catalog Architecture (ECCA)
 description: ECCA is a blueprint for an event contract catalog that treats events as first-class architectural artifacts with declared contracts, ownership, and lifecycle.
-layout: page.njk
+layout: section.njk
+sectionGroup: whitepapers
+breadcrumb:
+  - href: /work/
+    label: Work
+  - href: /whitepapers/
+    label: White Papers
+  - label: Event Contract Catalog Architecture
 permalink: /whitepapers/ecca/
 canonical: https://enricopiovesan.com/whitepapers/ecca/
 ogTitle: Event Contract Catalog Architecture (ECCA)

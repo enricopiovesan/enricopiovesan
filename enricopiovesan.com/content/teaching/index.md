@@ -1,7 +1,12 @@
 ---
 title: Teaching — Enrico Piovesan
 description: Professional training and workshops on applied AI, software architecture, and workflow design by Enrico Piovesan.
-layout: page.njk
+layout: section.njk
+sectionGroup: teaching
+breadcrumb:
+  - href: /work/
+    label: Work
+  - label: Teaching
 permalink: /teaching/
 canonical: https://enricopiovesan.com/teaching/
 ogTitle: Teaching — Enrico Piovesan

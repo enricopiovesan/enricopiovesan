@@ -2,6 +2,9 @@
 title: Software Architecture Writing on Medium
 description: Two weekly Medium series on software architecture and AI-native systems — one covering C-DAD and agentic patterns, one covering UMA, WebAssembly, and portable systems.
 layout: writing.njk
+sectionGroup: standalone
+breadcrumb:
+  - label: Writing
 permalink: /writing/
 canonical: https://enricopiovesan.com/writing/
 ogTitle: Writing

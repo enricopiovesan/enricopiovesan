@@ -1,7 +1,14 @@
 ---
 title: Applied AI at Work — Practical Skills for Professionals and Small Businesses
 description: An in-person, hands-on applied AI course that helps professionals and small business operators move from AI confusion to repeatable workflows for everyday work. Proposed for College of the Rockies, Golden, BC.
-layout: page.njk
+layout: section.njk
+sectionGroup: teaching
+breadcrumb:
+  - href: /work/
+    label: Work
+  - href: /teaching/
+    label: Teaching
+  - label: Applied AI at Work
 permalink: /teaching/applied-ai-at-work/
 canonical: https://enricopiovesan.com/teaching/applied-ai-at-work/
 ogTitle: Applied AI at Work — Enrico Piovesan

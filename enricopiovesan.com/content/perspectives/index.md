@@ -1,7 +1,12 @@
 ---
 title: Perspectives on AI Engineering & Software Architecture
 description: "Takes on context engineering, AI-native architecture, and software design for agentic systems — where each idea leads, what it misses, and what fills the gap."
-layout: page.njk
+layout: section.njk
+sectionGroup: perspectives
+breadcrumb:
+  - href: /thinking/
+    label: Thinking
+  - label: Perspectives
 canonical: https://enricopiovesan.com/perspectives/
 ogTitle: Perspectives on AI Engineering & Software Architecture
 ogDescription: Takes on emerging concepts in AI engineering and software architecture — where they lead, what they miss, and what comes next.

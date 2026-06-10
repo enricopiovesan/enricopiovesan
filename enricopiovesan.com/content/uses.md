@@ -1,7 +1,12 @@
 ---
 title: Uses
 description: How Enrico Piovesan works — the setup, tools, and workflow behind the architecture work, writing, and open source projects.
-layout: page.njk
+layout: section.njk
+sectionGroup: about
+breadcrumb:
+  - href: /about/
+    label: About
+  - label: Uses
 permalink: /uses/
 canonical: https://enricopiovesan.com/uses/
 ogTitle: Uses

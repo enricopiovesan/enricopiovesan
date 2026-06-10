@@ -1,7 +1,14 @@
 ---
 title: What is Universal Microservices Architecture?
 description: UMA separates business logic from runtime so the same capability runs across browser, edge, cloud, and AI pipeline without rewriting. Coined by Enrico Piovesan, 2023.
-layout: page.njk
+layout: section.njk
+sectionGroup: concepts
+breadcrumb:
+  - href: /thinking/
+    label: Thinking
+  - href: /concepts/
+    label: Concepts
+  - label: Universal Microservices Architecture
 permalink: /concepts/universal-microservices/
 canonical: https://enricopiovesan.com/concepts/universal-microservices/
 ogTitle: What is Universal Microservices Architecture?

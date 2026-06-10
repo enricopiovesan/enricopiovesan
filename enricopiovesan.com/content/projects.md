@@ -2,6 +2,11 @@
 title: Open Source Architecture Projects
 description: Four open source projects by Enrico Piovesan including UMA, C-DAD toolkit, Traverse runtime, and youaskm3 knowledge layer.
 layout: projects.njk
+sectionGroup: work
+breadcrumb:
+  - href: /work/
+    label: Work
+  - label: Projects
 permalink: /projects/
 canonical: https://enricopiovesan.com/projects/
 ogTitle: Projects

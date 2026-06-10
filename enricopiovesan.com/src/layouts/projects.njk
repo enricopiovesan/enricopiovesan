@@ -66,6 +66,38 @@ layout: base.njk
 }
 </script>
 {% endblock %}
+
+{% set nav = sectionNavs[sectionGroup] %}
+<div class="section-shell">
+  <aside class="section-nav-aside" aria-label="{{ nav.label }} navigation">
+    {% if nav.url %}<a class="section-nav-label" href="{{ nav.url }}">{{ nav.label }}</a>{% else %}<span class="section-nav-label">{{ nav.label }}</span>{% endif %}
+    {% if nav.links %}
+    <ul class="section-nav-links">
+      {% for link in nav.links %}
+      <li><a href="{{ link.href }}"{% if page.url == link.href %} class="active" aria-current="page"{% endif %}>{{ link.label }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </aside>
+
+  <main class="section-main">
+    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        {% if breadcrumb %}
+          {% for crumb in breadcrumb %}
+            {% if loop.last %}<li><span aria-current="page">{{ crumb.label }}</span></li>
+            {% else %}<li><a href="{{ crumb.href }}">{{ crumb.label }}</a></li>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+        <li><span aria-current="page">{{ title }}</span></li>
+        {% endif %}
+      </ol>
+    </nav>
+
+    <div class="section-body">
+
 <section class="hero">
   <p class="hero-label">Open Source</p>
   <h1>Projects</h1>
@@ -89,3 +121,16 @@ layout: base.njk
   </div>
 </div>
 {% endfor %}
+
+    </div>
+  </main>
+
+  <aside class="section-toc-aside" aria-label="On this page">
+    {% if toc %}
+    <span class="section-toc-label">On this page</span>
+    <ul class="section-toc-links">
+      {% for item in toc %}<li><a href="#{{ item.id }}">{{ item.label }}</a></li>{% endfor %}
+    </ul>
+    {% endif %}
+  </aside>
+</div>

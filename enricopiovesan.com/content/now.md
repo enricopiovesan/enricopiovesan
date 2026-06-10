@@ -1,7 +1,12 @@
 ---
 title: Now
 description: "What Enrico Piovesan is working on right now — current projects, writing, speaking submissions, and what has his focus as of June 2026."
-layout: page.njk
+layout: section.njk
+sectionGroup: about
+breadcrumb:
+  - href: /about/
+    label: About
+  - label: Now
 noindex: true
 canonical: https://enricopiovesan.com/now/
 ogTitle: "Now — Enrico Piovesan"

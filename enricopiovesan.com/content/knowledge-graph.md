@@ -1,7 +1,12 @@
 ---
 title: "Knowledge Graph — Enrico Piovesan"
 description: Interactive knowledge graph mapping the relationships between UMA, C-DAD, ECCA, CSMA, and the broader architecture and AI-native software concepts developed by Enrico Piovesan.
-layout: page.njk
+layout: section.njk
+sectionGroup: thinking
+breadcrumb:
+  - href: /thinking/
+    label: Thinking
+  - label: Knowledge Graph
 permalink: /knowledge-graph/
 canonical: https://enricopiovesan.com/knowledge-graph/
 ogTitle: Knowledge Graph

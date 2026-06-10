@@ -1,7 +1,14 @@
 ---
 title: Beyond Context Engineering
 description: Context engineering is necessary but not sufficient. This page explains what context engineering solves, where it falls short, and why contract-driven AI development fills the gap.
-layout: page.njk
+layout: section.njk
+sectionGroup: perspectives
+breadcrumb:
+  - href: /thinking/
+    label: Thinking
+  - href: /perspectives/
+    label: Perspectives
+  - label: Beyond Context Engineering
 canonical: https://enricopiovesan.com/perspectives/context-engineering/
 ogTitle: Beyond Context Engineering
 ogDescription: Context engineering tells agents what to know. It does not tell agents what they can trust. Here is what comes next.

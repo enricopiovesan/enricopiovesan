@@ -1,7 +1,14 @@
 ---
 title: "White Paper: Universal Microservices Architecture (UMA)"
 description: The foundational paper introducing UMA as a portable, contract-based execution model for distributed systems that separates business logic from runtime environment.
-layout: page.njk
+layout: section.njk
+sectionGroup: whitepapers
+breadcrumb:
+  - href: /work/
+    label: Work
+  - href: /whitepapers/
+    label: White Papers
+  - label: Universal Microservices Architecture
 permalink: /whitepapers/uma/
 canonical: https://enricopiovesan.com/whitepapers/uma/
 ogTitle: Universal Microservices Architecture (UMA)

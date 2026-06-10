@@ -1,7 +1,14 @@
 ---
 title: What is Contract-Driven AI Development?
 description: Contract-driven AI development is an approach to building AI-native systems where contracts, not code, define what software does and why it can be trusted by AI agents.
-layout: page.njk
+layout: section.njk
+sectionGroup: concepts
+breadcrumb:
+  - href: /thinking/
+    label: Thinking
+  - href: /concepts/
+    label: Concepts
+  - label: Contract-Driven AI Development
 permalink: /concepts/contract-driven-ai-development/
 canonical: https://enricopiovesan.com/concepts/contract-driven-ai-development/
 ogTitle: What is Contract-Driven AI Development?

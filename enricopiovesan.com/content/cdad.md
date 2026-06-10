@@ -2,6 +2,9 @@
 title: Contract-Driven AI Development (C-DAD)
 description: Contract-Driven AI Development is a framework for building AI-native systems where contracts, not code, define collaboration between humans, machines, and runtimes.
 layout: cdad.njk
+sectionGroup: standalone
+breadcrumb:
+  - label: C-DAD Framework
 permalink: /c-dad/
 canonical: https://enricopiovesan.com/c-dad/
 ogTitle: Contract-Driven AI Development (C-DAD)
