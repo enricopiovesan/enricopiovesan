@@ -13,14 +13,14 @@ class EpFooter extends HTMLElement {
       <style>
         ep-footer { display: block; }
         .footer-contact {
-          padding: 2.5rem 3rem;
+          padding: 3rem 3rem;
           max-width: 1400px;
           margin: 0 auto;
           display: flex;
           justify-content: space-between;
           align-items: center;
           gap: 2rem;
-          border-bottom: 1px solid var(--border);
+          border-bottom: 1px solid rgba(23,43,54,0.2);
           flex-wrap: wrap;
         }
         .footer-contact-label {
@@ -32,20 +32,21 @@ class EpFooter extends HTMLElement {
           margin-bottom: 0.75rem;
         }
         .footer-contact-text {
-          font-size: 1rem;
+          font-size: 1.35rem;
+          font-weight: 400;
           color: var(--footer-fg);
-          opacity: 0.85;
-          line-height: 1.6;
-          max-width: 480px;
+          line-height: 1.4;
+          max-width: 540px;
         }
         .footer-contact-link {
           font-family: var(--mono);
-          font-size: 0.75rem;
+          font-size: 0.8rem;
           color: var(--footer-fg);
           text-decoration: underline;
           text-underline-offset: 3px;
           white-space: nowrap;
           transition: opacity 0.15s;
+          flex-shrink: 0;
         }
         .footer-contact-link:hover { opacity: 0.65; }
         @media (max-width: 640px) {
@@ -56,7 +57,7 @@ class EpFooter extends HTMLElement {
           max-width: 1400px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           gap: 2rem;
           align-items: start;
         }
@@ -68,7 +69,7 @@ class EpFooter extends HTMLElement {
           text-transform: uppercase;
           margin-bottom: 1rem;
           padding-bottom: 0.5rem;
-          border-bottom: 1px solid var(--border);
+          border-bottom: 1px solid rgba(23,43,54,0.2);
         }
         .footer-col ul {
           list-style: none;
@@ -105,7 +106,7 @@ class EpFooter extends HTMLElement {
           flex-direction: column;
           gap: 0.5rem;
           padding-left: 0.85rem;
-          border-left: 1px solid var(--border);
+          border-left: 1px solid rgba(23,43,54,0.2);
           margin-bottom: 0.25rem;
         }
         .footer-sub a {
@@ -119,7 +120,7 @@ class EpFooter extends HTMLElement {
         .footer-sub a:hover { opacity: 1; }
         .footer-bottom {
           grid-column: 1 / -1;
-          border-top: 1px solid var(--border);
+          border-top: 1px solid rgba(23,43,54,0.2);
           padding-top: 1.25rem;
           font-family: var(--mono);
           font-size: 0.7rem;
@@ -141,18 +142,6 @@ class EpFooter extends HTMLElement {
         <a class="footer-contact-link" href="https://linkedin.com/in/enricopiovesan" target="_blank" rel="noopener">Connect on LinkedIn →</a>
       </div>
       <footer>
-        <div class="footer-col">
-          <p class="footer-col-label">Site</p>
-          <ul>
-            <li><a href="${b}/">Home</a></li>
-            <li><a href="${b}/about/">About</a></li>
-            <li><a href="${b}/speaking/">Speaking</a></li>
-            <li><a href="${b}/writing/">Writing</a></li>
-            <li><a href="${b}/uses/">Uses</a></li>
-            <li><a href="${b}/now/">Now</a></li>
-          </ul>
-        </div>
-
         <div class="footer-col">
           <p class="footer-col-label">Work</p>
           <ul>

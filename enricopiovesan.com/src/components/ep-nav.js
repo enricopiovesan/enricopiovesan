@@ -81,7 +81,6 @@ class EpNav extends HTMLElement {
     const aboutActive = aboutSlugs.includes(active);
 
     const aboutLinks = [
-      { href: `${base}/about/`, label: 'About', slug: 'about' },
       { href: `${base}/uses/`, label: 'Uses', slug: 'uses' },
       { href: `${base}/now/`, label: 'Now', slug: 'now' },
     ];

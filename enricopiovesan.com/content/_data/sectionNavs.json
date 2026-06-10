@@ -56,7 +56,6 @@
     "label": "About",
     "url": "/about/",
     "links": [
-      { "href": "/about/", "label": "About" },
       { "href": "/uses/", "label": "Uses" },
       { "href": "/now/", "label": "Now" }
     ]
