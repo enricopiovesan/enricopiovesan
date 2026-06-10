@@ -42,26 +42,6 @@
   </url>
   
   <url>
-    <loc>https://enricopiovesan.com/concepts/agentic-systems/</loc>
-    <lastmod>2026-06-10</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://enricopiovesan.com/concepts/contract-driven-ai-development/</loc>
-    <lastmod>2026-06-10</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://enricopiovesan.com/concepts/</loc>
-    <lastmod>2026-06-10</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://enricopiovesan.com/concepts/universal-microservices/</loc>
-    <lastmod>2026-06-10</lastmod>
-  </url>
-  
-  <url>
     <loc>https://enricopiovesan.com/perspectives/ai-native-architecture/</loc>
     <lastmod>2026-06-10</lastmod>
   </url>
@@ -73,16 +53,6 @@
   
   <url>
     <loc>https://enricopiovesan.com/perspectives/</loc>
-    <lastmod>2026-06-10</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://enricopiovesan.com/teaching/applied-ai-at-work/</loc>
-    <lastmod>2026-06-10</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://enricopiovesan.com/teaching/</loc>
     <lastmod>2026-06-10</lastmod>
   </url>
   
@@ -107,8 +77,33 @@
   </url>
   
   <url>
-    <loc>https://enricopiovesan.com/</loc>
+    <loc>https://enricopiovesan.com/teaching/applied-ai-at-work/</loc>
     <lastmod>2026-06-10</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://enricopiovesan.com/teaching/</loc>
+    <lastmod>2026-06-10</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://enricopiovesan.com/concepts/agentic-systems/</loc>
+    <lastmod>2026-06-10</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://enricopiovesan.com/concepts/contract-driven-ai-development/</loc>
+    <lastmod>2026-06-10</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://enricopiovesan.com/concepts/</loc>
+    <lastmod>2026-06-10</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://enricopiovesan.com/</loc>
+    <lastmod>2026-06-09</lastmod>
   </url>
   
   <url>
@@ -118,6 +113,11 @@
   
   <url>
     <loc>https://enricopiovesan.com/speaking/</loc>
+    <lastmod>2026-06-10</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://enricopiovesan.com/concepts/universal-microservices/</loc>
     <lastmod>2026-06-10</lastmod>
   </url>
   
