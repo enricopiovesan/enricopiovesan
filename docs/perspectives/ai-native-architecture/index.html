@@ -66,9 +66,9 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
-:root{--bg:#172b36;--fg:#f1f6f4;--link:#ffc801;--accent:#ff9932;--border:rgba(241,246,244,0.2);--mid:#d9e8e2;--header-bg:#172b36;--header-fg:#f1f6f4;--footer-bg:#ffc801;--footer-fg:#172b36;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
-[data-theme="light"]{--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}}
+:root{--black:#0a0a0a;--white:#f5f4f0;--mid:#a8a5a0;--accent:#d45a25;--border:#2a2a28;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem;--bg:var(--black);--fg:var(--white);--fg-mid:var(--mid);--fg-border:var(--border)}
+[data-theme="light"]{--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
@@ -134,66 +134,62 @@
   <main id="main-content">
     
 
-<div class="section-shell">
 
-  <aside class="section-nav-aside" aria-label="Perspectives navigation">
-    
-    <a class="section-nav-label" href="/perspectives/">Perspectives</a>
-    
-    
-    <ul class="section-nav-links">
-      
-      <li><a href="/perspectives/context-engineering/">Beyond Context Engineering</a></li>
-      
-      <li><a href="/perspectives/ai-native-architecture/" class="active" aria-current="page">What Makes Software AI-Native?</a></li>
-      
-    </ul>
-    
-  </aside>
 
-  <main class="section-main">
-    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
-      <ol>
-        <li><a href="/">Home</a></li>
-        
-          
-            
-            <li><a href="/thinking/">Thinking</a></li>
-            
-          
-            
-            <li><a href="/perspectives/">Perspectives</a></li>
-            
-          
-            
-            <li><span aria-current="page">What Makes Software AI-Native?</span></li>
-            
-          
-        
-      </ol>
-    </nav>
 
-    <div class="section-body">
-      <h1 class="section-h1">What Makes Software AI-Native?</h1>
-      <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: June 2026</p>
-      <p><em>By <a href="https://enricopiovesan.com/about/">Enrico Piovesan</a> — Platform Software Architect at Autodesk, author of <a href="https://www.amazon.com/dp/B0GTTTTQH4">Universal Microservices Architecture</a> (Apress)</em></p>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://enricopiovesan.com/perspectives/ai-native-architecture/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Perspectives", "item": "https://enricopiovesan.com/perspectives/" },
+        { "@type": "ListItem", "position": 3, "name": "What Makes Software AI-Native?", "item": "https://enricopiovesan.com/perspectives/ai-native-architecture/" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://enricopiovesan.com/perspectives/ai-native-architecture/#article",
+      "headline": "What Makes Software AI-Native?",
+      "name": "What Makes Software AI-Native?",
+      "description": "&quot;AI-native&quot; is used to mean many things. This piece defines it precisely: what structural properties software must have to work with AI agents rather than alongside them.",
+      "datePublished": "2026-06-09",
+      "dateModified": "2026-06-09",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "url": "https://enricopiovesan.com/perspectives/ai-native-architecture/",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://enricopiovesan.com/perspectives/#list" }
+    }
+  ]
+}
+</script>
+
+
+<article class="page-content">
+  <h1>What Makes Software AI-Native?</h1>
+  <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: June 2026</p>
+  
+  <p><em>By <a href="https://enricopiovesan.com/about/">Enrico Piovesan</a> — Platform Software Architect at Autodesk, author of <a href="https://www.amazon.com/dp/B0GTTTTQH4">Universal Microservices Architecture</a> (Apress)</em></p>
 <p>&quot;AI-native&quot; has become one of those terms that everyone uses and nobody defines. Teams describe their products as AI-native because they call an LLM API. Vendors describe their platforms as AI-native because they have a chat interface. Recruiters use it to mean &quot;you will work near AI somehow.&quot; The word is doing too much work.</p>
 <p>This matters because the architecture question is real. There is a meaningful difference between software that has AI features and software that is structurally designed to work with AI agents. That difference is not aesthetic. It determines what AI agents can actually do with your codebase — and where they fail.</p>
-<h2 id="what-does-ai-native-actually-mean">What does &quot;AI-native&quot; actually mean?</h2>
+<h2>What does &quot;AI-native&quot; actually mean?</h2>
 <p>AI-native software is software that AI agents can navigate, validate, and act within without requiring human interpretation at every step. Not software that uses AI. Software that is designed so AI agents are first-class participants — able to discover what the system can do, verify that a proposed action is safe, and compose capabilities without breaking invariants.</p>
 <p>That is a structural property, not a feature. You cannot add it after the fact by wrapping existing services in a chat interface. It requires that the software declare its intent in a form agents can read. Not comments. Not documentation. Machine-enforceable contracts that specify what each capability does, under what conditions it can be trusted, and what must never be violated regardless of context.</p>
 <p>Most software that calls itself AI-native is not. It has AI features. The capabilities are invocable by an LLM via a tool call or an API. But the constraints, the invariants, the exception paths, and the governance rules are still implicit in the code. An agent can execute these capabilities. It cannot reason about whether it should.</p>
-<h2 id="what-is-the-difference-between-ai-augmented-and-ai-native">What is the difference between AI-augmented and AI-native?</h2>
+<h2>What is the difference between AI-augmented and AI-native?</h2>
 <p>AI-augmented software uses AI to do things humans used to do. Summarize a document. Generate a first draft. Classify an input. The AI is a layer on top of an existing system. The system itself is unchanged. This is useful. It is also the category most &quot;AI-native&quot; software actually falls into.</p>
 <p>AI-native software is different in kind, not degree. The system is designed from the start with AI agents as participants — not as users of the output, but as actors within the system. They discover capabilities through declared interfaces. They validate their reasoning against machine-readable contracts before executing. They compose capabilities across service boundaries using a shared governance model.</p>
 <p>The distinction shows up in failure modes. AI-augmented software fails when the model produces bad output — hallucinations, formatting errors, misclassifications. These are visible failures. AI-native software that is poorly designed fails when an agent takes a valid action that violates a constraint nobody declared. These are invisible failures. The action was correct relative to what the agent could see. The system breaks anyway.</p>
-<h2 id="what-does-ai-native-architecture-require-structurally">What does AI-native architecture require structurally?</h2>
+<h2>What does AI-native architecture require structurally?</h2>
 <p>Three properties are required. Each one can be present independently, but AI-native behavior only emerges when all three are in place.</p>
 <p><strong>Declared capabilities.</strong> Every meaningful unit of behavior is named, bounded, and described in machine-readable form. Agents can discover what the system can do without reading all the code. This is the discoverability requirement — not just documentation, but a structured capability graph that agents can traverse.</p>
 <p><strong>Machine-enforceable contracts.</strong> Each capability declares its preconditions, postconditions, invariants, and exception flows. Agents can reason about whether a capability is appropriate for a given task, whether the current state satisfies the preconditions, and whether the proposed action would violate any invariant. This is what separates a system agents can describe from one they can reason about.</p>
 <p><strong>Governed composition.</strong> When multiple agents work together — or when a single agent composes multiple capabilities in sequence — the governance rules that apply to each capability are explicit and enforceable. The orchestration layer can validate that a composition is safe before executing it, and surface violations as contract failures rather than runtime errors.</p>
 <p>These properties correspond to a specific framework: <a href="/c-dad/">Contract-Driven AI Development (C-DAD)</a>. And they require that the underlying capabilities be portable — invocable from any agent runtime without rewriting the logic. That portability is what <a href="/uma/">Universal Microservices Architecture (UMA)</a> addresses.</p>
-<h2 id="why-does-this-matter-now">Why does this matter now?</h2>
+<h2>Why does this matter now?</h2>
 <p>Most teams are at the beginning of a transition. They have added AI features to existing software. The next pressure will come when those AI features start composing — when agents are not just executing a single tool call but navigating a capability graph, proposing multi-step plans, and acting on behalf of users in ways that have real consequences.</p>
 <p>Software that is only AI-augmented will handle that transition poorly. The agents will operate in a system that was not designed for them. They will produce plausible output that violates constraints nobody declared. The failures will be hard to trace because the root cause is not in the model — it is in the architecture.</p>
 <p>Software that is AI-native will handle that transition differently. The agents will find capabilities they can discover, contracts they can validate against, and governance rules they can enforce. The failure modes shift from &quot;plausible but wrong&quot; to &quot;contract violation at boundary&quot; — detectable, traceable, fixable.</p>
@@ -207,27 +203,7 @@
 <li><a href="/concepts/contract-driven-ai-development/">What is Contract-Driven AI Development?</a></li>
 </ul>
 
-    </div>
-  </main>
-
-  <aside class="section-toc-aside" aria-label="On this page">
-    
-    <span class="section-toc-label">On this page</span>
-    <ul class="section-toc-links">
-      
-      <li><a href="#what-does-quotai-nativequot-actually-mean">What does &amp;quot;AI-native&amp;quot; actually mean?</a></li>
-      
-      <li><a href="#what-is-the-difference-between-ai-augmented-and-ai-native">What is the difference between AI-augmented and AI-native?</a></li>
-      
-      <li><a href="#what-does-ai-native-architecture-require-structurally">What does AI-native architecture require structurally?</a></li>
-      
-      <li><a href="#why-does-this-matter-now">Why does this matter now?</a></li>
-      
-    </ul>
-    
-  </aside>
-
-</div>
+</article>
 
   </main>
 
