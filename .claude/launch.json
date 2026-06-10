@@ -4,8 +4,9 @@
     {
       "name": "enricopiovesan",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "start"],
-      "port": 8080
+      "runtimeArgs": ["run", "start", "--prefix", "enricopiovesan.com", "--", "--port=8081"],
+      "port": 8081,
+      "autoPort": false
     }
   ]
 }
