@@ -92,14 +92,14 @@ class EpFooter extends HTMLElement {
           font-size: 0.78rem;
           letter-spacing: 0.03em;
           color: var(--footer-fg);
-          opacity: 0.5;
+          opacity: 0.75;
           margin-top: 0.5rem;
           margin-bottom: 0.4rem;
           display: block;
           text-decoration: none;
           transition: opacity 0.15s;
         }
-        .footer-section-label:hover { opacity: 0.8; }
+        .footer-section-label:hover { opacity: 1; }
         .footer-sub {
           list-style: none;
           display: flex;
@@ -113,7 +113,7 @@ class EpFooter extends HTMLElement {
           font-family: var(--mono);
           font-size: 0.72rem;
           color: var(--footer-fg);
-          opacity: 0.6;
+          opacity: 0.8;
           text-decoration: none;
           transition: opacity 0.15s;
         }
@@ -125,7 +125,7 @@ class EpFooter extends HTMLElement {
           font-family: var(--mono);
           font-size: 0.7rem;
           color: var(--footer-fg);
-          opacity: 0.5;
+          opacity: 0.7;
         }
         @media (max-width: 1100px) {
           footer { grid-template-columns: repeat(2, 1fr); }
