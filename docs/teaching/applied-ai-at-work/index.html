@@ -65,9 +65,9 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
-:root{--black:#0a0a0a;--white:#f5f4f0;--mid:#a8a5a0;--accent:#d45a25;--border:#2a2a28;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem;--bg:var(--black);--fg:var(--white);--fg-mid:var(--mid);--fg-border:var(--border)}
-[data-theme="light"]{--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}}
+:root{--bg:#000000;--fg:#ffffff;--link:#7ae2cf;--accent:#077a7d;--border:#d3c7c1;--mid:#d3c7c1;--header-bg:#ffffff;--header-fg:#000000;--footer-bg:#077a7d;--footer-fg:#ffffff;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#ffffff;--fg:#000000;--link:#077a7d;--accent:#7ae2cf;--border:#d3c7c1;--mid:#d3c7c1;--header-bg:#000000;--header-fg:#ffffff;--footer-bg:#7ae2cf;--footer-fg:#000000}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#ffffff;--fg:#000000;--link:#077a7d;--accent:#7ae2cf;--border:#d3c7c1;--mid:#d3c7c1;--header-bg:#000000;--header-fg:#ffffff;--footer-bg:#7ae2cf;--footer-fg:#000000}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
@@ -133,15 +133,47 @@
   <main id="main-content">
     
 
+<div class="section-shell">
 
+  <aside class="section-nav-aside" aria-label="Teaching navigation">
+    
+    <a class="section-nav-label" href="/teaching/">Teaching</a>
+    
+    
+    <ul class="section-nav-links">
+      
+      <li><a href="/teaching/applied-ai-at-work/" class="active" aria-current="page">Applied AI at Work</a></li>
+      
+    </ul>
+    
+  </aside>
 
+  <main class="section-main">
+    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        
+          
+            
+            <li><a href="/work/">Work</a></li>
+            
+          
+            
+            <li><a href="/teaching/">Teaching</a></li>
+            
+          
+            
+            <li><span aria-current="page">Applied AI at Work</span></li>
+            
+          
+        
+      </ol>
+    </nav>
 
-
-<article class="page-content">
-  <h1>Applied AI at Work — Practical Skills for Professionals and Small Businesses</h1>
-  
-  
-  <script type="application/ld+json">
+    <div class="section-body">
+      <h1 class="section-h1">Applied AI at Work — Practical Skills for Professionals and Small Businesses</h1>
+      
+      <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Course",
@@ -164,17 +196,17 @@
 }
 </script>
 <h1>Applied AI at Work</h1>
-<h2>Practical skills for professionals and small businesses</h2>
+<h2 id="practical-skills-for-professionals-and-small-businesses">Practical skills for professionals and small businesses</h2>
 <p>Move from AI confusion to repeatable workflows for everyday work.</p>
 <p>Applied AI at Work is an in-person, hands-on course that helps professionals and small business operators learn how to apply AI to real work. No hype. No shortcuts. No generic prompt tricks. Just a practical method that participants can use in their own work from the first week.</p>
 <hr>
-<h2>The problem this course addresses</h2>
+<h2 id="the-problem-this-course-addresses">The problem this course addresses</h2>
 <p>AI is everywhere, but clarity is not.</p>
 <p>Professionals are being bombarded with AI tools, headlines, social media claims, and unrealistic promises. Many people have tried AI tools, but few have learned how to apply them safely and repeatably to real work.</p>
 <p>The real skill is not memorizing prompts. The real skill is learning how to define a problem clearly, design a useful workflow, verify the output, and decide what should stay human.</p>
 <p>That is what this course teaches.</p>
 <hr>
-<h2>What participants will learn</h2>
+<h2 id="what-participants-will-learn">What participants will learn</h2>
 <p>By the end of the course, participants will be able to:</p>
 <ol>
 <li>Understand what modern AI tools can and cannot do in practical workplace settings</li>
@@ -188,7 +220,7 @@
 <li>Build a personal AI Workflow Playbook they can continue using after the course</li>
 </ol>
 <hr>
-<h2>Who this course is for</h2>
+<h2 id="who-this-course-is-for">Who this course is for</h2>
 <p>This course is designed for working professionals and business operators across industries, including:</p>
 <ul>
 <li>Small business owners and operators</li>
@@ -204,7 +236,7 @@
 </ul>
 <p>No AI experience is required. Participants should be comfortable using a laptop, email, documents, web browsing, and basic online tools.</p>
 <hr>
-<h2>Course format</h2>
+<h2 id="course-format">Course format</h2>
 <ul>
 <li>8 weeks</li>
 <li>In person only</li>
@@ -220,25 +252,25 @@
 <p>Preferred schedule: weekend format, with weekday evenings also possible depending on participant demand and scheduling.</p>
 <p>Suggested cohort size: 10 to 20 participants. A minimum of 10 participants is recommended before the course runs, with an ideal cohort size of 12 to 16 participants to support discussion, peer learning, and hands-on coaching.</p>
 <hr>
-<h2>Weekly outline</h2>
-<h3>Week 1: AI Without the Noise</h3>
+<h2 id="weekly-outline">Weekly outline</h2>
+<h3 id="week-1-ai-without-the-noise">Week 1: AI Without the Noise</h3>
 <p>Set the baseline. Clear confusion about what AI is, what it is not, what it can do, where it fails, and how to use it responsibly. Introduce the course method and the AI Workflow Playbook. Participants complete a Work Friction Inventory to identify real workplace problems before the next session.</p>
-<h3>Week 2: Finding Work Friction</h3>
+<h3 id="week-2-finding-work-friction">Week 2: Finding Work Friction</h3>
 <p>Participants learn how to observe their own work, identify repeated tasks, information overload, unclear processes, communication loops, and business problems that may benefit from AI support.</p>
-<h3>Week 3: Defining Problems for AI</h3>
+<h3 id="week-3-defining-problems-for-ai">Week 3: Defining Problems for AI</h3>
 <p>Participants learn how to turn vague needs into clear problem statements with context, goals, constraints, risks, and success criteria. This is the hardest and most important skill in the course.</p>
-<h3>Week 4: Prompting as Structured Communication</h3>
+<h3 id="week-4-prompting-as-structured-communication">Week 4: Prompting as Structured Communication</h3>
 <p>Participants learn reusable prompt patterns that help AI produce more useful, specific, and reliable outputs. The focus is on transferable technique, not tool-specific tricks.</p>
-<h3>Week 5: Communication and Customer Workflows</h3>
+<h3 id="week-5-communication-and-customer-workflows">Week 5: Communication and Customer Workflows</h3>
 <p>Participants build workflows for emails, customer replies, service descriptions, meeting preparation, internal communication, and public-facing writing.</p>
-<h3>Week 6: Documents, Research, and Verification</h3>
+<h3 id="week-6-documents-research-and-verification">Week 6: Documents, Research, and Verification</h3>
 <p>Participants learn how to use AI for summarizing, comparing, researching, reviewing, and organizing information while verifying outputs and avoiding blind trust.</p>
-<h3>Week 7: From Problem to Artifact</h3>
+<h3 id="week-7-from-problem-to-artifact">Week 7: From Problem to Artifact</h3>
 <p>Participants use AI to create practical business artifacts such as templates, checklists, forms, lightweight tools, plans, and workflow documents. No coding experience is required.</p>
-<h3>Week 8: AI Workflow Playbook and Capstone</h3>
+<h3 id="week-8-ai-workflow-playbook-and-capstone">Week 8: AI Workflow Playbook and Capstone</h3>
 <p>Participants finalize and present one practical AI-assisted workflow they can use in their work, along with their personal AI Workflow Playbook and responsible-use checklist.</p>
 <hr>
-<h2>The AI Workflow Playbook</h2>
+<h2 id="the-ai-workflow-playbook">The AI Workflow Playbook</h2>
 <p>Rather than leaving with general knowledge or a list of prompts, each participant leaves with a practical AI Workflow Playbook tailored to their own work or business.</p>
 <p>The playbook includes:</p>
 <ul>
@@ -253,7 +285,7 @@
 </ul>
 <p>The capstone workflow is reviewed using a simple practical checklist focused on clarity, usefulness, repeatability, verification, and responsible use. No exams. No academic grading.</p>
 <hr>
-<h2>What this course is not</h2>
+<h2 id="what-this-course-is-not">What this course is not</h2>
 <p>This is not a ChatGPT tricks course.</p>
 <p>This is not a prompt library.</p>
 <p>This is not a coding course.</p>
@@ -261,7 +293,7 @@
 <p>This is not a replacement for professional judgment.</p>
 <p>This is a practical course about applying AI to real work through problem definition, workflow design, verification, and responsible use.</p>
 <hr>
-<h2>Requirements</h2>
+<h2 id="requirements">Requirements</h2>
 <p>Participants need:</p>
 <ul>
 <li>A laptop</li>
@@ -272,44 +304,82 @@
 </ul>
 <p>ChatGPT Plus is used as the shared classroom platform. The course teaches transferable AI workflow skills that participants can apply across tools and roles. The course is not about learning one product.</p>
 <hr>
-<h2>Frequently asked questions</h2>
-<h3>Is this a ChatGPT course?</h3>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<h3 id="is-this-a-chatgpt-course">Is this a ChatGPT course?</h3>
 <p>No. ChatGPT Plus is used as the shared classroom platform, but the course teaches transferable AI workflow skills that work across tools and roles.</p>
-<h3>Do I need AI experience?</h3>
+<h3 id="do-i-need-ai-experience">Do I need AI experience?</h3>
 <p>No. The course starts by setting a clear baseline and resetting expectations. Week 1 is specifically designed to reduce confusion and build confidence before any applied work begins.</p>
-<h3>Do I need to code?</h3>
+<h3 id="do-i-need-to-code">Do I need to code?</h3>
 <p>No. The course is designed for business and professional users. No technical background is required.</p>
-<h3>Why is ChatGPT Plus required?</h3>
+<h3 id="why-is-chatgpt-plus-required">Why is ChatGPT Plus required?</h3>
 <p>The course requires a shared classroom platform so everyone can work from the same baseline. Free plans may have usage limits that interrupt hands-on learning. ChatGPT Plus is broad, widely recognized, and practical for business workflows.</p>
-<h3>Why is the course 8 weeks?</h3>
+<h3 id="why-is-the-course-8-weeks">Why is the course 8 weeks?</h3>
 <p>A short workshop can create awareness but cannot build durable professional skill. Participants need repeated practice, feedback, real workplace application, and time to build their AI Workflow Playbook.</p>
-<h3>What will I leave with?</h3>
+<h3 id="what-will-i-leave-with">What will I leave with?</h3>
 <p>You will leave with an AI Workflow Playbook, practical workflows, prompt patterns, verification habits, a responsible-use checklist, and one polished capstone workflow you can apply to your own work immediately.</p>
-<h3>Is this useful for my industry?</h3>
+<h3 id="is-this-useful-for-my-industry">Is this useful for my industry?</h3>
 <p>The course teaches a method that can be applied across industries. The examples and final workflow are adapted to your own work, role, or business.</p>
-<h3>Is this for beginners?</h3>
+<h3 id="is-this-for-beginners">Is this for beginners?</h3>
 <p>Yes, but it is not a passive beginner class. It starts from a clear baseline and moves into applied work that participants choose based on their own work and business context.</p>
-<h3>What about privacy?</h3>
+<h3 id="what-about-privacy">What about privacy?</h3>
 <p>Responsible use is covered from Week 1. Participants are instructed not to use confidential, private, customer, employee, legal, medical, financial, or sensitive data in class. The course teaches privacy boundaries and human review points throughout.</p>
-<h3>How is this different from free online content?</h3>
+<h3 id="how-is-this-different-from-free-online-content">How is this different from free online content?</h3>
 <p>Free online content often focuses on tools, tips, hype, or generic prompts. This course is local, in-person, hands-on, guided, and focused on each participant's actual work and business context.</p>
-<h3>Why in person only?</h3>
+<h3 id="why-in-person-only">Why in person only?</h3>
 <p>The first version is designed around hands-on support, trust, local examples, peer learning, and direct coaching. In-person delivery also differentiates the course from the large volume of generic online AI content.</p>
 <hr>
-<h2>For organizations</h2>
+<h2 id="for-organizations">For organizations</h2>
 <p>The course can be adapted for employer-sponsored cohorts or custom workforce training for organizations that want to upskill their teams in applied AI workflow design.</p>
 <p>If you are interested in bringing Applied AI at Work to your organization or team, contact me to discuss delivery format, cohort size, and custom content options.</p>
 <hr>
-<h2>Instructor</h2>
+<h2 id="instructor">Instructor</h2>
 <p>Enrico Piovesan is a platform software architect with extensive experience in software architecture, AI-enabled workflows, platform thinking, and technology adoption at enterprise scale.</p>
 <p>His work focuses on helping people and organizations understand how technology changes the way work is structured, delivered, and improved. Applied AI at Work translates that experience into practical training for professionals and small businesses who want to use AI with clarity, responsibility, and real-world value.</p>
 <p><a href="https://enricopiovesan.com/about/">Full bio and background</a></p>
 <hr>
-<h2>Contact</h2>
+<h2 id="contact">Contact</h2>
 <p>Interested in the course, employer cohorts, or future training opportunities?</p>
 <p><a href="https://linkedin.com/in/enricopiovesan">Get in touch via LinkedIn</a></p>
 
-</article>
+    </div>
+  </main>
+
+  <aside class="section-toc-aside" aria-label="On this page">
+    
+    <span class="section-toc-label">On this page</span>
+    <ul class="section-toc-links">
+      
+      <li><a href="#practical-skills-for-professionals-and-small-businesses">Practical skills for professionals and small businesses</a></li>
+      
+      <li><a href="#the-problem-this-course-addresses">The problem this course addresses</a></li>
+      
+      <li><a href="#what-participants-will-learn">What participants will learn</a></li>
+      
+      <li><a href="#who-this-course-is-for">Who this course is for</a></li>
+      
+      <li><a href="#course-format">Course format</a></li>
+      
+      <li><a href="#weekly-outline">Weekly outline</a></li>
+      
+      <li><a href="#the-ai-workflow-playbook">The AI Workflow Playbook</a></li>
+      
+      <li><a href="#what-this-course-is-not">What this course is not</a></li>
+      
+      <li><a href="#requirements">Requirements</a></li>
+      
+      <li><a href="#frequently-asked-questions">Frequently asked questions</a></li>
+      
+      <li><a href="#for-organizations">For organizations</a></li>
+      
+      <li><a href="#instructor">Instructor</a></li>
+      
+      <li><a href="#contact">Contact</a></li>
+      
+    </ul>
+    
+  </aside>
+
+</div>
 
   </main>
 

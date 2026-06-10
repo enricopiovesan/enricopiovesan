@@ -66,9 +66,9 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
-:root{--black:#0a0a0a;--white:#f5f4f0;--mid:#a8a5a0;--accent:#d45a25;--border:#2a2a28;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem;--bg:var(--black);--fg:var(--white);--fg-mid:var(--mid);--fg-border:var(--border)}
-[data-theme="light"]{--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}}
+:root{--bg:#000000;--fg:#ffffff;--link:#7ae2cf;--accent:#077a7d;--border:#d3c7c1;--mid:#d3c7c1;--header-bg:#ffffff;--header-fg:#000000;--footer-bg:#077a7d;--footer-fg:#ffffff;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#ffffff;--fg:#000000;--link:#077a7d;--accent:#7ae2cf;--border:#d3c7c1;--mid:#d3c7c1;--header-bg:#000000;--header-fg:#ffffff;--footer-bg:#7ae2cf;--footer-fg:#000000}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#ffffff;--fg:#000000;--link:#077a7d;--accent:#7ae2cf;--border:#d3c7c1;--mid:#d3c7c1;--header-bg:#000000;--header-fg:#ffffff;--footer-bg:#7ae2cf;--footer-fg:#000000}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
@@ -134,62 +134,68 @@
   <main id="main-content">
     
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://enricopiovesan.com/concepts/contract-driven-ai-development/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Concepts", "item": "https://enricopiovesan.com/concepts/" },
-        { "@type": "ListItem", "position": 3, "name": "What is Contract-Driven AI Development?", "item": "https://enricopiovesan.com/concepts/contract-driven-ai-development/" }
-      ]
-    },
-    {
-      "@type": "TechArticle",
-      "@id": "https://enricopiovesan.com/concepts/contract-driven-ai-development/#article",
-      "headline": "What is Contract-Driven AI Development?",
-      "name": "What is Contract-Driven AI Development?",
-      "description": "Contract-driven AI development is an approach to building AI-native systems where contracts, not code, define what software does and why it can be trusted by AI agents.",
-      "datePublished": "2025-11-01",
-      "dateModified": "2026-06-08",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "url": "https://enricopiovesan.com/concepts/contract-driven-ai-development/",
-      "inLanguage": "en",
-      "isPartOf": { "@id": "https://enricopiovesan.com/#website" }
-    }
-  ]
-}
-</script>
+<div class="section-shell">
 
+  <aside class="section-nav-aside" aria-label="Concepts navigation">
+    
+    <a class="section-nav-label" href="/concepts/">Concepts</a>
+    
+    
+    <ul class="section-nav-links">
+      
+      <li><a href="/concepts/universal-microservices/">Universal Microservices Architecture</a></li>
+      
+      <li><a href="/concepts/contract-driven-ai-development/" class="active" aria-current="page">Contract-Driven AI Development</a></li>
+      
+      <li><a href="/concepts/agentic-systems/">Agentic Systems Architecture</a></li>
+      
+    </ul>
+    
+  </aside>
 
+  <main class="section-main">
+    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        
+          
+            
+            <li><a href="/thinking/">Thinking</a></li>
+            
+          
+            
+            <li><a href="/concepts/">Concepts</a></li>
+            
+          
+            
+            <li><span aria-current="page">Contract-Driven AI Development</span></li>
+            
+          
+        
+      </ol>
+    </nav>
 
-
-
-<article class="page-content">
-  <h1>What is Contract-Driven AI Development?</h1>
-  <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: June 2026</p>
-  
-  <p>Most software was not built to be navigated by AI agents. It was built to be read by the people who wrote it. The intent lives in someone's head. The constraints live in a Slack thread from two years ago. The exception paths live nowhere at all.</p>
+    <div class="section-body">
+      <h1 class="section-h1">What is Contract-Driven AI Development?</h1>
+      <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: June 2026</p>
+      <p>Most software was not built to be navigated by AI agents. It was built to be read by the people who wrote it. The intent lives in someone's head. The constraints live in a Slack thread from two years ago. The exception paths live nowhere at all.</p>
 <p>When an AI agent encounters that codebase it does not fail loudly. It produces plausible output that is wrong in ways that take weeks to find. The problem is not the model. The problem is that the code has no contracts.</p>
 <p>Contract-driven AI development is the practice of making software legible to AI agents by declaring intent explicitly through contracts rather than leaving it implicit in code.</p>
-<h2>What is the core distinction between a specification and a contract?</h2>
+<h2 id="what-is-the-core-distinction-between-a-specification-and-a-contract">What is the core distinction between a specification and a contract?</h2>
 <p>A specification describes what a system does. A contract describes why it can be trusted. That distinction is the foundation of Contract-Driven AI Development, and it determines what an AI agent can safely do with a codebase.</p>
 <p>An agent reading a specification can describe behavior — it knows what inputs a function accepts and what outputs it returns. An agent reading a contract can validate behavior, navigate capabilities, and compose them without breaking invariants — it knows the preconditions that must hold before the capability runs, the postconditions that must hold after, the invariants that must never be violated, and the exception flows that govern edge cases. The difference in what the agent can do is not incremental. It is the difference between describing a system and reasoning about it. Teams that adopt contract-driven AI development report faster agent onboarding, fewer hallucination-driven bugs, and cleaner capability boundaries — not because the models improved, but because the codebase gave the agents something real to reason against. The contract graph replaces the assumption graph.</p>
-<h2>The three principles</h2>
+<h2 id="the-three-principles">The three principles</h2>
 <p><strong>Declare intent explicitly.</strong> Every capability states its preconditions, postconditions, invariants, and exception flows in machine-readable form. Not comments. Not documentation. Contracts that the pipeline can read and enforce.</p>
 <p><strong>Let machines validate, not just describe.</strong> Contracts enable automated reasoning — static analysis, test generation, agent navigation — without requiring human interpretation at every step.</p>
 <p><strong>Keep humans in the authoring seat.</strong> Humans write the intent. Machines validate the implementation. The governance is hybrid. Neither replaces the other.</p>
-<h2>Why does AI navigability matter now?</h2>
+<h2 id="why-does-ai-navigability-matter-now">Why does AI navigability matter now?</h2>
 <p>Before AI agents joined software teams, the gap between implicit intent and explicit contracts was expensive but manageable. Developers filled that gap from context — asking colleagues, consulting documentation, inferring from history. Costly, but bounded.</p>
 <p>AI agents change the calculus. An agent has no colleague to ask. It cannot tell whether a conditional is load-bearing or a legacy workaround. It cannot distinguish a business invariant from an implementation accident. When an agent works in a codebase with only code and no contracts, it does not refuse — it reasons from what it can infer. The output is usually plausible. The failures are usually invisible until they reach production.</p>
 <p>The timing matters because the agentic era is not coming — it is here. Teams are using AI agents in CI pipelines, code review, test generation, and feature development. Most of those codebases were not designed to be agent-navigable. C-DAD is the framework for closing that gap before the compound failures accumulate.</p>
-<h2>How does C-DAD differ from what most teams already do?</h2>
+<h2 id="how-does-c-dad-differ-from-what-most-teams-already-do">How does C-DAD differ from what most teams already do?</h2>
 <p>Spec-driven development tells agents what to build. Contract-driven AI development tells agents what they can trust. The first automates execution. The second enables reasoning.</p>
 <p>Teams already writing OpenAPI specs, ADRs, architecture decision records, or structured technical documentation are closer than they think. An OpenAPI spec declares endpoints and types. A C-DAD contract extends that to declare the conditions under which those endpoints can be trusted — the preconditions that must hold, the postconditions that must be true, the invariants that must never break, and the governance rules that apply. The gap is making those artifacts machine-enforceable rather than human-readable. That gap is what separates a codebase that AI agents can describe from one they can reason about.</p>
-<h2>Where to go deeper</h2>
+<h2 id="where-to-go-deeper">Where to go deeper</h2>
 <p>The full framework is documented in the C-DAD white paper and the forthcoming book The Day After. The companion CLI tool audits your codebase for agent-readiness today.</p>
 <ul>
 <li><a href="/c-dad/">C-DAD — full framework</a></li>
@@ -198,7 +204,29 @@
 <li><a href="https://github.com/enricopiovesan/the-day-after-toolkit">the-day-after-toolkit</a></li>
 </ul>
 
-</article>
+    </div>
+  </main>
+
+  <aside class="section-toc-aside" aria-label="On this page">
+    
+    <span class="section-toc-label">On this page</span>
+    <ul class="section-toc-links">
+      
+      <li><a href="#what-is-the-core-distinction-between-a-specification-and-a-contract">What is the core distinction between a specification and a contract?</a></li>
+      
+      <li><a href="#the-three-principles">The three principles</a></li>
+      
+      <li><a href="#why-does-ai-navigability-matter-now">Why does AI navigability matter now?</a></li>
+      
+      <li><a href="#how-does-c-dad-differ-from-what-most-teams-already-do">How does C-DAD differ from what most teams already do?</a></li>
+      
+      <li><a href="#where-to-go-deeper">Where to go deeper</a></li>
+      
+    </ul>
+    
+  </aside>
+
+</div>
 
   </main>
 

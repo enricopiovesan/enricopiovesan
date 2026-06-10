@@ -66,9 +66,9 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
-:root{--black:#0a0a0a;--white:#f5f4f0;--mid:#a8a5a0;--accent:#d45a25;--border:#2a2a28;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem;--bg:var(--black);--fg:var(--white);--fg-mid:var(--mid);--fg-border:var(--border)}
-[data-theme="light"]{--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}}
+:root{--bg:#000000;--fg:#ffffff;--link:#7ae2cf;--accent:#077a7d;--border:#d3c7c1;--mid:#d3c7c1;--header-bg:#ffffff;--header-fg:#000000;--footer-bg:#077a7d;--footer-fg:#ffffff;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#ffffff;--fg:#000000;--link:#077a7d;--accent:#7ae2cf;--border:#d3c7c1;--mid:#d3c7c1;--header-bg:#000000;--header-fg:#ffffff;--footer-bg:#7ae2cf;--footer-fg:#000000}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#ffffff;--fg:#000000;--link:#077a7d;--accent:#7ae2cf;--border:#d3c7c1;--mid:#d3c7c1;--header-bg:#000000;--header-fg:#ffffff;--footer-bg:#7ae2cf;--footer-fg:#000000}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
@@ -134,67 +134,87 @@
   <main id="main-content">
     
 
+<div class="section-shell">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://enricopiovesan.com/whitepapers/csma/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
-        { "@type": "ListItem", "position": 2, "name": "White Papers", "item": "https://enricopiovesan.com/whitepapers/" },
-        { "@type": "ListItem", "position": 3, "name": "Client-Side Microservices Architecture (CSMA)", "item": "https://enricopiovesan.com/whitepapers/csma/" }
-      ]
-    },
-    {
-      "@type": "ScholarlyArticle",
-      "@id": "https://enricopiovesan.com/whitepapers/csma/#article",
-      "headline": "Client-Side Microservices Architecture (CSMA)",
-      "name": "Client-Side Microservices Architecture (CSMA)",
-      "description": "CSMA packages frontend business logic as modular, portable units that run in the browser without server calls — the precursor to Universal Microservices Architecture.",
-      "datePublished": "2023-06-01",
-      "dateModified": "2026-06-08",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "publisher": { "@id": "https://enricopiovesan.com/#person" },
-      "url": "https://enricopiovesan.com/whitepapers/csma/",
-      "inLanguage": "en",
-      "isPartOf": { "@id": "https://enricopiovesan.com/#website" },
-      "keywords": ["Software Architecture", "Platform Engineering", "WebAssembly", "AI-native Systems", "Contract-Driven Development"]
-    }
-  ]
-}
-</script>
+  <aside class="section-nav-aside" aria-label="White Papers navigation">
+    
+    <a class="section-nav-label" href="/whitepapers/">White Papers</a>
+    
+    
+    <ul class="section-nav-links">
+      
+      <li><a href="/whitepapers/uma/">Universal Microservices Architecture</a></li>
+      
+      <li><a href="/whitepapers/c-dad/">Contract-Driven AI Development</a></li>
+      
+      <li><a href="/whitepapers/csma/" class="active" aria-current="page">Cognitive Systems Modelling</a></li>
+      
+      <li><a href="/whitepapers/ecca/">Edge-Cloud Collaborative Architecture</a></li>
+      
+    </ul>
+    
+  </aside>
 
+  <main class="section-main">
+    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        
+          
+            
+            <li><a href="/work/">Work</a></li>
+            
+          
+            
+            <li><a href="/whitepapers/">White Papers</a></li>
+            
+          
+            
+            <li><span aria-current="page">Client-Side Microservices Architecture</span></li>
+            
+          
+        
+      </ol>
+    </nav>
 
-
-
-<article class="page-content">
-  <h1>Client-Side Microservices Architecture (CSMA)</h1>
-  
-  
-  <p style="font-family:var(--mono);font-size:0.72rem;color:var(--mid);margin-bottom:2rem;border-left:2px solid var(--border);padding-left:0.75rem;">By <a href="/about/" style="color:var(--mid);text-decoration:underline;">Enrico Piovesan</a> — Platform Software Architect at Autodesk, author of <em>Universal Microservices Architecture</em> (Apress). Originator of UMA and C-DAD frameworks.</p>
-  
-  <p><strong>June 2023 · Enrico Piovesan</strong></p>
+    <div class="section-body">
+      <h1 class="section-h1">Client-Side Microservices Architecture (CSMA)</h1>
+      
+      <p><strong>June 2023 · Enrico Piovesan</strong></p>
 <p><a href="/whitepapers/Client-side%20Microservices%20Architecture%20%28CSMA%29%20-%20White%20Paper.pdf">Download PDF</a></p>
 <hr>
 <p>This is where the thinking started.</p>
 <p>The browser kept getting treated as a consumer of server logic rather than a legitimate execution environment in its own right. Every decision that could be made locally was deferred to a round trip. Every business rule that could run in the browser was reimplemented on the server because that was where logic was supposed to live. The frontend was a rendering layer. It was not supposed to think.</p>
 <p>That assumption made less sense every year. Browsers got faster. WASM made native-speed execution possible. Offline requirements became real. AI changed what clients needed to do. And yet the architecture stayed the same: server decides, browser displays.</p>
 <p>CSMA was an attempt to write down why that assumption was wrong and what the alternative looked like.</p>
-<h2>What the paper covers</h2>
+<h2 id="what-the-paper-covers">What the paper covers</h2>
 <p><strong>The browser as a runtime.</strong> The central argument is that the browser is a legitimate execution environment and should be treated as one architecturally. That means business logic that runs locally, not logic that is fetched and rendered.</p>
 <p><strong>Service-oriented thinking applied to the frontend.</strong> CSMA applies the same modularity principles that made backend microservices successful to the client side. Each capability is a self-contained unit with declared inputs, outputs, and contracts — not a component tied to a framework.</p>
 <p><strong>Stateful and stateless services.</strong> The paper distinguishes between capabilities that manage their own state and capabilities that are pure functions. Both have a place in a client-side service architecture. The distinction matters for lifecycle management and composition.</p>
 <p><strong>Isolation and boundaries.</strong> How client-side services communicate without coupling. The event bus pattern, capability boundaries, and the contract layer that keeps services composable as the system grows.</p>
 <p><strong>The portability seed.</strong> CSMA was the first time I wrote down a pattern I had been circling around for years. The question it left open — why stop at the browser? — became the question that UMA answered.</p>
-<h2>Who it is for</h2>
+<h2 id="who-it-is-for">Who it is for</h2>
 <p>Frontend architects and senior engineers building complex client applications who are hitting the limits of component-based thinking and want a more disciplined model for managing logic at the client layer.</p>
 <hr>
 <p><a href="/whitepapers/">White Papers</a> · <a href="/whitepapers/uma/">UMA White Paper</a> · <a href="/uma/">Universal Microservices Architecture</a></p>
 
-</article>
+    </div>
+  </main>
+
+  <aside class="section-toc-aside" aria-label="On this page">
+    
+    <span class="section-toc-label">On this page</span>
+    <ul class="section-toc-links">
+      
+      <li><a href="#what-the-paper-covers">What the paper covers</a></li>
+      
+      <li><a href="#who-it-is-for">Who it is for</a></li>
+      
+    </ul>
+    
+  </aside>
+
+</div>
 
   </main>
 
