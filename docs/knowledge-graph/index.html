@@ -65,9 +65,9 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
-:root{--black:#0a0a0a;--white:#f5f4f0;--mid:#a8a5a0;--accent:#d45a25;--border:#2a2a28;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem;--bg:var(--black);--fg:var(--white);--fg-mid:var(--mid);--fg-border:var(--border)}
-[data-theme="light"]{--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}}
+:root{--bg:#172b36;--fg:#f1f6f4;--link:#ffc801;--accent:#ff9932;--border:rgba(241,246,244,0.2);--mid:#d9e8e2;--header-bg:#172b36;--header-fg:#f1f6f4;--footer-bg:#ffc801;--footer-fg:#172b36;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
@@ -133,16 +133,48 @@
   <main id="main-content">
     
 
+<div class="section-shell">
 
+  <aside class="section-nav-aside" aria-label="Thinking navigation">
+    
+    <a class="section-nav-label" href="/thinking/">Thinking</a>
+    
+    
+    <ul class="section-nav-links">
+      
+      <li><a href="/concepts/">Concepts</a></li>
+      
+      <li><a href="/perspectives/">Perspectives</a></li>
+      
+      <li><a href="/knowledge-graph/" class="active" aria-current="page">Knowledge Graph</a></li>
+      
+    </ul>
+    
+  </aside>
 
+  <main class="section-main">
+    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        
+          
+            
+            <li><a href="/thinking/">Thinking</a></li>
+            
+          
+            
+            <li><span aria-current="page">Knowledge Graph</span></li>
+            
+          
+        
+      </ol>
+    </nav>
 
-
-<article class="page-content">
-  <h1>Knowledge Graph</h1>
-  <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: June 2026</p>
-  
-  <p>This graph maps the ideas, concepts, and arguments across 250+ articles and four white papers. Every node is a topic, framework, or argument — extracted from the writing itself, not from code or site structure.</p>
-<h2>Core Concepts</h2>
+    <div class="section-body">
+      <h1 class="section-h1">Knowledge Graph</h1>
+      <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: June 2026</p>
+      <p>This graph maps the ideas, concepts, and arguments across 250+ articles and four white papers. Every node is a topic, framework, or argument — extracted from the writing itself, not from code or site structure.</p>
+<h2 id="core-concepts">Core Concepts</h2>
 <p>The most connected ideas across all writing:</p>
 <ul>
 <li><strong><a href="/cdad/">Contract-Driven AI Development (C-DAD)</a></strong> — machine-enforceable contracts, declared capabilities, and governed composition as the foundation for AI-native software.</li>
@@ -152,7 +184,7 @@
 <li><strong>WebAssembly</strong> — the portable execution substrate connecting all four frameworks.</li>
 <li><strong>Agentic Systems</strong> — AI agents as first-class consumers of software architecture.</li>
 </ul>
-<h2>Idea Clusters</h2>
+<h2 id="idea-clusters">Idea Clusters</h2>
 <table>
 <thead>
 <tr>
@@ -195,7 +227,7 @@
 </tr>
 </tbody>
 </table>
-<h2>Concept Groups</h2>
+<h2 id="concept-groups">Concept Groups</h2>
 <p>Co-occurring idea clusters found across multiple articles:</p>
 <ul>
 <li><strong>Piovesan Architecture Family</strong> — CSMA, UMA, ECCA, C-DAD as a single evolving system</li>
@@ -206,7 +238,7 @@
 <li><strong>AI Agent Navigability</strong> — C-DAD, agentic systems, context engineering, AI navigability</li>
 <li><strong>Wasm AI Inference Stack</strong> — ONNX runtime, TensorFlow.js, Candle, local-first AI execution</li>
 </ul>
-<h2>Interactive Graph</h2>
+<h2 id="interactive-graph">Interactive Graph</h2>
 <div style="width:min(860px,100%);margin-left:calc((min(860px,100%) - 100%) / 2 * -1);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:2rem;margin-bottom:2rem;">
   <iframe
     src="/public/knowledge-graph-viz.html"
@@ -218,7 +250,7 @@
   ></iframe>
 </div>
 <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);">577 nodes · 602 edges · 82 communities. Built with <a href="https://github.com/safishamsi/graphifyy" style="color:var(--mid);">graphify</a> from 250+ articles and 4 white papers.</p>
-<h2>Related</h2>
+<h2 id="related">Related</h2>
 <ul>
 <li><a href="/whitepapers/">White Papers</a> — full technical papers for each framework</li>
 <li><a href="/cdad/">C-DAD Framework</a> — contract-driven AI development</li>
@@ -226,7 +258,29 @@
 <li><a href="/perspectives/">Perspectives</a> — takes on context engineering and AI-native architecture</li>
 </ul>
 
-</article>
+    </div>
+  </main>
+
+  <aside class="section-toc-aside" aria-label="On this page">
+    
+    <span class="section-toc-label">On this page</span>
+    <ul class="section-toc-links">
+      
+      <li><a href="#core-concepts">Core Concepts</a></li>
+      
+      <li><a href="#idea-clusters">Idea Clusters</a></li>
+      
+      <li><a href="#concept-groups">Concept Groups</a></li>
+      
+      <li><a href="#interactive-graph">Interactive Graph</a></li>
+      
+      <li><a href="#related">Related</a></li>
+      
+    </ul>
+    
+  </aside>
+
+</div>
 
   </main>
 

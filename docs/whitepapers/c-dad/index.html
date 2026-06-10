@@ -66,9 +66,9 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
-:root{--black:#0a0a0a;--white:#f5f4f0;--mid:#a8a5a0;--accent:#d45a25;--border:#2a2a28;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem;--bg:var(--black);--fg:var(--white);--fg-mid:var(--mid);--fg-border:var(--border)}
-[data-theme="light"]{--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}}
+:root{--bg:#172b36;--fg:#f1f6f4;--link:#ffc801;--accent:#ff9932;--border:rgba(241,246,244,0.2);--mid:#d9e8e2;--header-bg:#172b36;--header-fg:#f1f6f4;--footer-bg:#ffc801;--footer-fg:#172b36;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1f6f4;--fg:#172b36;--link:#ff9932;--accent:#ffc801;--border:rgba(23,43,54,0.2);--mid:#3d6678;--header-bg:#f1f6f4;--header-fg:#172b36;--footer-bg:#ffc801;--footer-fg:#172b36}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
@@ -134,66 +134,86 @@
   <main id="main-content">
     
 
+<div class="section-shell">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://enricopiovesan.com/whitepapers/c-dad/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
-        { "@type": "ListItem", "position": 2, "name": "White Papers", "item": "https://enricopiovesan.com/whitepapers/" },
-        { "@type": "ListItem", "position": 3, "name": "White Paper: Contract-Driven AI Development (C-DAD)", "item": "https://enricopiovesan.com/whitepapers/c-dad/" }
-      ]
-    },
-    {
-      "@type": "ScholarlyArticle",
-      "@id": "https://enricopiovesan.com/whitepapers/c-dad/#article",
-      "headline": "White Paper: Contract-Driven AI Development (C-DAD)",
-      "name": "White Paper: Contract-Driven AI Development (C-DAD)",
-      "description": "White paper introducing C-DAD — a framework where contracts, not code, define AI-native system collaboration. By Enrico Piovesan. November 2025.",
-      "datePublished": "2025-11-01",
-      "dateModified": "2026-06-08",
-      "author": { "@id": "https://enricopiovesan.com/#person" },
-      "publisher": { "@id": "https://enricopiovesan.com/#person" },
-      "url": "https://enricopiovesan.com/whitepapers/c-dad/",
-      "inLanguage": "en",
-      "isPartOf": { "@id": "https://enricopiovesan.com/#website" },
-      "keywords": ["Software Architecture", "Platform Engineering", "WebAssembly", "AI-native Systems", "Contract-Driven Development"]
-    }
-  ]
-}
-</script>
+  <aside class="section-nav-aside" aria-label="White Papers navigation">
+    
+    <a class="section-nav-label" href="/whitepapers/">White Papers</a>
+    
+    
+    <ul class="section-nav-links">
+      
+      <li><a href="/whitepapers/uma/">Universal Microservices Architecture</a></li>
+      
+      <li><a href="/whitepapers/c-dad/" class="active" aria-current="page">Contract-Driven AI Development</a></li>
+      
+      <li><a href="/whitepapers/csma/">Cognitive Systems Modelling</a></li>
+      
+      <li><a href="/whitepapers/ecca/">Edge-Cloud Collaborative Architecture</a></li>
+      
+    </ul>
+    
+  </aside>
 
+  <main class="section-main">
+    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        
+          
+            
+            <li><a href="/work/">Work</a></li>
+            
+          
+            
+            <li><a href="/whitepapers/">White Papers</a></li>
+            
+          
+            
+            <li><span aria-current="page">Contract-Driven AI Development</span></li>
+            
+          
+        
+      </ol>
+    </nav>
 
-
-
-<article class="page-content">
-  <h1>White Paper: Contract-Driven AI Development (C-DAD)</h1>
-  
-  
-  <p style="font-family:var(--mono);font-size:0.72rem;color:var(--mid);margin-bottom:2rem;border-left:2px solid var(--border);padding-left:0.75rem;">By <a href="/about/" style="color:var(--mid);text-decoration:underline;">Enrico Piovesan</a> — Platform Software Architect at Autodesk, author of <em>Universal Microservices Architecture</em> (Apress). Originator of UMA and C-DAD frameworks.</p>
-  
-  <p><strong>November 2025 · Enrico Piovesan</strong></p>
+    <div class="section-body">
+      <h1 class="section-h1">White Paper: Contract-Driven AI Development (C-DAD)</h1>
+      
+      <p><strong>November 2025 · Enrico Piovesan</strong></p>
 <p><a href="/whitepapers/Contract-Driven%20AI%20Development%20%28C-DAD%29%20-%20White%20Paper.pdf">Download PDF</a></p>
 <hr>
 <p>Most of the conversation about AI in software development focuses on what the models can do. This paper focuses on what the codebase needs to provide.</p>
 <p>AI agents and agentic systems can navigate software that declares its intent through contracts. They struggle with software that only has code. The constraint that exists because of a regulatory audit three years ago. The non-goal that was obvious in the room and invisible in the repo. The exception path that one engineer carries in their head and nowhere else. When an AI agent encounters that code it guesses. The problem is not the model. The problem is that the codebase has no contracts.</p>
 <p>C-DAD introduces a foundation for building AI-native systems where contracts, not code, define collaboration between humans, machines, and runtimes.</p>
-<h2>What the paper covers</h2>
+<h2 id="what-the-paper-covers">What the paper covers</h2>
 <p><strong>The distinction between specs and contracts.</strong> A specification describes what a system does. A contract describes why it can be trusted. That distinction determines what AI agents can safely do with your codebase. Agents working with contracts can navigate, validate, and compose capabilities. Agents working with specs can only read and describe them.</p>
 <p><strong>Verifiable contracts.</strong> Every capability declares its preconditions, postconditions, invariants, and exception flows in machine-readable form. Not documentation. Contracts that the pipeline can enforce.</p>
 <p><strong>Automated reasoning.</strong> Contracts enable static analysis, test generation, and agent navigation without requiring human interpretation at every step. The reasoning is built into the structure, not carried in someone's head.</p>
 <p><strong>Hybrid governance.</strong> Humans author the intent. Machines validate the implementation. Neither replaces the other. The combination produces systems that are both navigable and trustworthy at scale.</p>
 <p><strong>The organizational model.</strong> What changes role by role when a team adopts C-DAD. What the architect declares before the sprint begins. What the developer owns beyond the ticket. What the PM needs to ask in discovery that a story format was never designed to hold.</p>
-<h2>Who it is for</h2>
+<h2 id="who-it-is-for">Who it is for</h2>
 <p>Engineering leaders, staff architects, and senior developers who are watching AI agents become part of their teams and want a structural answer to the question of what the codebase needs to provide.</p>
 <hr>
 <p><a href="/c-dad/">Read the full framework</a> · <a href="https://github.com/enricopiovesan/the-day-after-toolkit">the-day-after-toolkit</a> · <a href="/books/">The Day After</a></p>
 
-</article>
+    </div>
+  </main>
+
+  <aside class="section-toc-aside" aria-label="On this page">
+    
+    <span class="section-toc-label">On this page</span>
+    <ul class="section-toc-links">
+      
+      <li><a href="#what-the-paper-covers">What the paper covers</a></li>
+      
+      <li><a href="#who-it-is-for">Who it is for</a></li>
+      
+    </ul>
+    
+  </aside>
+
+</div>
 
   </main>
 
