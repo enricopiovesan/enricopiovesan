@@ -65,9 +65,9 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
-:root{--bg:#000000;--fg:#ffffff;--link:#7ae2cf;--accent:#077a7d;--border:#d3c7c1;--mid:#d3c7c1;--header-bg:#ffffff;--header-fg:#000000;--footer-bg:#077a7d;--footer-fg:#ffffff;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
-[data-theme="light"]{--bg:#ffffff;--fg:#000000;--link:#077a7d;--accent:#7ae2cf;--border:#d3c7c1;--mid:#d3c7c1;--header-bg:#000000;--header-fg:#ffffff;--footer-bg:#7ae2cf;--footer-fg:#000000}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#ffffff;--fg:#000000;--link:#077a7d;--accent:#7ae2cf;--border:#d3c7c1;--mid:#d3c7c1;--header-bg:#000000;--header-fg:#ffffff;--footer-bg:#7ae2cf;--footer-fg:#000000}}
+:root{--black:#0a0a0a;--white:#f5f4f0;--mid:#a8a5a0;--accent:#d45a25;--border:#2a2a28;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem;--bg:var(--black);--fg:var(--white);--fg-mid:var(--mid);--fg-border:var(--border)}
+[data-theme="light"]{--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
@@ -157,52 +157,21 @@
 </script>
 
 
+<section class="hero">
+  <p class="hero-label">Platform architect. Author. Open source builder.</p>
+  <h1>Enrico Piovesan</h1>
+</section>
 
-<div class="section-shell">
-  <aside class="section-nav-aside" aria-label="About navigation">
-    <a class="section-nav-label" href="/about/">About</a>
-    
-    <ul class="section-nav-links">
+<section class="bio-section">
+  <p class="section-label">Platform Software Architect</p>
+  <div class="bio-text">
+    <picture>
+      <source srcset="/src/assets/img/enrico-piovesan.webp" type="image/webp" />
+      <img src="/src/assets/img/enrico-piovesan.jpg" alt="Enrico Piovesan" class="headshot" width="80" height="80" loading="lazy" />
+    </picture>
+    <div class="bio-paragraphs">
       
-      <li><a href="/about/" class="active" aria-current="page">About</a></li>
-      
-      <li><a href="/uses/">Uses</a></li>
-      
-      <li><a href="/now/">Now</a></li>
-      
-    </ul>
-    
-  </aside>
-
-  <main class="section-main">
-    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
-      <ol>
-        <li><a href="/">Home</a></li>
-        
-          
-            <li><span aria-current="page">About</span></li>
-            
-          
-        
-      </ol>
-    </nav>
-
-    <div class="section-body">
-      <section class="hero">
-        <p class="hero-label">Platform architect. Author. Open source builder.</p>
-        <h1>Enrico Piovesan</h1>
-      </section>
-
-      <section class="bio-section">
-        <p class="section-label">Platform Software Architect</p>
-        <div class="bio-text">
-          <picture>
-            <source srcset="/src/assets/img/enrico-piovesan.webp" type="image/webp" />
-            <img src="/src/assets/img/enrico-piovesan.jpg" alt="Enrico Piovesan" class="headshot" width="80" height="80" loading="lazy" />
-          </picture>
-          <div class="bio-paragraphs">
-            
-              <p>Software should work for users, not for the runtime it happens to run on.</p>
+        <p>Software should work for users, not for the runtime it happens to run on.</p>
 <p>I spent years building products across startups in travel, education, and payments. Good teams, real users, hard deadlines. And the same problems kept showing up regardless of the company or the stack. Business logic rewritten for every new runtime. Systems that worked in isolation and fell apart at the boundaries. Codebases that only made sense to the people who built them, and only for as long as those people stayed.</p>
 <p>At some point I stopped treating those as facts of life and started asking why they kept happening. The answer, most of the time, was that the architecture had been designed for the environment instead of the problem.</p>
 <h2>What I work on</h2>
@@ -222,17 +191,10 @@
 <p>I am a Platform Software Architect at Autodesk. Before that I spent four years as a Domain Software Architect at Ford, and before that I co-founded companies in travel, education, and payments. I moved from Italy to Canada about ten years ago and ended up in Golden, BC, which is a small town in the Purcell Mountains with exceptional snow. I am a certified ski instructor and a ski patroller. I have two daughters who think the word monolith is scary, and I have not corrected them. I still make real carbonara. No cream, no shortcuts.</p>
 <p>I do not believe in work life balance. I believe in seasons. This is mine to give everything.</p>
 
-            
-          </div>
-        </div>
-      </section>
+      
     </div>
-  </main>
-
-  <aside class="section-toc-aside" aria-label="On this page">
-    
-  </aside>
-</div>
+  </div>
+</section>
 
   </main>
 

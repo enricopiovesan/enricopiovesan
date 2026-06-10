@@ -2,6 +2,7 @@
 layout: base.njk
 ---
 {% set nav = sectionNavs[sectionGroup] %}
+{% set autoToc = content | extractToc %}
 <div class="section-shell">
 
   <aside class="section-nav-aside" aria-label="{{ nav.label }} navigation">
@@ -45,10 +46,10 @@ layout: base.njk
   </main>
 
   <aside class="section-toc-aside" aria-label="On this page">
-    {% if toc %}
+    {% if autoToc.length %}
     <span class="section-toc-label">On this page</span>
     <ul class="section-toc-links">
-      {% for item in toc %}
+      {% for item in autoToc %}
       <li><a href="#{{ item.id }}">{{ item.label }}</a></li>
       {% endfor %}
     </ul>

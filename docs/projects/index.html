@@ -65,9 +65,9 @@
 @font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:optional;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
-:root{--bg:#000000;--fg:#ffffff;--link:#7ae2cf;--accent:#077a7d;--border:#d3c7c1;--mid:#d3c7c1;--header-bg:#ffffff;--header-fg:#000000;--footer-bg:#077a7d;--footer-fg:#ffffff;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
-[data-theme="light"]{--bg:#ffffff;--fg:#000000;--link:#077a7d;--accent:#7ae2cf;--border:#d3c7c1;--mid:#d3c7c1;--header-bg:#000000;--header-fg:#ffffff;--footer-bg:#7ae2cf;--footer-fg:#000000}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#ffffff;--fg:#000000;--link:#077a7d;--accent:#7ae2cf;--border:#d3c7c1;--mid:#d3c7c1;--header-bg:#000000;--header-fg:#ffffff;--footer-bg:#7ae2cf;--footer-fg:#000000}}
+:root{--black:#0a0a0a;--white:#f5f4f0;--mid:#a8a5a0;--accent:#d45a25;--border:#2a2a28;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem;--bg:var(--black);--fg:var(--white);--fg-mid:var(--mid);--fg-border:var(--border)}
+[data-theme="light"]{--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f4f0;--fg:#0a0a0a;--fg-mid:#555250;--fg-border:#d5d2ce;--border:#d5d2ce;--mid:#555250;--black:#f5f4f0;--white:#0a0a0a;--accent:#b03a14}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
@@ -196,44 +196,6 @@
 }
 </script>
 
-
-
-<div class="section-shell">
-  <aside class="section-nav-aside" aria-label="Work navigation">
-    <a class="section-nav-label" href="/work/">Work</a>
-    
-    <ul class="section-nav-links">
-      
-      <li><a href="/books/">Books</a></li>
-      
-      <li><a href="/whitepapers/">White Papers</a></li>
-      
-      <li><a href="/projects/" class="active" aria-current="page">Projects</a></li>
-      
-      <li><a href="/teaching/">Teaching</a></li>
-      
-    </ul>
-    
-  </aside>
-
-  <main class="section-main">
-    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
-      <ol>
-        <li><a href="/">Home</a></li>
-        
-          
-            <li><a href="/work/">Work</a></li>
-            
-          
-            <li><span aria-current="page">Projects</span></li>
-            
-          
-        
-      </ol>
-    </nav>
-
-    <div class="section-body">
-
 <section class="hero">
   <p class="hero-label">Open Source</p>
   <h1>Projects</h1>
@@ -305,14 +267,6 @@
   </div>
 </div>
 
-
-    </div>
-  </main>
-
-  <aside class="section-toc-aside" aria-label="On this page">
-    
-  </aside>
-</div>
 
   </main>
 
