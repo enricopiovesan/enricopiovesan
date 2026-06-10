@@ -1013,18 +1013,24 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--sans);
   font-size: 0.9375rem;
   line-height: 1.75;
-  color: var(--mid);
+  color: var(--fg);
 }
 
-.section-body p { margin-bottom: 1.25rem; }
+.section-body p {
+  margin-bottom: 1.25rem;
+  color: var(--fg);
+  opacity: 0.65;
+  font-weight: 300;
+}
 .section-body p:last-child { margin-bottom: 0; }
 
 .section-body h2 {
   font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--mid);
+  color: var(--fg);
+  opacity: 0.4;
   margin-top: 2.5rem;
   margin-bottom: 0.75rem;
   font-weight: 400;
