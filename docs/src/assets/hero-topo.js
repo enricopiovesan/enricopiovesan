@@ -11,7 +11,17 @@
      under the text comes into view; pointer adds a small depth parallax.
    - Static (no drift, no parallax) with reduced motion or coarse pointers.
    Everything renders to an offscreen canvas; the animation loop is a
-   single drawImage blit per frame. */
+   single drawImage blit per frame.
+
+   Live data (all fetches fail silent, gated on tab/hero visibility):
+   - aircraft: api.airplanes.live, 80 nm around Golden, every 60 s
+   - weather (temp/wind/precip/cloud/snow depth): api.open-meteo.com, 15 min
+   - Hwy 1 events: api.open511.gov.bc.ca, 10 min
+   - aurora Kp: services.swpc.noaa.gov, 30 min
+   - ISS: api.wheretheiss.at, 5 min (15 s while overhead)
+   - river discharge: api.weather.gc.ca hydrometric (08NA006, 08NA002), 60 min
+   Modeled (no live source): CPKC freight trains, KHMR gondola hours,
+   Mt 7 paragliders. */
 (function () {
   var canvas = document.getElementById('hero-topo');
   if (!canvas) return;
@@ -255,17 +265,19 @@
     var rdx = mx * 14 * 0.25, rdy = my * 9 * 0.25;
     octx.strokeStyle = p.river;
     octx.globalAlpha = p.riverA;
-    octx.lineWidth = 1.4;
-    octx.beginPath();
+    // Kicking Horse (rivers[0]) and Columbia (rivers[13]) widths track the
+    // real gauged discharge; everything else stays at the base width.
     var rivers = DATA.rivers || [];
     for (var r = 0; r < rivers.length; r++) {
       var rv = rivers[r];
+      octx.lineWidth = r === 0 ? RIVER_LW.kh : (r === 13 ? RIVER_LW.col : 1.4);
+      octx.beginPath();
       octx.moveTo(ox + rv[0][0] * sx + rdx, oy + rv[0][1] * sy + rdy);
       for (var q = 1; q < rv.length; q++) {
         octx.lineTo(ox + rv[q][0] * sx + rdx, oy + rv[q][1] * sy + rdy);
       }
+      octx.stroke();
     }
-    octx.stroke();
 
     // Peaks: triangle + elevation
     var peaks = DATA.peaks || [];
@@ -373,6 +385,27 @@
   }
 
   var WX = null, WIND_P = [], PRECIP = [], PARA = [], ROADEV = [], KP = 0;
+  var RIVER_LW = { kh: 1.4, col: 1.4 };
+  function fetchRivers() {
+    if (document.hidden || !visible) return;
+    // Median-flow baselines: Kicking Horse ~30 m3/s, Columbia ~110 m3/s
+    function one(station, key, base) {
+      fetch('https://api.weather.gc.ca/collections/hydrometric-realtime/items?STATION_NUMBER=' + station + '&limit=1&sortby=-DATETIME&f=json')
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          var f = d.features && d.features[0];
+          var q = f && f.properties && f.properties.DISCHARGE;
+          if (typeof q === 'number' && q > 0) {
+            RIVER_LW[key] = Math.min(3.2, Math.max(1, 1 + 0.9 * Math.log(q / base) / Math.LN10));
+            if (DATA) rebuild();
+          }
+        })
+        .catch(function () { /* decorative only */ });
+    }
+    one('08NA006', 'kh', 30);   // Kicking Horse at Golden
+    one('08NA002', 'col', 110); // Columbia at Nicholson
+  }
+
   var ISS = null, issPrev = null;
   function pollISS() {
     var near = false;
@@ -842,6 +875,8 @@
         fetchKp();
         setInterval(fetchKp, 30 * 60 * 1000);
         pollISS();
+        fetchRivers();
+        setInterval(fetchRivers, 60 * 60 * 1000);
         if (!reduced) {
           // Overlay ticker: planes/train creep across the static scene.
           setInterval(function () {
