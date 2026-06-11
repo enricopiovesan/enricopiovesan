@@ -18,18 +18,16 @@
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var finePointer = window.matchMedia('(pointer: fine)').matches;
-  var animate = !reduced;
   var ctx = canvas.getContext('2d');
   var off = document.createElement('canvas');
   var octx = off.getContext('2d');
   var fill = document.createElement('canvas');   // low-res terrain wash
   var fctx = fill.getContext('2d');
 
-  var DATA = null, GRID = null;
-  var w = 0, h = 0, dpr = 1, margin = 0;
+  var DATA = null, GRID = null, SUN = null;
+  var w = 0, h = 0, dpr = 1, margin = 24;        // parallax headroom
   var mx = 0, my = 0, tx = 0, ty = 0;            // pointer lerp
-  var raf = null, running = false, visible = true;
-  var DRIFT_PERIOD = 70000;                       // ms per east-west cycle
+  var raf = null, settled = true, visible = true;
 
   /* Seasonal snowline (m): ~1700 on June 10, bare but the tops by
      mid-July, dustings return through fall, ~900 in deep winter. */
@@ -83,16 +81,18 @@
     var cs = getComputedStyle(document.documentElement);
     return {
       line: cs.getPropertyValue('--fg').trim() || (light ? '#001f3f' : '#f6f7ed'),
-      lineA: light ? 0.13 : 0.14,
-      lineAi: light ? 0.26 : 0.30,
+      lineA: light ? 0.09 : 0.08,
+      lineAi: light ? 0.18 : 0.17,
       river: light ? '#2e6f9e' : '#7fb4d8',
       riverA: light ? 0.5 : 0.55,
-      peakA: light ? 0.45 : 0.5,
+      peakA: light ? 0.7 : 0.78,
       // terrain wash RGB
-      snow: light ? [126, 168, 205] : [235, 243, 250],
-      green: light ? [0, 128, 76] : [116, 195, 101],
-      rock: light ? [60, 80, 100] : [170, 180, 195],
-      washA: light ? 0.10 : 0.085
+      snow: light ? [126, 168, 205] : [225, 236, 246],
+      green: light ? [0, 128, 76] : [88, 142, 96],
+      rock: light ? [60, 80, 100] : [150, 160, 175],
+      washA: light ? 0.10 : 0.055,
+      sunGlow: light ? [255, 178, 84] : [255, 188, 110],
+      moonGlow: [150, 180, 230]
     };
   }
 
@@ -107,6 +107,7 @@
     var e0 = DATA.grid.e0, e1 = DATA.grid.e1;
 
     var day = sun.alt > -0.10;                     // includes civil twilight
+    SUN = { alt: sun.alt, az: sun.az, day: day };
     var alt = day ? Math.max(sun.alt, 0.06) : 0.55;
     var az = day ? sun.az : 0;                     // moon: from the south
     // Light vector in map space: north is up (-y), south +y, west -x
@@ -132,15 +133,16 @@
         var shade = Math.max(0, (nx * lx + ny * ly + nz * lz) * nl);
 
         var c = e >= snow ? p.snow : (e <= 2050 ? p.green : p.rock);
-        var lum = dim * (0.35 + 0.9 * shade);
+        // High shade contrast so the sun direction reads clearly
+        var lum = dim * (0.2 + 1.15 * shade);
         var r = c[0] * lum, g = c[1] * lum, b = c[2] * lum;
         if (warm > 0 && shade > 0.15) {            // sunrise/sunset glow
-          r += 70 * warm * shade; g += 22 * warm * shade;
+          r += 85 * warm * shade; g += 26 * warm * shade;
         }
         if (!day) { b += 18; }                      // moonlight cools
         var o = i * 4;
         d[o] = r; d[o + 1] = g; d[o + 2] = b;
-        d[o + 3] = Math.round(255 * p.washA * (0.55 + 0.75 * shade));
+        d[o + 3] = Math.round(255 * p.washA * (0.3 + 1.2 * shade));
       }
     }
     fill.width = gw; fill.height = gh;
@@ -170,6 +172,23 @@
     // Terrain wash (bilinear upscale of the low-res raster)
     octx.imageSmoothingEnabled = true;
     octx.drawImage(fill, ox + mx * 6, oy + my * 4, sx, sy);
+
+    // Directional glow so the sun (or moon) position reads at a glance.
+    // Map is north-up: east = right, south = down.
+    if (SUN) {
+      var dirX = SUN.day ? -Math.sin(SUN.az) : 0;
+      var elev = Math.max(0, Math.sin(Math.max(SUN.alt, 0)));
+      var cx = ow * (0.5 + 0.44 * dirX);
+      var cy = SUN.day ? h * (0.7 - 0.62 * elev) : h * 0.78;
+      var radius = Math.max(ow, h) * 0.75;
+      var gc = SUN.day ? p.sunGlow : p.moonGlow;
+      var ga = SUN.day ? (0.16 - 0.07 * elev) : 0.07;
+      var grad = octx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+      grad.addColorStop(0, 'rgba(' + gc[0] + ',' + gc[1] + ',' + gc[2] + ',' + ga.toFixed(3) + ')');
+      grad.addColorStop(1, 'rgba(' + gc[0] + ',' + gc[1] + ',' + gc[2] + ',0)');
+      octx.fillStyle = grad;
+      octx.fillRect(0, 0, ow, h);
+    }
 
     // Contour lines: one constant color
     octx.strokeStyle = p.line;
@@ -209,60 +228,58 @@
 
     // Peaks: triangle + elevation
     var peaks = DATA.peaks || [];
-    octx.font = '9px "IBM Plex Mono", monospace';
+    octx.font = '10px "IBM Plex Mono", monospace';
     octx.textBaseline = 'middle';
     octx.strokeStyle = p.line;
     octx.fillStyle = p.line;
-    octx.lineWidth = 1;
+    octx.lineWidth = 1.1;
     for (var u = 0; u < peaks.length; u++) {
       var pk = peaks[u];
       var dp2 = depthOf(pk[2]);
       var px = ox + pk[0] * sx + mx * 14 * dp2;
       var py = oy + pk[1] * sy + my * 9 * dp2;
-      if (px < 8 || px > ow - 44 || py < 10 || py > h - 10) continue;
+      if (px < 8 || px > ow - 50 || py < 10 || py > h - 10) continue;
       octx.globalAlpha = p.peakA;
       octx.beginPath();
-      octx.moveTo(px, py - 3.5);
-      octx.lineTo(px + 3.5, py + 2.5);
-      octx.lineTo(px - 3.5, py + 2.5);
+      octx.moveTo(px, py - 4.5);
+      octx.lineTo(px + 4, py + 3);
+      octx.lineTo(px - 4, py + 3);
       octx.closePath();
       octx.stroke();
-      octx.globalAlpha = p.peakA * 0.85;
-      octx.fillText(pk[2] + ' m', px + 7, py);
+      octx.globalAlpha = p.peakA * 0.9;
+      octx.fillText(pk[2] + ' m', px + 8, py);
     }
     octx.globalAlpha = 1;
   }
 
-  function blit(driftX) {
+  function blit() {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(off, Math.round((-margin + driftX) * dpr), 0);
+    ctx.drawImage(off, -margin * dpr, 0);
   }
 
-  function frame(t) {
+  /* Animation only runs while the pointer parallax is settling. */
+  function frame() {
     raf = null;
-    if (!running) return;
-    var needScene = false;
-    if (Math.abs(tx - mx) > 0.002 || Math.abs(ty - my) > 0.002) {
-      mx += (tx - mx) * 0.06;
-      my += (ty - my) * 0.06;
-      needScene = true;
+    mx += (tx - mx) * 0.06;
+    my += (ty - my) * 0.06;
+    renderScene();
+    blit();
+    if (Math.abs(tx - mx) < 0.002 && Math.abs(ty - my) < 0.002) {
+      settled = true;
+      return;
     }
-    if (needScene) renderScene();
-    var drift = animate ? Math.sin(t * 2 * Math.PI / DRIFT_PERIOD) * (margin - 16) : 0;
-    blit(drift);
-    if (animate || needScene) raf = requestAnimationFrame(frame);
-    else running = false;
+    raf = requestAnimationFrame(frame);
   }
 
   function start() {
-    if (!running && DATA && visible) {
-      running = true;
+    if (settled && DATA && visible) {
+      settled = false;
       if (!raf) raf = requestAnimationFrame(frame);
     }
   }
   function stop() {
-    running = false;
+    settled = true;
     if (raf) { cancelAnimationFrame(raf); raf = null; }
   }
 
@@ -270,20 +287,18 @@
     var r = canvas.getBoundingClientRect();
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     w = r.width; h = r.height;
-    margin = Math.min(Math.round(w * 0.12), 190) + 16;
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
     renderFill();
     renderScene();
-    blit(0);
-    start();
+    blit();
   }
 
   function rebuild() {                              // theme change / sun tick
     if (!DATA) return;
     renderFill();
     renderScene();
-    if (!running) blit(0);
+    blit();
   }
 
   function load() {
