@@ -384,11 +384,11 @@
       ctx.setLineDash([]);
     }
 
-    // Freight trains: ~2.2 km, sped up ~12x real freight pace so they visibly
-    // cross the hero. Two opposing runs on offset schedules, with the same
-    // leader-line data block treatment as the aircraft.
+    // Freight trains: ~2.2 km at 90 km/h (~2x canyon freight pace).
+    // Two opposing runs on offset schedules, with the same leader-line
+    // data block treatment as the aircraft.
     if (RAIL && RAIL_LEN) {
-      var v = 540 / 3600;
+      var v = 90 / 3600;
       var nowS = Date.now() / 1000;
       for (var ti = 0; ti < 2; ti++) {
         // Different speeds so the meeting point drifts along the route
