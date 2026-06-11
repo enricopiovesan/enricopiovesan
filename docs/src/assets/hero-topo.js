@@ -361,7 +361,7 @@
       .catch(function () { /* decorative only */ });
   }
 
-  var WX = null, WIND_P = [], PRECIP = [];
+  var WX = null, WIND_P = [], PRECIP = [], PARA = [];
   function fetchWeather() {
     if (document.hidden || !visible) return;
     fetch('https://api.open-meteo.com/v1/forecast?latitude=51.2977&longitude=-116.9631&current=temperature_2m,wind_speed_10m,wind_direction_10m,precipitation,rain,snowfall,cloud_cover,weather_code,snow_depth&timezone=America%2FEdmonton')
@@ -475,6 +475,37 @@
       ctx.textBaseline = 'alphabetic';
       ctx.fillText('KHMR · gondola', tX - 8, tY - 14);
       ctx.fillText(open ? 'open · ' + hours : 'closed', tX - 8, tY - 3);
+    })();
+
+    // Mount 7 paragliders: famous launch SE of town. Modeled — summer
+    // afternoons in flyable weather, slow thermal circles drifting to the LZ.
+    (function () {
+      var gn3 = goldenNow();
+      var flyable = gn3.doy >= 152 && gn3.doy <= 273 && gn3.hour >= 12 && gn3.hour < 18 &&
+        (!WX || (WX.wind_speed_10m < 30 && !(WX.rain > 0)));
+      if (!flyable) { PARA.length = 0; return; }
+      var lnx = (-116.9426 - GEO.lonLeft) / GEO.dLon, lny = (GEO.latTop - 51.2628) / GEO.dLat;
+      var znx = (-116.957 - GEO.lonLeft) / GEO.dLon, zny = (GEO.latTop - 51.287) / GEO.dLat;
+      var lX = ox2 + lnx * sx2 + mx * 14 * 0.25, lY = oy2 + lny * sy2 + my * 9 * 0.25;
+      var zX = ox2 + znx * sx2 + mx * 14 * 0.25, zY = oy2 + zny * sy2 + my * 9 * 0.25;
+      if (!PARA.length) {
+        PARA.push({ ang: 0, prog: 0, r: 5 });
+        PARA.push({ ang: 2.5, prog: 0.45, r: 7 });
+      }
+      ctx.fillStyle = isLight() ? '#a04a10' : '#f0b070';
+      for (var pg = 0; pg < PARA.length; pg++) {
+        var g = PARA[pg];
+        g.ang += 0.055; g.prog += 1 / 1920;          // ~4 min launch -> LZ
+        if (g.prog > 1) { g.prog = 0; g.ang = Math.random() * 6; }
+        var gx = lX + (zX - lX) * g.prog + Math.cos(g.ang) * g.r;
+        var gy = lY + (zY - lY) * g.prog + Math.sin(g.ang) * g.r * 0.6;
+        ctx.globalAlpha = 0.85;
+        ctx.beginPath(); ctx.arc(gx, gy, 1.3, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.globalAlpha = 0.5;
+      ctx.font = '9px "IBM Plex Mono", monospace';
+      ctx.textBaseline = 'alphabetic';
+      ctx.fillText('Mt 7 · paragliders', lX + 8, lY + 12);
     })();
 
     // Railway: lean dashed line, corners rounded through midpoints.
