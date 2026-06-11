@@ -442,11 +442,7 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 600px) {
   .home-hero { padding: 3.5rem 1.5rem 4rem; }
   .home-tagline { letter-spacing: -0.02em; }
-  /* Text spans full width on mobile: keep contours as a quiet wash */
-  #hero-topo {
-    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.6) 100%);
-    mask-image: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.6) 100%);
-  }
+  #hero-topo { display: none; }
   .home-hero-coords { margin-top: 2.5rem; font-size: 0.56rem; letter-spacing: 0.08em; }
 }
 
