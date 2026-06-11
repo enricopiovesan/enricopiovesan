@@ -354,6 +354,25 @@
       .catch(function () { /* decorative only */ });
   }
 
+  var WX = null;
+  function fetchWeather() {
+    if (document.hidden || !visible) return;
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=51.2977&longitude=-116.9631&current=temperature_2m,wind_speed_10m,wind_direction_10m,precipitation,rain,snowfall,cloud_cover,weather_code,snow_depth&timezone=America%2FEdmonton')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        WX = d.current || null;
+        if (WX && typeof WX.temperature_2m === 'number') {
+          var el = document.querySelector('.home-hero-coords');
+          if (el) {
+            var base = el.getAttribute('data-base') || el.textContent;
+            el.setAttribute('data-base', base);
+            el.textContent = base + ' · ' + Math.round(WX.temperature_2m) + '°C';
+          }
+        }
+      })
+      .catch(function () { /* decorative only */ });
+  }
+
   function drawOverlay() {
     if (!DATA) return;
     var p = palette();
@@ -571,6 +590,8 @@
         setInterval(function () { if (visible) rebuild(); }, 60000);
         fetchPlanes();
         setInterval(fetchPlanes, 60000);
+        fetchWeather();
+        setInterval(fetchWeather, 15 * 60 * 1000);
         if (!reduced) {
           // Overlay ticker: planes/train creep across the static scene.
           setInterval(function () {
@@ -604,7 +625,10 @@
   }
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) stop();
-    else if (visible) start();
+    else if (visible) {
+      start();
+      if (!WX) fetchWeather();
+    }
   });
 
   var rt;
