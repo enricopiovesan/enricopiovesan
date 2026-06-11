@@ -106,7 +106,17 @@ class EpNav extends HTMLElement {
 
     this.innerHTML = `
       <style>
-        ep-nav { display: block; min-height: 64px; background: var(--header-bg); }
+        ep-nav {
+          display: block;
+          min-height: 64px;
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          background: var(--header-bg);
+          background: color-mix(in srgb, var(--header-bg) 78%, transparent);
+          -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+        }
         nav {
           display: flex;
           justify-content: space-between;

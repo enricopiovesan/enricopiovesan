@@ -112,9 +112,12 @@ a { color: inherit; text-decoration: none; }
 }
 
 #hero-topo {
+  /* Full-bleed: break out of the 1400px main column */
   position: absolute;
-  inset: 0;
-  width: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   height: 100%;
   pointer-events: none;
   opacity: 0;
@@ -122,6 +125,19 @@ a { color: inherit; text-decoration: none; }
   /* Soften contours behind the text, keep the rest of the range visible */
   -webkit-mask-image: linear-gradient(105deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.95) 68%, #000 100%);
   mask-image: linear-gradient(105deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.95) 68%, #000 100%);
+}
+
+/* Map fades into the page background at the hero's bottom edge */
+.home-hero::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 100vw;
+  height: 110px;
+  background: linear-gradient(180deg, transparent, var(--bg));
+  pointer-events: none;
 }
 
 .home-hero-content {
