@@ -20,8 +20,8 @@
    - aurora Kp: services.swpc.noaa.gov, 30 min
    - ISS: api.wheretheiss.at, 5 min (15 s while overhead)
    - river discharge: api.weather.gc.ca hydrometric (08NA006, 08NA002), 60 min
-   Modeled (no live source): CPKC freight trains, KHMR gondola hours,
-   Mt 7 paragliders. */
+   - precipitation radar: api.rainviewer.com tiles, 10 min
+   Modeled (no live source): CPKC freight trains, KHMR gondola hours. */
 (function () {
   var canvas = document.getElementById('hero-topo');
   if (!canvas) return;
@@ -193,6 +193,13 @@
     // Terrain wash (bilinear upscale of the low-res raster)
     octx.imageSmoothingEnabled = true;
     octx.drawImage(fill, ox + mx * 6, oy + my * 4, sx, sy);
+
+    // Live precipitation radar wash
+    if (RADAR_CV) {
+      octx.globalAlpha = 0.38;
+      octx.drawImage(RADAR_CV, ox + mx * 6, oy + my * 4, sx, sy);
+      octx.globalAlpha = 1;
+    }
 
     // Directional glow so the sun (or moon) position reads at a glance.
     // Map is north-up: east = right, south = down.
@@ -384,7 +391,58 @@
       .catch(function () { /* decorative only */ });
   }
 
-  var WX = null, WIND_P = [], PRECIP = [], PARA = [], ROADEV = [], KP = 0;
+  var WX = null, WIND_P = [], PRECIP = [], ROADEV = [], KP = 0;
+  /* Precipitation radar (RainViewer composite): tiles re-projected onto
+     the strip and washed over the terrain at low alpha. */
+  var RADAR_CV = null;
+  function fetchRadar() {
+    if (document.hidden || !visible) return;
+    fetch('https://api.rainviewer.com/public/weather-maps.json')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var past = d.radar && d.radar.past;
+        if (!past || !past.length) return;
+        var path = d.host + past[past.length - 1].path;
+        var z = 8, n = 256, W = 600, H = 240;
+        function xf(lon) { return (lon + 180) / 360 * n; }
+        function yf(lat) { return (1 - Math.asinh(Math.tan(lat * Math.PI / 180)) / Math.PI) / 2 * n; }
+        function tileLat(y) { return Math.atan(Math.sinh(Math.PI * (1 - 2 * y / n))) * 180 / Math.PI; }
+        var lonR = GEO.lonLeft + GEO.dLon, latBot = GEO.latTop - GEO.dLat;
+        var x0 = Math.floor(xf(GEO.lonLeft)), x1 = Math.floor(xf(lonR));
+        var y0 = Math.floor(yf(GEO.latTop)), y1 = Math.floor(yf(latBot));
+        var cv = document.createElement('canvas');
+        cv.width = W; cv.height = H;
+        var cx2 = cv.getContext('2d');
+        var pending = 0, drew = false;
+        function done() {
+          if (--pending === 0 && drew) { RADAR_CV = cv; if (DATA) rebuild(); }
+        }
+        for (var tx3 = x0; tx3 <= x1; tx3++) {
+          for (var ty3 = y0; ty3 <= y1; ty3++) {
+            (function (tx4, ty4) {
+              pending++;
+              var img = new Image();
+              img.crossOrigin = 'anonymous';
+              img.onload = function () {
+                var west = tx4 / n * 360 - 180, east = (tx4 + 1) / n * 360 - 180;
+                var top = tileLat(ty4), bot = tileLat(ty4 + 1);
+                var dx = (west - GEO.lonLeft) / GEO.dLon * W;
+                var dw = (east - west) / GEO.dLon * W;
+                var dy = (GEO.latTop - top) / GEO.dLat * H;
+                var dh = (top - bot) / GEO.dLat * H;
+                cx2.drawImage(img, dx, dy, dw, dh);
+                drew = true;
+                done();
+              };
+              img.onerror = done;
+              img.src = path + '/256/' + z + '/' + tx4 + '/' + ty4 + '/2/1_1.png';
+            })(tx3, ty3);
+          }
+        }
+      })
+      .catch(function () { /* decorative only */ });
+  }
+
   var RIVER_LW = { kh: 1.4, col: 1.4 };
   function fetchRivers() {
     if (document.hidden || !visible) return;
@@ -502,13 +560,13 @@
     // Wind streaks: drift in the real wind direction, pace from speed.
     if (WX && WX.wind_speed_10m >= 5) {
       var wdir = (WX.wind_direction_10m + 180) * Math.PI / 180; // motion vector
-      var wspd = Math.min(2.5, 0.3 + WX.wind_speed_10m / 25);   // px per tick
+      var wspd = Math.min(0.9, 0.1 + WX.wind_speed_10m / 75);   // px per 40ms tick
       var wvx = Math.sin(wdir) * wspd, wvy = -Math.cos(wdir) * wspd;
       if (!WIND_P.length) {
         for (var wi = 0; wi < 24; wi++) WIND_P.push({ x: Math.random() * w, y: Math.random() * h });
       }
       ctx.strokeStyle = p.line;
-      ctx.globalAlpha = 0.14;
+      ctx.globalAlpha = 0.22;
       ctx.lineWidth = 1;
       ctx.beginPath();
       for (var wj = 0; wj < WIND_P.length; wj++) {
@@ -517,7 +575,7 @@
         if (wp.x < -10) wp.x += w + 20; if (wp.x > w + 10) wp.x -= w + 20;
         if (wp.y < -10) wp.y += h + 20; if (wp.y > h + 10) wp.y -= h + 20;
         ctx.moveTo(wp.x, wp.y);
-        ctx.lineTo(wp.x - wvx * 7, wp.y - wvy * 7);
+        ctx.lineTo(wp.x - wvx * 22, wp.y - wvy * 22);
       }
       ctx.stroke();
     }
@@ -535,7 +593,7 @@
       if (!snow) ctx.beginPath();
       for (var pj = 0; pj < PRECIP.length; pj++) {
         var pp = PRECIP[pj];
-        pp.x += pvx; pp.y += snow ? 0.45 : 3;
+        pp.x += pvx * 0.33; pp.y += snow ? 0.15 : 1;
         if (pp.y > h + 4) { pp.y = -4; pp.x = Math.random() * w; }
         if (pp.x < -4) pp.x += w + 8; if (pp.x > w + 4) pp.x -= w + 8;
         if (snow) {
@@ -604,35 +662,22 @@
       }
     }
 
-    // Mount 7 paragliders: famous launch SE of town. Modeled — summer
-    // afternoons in flyable weather, slow thermal circles drifting to the LZ.
+    // Golden airport (CYGE): real field, no METAR/scheduled service —
+    // static ident marker; any traffic shows via the ADS-B layer.
     (function () {
-      var gn3 = goldenNow();
-      var flyable = gn3.doy >= 152 && gn3.doy <= 273 && gn3.hour >= 12 && gn3.hour < 18 &&
-        (!WX || (WX.wind_speed_10m < 30 && !(WX.rain > 0)));
-      if (!flyable) { PARA.length = 0; return; }
-      var lnx = (-116.9426 - GEO.lonLeft) / GEO.dLon, lny = (GEO.latTop - 51.2628) / GEO.dLat;
-      var znx = (-116.957 - GEO.lonLeft) / GEO.dLon, zny = (GEO.latTop - 51.287) / GEO.dLat;
-      var lX = ox2 + lnx * sx2 + mx * 14 * 0.25, lY = oy2 + lny * sy2 + my * 9 * 0.25;
-      var zX = ox2 + znx * sx2 + mx * 14 * 0.25, zY = oy2 + zny * sy2 + my * 9 * 0.25;
-      if (!PARA.length) {
-        PARA.push({ ang: 0, prog: 0, r: 5 });
-        PARA.push({ ang: 2.5, prog: 0.45, r: 7 });
-      }
-      ctx.fillStyle = isLight() ? '#a04a10' : '#f0b070';
-      for (var pg = 0; pg < PARA.length; pg++) {
-        var g = PARA[pg];
-        g.ang += 0.055; g.prog += 1 / 1920;          // ~4 min launch -> LZ
-        if (g.prog > 1) { g.prog = 0; g.ang = Math.random() * 6; }
-        var gx = lX + (zX - lX) * g.prog + Math.cos(g.ang) * g.r;
-        var gy = lY + (zY - lY) * g.prog + Math.sin(g.ang) * g.r * 0.6;
-        ctx.globalAlpha = 0.85;
-        ctx.beginPath(); ctx.arc(gx, gy, 1.3, 0, Math.PI * 2); ctx.fill();
-      }
-      ctx.globalAlpha = 0.5;
-      ctx.font = '9px "IBM Plex Mono", monospace';
+      var anx = (-116.9825 - GEO.lonLeft) / GEO.dLon, any2 = (GEO.latTop - 51.2992) / GEO.dLat;
+      var aX = ox2 + anx * sx2 + mx * 14 * 0.25, aY = oy2 + any2 * sy2 + my * 9 * 0.25;
+      ctx.strokeStyle = p.line;
+      ctx.globalAlpha = 0.45;
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.arc(aX, aY, 3, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(aX - 4.5, aY); ctx.lineTo(aX + 4.5, aY);
+      ctx.stroke();
+      ctx.fillStyle = p.line;
+      ctx.font = '8px "IBM Plex Mono", monospace';
       ctx.textBaseline = 'alphabetic';
-      ctx.fillText('Mt 7 · paragliders', lX + 8, lY + 12);
+      ctx.fillText('CYGE', aX + 6, aY - 4);
     })();
 
     // Railway: lean dashed line, corners rounded through midpoints.
@@ -877,11 +922,13 @@
         pollISS();
         fetchRivers();
         setInterval(fetchRivers, 60 * 60 * 1000);
+        fetchRadar();
+        setInterval(fetchRadar, 10 * 60 * 1000);
         if (!reduced) {
           // Overlay ticker: planes/train creep across the static scene.
           setInterval(function () {
-            if (visible && !document.hidden) blit();
-          }, 125);
+            if (visible && !document.hidden && !raf) blit();
+          }, 40);
         }
       })
       .catch(function () { /* decorative only */ });
@@ -915,6 +962,20 @@
       if (!WX) fetchWeather();
     }
   });
+
+  // Vertical scroll parallax: the map sinks slower than the text scrolls.
+  if (!reduced) {
+    var spTick = false;
+    window.addEventListener('scroll', function () {
+      if (spTick) return;
+      spTick = true;
+      requestAnimationFrame(function () {
+        spTick = false;
+        var py = Math.min(140, window.scrollY * 0.28);
+        canvas.style.transform = 'translateX(-50%) translateY(' + py.toFixed(1) + 'px)';
+      });
+    }, { passive: true });
+  }
 
   var rt;
   window.addEventListener('resize', function () {

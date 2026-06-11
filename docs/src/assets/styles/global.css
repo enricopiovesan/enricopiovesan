@@ -109,7 +109,7 @@ a { color: inherit; text-decoration: none; }
 /* ── Hero ── */
 .home-hero {
   position: relative;
-  padding: 6rem 3rem 5.5rem;
+  padding: 9rem 3rem 8.5rem;
   /* No overflow clip here: the topo canvas breaks out to 100vw.
      body { overflow-x: clip } stops it creating a horizontal scrollbar. */
 }
@@ -117,11 +117,12 @@ a { color: inherit; text-decoration: none; }
 #hero-topo {
   /* Full-bleed: break out of the 1400px main column */
   position: absolute;
-  top: 0;
+  /* Extra headroom above the hero so the scroll parallax never shows a gap */
+  top: -140px;
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
-  height: 100%;
+  height: calc(100% + 140px);
   pointer-events: none;
   opacity: 0;
   transition: opacity 1.2s ease;
