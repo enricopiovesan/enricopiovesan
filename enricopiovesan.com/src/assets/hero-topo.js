@@ -349,9 +349,26 @@
     var ox2 = (ow - sx2) / 2 - margin, oy2 = (h - sy2) / 2;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    // Freight train: ~2.2 km, 45 km/h, short idle gap between runs.
+    // Railway: dashed line along the corridor so the route reads as tracks.
     if (RAIL && RAIL_LEN) {
-      var v = 45 / 3600;
+      var tc = isLight() ? '#7a4a06' : '#e0a84a';
+      ctx.strokeStyle = tc;
+      ctx.globalAlpha = 0.28;
+      ctx.lineWidth = 1;
+      ctx.setLineDash([5, 4]);
+      ctx.beginPath();
+      for (var ri = 0; ri < RAIL.length; ri++) {
+        var rx = ox2 + RAIL[ri].x * sx2 + mx * 14 * 0.25, ry = oy2 + RAIL[ri].y * sy2 + my * 9 * 0.25;
+        if (ri === 0) ctx.moveTo(rx, ry); else ctx.lineTo(rx, ry);
+      }
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    // Freight train: ~2.2 km, sped up ~12x real freight pace so it visibly
+    // crosses the hero during a visit; short idle gap between runs.
+    if (RAIL && RAIL_LEN) {
+      var v = 540 / 3600;
       var travel = RAIL_LEN / v, period = travel + 480;
       var es = (Date.now() / 1000) % period;
       if (es < travel) {
