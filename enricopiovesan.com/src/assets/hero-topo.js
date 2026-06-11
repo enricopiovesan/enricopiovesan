@@ -188,6 +188,23 @@
       grad.addColorStop(1, 'rgba(' + gc[0] + ',' + gc[1] + ',' + gc[2] + ',0)');
       octx.fillStyle = grad;
       octx.fillRect(0, 0, ow, h);
+
+      // Sun disc (moon at night), color keyed to altitude:
+      // horizon = deep red-orange, climbing = golden, high = near-white.
+      var t = Math.min(1, Math.max(0, elev / 0.72));   // 0 horizon → 1 summer noon
+      var dc = SUN.day
+        ? [Math.round(255), Math.round(96 + 142 * t), Math.round(36 + 174 * t)]
+        : [205, 218, 240];
+      var dr = Math.max(ow, h) * (SUN.day ? 0.022 : 0.016);
+      var da = SUN.day ? (0.5 - 0.22 * t) : 0.3;
+      var disc = octx.createRadialGradient(cx, cy, 0, cx, cy, dr * 3.2);
+      disc.addColorStop(0, 'rgba(' + dc[0] + ',' + dc[1] + ',' + dc[2] + ',' + da.toFixed(3) + ')');
+      disc.addColorStop(0.28, 'rgba(' + dc[0] + ',' + dc[1] + ',' + dc[2] + ',' + (da * 0.55).toFixed(3) + ')');
+      disc.addColorStop(1, 'rgba(' + dc[0] + ',' + dc[1] + ',' + dc[2] + ',0)');
+      octx.fillStyle = disc;
+      octx.beginPath();
+      octx.arc(cx, cy, dr * 3.2, 0, Math.PI * 2);
+      octx.fill();
     }
 
     // Contour lines: one constant color
