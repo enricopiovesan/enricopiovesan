@@ -25,6 +25,12 @@
   var fctx = fill.getContext('2d');
 
   var DATA = null, GRID = null, SUN = null;
+  /* Live overlay: real aircraft (ADS-B) + a modeled CPKC freight on the
+     rail line, which follows the Kicking Horse and Columbia rivers here.
+     Map cover: 160x64 cells x 470 m = 75.2 x 30.1 km centred on Golden. */
+  var KM_W = 75.2, KM_H = 30.1;
+  var GEO = { latTop: 51.4086, lonLeft: -117.4923, dLat: KM_H / 111.32, dLon: KM_W / (111.32 * Math.cos(51.3 * Math.PI / 180)) };
+  var PLANES = [], RAIL = null, RAIL_LEN = 0, TRAIN_WB = true;
   var w = 0, h = 0, dpr = 1, margin = 24;        // parallax headroom
   var mx = 0, my = 0, tx = 0, ty = 0;            // pointer lerp
   var raf = null, settled = true, visible = true;
@@ -269,10 +275,147 @@
     octx.globalAlpha = 1;
   }
 
+  /* ---- Live overlay: rail line + aircraft ---- */
+  function buildRail() {
+    var rv = DATA.rivers || [];
+    if (rv.length < 14) return;
+    var pts = rv[0].slice();                        // Kicking Horse: east edge -> Golden
+    var col = rv[13];                               // Columbia: south -> north
+    var end = pts[pts.length - 1], bi = 0, bd = 1e9;
+    for (var i = 0; i < col.length; i++) {
+      var ddx = (col[i][0] - end[0]) * KM_W, ddy = (col[i][1] - end[1]) * KM_H;
+      var dd = ddx * ddx + ddy * ddy;
+      if (dd < bd) { bd = dd; bi = i; }
+    }
+    for (var j = bi; j < col.length; j++) {
+      if (col[j][1] < -0.05) break;                 // clip past the top edge
+      pts.push(col[j]);
+    }
+    RAIL = [];
+    var d = 0;
+    for (var k = 0; k < pts.length; k++) {
+      if (k) {
+        var dx = (pts[k][0] - pts[k - 1][0]) * KM_W, dy = (pts[k][1] - pts[k - 1][1]) * KM_H;
+        d += Math.sqrt(dx * dx + dy * dy);
+      }
+      RAIL.push({ x: pts[k][0], y: pts[k][1], d: d });
+    }
+    RAIL_LEN = d;
+  }
+
+  function railPoint(dist) {
+    if (dist <= 0) return RAIL[0];
+    if (dist >= RAIL_LEN) return RAIL[RAIL.length - 1];
+    for (var i = 1; i < RAIL.length; i++) {
+      if (RAIL[i].d >= dist) {
+        var a = RAIL[i - 1], b = RAIL[i];
+        var t = (dist - a.d) / ((b.d - a.d) || 1);
+        return { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
+      }
+    }
+    return RAIL[RAIL.length - 1];
+  }
+
+  function fetchPlanes() {
+    if (document.hidden || !visible) return;
+    fetch('https://api.airplanes.live/v2/point/51.2977/-116.9631/40')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var t0 = performance.now();
+        PLANES = (d.ac || []).filter(function (a) {
+          return typeof a.lat === 'number' && typeof a.lon === 'number';
+        }).slice(0, 12).map(function (a) {
+          var spd = (a.gs || 0) * 1.852 / 3600;      // knots -> km/s
+          var tr = (a.track || 0) * Math.PI / 180;
+          return {
+            nx: (a.lon - GEO.lonLeft) / GEO.dLon,
+            ny: (GEO.latTop - a.lat) / GEO.dLat,
+            vx: Math.sin(tr) * spd / KM_W,           // dead-reckon between fetches
+            vy: -Math.cos(tr) * spd / KM_H,
+            tr: tr, t0: t0,
+            cs: (a.flight || '').trim()
+          };
+        });
+        blit();
+      })
+      .catch(function () { /* decorative only */ });
+  }
+
+  function drawOverlay() {
+    if (!DATA) return;
+    var p = palette();
+    var ow = w + margin * 2;
+    var sy2 = Math.max(h, ow / DATA.aspect), sx2 = sy2 * DATA.aspect;
+    var ox2 = (ow - sx2) / 2 - margin, oy2 = (h - sy2) / 2;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    // Freight train: ~2.2 km, 45 km/h, short idle gap between runs.
+    if (RAIL && RAIL_LEN) {
+      var v = 45 / 3600;
+      var travel = RAIL_LEN / v, period = travel + 480;
+      var es = (Date.now() / 1000) % period;
+      if (es < travel) {
+        var headD = TRAIN_WB ? es * v : RAIL_LEN - es * v;
+        var tc = isLight() ? '#7a4a06' : '#e0a84a';
+        ctx.strokeStyle = tc;
+        ctx.fillStyle = tc;
+        ctx.globalAlpha = 0.75;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        var segs = 16, lenKm = 2.2, started = false;
+        for (var i = 0; i <= segs; i++) {
+          var dd = headD + (TRAIN_WB ? -1 : 1) * (i / segs) * lenKm;
+          if (dd < 0 || dd > RAIL_LEN) continue;
+          var pt = railPoint(dd);
+          var X = ox2 + pt.x * sx2 + mx * 14 * 0.25, Y = oy2 + pt.y * sy2 + my * 9 * 0.25;
+          if (!started) { ctx.moveTo(X, Y); started = true; } else ctx.lineTo(X, Y);
+        }
+        ctx.stroke();
+        var hp = railPoint(headD);
+        ctx.globalAlpha = 0.95;
+        ctx.beginPath();
+        ctx.arc(ox2 + hp.x * sx2 + mx * 14 * 0.25, oy2 + hp.y * sy2 + my * 9 * 0.25, 2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    // Aircraft: position dead-reckoned from the last ADS-B fix.
+    if (PLANES.length) {
+      var now = performance.now();
+      ctx.font = '8px "IBM Plex Mono", monospace';
+      ctx.textBaseline = 'middle';
+      ctx.lineWidth = 1;
+      for (var q = 0; q < PLANES.length; q++) {
+        var a = PLANES[q];
+        var dt = (now - a.t0) / 1000;
+        var nx = a.nx + a.vx * dt, ny = a.ny + a.vy * dt;
+        if (nx < -0.02 || nx > 1.02 || ny < -0.05 || ny > 1.05) continue;
+        var X2 = ox2 + nx * sx2 + mx * 16, Y2 = oy2 + ny * sy2 + my * 10;
+        ctx.strokeStyle = p.line;
+        ctx.fillStyle = p.line;
+        ctx.globalAlpha = 0.9;
+        ctx.beginPath();
+        ctx.arc(X2, Y2, 1.8, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(X2, Y2);
+        ctx.lineTo(X2 + Math.sin(a.tr) * 9, Y2 - Math.cos(a.tr) * 9);
+        ctx.stroke();
+        if (a.cs) {
+          ctx.globalAlpha = 0.6;
+          ctx.fillText(a.cs, X2 + 6, Y2 - 7);
+        }
+      }
+    }
+    ctx.globalAlpha = 1;
+  }
+
   function blit() {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(off, -margin * dpr, 0);
+    drawOverlay();
   }
 
   /* Animation only runs while the pointer parallax is settling. */
@@ -313,6 +456,9 @@
 
   function rebuild() {                              // theme change / sun tick
     if (!DATA) return;
+    // CPKC-style directional running: westbound by day, eastbound otherwise
+    var hr = goldenNow().hour;
+    TRAIN_WB = hr >= 4 && hr < 16;
     renderFill();
     renderScene();
     blit();
@@ -326,9 +472,20 @@
         var bin = atob(d.grid.b64);
         GRID = new Uint8Array(bin.length);
         for (var i = 0; i < bin.length; i++) GRID[i] = bin.charCodeAt(i);
+        buildRail();
+        var hr = goldenNow().hour;
+        TRAIN_WB = hr >= 4 && hr < 16;
         resize();
         canvas.style.opacity = '1';
         setInterval(function () { if (visible) rebuild(); }, 60000);
+        fetchPlanes();
+        setInterval(fetchPlanes, 60000);
+        if (!reduced) {
+          // Overlay ticker: planes/train creep across the static scene.
+          setInterval(function () {
+            if (visible && !document.hidden) blit();
+          }, 125);
+        }
       })
       .catch(function () { /* decorative only */ });
   }
