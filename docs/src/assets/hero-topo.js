@@ -324,7 +324,7 @@
 
   function fetchPlanes() {
     if (document.hidden || !visible) return;
-    fetch('https://api.airplanes.live/v2/point/51.2977/-116.9631/40')
+    fetch('https://api.airplanes.live/v2/point/51.2977/-116.9631/80')
       .then(function (r) { return r.json(); })
       .then(function (d) {
         var t0 = performance.now();
@@ -453,7 +453,14 @@
         var a = PLANES[q];
         var dt = (now - a.t0) / 1000;
         var nx = a.nx + a.vx * dt, ny = a.ny + a.vy * dt;
-        if (nx < -0.02 || nx > 1.02 || ny < -0.05 || ny > 1.05) continue;
+        // East-west stays exact; north-south compresses sharply past the
+        // strip edges so corridor traffic off-map reads at the scope's rim.
+        var u = ny - 0.5, au = Math.abs(u);
+        if (au > 0.42) {
+          var cu = 0.42 + (au - 0.42) / 12;
+          ny = 0.5 + (u < 0 ? -1 : 1) * Math.min(cu, 0.47);
+        }
+        if (nx < -0.02 || nx > 1.02) continue;
         var X2 = ox2 + nx * sx2 + mx * 16, Y2 = oy2 + ny * sy2 + my * 10;
 
         ctx.save();
