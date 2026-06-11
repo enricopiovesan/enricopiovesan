@@ -188,7 +188,9 @@
       var cy = SUN.day ? h * (0.7 - 0.62 * elev) : h * 0.78;
       var radius = Math.max(ow, h) * 0.75;
       var gc = SUN.day ? p.sunGlow : p.moonGlow;
-      var ga = SUN.day ? (0.16 - 0.07 * elev) : 0.07;
+      // Overcast flattens the light: scale glow/disc by live cloud cover
+      var cf = WX && typeof WX.cloud_cover === 'number' ? 1 - 0.7 * WX.cloud_cover / 100 : 1;
+      var ga = (SUN.day ? (0.16 - 0.07 * elev) : 0.07) * cf;
       var grad = octx.createRadialGradient(cx, cy, 0, cx, cy, radius);
       grad.addColorStop(0, 'rgba(' + gc[0] + ',' + gc[1] + ',' + gc[2] + ',' + ga.toFixed(3) + ')');
       grad.addColorStop(1, 'rgba(' + gc[0] + ',' + gc[1] + ',' + gc[2] + ',0)');
@@ -202,7 +204,7 @@
         ? [Math.round(255), Math.round(96 + 142 * t), Math.round(36 + 174 * t)]
         : [205, 218, 240];
       var dr = Math.max(ow, h) * (SUN.day ? 0.022 : 0.016);
-      var da = SUN.day ? (0.5 - 0.22 * t) : 0.3;
+      var da = (SUN.day ? (0.5 - 0.22 * t) : 0.3) * cf;
       var disc = octx.createRadialGradient(cx, cy, 0, cx, cy, dr * 3.2);
       disc.addColorStop(0, 'rgba(' + dc[0] + ',' + dc[1] + ',' + dc[2] + ',' + da.toFixed(3) + ')');
       disc.addColorStop(0.28, 'rgba(' + dc[0] + ',' + dc[1] + ',' + dc[2] + ',' + (da * 0.55).toFixed(3) + ')');
@@ -354,7 +356,7 @@
       .catch(function () { /* decorative only */ });
   }
 
-  var WX = null;
+  var WX = null, WIND_P = [], PRECIP = [];
   function fetchWeather() {
     if (document.hidden || !visible) return;
     fetch('https://api.open-meteo.com/v1/forecast?latitude=51.2977&longitude=-116.9631&current=temperature_2m,wind_speed_10m,wind_direction_10m,precipitation,rain,snowfall,cloud_cover,weather_code,snow_depth&timezone=America%2FEdmonton')
@@ -369,6 +371,7 @@
             el.textContent = base + ' · ' + Math.round(WX.temperature_2m) + '°C';
           }
         }
+        if (DATA) rebuild();                       // apply cloud cover to the light
       })
       .catch(function () { /* decorative only */ });
   }
@@ -380,6 +383,57 @@
     var sy2 = Math.max(h, ow / DATA.aspect), sx2 = sy2 * DATA.aspect;
     var ox2 = (ow - sx2) / 2 - margin, oy2 = (h - sy2) / 2;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    // Wind streaks: drift in the real wind direction, pace from speed.
+    if (WX && WX.wind_speed_10m >= 5) {
+      var wdir = (WX.wind_direction_10m + 180) * Math.PI / 180; // motion vector
+      var wspd = Math.min(2.5, 0.3 + WX.wind_speed_10m / 25);   // px per tick
+      var wvx = Math.sin(wdir) * wspd, wvy = -Math.cos(wdir) * wspd;
+      if (!WIND_P.length) {
+        for (var wi = 0; wi < 24; wi++) WIND_P.push({ x: Math.random() * w, y: Math.random() * h });
+      }
+      ctx.strokeStyle = p.line;
+      ctx.globalAlpha = 0.14;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      for (var wj = 0; wj < WIND_P.length; wj++) {
+        var wp = WIND_P[wj];
+        wp.x += wvx; wp.y += wvy;
+        if (wp.x < -10) wp.x += w + 20; if (wp.x > w + 10) wp.x -= w + 20;
+        if (wp.y < -10) wp.y += h + 20; if (wp.y > h + 10) wp.y -= h + 20;
+        ctx.moveTo(wp.x, wp.y);
+        ctx.lineTo(wp.x - wvx * 7, wp.y - wvy * 7);
+      }
+      ctx.stroke();
+    }
+
+    // Precipitation: only when it is actually raining/snowing in Golden.
+    if (WX && (WX.rain > 0 || WX.snowfall > 0)) {
+      var snow = WX.snowfall > 0;
+      var pvx = WX ? Math.sin((WX.wind_direction_10m + 180) * Math.PI / 180) * 0.4 : 0;
+      if (!PRECIP.length) {
+        for (var pi = 0; pi < 40; pi++) PRECIP.push({ x: Math.random() * w, y: Math.random() * h });
+      }
+      ctx.globalAlpha = snow ? 0.3 : 0.2;
+      ctx.fillStyle = p.line;
+      ctx.strokeStyle = p.line;
+      if (!snow) ctx.beginPath();
+      for (var pj = 0; pj < PRECIP.length; pj++) {
+        var pp = PRECIP[pj];
+        pp.x += pvx; pp.y += snow ? 0.45 : 3;
+        if (pp.y > h + 4) { pp.y = -4; pp.x = Math.random() * w; }
+        if (pp.x < -4) pp.x += w + 8; if (pp.x > w + 4) pp.x -= w + 8;
+        if (snow) {
+          ctx.beginPath();
+          ctx.arc(pp.x, pp.y, 0.9, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          ctx.moveTo(pp.x, pp.y);
+          ctx.lineTo(pp.x - pvx * 2, pp.y - 6);
+        }
+      }
+      if (!snow) ctx.stroke();
+    }
 
     // Railway: lean dashed line, corners rounded through midpoints.
     if (RAIL && RAIL_LEN) {
