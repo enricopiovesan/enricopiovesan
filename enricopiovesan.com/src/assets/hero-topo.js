@@ -279,26 +279,32 @@
   function buildRail() {
     var rv = DATA.rivers || [];
     if (rv.length < 14) return;
-    var pts = rv[0].slice();                        // Kicking Horse: east edge -> Golden
-    var col = rv[13];                               // Columbia: south -> north
-    var end = pts[pts.length - 1], bi = 0, bd = 1e9;
+    // CPKC's two lines into Golden: the main line up the Kicking Horse
+    // canyon from the east, and the Windermere sub up the Columbia from
+    // the south. One continuous route: east edge -> Golden -> south edge.
+    var kh = rv[0], col = rv[13];
+    var end = kh[kh.length - 1], bi = 0, bd = 1e9;
     for (var i = 0; i < col.length; i++) {
       var ddx = (col[i][0] - end[0]) * KM_W, ddy = (col[i][1] - end[1]) * KM_H;
       var dd = ddx * ddx + ddy * ddy;
       if (dd < bd) { bd = dd; bi = i; }
     }
-    for (var j = bi; j < col.length; j++) {
-      if (col[j][1] < -0.05) break;                 // clip past the top edge
+    var pts = kh.slice();
+    for (var j = bi; j >= 0; j--) {
+      if (col[j][1] > 1.05) break;                  // clip past the bottom edge
       pts.push(col[j]);
     }
-    RAIL = [];
-    var d = 0;
-    for (var k = 0; k < pts.length; k++) {
-      if (k) {
-        var dx = (pts[k][0] - pts[k - 1][0]) * KM_W, dy = (pts[k][1] - pts[k - 1][1]) * KM_H;
-        d += Math.sqrt(dx * dx + dy * dy);
+    // Resample at ~1.2 km so the line reads lean, not river-hugging
+    RAIL = [{ x: pts[0][0], y: pts[0][1], d: 0 }];
+    var d = 0, acc = 0;
+    for (var k = 1; k < pts.length; k++) {
+      var dx = (pts[k][0] - pts[k - 1][0]) * KM_W, dy = (pts[k][1] - pts[k - 1][1]) * KM_H;
+      var seg = Math.sqrt(dx * dx + dy * dy);
+      d += seg; acc += seg;
+      if (acc >= 1.2 || k === pts.length - 1) {
+        RAIL.push({ x: pts[k][0], y: pts[k][1], d: d });
+        acc = 0;
       }
-      RAIL.push({ x: pts[k][0], y: pts[k][1], d: d });
     }
     RAIL_LEN = d;
   }
@@ -327,13 +333,20 @@
         }).slice(0, 12).map(function (a) {
           var spd = (a.gs || 0) * 1.852 / 3600;      // knots -> km/s
           var tr = (a.track || 0) * Math.PI / 180;
+          var alt = typeof a.alt_baro === 'number' ? a.alt_baro : null;
+          var l2 = alt != null
+            ? (alt >= 18000 ? 'FL' + Math.round(alt / 100) : Math.round(alt / 50) * 50 + ' ft')
+            : '';
+          if (a.baro_rate > 300) l2 += ' ↑';
+          else if (a.baro_rate < -300) l2 += ' ↓';
+          var l3 = Math.round(a.gs || 0) + ' kt' + (a.t ? ' · ' + a.t : '');
           return {
             nx: (a.lon - GEO.lonLeft) / GEO.dLon,
             ny: (GEO.latTop - a.lat) / GEO.dLat,
             vx: Math.sin(tr) * spd / KM_W,           // dead-reckon between fetches
             vy: -Math.cos(tr) * spd / KM_H,
             tr: tr, t0: t0,
-            cs: (a.flight || '').trim()
+            lines: [(a.flight || a.hex || '').trim(), l2, l3]
           };
         });
         blit();
@@ -349,18 +362,24 @@
     var ox2 = (ow - sx2) / 2 - margin, oy2 = (h - sy2) / 2;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    // Railway: dashed line along the corridor so the route reads as tracks.
+    // Railway: lean dashed line, corners rounded through midpoints.
     if (RAIL && RAIL_LEN) {
       var tc = isLight() ? '#7a4a06' : '#e0a84a';
       ctx.strokeStyle = tc;
-      ctx.globalAlpha = 0.28;
+      ctx.globalAlpha = 0.3;
       ctx.lineWidth = 1;
+      ctx.lineJoin = 'round';
       ctx.setLineDash([5, 4]);
       ctx.beginPath();
-      for (var ri = 0; ri < RAIL.length; ri++) {
-        var rx = ox2 + RAIL[ri].x * sx2 + mx * 14 * 0.25, ry = oy2 + RAIL[ri].y * sy2 + my * 9 * 0.25;
-        if (ri === 0) ctx.moveTo(rx, ry); else ctx.lineTo(rx, ry);
+      var rp0 = RAIL[0];
+      ctx.moveTo(ox2 + rp0.x * sx2 + mx * 14 * 0.25, oy2 + rp0.y * sy2 + my * 9 * 0.25);
+      for (var ri = 1; ri < RAIL.length - 1; ri++) {
+        var ax = ox2 + RAIL[ri].x * sx2 + mx * 14 * 0.25, ay = oy2 + RAIL[ri].y * sy2 + my * 9 * 0.25;
+        var bx2 = ox2 + RAIL[ri + 1].x * sx2 + mx * 14 * 0.25, by2 = oy2 + RAIL[ri + 1].y * sy2 + my * 9 * 0.25;
+        ctx.quadraticCurveTo(ax, ay, (ax + bx2) / 2, (ay + by2) / 2);
       }
+      var rpl = RAIL[RAIL.length - 1];
+      ctx.lineTo(ox2 + rpl.x * sx2 + mx * 14 * 0.25, oy2 + rpl.y * sy2 + my * 9 * 0.25);
       ctx.stroke();
       ctx.setLineDash([]);
     }
@@ -396,11 +415,12 @@
       }
     }
 
-    // Aircraft: position dead-reckoned from the last ADS-B fix.
+    // Aircraft: silhouette rotated to track, leader line to a data block.
     if (PLANES.length) {
       var now = performance.now();
-      ctx.font = '8px "IBM Plex Mono", monospace';
-      ctx.textBaseline = 'middle';
+      var pc = isLight() ? '#2e6f9e' : '#9ec7e8';
+      ctx.font = '9px "IBM Plex Mono", monospace';
+      ctx.textBaseline = 'alphabetic';
       ctx.lineWidth = 1;
       for (var q = 0; q < PLANES.length; q++) {
         var a = PLANES[q];
@@ -408,21 +428,41 @@
         var nx = a.nx + a.vx * dt, ny = a.ny + a.vy * dt;
         if (nx < -0.02 || nx > 1.02 || ny < -0.05 || ny > 1.05) continue;
         var X2 = ox2 + nx * sx2 + mx * 16, Y2 = oy2 + ny * sy2 + my * 10;
-        ctx.strokeStyle = p.line;
-        ctx.fillStyle = p.line;
-        ctx.globalAlpha = 0.9;
-        ctx.beginPath();
-        ctx.arc(X2, Y2, 1.8, 0, Math.PI * 2);
+
+        ctx.save();
+        ctx.translate(X2, Y2);
+        ctx.rotate(a.tr);
+        ctx.fillStyle = pc;
+        ctx.globalAlpha = 0.95;
+        ctx.beginPath();                             // airliner silhouette, nose up
+        ctx.moveTo(0, -7);
+        ctx.bezierCurveTo(1, -5.5, 1.1, -4, 1.1, -2.2);
+        ctx.lineTo(7, 1); ctx.lineTo(7, 2.4); ctx.lineTo(1.1, 1.4);
+        ctx.lineTo(1, 4.2); ctx.lineTo(3, 5.8); ctx.lineTo(3, 6.8); ctx.lineTo(0, 5.9);
+        ctx.lineTo(-3, 6.8); ctx.lineTo(-3, 5.8); ctx.lineTo(-1, 4.2);
+        ctx.lineTo(-1.1, 1.4); ctx.lineTo(-7, 2.4); ctx.lineTo(-7, 1); ctx.lineTo(-1.1, -2.2);
+        ctx.bezierCurveTo(-1.1, -4, -1, -5.5, 0, -7);
+        ctx.closePath();
         ctx.fill();
-        ctx.globalAlpha = 0.5;
+        ctx.restore();
+
+        // Leader + data block, flipped left near the right edge
+        var flip = X2 > w - 130;
+        var lx2 = X2 + (flip ? -16 : 16), ly2 = Y2 - 18;
+        var tx2 = lx2 + (flip ? -4 : 4);
+        ctx.strokeStyle = pc;
+        ctx.globalAlpha = 0.55;
         ctx.beginPath();
-        ctx.moveTo(X2, Y2);
-        ctx.lineTo(X2 + Math.sin(a.tr) * 9, Y2 - Math.cos(a.tr) * 9);
+        ctx.moveTo(X2 + (flip ? -7 : 7), Y2 - 7);
+        ctx.lineTo(lx2, ly2);
         ctx.stroke();
-        if (a.cs) {
-          ctx.globalAlpha = 0.6;
-          ctx.fillText(a.cs, X2 + 6, Y2 - 7);
+        ctx.fillStyle = pc;
+        ctx.globalAlpha = 0.9;
+        if (flip) ctx.textAlign = 'right';
+        for (var li = 0; li < a.lines.length; li++) {
+          if (a.lines[li]) ctx.fillText(a.lines[li], tx2, ly2 - 12 + li * 11);
         }
+        ctx.textAlign = 'left';
       }
     }
     ctx.globalAlpha = 1;
