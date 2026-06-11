@@ -384,15 +384,24 @@
       ctx.setLineDash([]);
     }
 
-    // Freight train: ~2.2 km, sped up ~12x real freight pace so it visibly
-    // crosses the hero during a visit; short idle gap between runs.
+    // Freight trains: ~2.2 km, sped up ~12x real freight pace so they visibly
+    // cross the hero. Two opposing runs on offset schedules, with the same
+    // leader-line data block treatment as the aircraft.
     if (RAIL && RAIL_LEN) {
       var v = 540 / 3600;
-      var travel = RAIL_LEN / v, period = travel + 480;
-      var es = (Date.now() / 1000) % period;
-      if (es < travel) {
-        var headD = TRAIN_WB ? es * v : RAIL_LEN - es * v;
-        var tc = isLight() ? '#7a4a06' : '#e0a84a';
+      var nowS = Date.now() / 1000;
+      for (var ti = 0; ti < 2; ti++) {
+        // Different speeds so the meeting point drifts along the route
+        var tv = ti === 0 ? v : v * 1.27;
+        var travel = RAIL_LEN / tv, period = travel + 120;
+        var off = ti === 0 ? 0 : period * 0.5;
+        var wb = ti === 0 ? TRAIN_WB : !TRAIN_WB;
+        var es = (nowS + off) % period;
+        if (es >= travel) continue;
+        var headD = wb ? es * tv : RAIL_LEN - es * tv;
+        var run = Math.floor((nowS + off) / period);
+        // CPKC convention: westbounds odd, eastbounds even
+        var num = (wb ? 101 : 102) + 2 * (run % 4);
         ctx.strokeStyle = tc;
         ctx.fillStyle = tc;
         ctx.globalAlpha = 0.75;
@@ -400,7 +409,7 @@
         ctx.beginPath();
         var segs = 16, lenKm = 2.2, started = false;
         for (var i = 0; i <= segs; i++) {
-          var dd = headD + (TRAIN_WB ? -1 : 1) * (i / segs) * lenKm;
+          var dd = headD + (wb ? -1 : 1) * (i / segs) * lenKm;
           if (dd < 0 || dd > RAIL_LEN) continue;
           var pt = railPoint(dd);
           var X = ox2 + pt.x * sx2 + mx * 14 * 0.25, Y = oy2 + pt.y * sy2 + my * 9 * 0.25;
@@ -408,10 +417,28 @@
         }
         ctx.stroke();
         var hp = railPoint(headD);
+        var hx = ox2 + hp.x * sx2 + mx * 14 * 0.25, hy = oy2 + hp.y * sy2 + my * 9 * 0.25;
         ctx.globalAlpha = 0.95;
         ctx.beginPath();
-        ctx.arc(ox2 + hp.x * sx2 + mx * 14 * 0.25, oy2 + hp.y * sy2 + my * 9 * 0.25, 2, 0, Math.PI * 2);
+        ctx.arc(hx, hy, 2, 0, Math.PI * 2);
         ctx.fill();
+        if (hx > -10 && hx < w + 10 && hy > -10 && hy < h + 10) {
+          var tflip = hx > w - 120;
+          var tlx = hx + (tflip ? -14 : 14), tly = hy - 16;
+          ctx.globalAlpha = 0.5;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(hx + (tflip ? -3 : 3), hy - 3);
+          ctx.lineTo(tlx, tly);
+          ctx.stroke();
+          ctx.globalAlpha = 0.85;
+          ctx.font = '9px "IBM Plex Mono", monospace';
+          ctx.textBaseline = 'alphabetic';
+          if (tflip) ctx.textAlign = 'right';
+          ctx.fillText('CPKC ' + num, tlx + (tflip ? -4 : 4), tly - 12);
+          ctx.fillText((wb ? 'WB' : 'EB') + ' · freight', tlx + (tflip ? -4 : 4), tly - 1);
+          ctx.textAlign = 'left';
+        }
       }
     }
 
