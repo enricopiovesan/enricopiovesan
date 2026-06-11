@@ -373,6 +373,37 @@
   }
 
   var WX = null, WIND_P = [], PRECIP = [], PARA = [], ROADEV = [], KP = 0;
+  var ISS = null, issPrev = null;
+  function pollISS() {
+    var near = false;
+    if (document.hidden || !visible) {
+      setTimeout(pollISS, 5 * 60 * 1000);
+      return;
+    }
+    fetch('https://api.wheretheiss.at/v1/satellites/25544')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var dLon2 = d.longitude - (-116.9631);
+        if (dLon2 > 180) dLon2 -= 360; if (dLon2 < -180) dLon2 += 360;
+        near = Math.abs(d.latitude - 51.3) < 6 && Math.abs(dLon2) < 8;
+        var fix = {
+          nx: (d.longitude - GEO.lonLeft) / GEO.dLon,
+          ny: (GEO.latTop - d.latitude) / GEO.dLat,
+          t: d.timestamp
+        };
+        if (near && issPrev && fix.t > issPrev.t) {
+          ISS = {
+            nx: fix.nx, ny: fix.ny, t0: performance.now(),
+            vx: (fix.nx - issPrev.nx) / (fix.t - issPrev.t),
+            vy: (fix.ny - issPrev.ny) / (fix.t - issPrev.t)
+          };
+        } else if (!near) ISS = null;
+        issPrev = fix;
+      })
+      .catch(function () { /* decorative only */ })
+      .then(function () { setTimeout(pollISS, near ? 15000 : 5 * 60 * 1000); });
+  }
+
   function fetchKp() {
     if (document.hidden || !visible) return;
     fetch('https://services.swpc.noaa.gov/json/planetary_k_index_1m.json')
@@ -708,6 +739,30 @@
         ctx.textAlign = 'left';
       }
     }
+
+    // ISS: bright streak when it is genuinely passing over the valley.
+    if (ISS) {
+      var idt = (performance.now() - ISS.t0) / 1000;
+      var inx = ISS.nx + ISS.vx * idt, iny = ISS.ny + ISS.vy * idt;
+      var iu = iny - 0.5, iau = Math.abs(iu);
+      if (iau > 0.42) iny = 0.5 + (iu < 0 ? -1 : 1) * Math.min(0.42 + (iau - 0.42) / 12, 0.47);
+      if (inx > -0.02 && inx < 1.02) {
+        var iX = ox2 + inx * sx2, iY = oy2 + iny * sy2;
+        ctx.strokeStyle = '#ffffff';
+        ctx.fillStyle = '#ffffff';
+        ctx.globalAlpha = 0.5;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(iX, iY);
+        ctx.lineTo(iX - ISS.vx * sx2 * 14, iY - ISS.vy * sy2 * 14);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        ctx.beginPath(); ctx.arc(iX, iY, 2, 0, Math.PI * 2); ctx.fill();
+        ctx.globalAlpha = 0.8;
+        ctx.font = '9px "IBM Plex Mono", monospace';
+        ctx.fillText('ISS · 27,500 km/h', iX + 8, iY - 6);
+      }
+    }
     ctx.globalAlpha = 1;
   }
 
@@ -786,6 +841,7 @@
         setInterval(fetchRoads, 10 * 60 * 1000);
         fetchKp();
         setInterval(fetchKp, 30 * 60 * 1000);
+        pollISS();
         if (!reduced) {
           // Overlay ticker: planes/train creep across the static scene.
           setInterval(function () {
