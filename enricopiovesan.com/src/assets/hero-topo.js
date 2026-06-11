@@ -218,6 +218,17 @@
       octx.beginPath();
       octx.arc(cx, cy, dr * 3.2, 0, Math.PI * 2);
       octx.fill();
+
+      // Aurora: green wash along the northern (top) edge when the real
+      // planetary Kp index says a storm is on and it is night in Golden.
+      if (!SUN.day && KP >= 5) {
+        var aa = Math.min(0.18, (KP - 4) * 0.05);
+        var ag = octx.createLinearGradient(0, 0, 0, h * 0.28);
+        ag.addColorStop(0, 'rgba(80,220,140,' + aa.toFixed(3) + ')');
+        ag.addColorStop(1, 'rgba(80,220,140,0)');
+        octx.fillStyle = ag;
+        octx.fillRect(0, 0, ow, h * 0.28);
+      }
     }
 
     // Contour lines: one constant color
@@ -361,7 +372,18 @@
       .catch(function () { /* decorative only */ });
   }
 
-  var WX = null, WIND_P = [], PRECIP = [], PARA = [], ROADEV = [];
+  var WX = null, WIND_P = [], PRECIP = [], PARA = [], ROADEV = [], KP = 0;
+  function fetchKp() {
+    if (document.hidden || !visible) return;
+    fetch('https://services.swpc.noaa.gov/json/planetary_k_index_1m.json')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var last = d[d.length - 1];
+        var kp = last && last.estimated_kp;
+        if (typeof kp === 'number' && kp !== KP) { KP = kp; if (DATA) rebuild(); }
+      })
+      .catch(function () { /* decorative only */ });
+  }
   function fetchRoads() {
     if (document.hidden || !visible) return;
     fetch('https://api.open511.gov.bc.ca/events?status=ACTIVE&bbox=-117.5,51.1,-116.4,51.45')
@@ -762,6 +784,8 @@
         setInterval(fetchWeather, 15 * 60 * 1000);
         fetchRoads();
         setInterval(fetchRoads, 10 * 60 * 1000);
+        fetchKp();
+        setInterval(fetchKp, 30 * 60 * 1000);
         if (!reduced) {
           // Overlay ticker: planes/train creep across the static scene.
           setInterval(function () {
