@@ -13,7 +13,6 @@
    Everything renders to an offscreen canvas; the animation loop is a
    single drawImage blit per frame. */
 (function () {
-  if (window.matchMedia('(max-width: 600px)').matches) return;
   var canvas = document.getElementById('hero-topo');
   if (!canvas) return;
 
