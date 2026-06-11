@@ -108,6 +108,11 @@
     var p = palette();
     var gn = goldenNow();
     var snow = snowline(gn.doy);
+    // Live correction: measured snow depth at the valley floor (785 m)
+    if (WX && typeof WX.snow_depth === 'number') {
+      if (WX.snow_depth > 0.05) snow = Math.min(snow, 900); // snow in town
+      else snow += 150;                                     // bare valley: raise line
+    }
     var sun = sunPosition(gn.doy, gn.hour);
     var gw = DATA.grid.w, gh = DATA.grid.h;
     var e0 = DATA.grid.e0, e1 = DATA.grid.e1;
