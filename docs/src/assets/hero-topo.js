@@ -361,7 +361,31 @@
       .catch(function () { /* decorative only */ });
   }
 
-  var WX = null, WIND_P = [], PRECIP = [], PARA = [];
+  var WX = null, WIND_P = [], PRECIP = [], PARA = [], ROADEV = [];
+  function fetchRoads() {
+    if (document.hidden || !visible) return;
+    fetch('https://api.open511.gov.bc.ca/events?status=ACTIVE&bbox=-117.5,51.1,-116.4,51.45')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        ROADEV = (d.events || []).map(function (e) {
+          var co = e.geography && e.geography.coordinates;
+          if (!co) return null;
+          var pt = e.geography.type === 'Point' ? co : co[0];
+          if (!pt || typeof pt[0] !== 'number') return null;
+          return {
+            nx: (pt[0] - GEO.lonLeft) / GEO.dLon,
+            ny: (GEO.latTop - pt[1]) / GEO.dLat,
+            major: e.severity === 'MAJOR' || e.event_type === 'INCIDENT',
+            label: (e.event_type || 'EVENT').toLowerCase()
+          };
+        }).filter(function (e) {
+          return e && e.nx > 0 && e.nx < 1 && e.ny > 0 && e.ny < 1;
+        }).sort(function (a, b) {
+          return (b.major ? 1 : 0) - (a.major ? 1 : 0);
+        }).slice(0, 3);
+      })
+      .catch(function () { /* decorative only */ });
+  }
   function fetchWeather() {
     if (document.hidden || !visible) return;
     fetch('https://api.open-meteo.com/v1/forecast?latitude=51.2977&longitude=-116.9631&current=temperature_2m,wind_speed_10m,wind_direction_10m,precipitation,rain,snowfall,cloud_cover,weather_code,snow_depth&timezone=America%2FEdmonton')
@@ -476,6 +500,23 @@
       ctx.fillText('KHMR · gondola', tX - 8, tY - 14);
       ctx.fillText(open ? 'open · ' + hours : 'closed', tX - 8, tY - 3);
     })();
+
+    // Highway 1 events from DriveBC: warning triangles, red for closures/
+    // incidents, quiet grey for construction.
+    for (var rv2 = 0; rv2 < ROADEV.length; rv2++) {
+      var ev = ROADEV[rv2];
+      var eX = ox2 + ev.nx * sx2 + mx * 14 * 0.25, eY = oy2 + ev.ny * sy2 + my * 9 * 0.25;
+      ctx.fillStyle = ev.major ? (isLight() ? '#b3261e' : '#ff8a80') : p.line;
+      ctx.globalAlpha = ev.major ? 0.9 : 0.4;
+      ctx.beginPath();
+      ctx.moveTo(eX, eY - 4); ctx.lineTo(eX + 3.6, eY + 2.6); ctx.lineTo(eX - 3.6, eY + 2.6);
+      ctx.closePath(); ctx.fill();
+      if (ev.major) {
+        ctx.font = '9px "IBM Plex Mono", monospace';
+        ctx.textBaseline = 'alphabetic';
+        ctx.fillText('Hwy 1 · ' + ev.label, eX + 7, eY - 4);
+      }
+    }
 
     // Mount 7 paragliders: famous launch SE of town. Modeled — summer
     // afternoons in flyable weather, slow thermal circles drifting to the LZ.
@@ -719,6 +760,8 @@
         setInterval(fetchPlanes, 60000);
         fetchWeather();
         setInterval(fetchWeather, 15 * 60 * 1000);
+        fetchRoads();
+        setInterval(fetchRoads, 10 * 60 * 1000);
         if (!reduced) {
           // Overlay ticker: planes/train creep across the static scene.
           setInterval(function () {
