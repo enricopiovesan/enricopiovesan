@@ -119,9 +119,9 @@ a { color: inherit; text-decoration: none; }
   pointer-events: none;
   opacity: 0;
   transition: opacity 1.2s ease;
-  /* Fade contours out toward the text edge so type stays crisp */
-  -webkit-mask-image: linear-gradient(105deg, transparent 0%, rgba(0,0,0,0.35) 38%, rgba(0,0,0,0.9) 72%, #000 100%);
-  mask-image: linear-gradient(105deg, transparent 0%, rgba(0,0,0,0.35) 38%, rgba(0,0,0,0.9) 72%, #000 100%);
+  /* Soften contours behind the text, keep the rest of the range visible */
+  -webkit-mask-image: linear-gradient(105deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.95) 68%, #000 100%);
+  mask-image: linear-gradient(105deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.95) 68%, #000 100%);
 }
 
 .home-hero-content {

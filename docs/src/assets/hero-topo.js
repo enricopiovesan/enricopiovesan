@@ -1,5 +1,8 @@
 /* Topographic hero background — real contour lines of Golden, BC
-   (Columbia Valley + Dogtooth Range, traced from open elevation data).
+   (Columbia Valley, Dogtooth Range, Van Horne Range; traced from open
+   elevation data, 771–2938 m). Peaks marked with their elevation.
+   Contours are tinted by a seasonal snowline model: snow holds on the
+   high lines into early July, vegetation tints the lower lines.
    Subtle depth parallax on pointer move; static on touch / reduced motion. */
 (function () {
   var canvas = document.getElementById('hero-topo');
@@ -15,15 +18,49 @@
   var raf = null;
   var settled = true;
 
-  function colors() {
+  /* Seasonal snowline for the Purcells around Golden (m).
+     Anchors: deep winter ~900, ~1700 on June 10, bare except the very
+     tops by mid-July, first dustings return through fall. */
+  var SNOW_ANCHORS = [
+    [15, 900], [105, 1100], [135, 1450], [161, 1700], [182, 2100],
+    [196, 2450], [227, 2800], [258, 2750], [288, 2200], [319, 1300], [349, 950]
+  ];
+  function snowline() {
+    var now = new Date();
+    var doy = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 864e5);
+    var a = SNOW_ANCHORS, n = a.length;
+    for (var i = 0; i < n; i++) {
+      var p = a[i], q = a[(i + 1) % n];
+      var d0 = p[0], d1 = q[0] + (i === n - 1 ? 365 : 0);
+      var d = doy + (i === n - 1 && doy < d0 ? 365 : 0);
+      if (d >= d0 && d <= d1) {
+        var t = (d - d0) / (d1 - d0);
+        return p[1] + t * (q[1] - p[1]);
+      }
+    }
+    return a[0][1];
+  }
+
+  function isLight() {
+    var t = document.documentElement.getAttribute('data-theme');
+    if (t) return t === 'light';
+    return window.matchMedia('(prefers-color-scheme: light)').matches;
+  }
+
+  function palette() {
+    var light = isLight();
     var cs = getComputedStyle(document.documentElement);
-    var light = (document.documentElement.getAttribute('data-theme') === 'light') ||
-      (!document.documentElement.getAttribute('data-theme') &&
-        window.matchMedia('(prefers-color-scheme: light)').matches);
     return {
-      line: cs.getPropertyValue('--fg').trim() || (light ? '#001f3f' : '#f6f7ed'),
-      base: light ? 0.13 : 0.14,
-      index: light ? 0.26 : 0.30
+      rock: cs.getPropertyValue('--fg').trim() || (light ? '#001f3f' : '#f6f7ed'),
+      snow: light ? '#6e9cc3' : '#dce9f5',
+      veg:  light ? '#00804c' : '#74c365',
+      rockA:  light ? 0.13 : 0.14,
+      rockAi: light ? 0.26 : 0.30,
+      snowA:  light ? 0.22 : 0.26,
+      snowAi: light ? 0.38 : 0.46,
+      vegA:   light ? 0.13 : 0.15,
+      vegAi:  light ? 0.24 : 0.27,
+      peak:   light ? 0.45 : 0.5
     };
   }
 
@@ -38,26 +75,41 @@
 
   function draw() {
     if (!DATA) return;
-    var c = colors();
+    var p = palette();
+    var snow = snowline();
+    var treeline = 2050;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, w, h);
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
-    ctx.strokeStyle = c.line;
 
     // Cover the hero while preserving the terrain's aspect ratio
-    var scale = Math.max(w / DATA.aspect, h) * DATA.aspect;
-    var sx = scale, sy = scale / DATA.aspect;
+    var sy = Math.max(h, w / DATA.aspect);
+    var sx = sy * DATA.aspect;
     var ox = (w - sx) / 2, oy = (h - sy) / 2;
 
     var n = DATA.levels.length;
+    var span = (DATA.max || 2900) - (DATA.min || 770) || 1;
+
+    function depthOf(elev) {
+      return 0.25 + 0.75 * (elev - DATA.min) / span;
+    }
+
     for (var i = 0; i < n; i++) {
       var lv = DATA.levels[i];
-      // Depth parallax: higher elevations drift more (max ~14px)
-      var depth = (i + 2) / (n + 1);
+      var depth = depthOf(lv.e);
       var dx = mx * 14 * depth, dy = my * 9 * depth;
       var isIndex = (lv.e % 1000 === 0);
-      ctx.globalAlpha = isIndex ? c.index : c.base;
+      if (lv.e >= snow) {
+        ctx.strokeStyle = p.snow;
+        ctx.globalAlpha = isIndex ? p.snowAi : p.snowA;
+      } else if (lv.e <= treeline) {
+        ctx.strokeStyle = p.veg;
+        ctx.globalAlpha = isIndex ? p.vegAi : p.vegA;
+      } else {
+        ctx.strokeStyle = p.rock;
+        ctx.globalAlpha = isIndex ? p.rockAi : p.rockA;
+      }
       ctx.lineWidth = isIndex ? 1.1 : 0.7;
       ctx.beginPath();
       for (var j = 0; j < lv.p.length; j++) {
@@ -68,6 +120,31 @@
         }
       }
       ctx.stroke();
+    }
+
+    // Peak markers: small triangle + elevation
+    var peaks = DATA.peaks || [];
+    ctx.font = '9px "IBM Plex Mono", monospace';
+    ctx.textBaseline = 'middle';
+    for (var q = 0; q < peaks.length; q++) {
+      var pk = peaks[q];
+      var depth2 = depthOf(pk[2]);
+      var px = ox + pk[0] * sx + mx * 14 * depth2;
+      var py = oy + pk[1] * sy + my * 9 * depth2;
+      if (px < 8 || px > w - 40 || py < 10 || py > h - 10) continue;
+      var snowy = pk[2] >= snow;
+      ctx.strokeStyle = snowy ? p.snow : p.rock;
+      ctx.fillStyle = snowy ? p.snow : p.rock;
+      ctx.globalAlpha = p.peak;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(px, py - 3.5);
+      ctx.lineTo(px + 3.5, py + 2.5);
+      ctx.lineTo(px - 3.5, py + 2.5);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.globalAlpha = p.peak * 0.85;
+      ctx.fillText(pk[2] + ' m', px + 7, py);
     }
     ctx.globalAlpha = 1;
   }
