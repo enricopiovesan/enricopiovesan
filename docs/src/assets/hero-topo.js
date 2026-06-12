@@ -426,12 +426,12 @@
             for (var k = 0; k < q.length; k += 4) {
               if (q[k + 3] < 25) { q[k + 3] = 0; continue; }
               var v2 = q[k], c2;
-              if (snowing) {
+              if (snowing) {                         // snow: pale violet ramp
                 var ts = Math.min(1, v2 / 160);
-                c2 = [190 - 100 * ts, 215 - 75 * ts, 240 - 20 * ts];
-              } else if (v2 < 140) {                 // light-moderate rain
-                var tg = Math.min(1, v2 / 140);
-                c2 = [150 - 125 * tg, 215 - 105 * tg, 160 - 105 * tg];
+                c2 = [205 - 70 * ts, 190 - 80 * ts, 235 - 30 * ts];
+              } else if (v2 < 140) {                 // rain: cyan -> deep teal
+                var tg = Math.min(1, v2 / 140);      // (green is the terrain's)
+                c2 = [115 - 85 * tg, 205 - 110 * tg, 215 - 55 * tg];
               } else if (v2 < 160) c2 = [230, 205, 70];   // heavy
               else if (v2 < 180) c2 = [235, 140, 40];     // very heavy
               else c2 = [210, 50, 40];                    // severe
