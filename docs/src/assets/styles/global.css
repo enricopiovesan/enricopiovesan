@@ -110,8 +110,11 @@ a { color: inherit; text-decoration: none; }
 .home-hero {
   position: relative;
   padding: 9rem 3rem 8.5rem;
-  /* No overflow clip here: the topo canvas breaks out to 100vw.
-     body { overflow-x: clip } stops it creating a horizontal scrollbar. */
+  /* Clip vertically so the parallax-shifted canvas never overlaps the
+     sections below; x stays visible for the 100vw breakout canvas.
+     body { overflow-x: clip } stops the horizontal scrollbar. */
+  overflow-x: visible;
+  overflow-y: clip;
 }
 
 #hero-topo {
