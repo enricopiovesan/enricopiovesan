@@ -196,7 +196,7 @@
 
     // Live precipitation radar wash
     if (RADAR_CV) {
-      octx.globalAlpha = 0.38;
+      octx.globalAlpha = 0.45;
       octx.drawImage(RADAR_CV, ox + mx * 6, oy + my * 4, sx, sy);
       octx.globalAlpha = 1;
     }
@@ -403,7 +403,9 @@
         var past = d.radar && d.radar.past;
         if (!past || !past.length) return;
         var path = d.host + past[past.length - 1].path;
-        var z = 8, n = 256, W = 600, H = 240;
+        // z7 is RainViewer's max for this layer — higher zooms return a
+        // "Zoom Level Not Supported" placeholder tile
+        var z = 7, n = 128, W = 600, H = 240;
         function xf(lon) { return (lon + 180) / 360 * n; }
         function yf(lat) { return (1 - Math.asinh(Math.tan(lat * Math.PI / 180)) / Math.PI) / 2 * n; }
         function tileLat(y) { return Math.atan(Math.sinh(Math.PI * (1 - 2 * y / n))) * 180 / Math.PI; }
@@ -415,7 +417,21 @@
         var cx2 = cv.getContext('2d');
         var pending = 0, drew = false;
         function done() {
-          if (--pending === 0 && drew) { RADAR_CV = cv; if (DATA) rebuild(); }
+          if (--pending === 0 && drew) {
+            // Recolor to a green reflectivity ramp (light -> heavy)
+            var id = cx2.getImageData(0, 0, W, H), q = id.data;
+            for (var k = 0; k < q.length; k += 4) {
+              if (q[k + 3] < 25) { q[k + 3] = 0; continue; }
+              var t2 = 1 - (q[k] + q[k + 1] + q[k + 2]) / 765; // darker = heavier
+              q[k] = Math.round(150 - 125 * t2);
+              q[k + 1] = Math.round(215 - 105 * t2);
+              q[k + 2] = Math.round(160 - 105 * t2);
+              q[k + 3] = Math.min(255, q[k + 3]);
+            }
+            cx2.putImageData(id, 0, 0);
+            RADAR_CV = cv;
+            if (DATA) rebuild();
+          }
         }
         for (var tx3 = x0; tx3 <= x1; tx3++) {
           for (var ty3 = y0; ty3 <= y1; ty3++) {
@@ -435,7 +451,7 @@
                 done();
               };
               img.onerror = done;
-              img.src = path + '/256/' + z + '/' + tx4 + '/' + ty4 + '/2/1_1.png';
+              img.src = path + '/256/' + z + '/' + tx4 + '/' + ty4 + '/6/1_1.png';
             })(tx3, ty3);
           }
         }
