@@ -265,6 +265,26 @@
     fctx.putImageData(img, 0, 0);
   }
 
+  // Named summits (OSM coordinates/elevations): [lat, lon, ele, label, side]
+  // side -1 puts the label left of the triangle to avoid cluster overlap.
+  var PEAKS = [
+    [51.26325, -117.43135, 3284, 'Sir Donald', 1],
+    [51.25857, -116.53006, 3319, 'Vaux', 1],
+    [51.22317, -116.51097, 3280, 'Chancellor', -1],
+    [51.37607, -116.69539, 2924, 'Deville', 1],
+    [51.34060, -116.64860, 2892, 'King', 1],
+    [51.29899, -117.22832, 2836, 'Moonraker', 1],
+    [51.20830, -116.75000, 2722, 'Kapristo', 1],
+    [51.32198, -117.19939, 2682, 'Dawn Mtn', 1],
+    [51.29167, -116.70351, 2615, 'Hunter', 1],
+    [51.25431, -116.85127, 2592, 'Mt 7', 1],
+    [51.28374, -117.10063, 2504, 'Ozone', 1],
+    [51.27773, -117.09247, 2443, 'Whitetooth', -1],
+    [51.27327, -117.06963, 2408, 'T1', 1],
+    [51.26980, -117.06422, 2385, 'T2', -1],
+    [51.37580, -116.94860, 2340, 'Moberly', 1]
+  ];
+
   /* Drop points closer than minKm so lines read lean, not jittery. */
   function simplifyLine(pts, minKm) {
     if (pts.length < 3) return pts;
@@ -503,9 +523,9 @@
       octx.stroke();
     }
 
-    // Peaks: triangle + elevation
+    // Peaks: triangle + name + elevation
     var peaks = DATA.peaks || [];
-    octx.font = '10px "IBM Plex Mono", monospace';
+    octx.font = '9px "IBM Plex Mono", monospace';
     octx.textBaseline = 'middle';
     octx.strokeStyle = p.line;
     octx.fillStyle = p.line;
@@ -524,7 +544,14 @@
       octx.closePath();
       octx.stroke();
       octx.globalAlpha = p.peakA * 0.9;
-      octx.fillText(pk[2] + ' m', px + 8, py);
+      var plabel = (pk[3] ? pk[3] + ' · ' : '') + pk[2] + ' m';
+      if (pk[4] === -1) {
+        octx.textAlign = 'right';
+        octx.fillText(plabel, px - 8, py);
+        octx.textAlign = 'left';
+      } else {
+        octx.fillText(plabel, px + 8, py);
+      }
     }
     octx.globalAlpha = 1;
   }
@@ -1196,6 +1223,10 @@
           DATA.levels[li3].p = DATA.levels[li3].p.map(function (ln) { return simplifyLine(ln, 0.35); });
         }
         DATA.rivers = (DATA.rivers || []).map(function (rv2) { return simplifyLine(rv2, 0.6); });
+        // Replace the unnamed elevation markers with the named summit set
+        DATA.peaks = PEAKS.map(function (pk2) {
+          return [(pk2[1] - GEO.lonLeft) / GEO.dLon, (GEO.latTop - pk2[0]) / GEO.dLat, pk2[2], pk2[3], pk2[4]];
+        });
         var bin = atob(d.grid.b64);
         GRID = new Uint8Array(bin.length);
         for (var i = 0; i < bin.length; i++) GRID[i] = bin.charCodeAt(i);
