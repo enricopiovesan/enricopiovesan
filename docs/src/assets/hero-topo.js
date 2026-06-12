@@ -265,6 +265,31 @@
     fctx.putImageData(img, 0, 0);
   }
 
+  /* Drop points closer than minKm so lines read lean, not jittery. */
+  function simplifyLine(pts, minKm) {
+    if (pts.length < 3) return pts;
+    var out = [pts[0]];
+    for (var i = 1; i < pts.length - 1; i++) {
+      var lp = out[out.length - 1];
+      var dx = (pts[i][0] - lp[0]) * KM_W, dy = (pts[i][1] - lp[1]) * KM_H;
+      if (dx * dx + dy * dy >= minKm * minKm) out.push(pts[i]);
+    }
+    out.push(pts[pts.length - 1]);
+    return out;
+  }
+
+  /* Trace a polyline with corners rounded through segment midpoints. */
+  function traceSmooth(c2, pts, gox, goy, gsx, gsy, ddx, ddy) {
+    var n = pts.length;
+    c2.moveTo(gox + pts[0][0] * gsx + ddx, goy + pts[0][1] * gsy + ddy);
+    for (var i = 1; i < n - 1; i++) {
+      var ax = gox + pts[i][0] * gsx + ddx, ay = goy + pts[i][1] * gsy + ddy;
+      var bx = gox + pts[i + 1][0] * gsx + ddx, by = goy + pts[i + 1][1] * gsy + ddy;
+      c2.quadraticCurveTo(ax, ay, (ax + bx) / 2, (ay + by) / 2);
+    }
+    if (n > 1) c2.lineTo(gox + pts[n - 1][0] * gsx + ddx, goy + pts[n - 1][1] * gsy + ddy);
+  }
+
   /* ---- Offscreen scene: wash, contours, rivers, peaks ---- */
   function renderScene() {
     if (!DATA) return;
@@ -458,11 +483,7 @@
       octx.lineWidth = isIndex ? 1.1 : 0.7;
       octx.beginPath();
       for (var j = 0; j < lv.p.length; j++) {
-        var line = lv.p[j];
-        octx.moveTo(ox + line[0][0] * sx + dx, oy + line[0][1] * sy + dy);
-        for (var k = 1; k < line.length; k++) {
-          octx.lineTo(ox + line[k][0] * sx + dx, oy + line[k][1] * sy + dy);
-        }
+        traceSmooth(octx, lv.p[j], ox, oy, sx, sy, dx, dy);
       }
       octx.stroke();
     }
@@ -478,10 +499,7 @@
       var rv = rivers[r];
       octx.lineWidth = r === 0 ? RIVER_LW.kh : (r === 13 ? RIVER_LW.col : 1.4);
       octx.beginPath();
-      octx.moveTo(ox + rv[0][0] * sx + rdx, oy + rv[0][1] * sy + rdy);
-      for (var q = 1; q < rv.length; q++) {
-        octx.lineTo(ox + rv[q][0] * sx + rdx, oy + rv[q][1] * sy + rdy);
-      }
+      traceSmooth(octx, rv, ox, oy, sx, sy, rdx, rdy);
       octx.stroke();
     }
 
@@ -1168,6 +1186,12 @@
       .then(function (r) { return r.json(); })
       .then(function (d) {
         DATA = d;
+        // Lean geometry: drop sub-scale jitter once, then the smooth
+        // tracer rounds what remains.
+        for (var li3 = 0; li3 < DATA.levels.length; li3++) {
+          DATA.levels[li3].p = DATA.levels[li3].p.map(function (ln) { return simplifyLine(ln, 0.35); });
+        }
+        DATA.rivers = (DATA.rivers || []).map(function (rv2) { return simplifyLine(rv2, 0.6); });
         var bin = atob(d.grid.b64);
         GRID = new Uint8Array(bin.length);
         for (var i = 0; i < bin.length; i++) GRID[i] = bin.charCodeAt(i);
