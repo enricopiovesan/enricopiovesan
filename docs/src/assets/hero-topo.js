@@ -370,7 +370,7 @@
         octx.globalAlpha = 0.55;
         octx.lineWidth = 1;
         octx.beginPath();
-        octx.moveTo(cx + (bflip ? -dr * 2 : dr * 2), cy - dr * 2);
+        octx.moveTo(cx + (bflip ? -8 : 8), cy - 8);
         octx.lineTo(blx, bly);
         octx.stroke();
         octx.globalAlpha = 0.85;
