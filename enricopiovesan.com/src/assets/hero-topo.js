@@ -39,8 +39,10 @@
   /* Live overlay: real aircraft (ADS-B) + a modeled CPKC freight on the
      rail line, which follows the Kicking Horse and Columbia rivers here.
      Map cover: 160x64 cells x 470 m = 75.2 x 30.1 km centred on Golden. */
-  var KM_W = 75.2, KM_H = 30.1;
-  var GEO = { latTop: 51.4086, lonLeft: -117.4923, dLat: KM_H / 111.32, dLon: KM_W / (111.32 * Math.cos(51.3 * Math.PI / 180)) };
+  // Map bounds calibrated by fitting the data's river geometry against the
+  // real OSM river paths (mean residual ~20 m).
+  var KM_W = 61.2, KM_H = 24.4;
+  var GEO = { latTop: 51.3991, lonLeft: -117.4219, dLat: 0.2196, dLon: 0.8790 };
   var PLANES = [], RAIL = null, RAIL_LEN = 0, TRAIN_WB = true;
   var w = 0, h = 0, dpr = 1, margin = 24;        // parallax headroom
   var mx = 0, my = 0, tx = 0, ty = 0;            // pointer lerp
@@ -268,9 +270,6 @@
   // Named summits (OSM coordinates/elevations): [lat, lon, ele, label, side]
   // side -1 puts the label left of the triangle to avoid cluster overlap.
   var PEAKS = [
-    [51.26325, -117.43135, 3284, 'Sir Donald', 1],
-    [51.25857, -116.53006, 3319, 'Vaux', 1],
-    [51.22317, -116.51097, 3280, 'Chancellor', -1],
     [51.37607, -116.69539, 2924, 'Deville', 1],
     [51.34060, -116.64860, 2892, 'King', 1],
     [51.29899, -117.22832, 2836, 'Moonraker', 1],
