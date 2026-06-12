@@ -418,15 +418,24 @@
         var pending = 0, drew = false;
         function done() {
           if (--pending === 0 && drew) {
-            // Recolor to a green reflectivity ramp (light -> heavy)
+            // Palette 0 encodes dBZ as grayscale (v ~ (dBZ+32)*2).
+            // Rain: green -> yellow -> red by intensity, like a weather app.
+            // Snow (live Open-Meteo flag): blue ramp instead.
+            var snowing = WX && WX.snowfall > 0;
             var id = cx2.getImageData(0, 0, W, H), q = id.data;
             for (var k = 0; k < q.length; k += 4) {
               if (q[k + 3] < 25) { q[k + 3] = 0; continue; }
-              var t2 = 1 - (q[k] + q[k + 1] + q[k + 2]) / 765; // darker = heavier
-              q[k] = Math.round(150 - 125 * t2);
-              q[k + 1] = Math.round(215 - 105 * t2);
-              q[k + 2] = Math.round(160 - 105 * t2);
-              q[k + 3] = Math.min(255, q[k + 3]);
+              var v2 = q[k], c2;
+              if (snowing) {
+                var ts = Math.min(1, v2 / 160);
+                c2 = [190 - 100 * ts, 215 - 75 * ts, 240 - 20 * ts];
+              } else if (v2 < 140) {                 // light-moderate rain
+                var tg = Math.min(1, v2 / 140);
+                c2 = [150 - 125 * tg, 215 - 105 * tg, 160 - 105 * tg];
+              } else if (v2 < 160) c2 = [230, 205, 70];   // heavy
+              else if (v2 < 180) c2 = [235, 140, 40];     // very heavy
+              else c2 = [210, 50, 40];                    // severe
+              q[k] = Math.round(c2[0]); q[k + 1] = Math.round(c2[1]); q[k + 2] = Math.round(c2[2]);
             }
             cx2.putImageData(id, 0, 0);
             RADAR_CV = cv;
@@ -451,7 +460,7 @@
                 done();
               };
               img.onerror = done;
-              img.src = path + '/256/' + z + '/' + tx4 + '/' + ty4 + '/6/1_1.png';
+              img.src = path + '/256/' + z + '/' + tx4 + '/' + ty4 + '/0/1_0.png';
             })(tx3, ty3);
           }
         }
