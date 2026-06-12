@@ -1064,6 +1064,9 @@
         }
         if (nx < -0.02 || nx > 1.02) continue;
         var X2 = ox2 + nx * sx2 + mx * 16, Y2 = oy2 + ny * sy2 + my * 10;
+        // The top 220px of the canvas is parallax headroom hidden above the
+        // hero (see #hero-topo CSS) — keep rim-pinned targets below it.
+        if (Y2 < 252) Y2 = 252;
 
         ctx.save();
         ctx.translate(X2, Y2);
@@ -1110,6 +1113,7 @@
       if (iau > 0.42) iny = 0.5 + (iu < 0 ? -1 : 1) * Math.min(0.42 + (iau - 0.42) / 12, 0.47);
       if (inx > -0.02 && inx < 1.02) {
         var iX = ox2 + inx * sx2, iY = oy2 + iny * sy2;
+        if (iY < 252) iY = 252;
         ctx.strokeStyle = '#ffffff';
         ctx.fillStyle = '#ffffff';
         ctx.globalAlpha = 0.5;
