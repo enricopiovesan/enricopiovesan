@@ -897,12 +897,12 @@
       if (!snow) ctx.stroke();
     }
 
-    // Golden Eagle Express gondola at Kicking Horse resort: line drawn
-    // always; cabins shuttle only during real operating hours (modeled
-    // from kickinghorseresort.com summer/winter schedules).
+    // Golden Eagle Express gondola (endpoints from OSM): station squares at
+    // both ends; a circulating string of cabins runs only during real
+    // operating hours (modeled from kickinghorseresort.com schedules).
     (function () {
-      var bnx = (-117.0481 - GEO.lonLeft) / GEO.dLon, bny = (GEO.latTop - 51.2735) / GEO.dLat;
-      var tnx = (-117.0856 - GEO.lonLeft) / GEO.dLon, tny = (GEO.latTop - 51.2786) / GEO.dLat;
+      var bnx = (-117.04867 - GEO.lonLeft) / GEO.dLon, bny = (GEO.latTop - 51.29754) / GEO.dLat;
+      var tnx = (-117.07763 - GEO.lonLeft) / GEO.dLon, tny = (GEO.latTop - 51.27516) / GEO.dLat;
       var bX = ox2 + bnx * sx2 + mx * 14 * 0.25, bY = oy2 + bny * sy2 + my * 9 * 0.25;
       var tX = ox2 + tnx * sx2 + mx * 14 * 0.25, tY = oy2 + tny * sy2 + my * 9 * 0.25;
       var gc2 = isLight() ? '#5a3d8a' : '#b9a6e0';
@@ -913,25 +913,34 @@
       ctx.beginPath();
       ctx.moveTo(bX, bY); ctx.lineTo(tX, tY);
       ctx.stroke();
+      // Stations
+      ctx.globalAlpha = 0.7;
+      ctx.fillRect(bX - 2, bY - 2, 4, 4);
+      ctx.fillRect(tX - 2, tY - 2, 4, 4);
       var gn2 = goldenNow(), doy = gn2.doy, hr2 = gn2.hour, dow = new Date().getDay();
-      var open = false, hours = '';
-      if (doy >= 150 && doy <= 166 && (dow >= 5 || dow <= 1)) { open = hr2 >= 10 && hr2 < 15.5; hours = '10:00–15:30'; }
-      else if (doy >= 170 && doy <= 250) { open = hr2 >= 10 && hr2 < 16.5; hours = '10:00–16:30'; }
-      else if (doy >= 253 && doy <= 270 && (dow >= 4 || dow <= 1)) { open = hr2 >= 10 && hr2 < 15.5; hours = '10:00–15:30'; }
-      else if (doy >= 346 || doy <= 102) { open = hr2 >= 9 && hr2 < 15.5; hours = '09:00–15:30'; }
+      var open = false;
+      if (doy >= 150 && doy <= 166 && (dow >= 5 || dow <= 1)) open = hr2 >= 10 && hr2 < 15.5;
+      else if (doy >= 170 && doy <= 250) open = hr2 >= 10 && hr2 < 16.5;
+      else if (doy >= 253 && doy <= 270 && (dow >= 4 || dow <= 1)) open = hr2 >= 10 && hr2 < 15.5;
+      else if (doy >= 346 || doy <= 102) open = hr2 >= 9 && hr2 < 15.5;
       if (open) {
-        var ph = (Date.now() / 1000 % 300) / 300;   // 5-min cycle
-        var u1 = ph < 0.5 ? ph * 2 : 2 - ph * 2;    // cabin up, cabin down
-        var u2 = 1 - u1;
+        // Circulating monocable: evenly spaced cabins, both directions on
+        // slightly offset lines (~12 min base-to-top).
+        var len = Math.sqrt((tX - bX) * (tX - bX) + (tY - bY) * (tY - bY)) || 1;
+        var pxv = -(tY - bY) / len, pyv = (tX - bX) / len;  // perpendicular
+        var ph = (Date.now() / 1000 % 720) / 720;
+        var N = 5;
         ctx.globalAlpha = 0.85;
-        ctx.beginPath(); ctx.arc(bX + (tX - bX) * u1, bY + (tY - bY) * u1, 1.6, 0, Math.PI * 2); ctx.fill();
-        ctx.beginPath(); ctx.arc(bX + (tX - bX) * u2, bY + (tY - bY) * u2, 1.6, 0, Math.PI * 2); ctx.fill();
+        for (var ci = 0; ci < N; ci++) {
+          var uu = (ph + ci / N) % 1;
+          ctx.beginPath();
+          ctx.arc(bX + (tX - bX) * uu + pxv, bY + (tY - bY) * uu + pyv, 1.1, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.beginPath();
+          ctx.arc(bX + (tX - bX) * (1 - uu) - pxv, bY + (tY - bY) * (1 - uu) - pyv, 1.1, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
-      ctx.globalAlpha = 0.6;
-      ctx.font = '9px "IBM Plex Mono", monospace';
-      ctx.textBaseline = 'alphabetic';
-      ctx.fillText('KHMR · gondola', tX - 8, tY - 14);
-      ctx.fillText(open ? 'open · ' + hours : 'closed', tX - 8, tY - 3);
     })();
 
     // Active wildfires (BC Wildfire Service): flame dot, pulsing red ring
