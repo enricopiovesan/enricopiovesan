@@ -21,6 +21,7 @@
    - ISS: api.wheretheiss.at, 5 min (15 s while overhead)
    - river discharge: api.weather.gc.ca hydrometric (08NA006, 08NA002), 60 min
    - precipitation radar: api.rainviewer.com tiles, 10 min
+   - wildfires: BCWS ActiveFires (ArcGIS), 30 min
    Modeled (no live source): CPKC freight trains, KHMR gondola hours. */
 (function () {
   var canvas = document.getElementById('hero-topo');
@@ -103,7 +104,7 @@
       riverA: light ? 0.5 : 0.55,
       peakA: light ? 0.7 : 0.78,
       // terrain wash RGB
-      snow: light ? [126, 168, 205] : [225, 236, 246],
+      snow: light ? [96, 150, 210] : [225, 236, 246],
       green: light ? [0, 128, 76] : [88, 142, 96],
       rock: light ? [60, 80, 100] : [150, 160, 175],
       washA: light ? 0.10 : 0.055,
@@ -116,6 +117,7 @@
   function renderFill() {
     if (!GRID) return;
     var p = palette();
+    var lightT = isLight();
     var gn = goldenNow();
     var snow = snowline(gn.doy);
     // Live correction: measured snow depth at the valley floor (785 m)
@@ -163,7 +165,9 @@
         if (!day) { b += 18; }                      // moonlight cools
         var o = i * 4;
         d[o] = r; d[o + 1] = g; d[o + 2] = b;
-        d[o + 3] = Math.round(255 * p.washA * (0.3 + 1.2 * shade));
+        // Snow wash reads stronger in the light theme so it stays blue
+        var aBoost = (e >= snow && lightT) ? 1.6 : 1;
+        d[o + 3] = Math.round(255 * p.washA * aBoost * (0.3 + 1.2 * shade));
       }
     }
     fill.width = gw; fill.height = gh;
@@ -468,6 +472,27 @@
       .catch(function () { /* decorative only */ });
   }
 
+  var FIRES = [];
+  function fetchFires() {
+    if (document.hidden || !visible) return;
+    fetch('https://services6.arcgis.com/ubm4tcTYICKBpist/arcgis/rest/services/BCWS_ActiveFires_PublicView/FeatureServer/0/query?where=1%3D1&geometry=-117.5,51.1,-116.4,51.45&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=FIRE_STATUS&returnGeometry=true&f=geojson')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        FIRES = (d.features || []).map(function (f) {
+          var c = f.geometry && f.geometry.coordinates;
+          if (!c) return null;
+          return {
+            nx: (c[0] - GEO.lonLeft) / GEO.dLon,
+            ny: (GEO.latTop - c[1]) / GEO.dLat,
+            ooc: /out of control/i.test((f.properties || {}).FIRE_STATUS || '')
+          };
+        }).filter(function (f) {
+          return f && f.nx > 0 && f.nx < 1 && f.ny > 0 && f.ny < 1;
+        }).slice(0, 6);
+      })
+      .catch(function () { /* decorative only */ });
+  }
+
   var RIVER_LW = { kh: 1.4, col: 1.4 };
   function fetchRivers() {
     if (document.hidden || !visible) return;
@@ -588,11 +613,11 @@
       var wspd = Math.min(0.9, 0.1 + WX.wind_speed_10m / 75);   // px per 40ms tick
       var wvx = Math.sin(wdir) * wspd, wvy = -Math.cos(wdir) * wspd;
       if (!WIND_P.length) {
-        for (var wi = 0; wi < 24; wi++) WIND_P.push({ x: Math.random() * w, y: Math.random() * h });
+        for (var wi = 0; wi < 64; wi++) WIND_P.push({ x: Math.random() * w, y: Math.random() * h });
       }
       ctx.strokeStyle = p.line;
-      ctx.globalAlpha = 0.22;
-      ctx.lineWidth = 1;
+      ctx.globalAlpha = 0.32;
+      ctx.lineWidth = 1.2;
       ctx.beginPath();
       for (var wj = 0; wj < WIND_P.length; wj++) {
         var wp = WIND_P[wj];
@@ -600,7 +625,7 @@
         if (wp.x < -10) wp.x += w + 20; if (wp.x > w + 10) wp.x -= w + 20;
         if (wp.y < -10) wp.y += h + 20; if (wp.y > h + 10) wp.y -= h + 20;
         ctx.moveTo(wp.x, wp.y);
-        ctx.lineTo(wp.x - wvx * 22, wp.y - wvy * 22);
+        ctx.lineTo(wp.x - wvx * 30, wp.y - wvy * 30);
       }
       ctx.stroke();
     }
@@ -669,6 +694,27 @@
       ctx.fillText('KHMR · gondola', tX - 8, tY - 14);
       ctx.fillText(open ? 'open · ' + hours : 'closed', tX - 8, tY - 3);
     })();
+
+    // Active wildfires (BC Wildfire Service): flame dot, pulsing red ring
+    // when out of control.
+    for (var fi2 = 0; fi2 < FIRES.length; fi2++) {
+      var fr = FIRES[fi2];
+      var fX = ox2 + fr.nx * sx2 + mx * 14 * 0.25, fY = oy2 + fr.ny * sy2 + my * 9 * 0.25;
+      ctx.fillStyle = fr.ooc ? '#e03020' : '#e07a30';
+      ctx.globalAlpha = 0.9;
+      ctx.beginPath(); ctx.arc(fX, fY, 2.4, 0, Math.PI * 2); ctx.fill();
+      if (fr.ooc) {
+        var pulse = 3.5 + 2.5 * Math.abs(Math.sin(Date.now() / 600));
+        ctx.strokeStyle = '#e03020';
+        ctx.globalAlpha = 0.5;
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.arc(fX, fY, pulse, 0, Math.PI * 2); ctx.stroke();
+      }
+      ctx.font = '9px "IBM Plex Mono", monospace';
+      ctx.textBaseline = 'alphabetic';
+      ctx.globalAlpha = 0.8;
+      ctx.fillText('wildfire', fX + 7, fY - 4);
+    }
 
     // Highway 1 events from DriveBC: warning triangles, red for closures/
     // incidents, quiet grey for construction.
@@ -944,6 +990,8 @@
         setInterval(fetchRoads, 10 * 60 * 1000);
         fetchKp();
         setInterval(fetchKp, 30 * 60 * 1000);
+        fetchFires();
+        setInterval(fetchFires, 30 * 60 * 1000);
         pollISS();
         fetchRivers();
         setInterval(fetchRivers, 60 * 60 * 1000);
@@ -996,7 +1044,7 @@
       spTick = true;
       requestAnimationFrame(function () {
         spTick = false;
-        var py = Math.min(140, window.scrollY * 0.28);
+        var py = Math.min(220, window.scrollY * 0.5);
         canvas.style.transform = 'translateX(-50%) translateY(' + py.toFixed(1) + 'px)';
       });
     }, { passive: true });
