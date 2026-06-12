@@ -1085,7 +1085,8 @@
         // East-west stays exact; north-south compresses sharply past the
         // strip edges so corridor traffic off-map reads at the scope's rim.
         var u = ny - 0.5, au = Math.abs(u);
-        if (au > 0.42) {
+        var pinned = au > 0.42;
+        if (pinned) {
           var cu = 0.42 + (au - 0.42) / 12;
           ny = 0.5 + (u < 0 ? -1 : 1) * Math.min(cu, 0.47);
         }
@@ -1097,7 +1098,9 @@
 
         ctx.save();
         ctx.translate(X2, Y2);
-        ctx.rotate(a.tr);
+        // Pinned targets slide along the rim, so point the glyph at the
+        // apparent (horizontal) motion rather than the true track.
+        ctx.rotate(pinned ? (a.vx >= 0 ? Math.PI / 2 : -Math.PI / 2) : a.tr);
         ctx.fillStyle = pc;
         ctx.globalAlpha = 0.95;
         ctx.beginPath();                             // airliner silhouette, nose up
