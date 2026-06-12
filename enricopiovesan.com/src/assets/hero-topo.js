@@ -35,7 +35,7 @@
   var fill = document.createElement('canvas');   // low-res terrain wash
   var fctx = fill.getContext('2d');
 
-  var DATA = null, GRID = null, SUN = null;
+  var DATA = null, GRID = null, SUN = null, MOON = null;
   /* Live overlay: real aircraft (ADS-B) + a modeled CPKC freight on the
      rail line, which follows the Kicking Horse and Columbia rivers here.
      Map cover: 160x64 cells x 470 m = 75.2 x 30.1 km centred on Golden. */
@@ -87,6 +87,35 @@
     return { alt: alt, az: az };
   }
 
+  /* Low-precision lunar position (Meeus-style, ~1 deg — fine for art).
+     Same az convention as the sun: from south, +west. */
+  function moonPosition() {
+    var d = Date.now() / 86400000 - 10957.5;       // days since J2000.0
+    var rad = Math.PI / 180;
+    var L = (218.316 + 13.176396 * d) * rad;
+    var M = (134.963 + 13.064993 * d) * rad;
+    var F = (93.272 + 13.229350 * d) * rad;
+    var lon = L + 6.289 * rad * Math.sin(M);
+    var lat = 5.128 * rad * Math.sin(F);
+    var e = 23.439 * rad;
+    var ra = Math.atan2(Math.sin(lon) * Math.cos(e) - Math.tan(lat) * Math.sin(e), Math.cos(lon));
+    var dec = Math.asin(Math.sin(lat) * Math.cos(e) + Math.cos(lat) * Math.sin(e) * Math.sin(lon));
+    var lst = (280.16 + 360.9856235 * d - 116.9631) * rad;
+    var H = lst - ra;
+    var phi = 51.3 * rad;
+    var alt = Math.asin(Math.sin(phi) * Math.sin(dec) + Math.cos(phi) * Math.cos(dec) * Math.cos(H));
+    var az = Math.atan2(Math.sin(H), Math.cos(H) * Math.sin(phi) - Math.tan(dec) * Math.cos(phi));
+    var sunLon = (280.46 + 0.9856474 * d) * rad;
+    var ill = (1 - Math.cos(lon - sunLon)) / 2;
+    return { alt: alt, az: az, ill: ill };
+  }
+
+  function fmtHour(hr) {
+    var H = Math.floor(hr), M = Math.round((hr - H) * 60);
+    if (M === 60) { H++; M = 0; }
+    return (H < 10 ? '0' : '') + H + ':' + (M < 10 ? '0' : '') + M;
+  }
+
   function isLight() {
     var t = document.documentElement.getAttribute('data-theme');
     if (t) return t === 'light';
@@ -131,8 +160,17 @@
 
     var day = sun.alt > -0.10;                     // includes civil twilight
     SUN = { alt: sun.alt, az: sun.az, day: day };
-    var alt = day ? Math.max(sun.alt, 0.06) : 0.55;
-    var az = day ? sun.az : 0;                     // moon: from the south
+    // Sunrise/sunset from the same solar model (hour angle at alt = 0)
+    var declr = 23.44 * Math.PI / 180 * Math.sin(2 * Math.PI * (gn.doy - 81) / 365);
+    var latr = 51.3 * Math.PI / 180;
+    var cosH0 = Math.max(-1, Math.min(1, -Math.tan(latr) * Math.tan(declr)));
+    var hh = Math.acos(cosH0) * 180 / Math.PI / 15;
+    SUN.rise = fmtHour(13.1 - hh);
+    SUN.set = fmtHour(13.1 + hh);
+    MOON = moonPosition();
+    var moonUp = !day && MOON.alt > 0;
+    var alt = day ? Math.max(sun.alt, 0.06) : (moonUp ? Math.max(MOON.alt, 0.2) : 0.55);
+    var az = day ? sun.az : (moonUp ? MOON.az : 0); // real moon light at night
     // Light vector in map space: north is up (-y), south +y, west -x
     var lx = -Math.sin(az) * Math.cos(alt);
     var ly = Math.cos(az) * Math.cos(alt);
@@ -208,37 +246,70 @@
     // Directional glow so the sun (or moon) position reads at a glance.
     // Map is north-up: east = right, south = down.
     if (SUN) {
-      var dirX = SUN.day ? -Math.sin(SUN.az) : 0;
-      var elev = Math.max(0, Math.sin(Math.max(SUN.alt, 0)));
-      var cx = ow * (0.5 + 0.44 * dirX);
-      var cy = SUN.day ? h * (0.7 - 0.62 * elev) : h * 0.78;
-      var radius = Math.max(ow, h) * 0.75;
-      var gc = SUN.day ? p.sunGlow : p.moonGlow;
+      var light2 = isLight();
+      var moonUp2 = !SUN.day && MOON && MOON.alt > 0;
+      var body = SUN.day ? SUN : (moonUp2 ? MOON : null);
       // Overcast flattens the light: scale glow/disc by live cloud cover
       var cf = WX && typeof WX.cloud_cover === 'number' ? 1 - 0.7 * WX.cloud_cover / 100 : 1;
-      var ga = (SUN.day ? (0.16 - 0.07 * elev) : 0.07) * cf;
-      var grad = octx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-      grad.addColorStop(0, 'rgba(' + gc[0] + ',' + gc[1] + ',' + gc[2] + ',' + ga.toFixed(3) + ')');
-      grad.addColorStop(1, 'rgba(' + gc[0] + ',' + gc[1] + ',' + gc[2] + ',0)');
-      octx.fillStyle = grad;
-      octx.fillRect(0, 0, ow, h);
+      if (body) {
+        var dirX = -Math.sin(body.az);
+        var elev = Math.max(0, Math.sin(Math.max(body.alt, 0)));
+        var cx = ow * (0.5 + 0.44 * dirX);
+        var cy = h * (0.7 - 0.62 * elev);
+        var radius = Math.max(ow, h) * 0.75;
+        var gc = SUN.day ? p.sunGlow : p.moonGlow;
+        var ga = (SUN.day ? (0.16 - 0.07 * elev) : 0.07) * cf;
+        var grad = octx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+        grad.addColorStop(0, 'rgba(' + gc[0] + ',' + gc[1] + ',' + gc[2] + ',' + ga.toFixed(3) + ')');
+        grad.addColorStop(1, 'rgba(' + gc[0] + ',' + gc[1] + ',' + gc[2] + ',0)');
+        octx.fillStyle = grad;
+        octx.fillRect(0, 0, ow, h);
 
-      // Sun disc (moon at night), color keyed to altitude:
-      // horizon = deep red-orange, climbing = golden, high = near-white.
-      var t = Math.min(1, Math.max(0, elev / 0.72));   // 0 horizon → 1 summer noon
-      var dc = SUN.day
-        ? [Math.round(255), Math.round(96 + 142 * t), Math.round(36 + 174 * t)]
-        : [205, 218, 240];
-      var dr = Math.max(ow, h) * (SUN.day ? 0.022 : 0.016);
-      var da = (SUN.day ? (0.5 - 0.22 * t) : 0.3) * cf;
-      var disc = octx.createRadialGradient(cx, cy, 0, cx, cy, dr * 3.2);
-      disc.addColorStop(0, 'rgba(' + dc[0] + ',' + dc[1] + ',' + dc[2] + ',' + da.toFixed(3) + ')');
-      disc.addColorStop(0.28, 'rgba(' + dc[0] + ',' + dc[1] + ',' + dc[2] + ',' + (da * 0.55).toFixed(3) + ')');
-      disc.addColorStop(1, 'rgba(' + dc[0] + ',' + dc[1] + ',' + dc[2] + ',0)');
-      octx.fillStyle = disc;
-      octx.beginPath();
-      octx.arc(cx, cy, dr * 3.2, 0, Math.PI * 2);
-      octx.fill();
+        // Disc color keyed to altitude. The light theme needs a deeper,
+        // saturated amber — the near-white noon ramp vanishes on cream.
+        var t = Math.min(1, Math.max(0, elev / 0.72)); // 0 horizon → 1 noon
+        var dc = SUN.day
+          ? (light2
+            ? [Math.round(235 - 15 * t), Math.round(110 + 60 * t), Math.round(30 + 40 * t)]
+            : [255, Math.round(96 + 142 * t), Math.round(36 + 174 * t)])
+          : [205, 218, 240];
+        var dr = Math.max(ow, h) * (SUN.day ? 0.022 : 0.016);
+        var da = SUN.day ? Math.max((0.5 - 0.22 * t) * cf, light2 ? 0.4 : 0.18) : 0.3 * cf;
+        var disc = octx.createRadialGradient(cx, cy, 0, cx, cy, dr * 3.2);
+        disc.addColorStop(0, 'rgba(' + dc[0] + ',' + dc[1] + ',' + dc[2] + ',' + da.toFixed(3) + ')');
+        disc.addColorStop(0.28, 'rgba(' + dc[0] + ',' + dc[1] + ',' + dc[2] + ',' + (da * 0.55).toFixed(3) + ')');
+        disc.addColorStop(1, 'rgba(' + dc[0] + ',' + dc[1] + ',' + dc[2] + ',0)');
+        octx.fillStyle = disc;
+        octx.beginPath();
+        octx.arc(cx, cy, dr * 3.2, 0, Math.PI * 2);
+        octx.fill();
+
+        // Radar-style data block: sun gets rise/set, moon gets illumination
+        var bflip = cx > ow - 140;
+        var blx = cx + (bflip ? -18 : 18), bly = cy - 20;
+        octx.strokeStyle = 'rgb(' + dc[0] + ',' + dc[1] + ',' + dc[2] + ')';
+        octx.fillStyle = 'rgb(' + dc[0] + ',' + dc[1] + ',' + dc[2] + ')';
+        octx.globalAlpha = 0.55;
+        octx.lineWidth = 1;
+        octx.beginPath();
+        octx.moveTo(cx + (bflip ? -dr * 2 : dr * 2), cy - dr * 2);
+        octx.lineTo(blx, bly);
+        octx.stroke();
+        octx.globalAlpha = 0.85;
+        octx.font = '9px "IBM Plex Mono", monospace';
+        octx.textBaseline = 'alphabetic';
+        if (bflip) octx.textAlign = 'right';
+        var btx = blx + (bflip ? -4 : 4);
+        if (SUN.day) {
+          octx.fillText('sun', btx, bly - 12);
+          octx.fillText('↑ ' + SUN.rise + ' · ↓ ' + SUN.set, btx, bly - 1);
+        } else {
+          octx.fillText('moon', btx, bly - 12);
+          octx.fillText(Math.round(MOON.ill * 100) + '% · ↑ next: ' + SUN.rise, btx, bly - 1);
+        }
+        octx.textAlign = 'left';
+        octx.globalAlpha = 1;
+      }
 
       // Aurora: green wash along the northern (top) edge when the real
       // planetary Kp index says a storm is on and it is night in Golden.
@@ -793,7 +864,7 @@
         var num = (wb ? 101 : 102) + 2 * (run % 4);
         ctx.strokeStyle = tc;
         ctx.fillStyle = tc;
-        ctx.globalAlpha = 0.75;
+        ctx.globalAlpha = 0.55;
         ctx.lineWidth = 2;
         ctx.beginPath();
         var segs = 16, lenKm = 2.2, started = false;
@@ -807,20 +878,20 @@
         ctx.stroke();
         var hp = railPoint(headD);
         var hx = ox2 + hp.x * sx2 + mx * 14 * 0.25, hy = oy2 + hp.y * sy2 + my * 9 * 0.25;
-        ctx.globalAlpha = 0.95;
+        ctx.globalAlpha = 0.75;
         ctx.beginPath();
         ctx.arc(hx, hy, 2, 0, Math.PI * 2);
         ctx.fill();
         if (hx > -10 && hx < w + 10 && hy > -10 && hy < h + 10) {
           var tflip = hx > w - 120;
           var tlx = hx + (tflip ? -14 : 14), tly = hy - 16;
-          ctx.globalAlpha = 0.5;
+          ctx.globalAlpha = 0.35;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(hx + (tflip ? -3 : 3), hy - 3);
           ctx.lineTo(tlx, tly);
           ctx.stroke();
-          ctx.globalAlpha = 0.85;
+          ctx.globalAlpha = 0.6;
           ctx.font = '9px "IBM Plex Mono", monospace';
           ctx.textBaseline = 'alphabetic';
           if (tflip) ctx.textAlign = 'right';
