@@ -291,7 +291,7 @@
 
     // Live precipitation radar wash
     if (RADAR_CV) {
-      octx.globalAlpha = 0.45;
+      octx.globalAlpha = 0.32;
       octx.drawImage(RADAR_CV, ox + mx * 6, oy + my * 4, sx, sy);
       octx.globalAlpha = 1;
     }
