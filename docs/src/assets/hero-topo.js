@@ -140,6 +140,29 @@
     return { rise: fmt(rise), set: fmt(set) };
   }
 
+  /* Alt/az for a fixed star (RA in hours, Dec in degrees), same az
+     convention as sun/moon: from south, +west. */
+  function starAltAz(raH, decD, ms) {
+    var d = (ms || Date.now()) / 86400000 - 10957.5;
+    var rad = Math.PI / 180;
+    var lst = ((280.16 + 360.9856235 * d - 116.9631) % 360) * rad;
+    var H = lst - raH * 15 * rad;
+    var dec = decD * rad, phi = 51.3 * rad;
+    var alt = Math.asin(Math.sin(phi) * Math.sin(dec) + Math.cos(phi) * Math.cos(dec) * Math.cos(H));
+    var az = Math.atan2(Math.sin(H), Math.cos(H) * Math.sin(phi) - Math.tan(dec) * Math.cos(phi));
+    return { alt: alt, az: az };
+  }
+
+  // Gemini: [RA h, Dec deg, bright] — Castor, Pollux, Alhena, Wasat,
+  // Mebsuta, Mekbuda, Tejat, Propus, Alzirr
+  var GEMINI = [
+    [7.577, 31.89, 1], [7.755, 28.03, 1], [6.628, 16.40, 1],
+    [7.335, 21.98, 0], [6.732, 25.13, 0], [7.069, 20.57, 0],
+    [6.383, 22.51, 0], [6.248, 22.50, 0], [6.755, 12.90, 0]
+  ];
+  // Stick figure: the two twins
+  var GEMINI_LINES = [[0, 4], [4, 6], [6, 7], [1, 3], [3, 5], [5, 2], [2, 8]];
+
   function fmtHour(hr) {
     var H = Math.floor(hr), M = Math.round((hr - H) * 60);
     if (M === 60) { H++; M = 0; }
@@ -314,6 +337,31 @@
         octx.arc(cx, cy, dr * 3.2, 0, Math.PI * 2);
         octx.fill();
 
+        // Crisp glyph at the disc centre so the body reads even when the
+        // soft gradient is muted by the text mask or cloud cover.
+        octx.globalAlpha = 0.95;
+        octx.fillStyle = 'rgb(' + dc[0] + ',' + dc[1] + ',' + dc[2] + ')';
+        octx.strokeStyle = octx.fillStyle;
+        if (SUN.day) {
+          octx.beginPath();
+          octx.arc(cx, cy, 2.6, 0, Math.PI * 2);
+          octx.fill();
+          octx.lineWidth = 1;
+          octx.beginPath();
+          for (var rk = 0; rk < 8; rk++) {
+            var ra2 = rk * Math.PI / 4;
+            octx.moveTo(cx + Math.cos(ra2) * 4.2, cy + Math.sin(ra2) * 4.2);
+            octx.lineTo(cx + Math.cos(ra2) * 6.4, cy + Math.sin(ra2) * 6.4);
+          }
+          octx.stroke();
+        } else {
+          octx.beginPath();
+          octx.arc(cx, cy, 4, -Math.PI / 2, Math.PI / 2, false);
+          octx.arc(cx - 1.7, cy, 3.1, Math.PI / 2, -Math.PI / 2, true);
+          octx.closePath();
+          octx.fill();
+        }
+
         // Radar-style data block: sun gets rise/set, moon gets illumination
         var bflip = cx > ow - 140;
         var blx = cx + (bflip ? -18 : 18), bly = cy - 20;
@@ -352,6 +400,50 @@
         ag.addColorStop(1, 'rgba(80,220,140,0)');
         octx.fillStyle = ag;
         octx.fillRect(0, 0, ow, h * 0.28);
+      }
+
+      // Gemini, from its real star positions — drawn only at night while
+      // the constellation is actually above the horizon (it sits next to
+      // the sun in June/July, so it returns in late-summer pre-dawn skies).
+      if (!SUN.day) {
+        var gs = [], upCount = 0;
+        for (var si = 0; si < GEMINI.length; si++) {
+          var st = starAltAz(GEMINI[si][0], GEMINI[si][1]);
+          var sup = st.alt > 0.02;
+          if (sup) upCount++;
+          gs.push({
+            x: ow * (0.5 - 0.44 * Math.sin(st.az)),
+            y: h * (0.7 - 0.62 * Math.max(0, Math.sin(st.alt))),
+            up: sup, bright: GEMINI[si][2]
+          });
+        }
+        if (upCount >= 6) {
+          var sc = isLight() ? '#4a5a78' : '#cdd8ee';
+          octx.strokeStyle = sc;
+          octx.fillStyle = sc;
+          octx.lineWidth = 0.7;
+          octx.globalAlpha = 0.3;
+          octx.beginPath();
+          for (var li2 = 0; li2 < GEMINI_LINES.length; li2++) {
+            var a3 = gs[GEMINI_LINES[li2][0]], b3 = gs[GEMINI_LINES[li2][1]];
+            if (!a3.up || !b3.up) continue;
+            octx.moveTo(a3.x, a3.y);
+            octx.lineTo(b3.x, b3.y);
+          }
+          octx.stroke();
+          for (var si2 = 0; si2 < gs.length; si2++) {
+            if (!gs[si2].up) continue;
+            octx.globalAlpha = gs[si2].bright ? 0.9 : 0.55;
+            octx.beginPath();
+            octx.arc(gs[si2].x, gs[si2].y, gs[si2].bright ? 1.5 : 0.9, 0, Math.PI * 2);
+            octx.fill();
+          }
+          octx.globalAlpha = 0.5;
+          octx.font = '9px "IBM Plex Mono", monospace';
+          octx.textBaseline = 'alphabetic';
+          octx.fillText('Gemini', gs[1].x + 8, gs[1].y - 6);
+          octx.globalAlpha = 1;
+        }
       }
     }
 
