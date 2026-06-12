@@ -89,8 +89,8 @@
 
   /* Low-precision lunar position (Meeus-style, ~1 deg — fine for art).
      Same az convention as the sun: from south, +west. */
-  function moonPosition() {
-    var d = Date.now() / 86400000 - 10957.5;       // days since J2000.0
+  function moonPosition(ms) {
+    var d = (ms || Date.now()) / 86400000 - 10957.5; // days since J2000.0
     var rad = Math.PI / 180;
     var L = (218.316 + 13.176396 * d) * rad;
     var M = (134.963 + 13.064993 * d) * rad;
@@ -106,8 +106,38 @@
     var alt = Math.asin(Math.sin(phi) * Math.sin(dec) + Math.cos(phi) * Math.cos(dec) * Math.cos(H));
     var az = Math.atan2(Math.sin(H), Math.cos(H) * Math.sin(phi) - Math.tan(dec) * Math.cos(phi));
     var sunLon = (280.46 + 0.9856474 * d) * rad;
-    var ill = (1 - Math.cos(lon - sunLon)) / 2;
-    return { alt: alt, az: az, ill: ill };
+    var elong = (lon - sunLon) % (2 * Math.PI);
+    if (elong < 0) elong += 2 * Math.PI;
+    var ill = (1 - Math.cos(elong)) / 2;
+    return { alt: alt, az: az, ill: ill, waxing: elong < Math.PI };
+  }
+
+  function moonPhaseName(m) {
+    var pc = m.ill * 100;
+    if (pc < 2) return 'new moon';
+    if (pc > 98) return 'full moon';
+    if (pc > 45 && pc < 55) return m.waxing ? 'first quarter' : 'last quarter';
+    if (pc <= 45) return m.waxing ? 'waxing crescent' : 'waning crescent';
+    return m.waxing ? 'waxing gibbous' : 'waning gibbous';
+  }
+
+  /* Next moonrise/moonset within 25 h, by scanning the ephemeris. */
+  function moonTimes() {
+    var now = Date.now(), step = 10 * 60 * 1000;
+    var prev = moonPosition(now).alt, rise = null, set = null;
+    for (var t = step; t <= 25 * 60 * 60 * 1000; t += step) {
+      var a = moonPosition(now + t).alt;
+      if (prev <= 0 && a > 0 && !rise) rise = now + t - step / 2;
+      if (prev > 0 && a <= 0 && !set) set = now + t - step / 2;
+      if (rise && set) break;
+      prev = a;
+    }
+    function fmt(ms) {
+      if (!ms) return '—';
+      var g = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Edmonton', hour12: false, hour: '2-digit', minute: '2-digit' });
+      return g.format(new Date(ms));
+    }
+    return { rise: fmt(rise), set: fmt(set) };
   }
 
   function fmtHour(hr) {
@@ -304,8 +334,10 @@
           octx.fillText('sun', btx, bly - 12);
           octx.fillText('↑ ' + SUN.rise + ' · ↓ ' + SUN.set, btx, bly - 1);
         } else {
-          octx.fillText('moon', btx, bly - 12);
-          octx.fillText(Math.round(MOON.ill * 100) + '% · ↑ next: ' + SUN.rise, btx, bly - 1);
+          var mt = moonTimes();
+          octx.fillText('moon · ' + moonPhaseName(MOON), btx, bly - 23);
+          octx.fillText(Math.round(MOON.ill * 100) + '% lit', btx, bly - 12);
+          octx.fillText('↑ ' + mt.rise + ' · ↓ ' + mt.set, btx, bly - 1);
         }
         octx.textAlign = 'left';
         octx.globalAlpha = 1;
