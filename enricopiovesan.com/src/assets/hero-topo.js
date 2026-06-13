@@ -1002,41 +1002,56 @@
       ctx.fillText('CYGE', aX + 6, aY - 4);
     })();
 
-    // Highway 1 polyline: green when clear, red segments near DriveBC events.
+    // Highway 1 polyline: smooth quadratic curves, green when clear, red near major DriveBC events.
     (function () {
       ctx.lineWidth = 1.5;
       ctx.lineJoin = 'round';
       ctx.lineCap = 'round';
       ctx.setLineDash([]);
 
-      // Project a norm coord to canvas
       function hX(nx) { return ox2 + nx * sx2 + mx * 14 * 0.25; }
       function hY(ny) { return oy2 + ny * sy2 + my * 9 * 0.25; }
 
-      // For each segment decide color: red if any major ROADEV is within 0.06 norm of midpoint
-      var prevGreen = null;
-      for (var hi = 1; hi < HWY1.length; hi++) {
-        var pa = HWY1[hi - 1], pb = HWY1[hi];
-        var midNx = (pa[0] + pb[0]) * 0.5, midNy = (pa[1] + pb[1]) * 0.5;
-        var isRed = false;
+      // Tag each point red if a major ROADEV is within 0.06 norm (~5 km)
+      var tags = HWY1.map(function (p) {
         for (var rei = 0; rei < ROADEV.length; rei++) {
           var re = ROADEV[rei];
-          var dex = midNx - re.nx, dey = midNy - re.ny;
-          if (re.major && dex * dex + dey * dey < 0.06 * 0.06) { isRed = true; break; }
+          var dx = p[0] - re.nx, dy = p[1] - re.ny;
+          if (re.major && dx * dx + dy * dy < 0.06 * 0.06) return 'red';
         }
-        var segColor = isRed ? (isLight() ? '#b3261e' : '#ff5252') : (isLight() ? '#1a6b2e' : '#69f0ae');
-        if (prevGreen !== !isRed) {
-          // flush previous path if color changes
-          if (prevGreen !== null) ctx.stroke();
-          ctx.strokeStyle = segColor;
-          ctx.globalAlpha = isRed ? 0.9 : 0.65;
-          ctx.beginPath();
-          ctx.moveTo(hX(pa[0]), hY(pa[1]));
-          prevGreen = !isRed;
+        return 'green';
+      });
+
+      // Draw smooth runs of consecutive same-color points
+      function drawRun(pts, color, alpha) {
+        if (pts.length < 2) return;
+        ctx.strokeStyle = color;
+        ctx.globalAlpha = alpha;
+        ctx.beginPath();
+        ctx.moveTo(hX(pts[0][0]), hY(pts[0][1]));
+        for (var i = 1; i < pts.length - 1; i++) {
+          var ax = hX(pts[i][0]), ay = hY(pts[i][1]);
+          var bx = hX(pts[i + 1][0]), by = hY(pts[i + 1][1]);
+          ctx.quadraticCurveTo(ax, ay, (ax + bx) / 2, (ay + by) / 2);
         }
-        ctx.lineTo(hX(pb[0]), hY(pb[1]));
+        ctx.lineTo(hX(pts[pts.length - 1][0]), hY(pts[pts.length - 1][1]));
+        ctx.stroke();
       }
-      if (prevGreen !== null) ctx.stroke();
+
+      var run = [HWY1[0]], runColor = tags[0];
+      for (var hi = 1; hi < HWY1.length; hi++) {
+        if (tags[hi] === runColor) {
+          run.push(HWY1[hi]);
+        } else {
+          run.push(HWY1[hi]); // include shared endpoint for continuity
+          var c = runColor === 'red' ? (isLight() ? '#b3261e' : '#ff5252') : (isLight() ? '#1a6b2e' : '#69f0ae');
+          drawRun(run, c, runColor === 'red' ? 0.9 : 0.65);
+          run = [HWY1[hi]];
+          runColor = tags[hi];
+        }
+      }
+      var fc = runColor === 'red' ? (isLight() ? '#b3261e' : '#ff5252') : (isLight() ? '#1a6b2e' : '#69f0ae');
+      drawRun(run, fc, runColor === 'red' ? 0.9 : 0.65);
       ctx.setLineDash([]);
     })();
 
