@@ -1022,7 +1022,7 @@
         for (var rei = 0; rei < ROADEV.length; rei++) {
           var re = ROADEV[rei];
           var dex = midNx - re.nx, dey = midNy - re.ny;
-          if (dex * dex + dey * dey < 0.06 * 0.06) { isRed = true; break; }
+          if (re.major && dex * dex + dey * dey < 0.06 * 0.06) { isRed = true; break; }
         }
         var segColor = isRed ? (isLight() ? '#b3261e' : '#ff5252') : (isLight() ? '#1a6b2e' : '#69f0ae');
         if (prevGreen !== !isRed) {
