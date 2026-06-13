@@ -931,7 +931,7 @@
         // slightly offset lines (~12 min base-to-top).
         var len = Math.sqrt((tX - bX) * (tX - bX) + (tY - bY) * (tY - bY)) || 1;
         var pxv = -(tY - bY) / len, pyv = (tX - bX) / len;  // perpendicular
-        var ph = (Date.now() / 1000 % 720) / 720;
+        var ph = (Date.now() / 1000 % 480) / 480;
         var N = 5;
         ctx.globalAlpha = 0.85;
         for (var ci = 0; ci < N; ci++) {
