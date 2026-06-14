@@ -4,7 +4,7 @@ description: Platform architect and author building frameworks for software that
 layout: home.njk
 permalink: /
 canonical: https://enricopiovesan.com/
-ogTitle: Enrico Piovesan
+ogTitle: Enrico Piovesan — Platform Architect & Author
 ogDescription: Platform architect and author building frameworks for software that runs anywhere and codebases that AI agents can actually navigate.
 ogImage: og-default.png
 tagline: "Software should work for users, not for the runtime it happens to run on."
