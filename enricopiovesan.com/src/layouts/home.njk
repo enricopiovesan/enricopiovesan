@@ -32,7 +32,6 @@ layout: base.njk
       "author": { "@id": "https://enricopiovesan.com/#person" },
       "publisher": { "@type": "Organization", "name": "Apress" },
       "datePublished": "2026",
-      "isbn": "B0GTTTTQH4",
       "url": "https://www.amazon.com/dp/B0GTTTTQH4",
       "description": "The complete guide to portable, runtime-agnostic service design with working examples and architecture diagrams.",
       "inLanguage": "en",
@@ -55,7 +54,7 @@ layout: base.njk
     </div>
     <p class="home-hero-coords" aria-hidden="true">51.2977° N&ensp;116.9631° W&ensp;·&ensp;Golden, BC&ensp;·&ensp;785–2770 m</p>
   </header>
-  <script>if(!window.matchMedia('(max-width:600px)').matches){var s=document.createElement('script');s.src='/src/assets/hero-topo.js';s.defer=true;document.head.appendChild(s);}</script>
+  <script>if(!window.matchMedia('(max-width:600px)').matches){['https://api.open-meteo.com','https://api.rainviewer.com','https://tilecache.rainviewer.com'].forEach(function(h){var l=document.createElement('link');l.rel='preconnect';l.href=h;if(h.indexOf('tilecache')>-1)l.crossOrigin='';document.head.appendChild(l);});var s=document.createElement('script');s.src='/src/assets/hero-topo.js';s.defer=true;document.head.appendChild(s);}</script>
 
   {# ── SECTIONS ───────────────────────────────────────── #}
   <div class="home-body">
@@ -110,7 +109,7 @@ layout: base.njk
     <div class="home-book-cover-wrap">
       <picture>
         <source srcset="/src/assets/img/cover.webp" type="image/webp">
-        <img class="home-book-cover" src="/src/assets/img/cover-small.png" alt="Universal Microservices Architecture book cover" width="120" height="175" loading="eager" fetchpriority="high">
+        <img class="home-book-cover" src="/src/assets/img/cover-small.png" alt="Universal Microservices Architecture book cover" width="120" height="175" loading="lazy">
       </picture>
     </div>
     <div class="home-book-content">

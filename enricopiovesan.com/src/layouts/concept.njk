@@ -1,14 +1,15 @@
 ---
 layout: base.njk
 ---
-{% if concept == "UMA" %}
 {% block schema %}
+{% if concept == "UMA" %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "BreadcrumbList",
+      "@id": "https://enricopiovesan.com/uma/#breadcrumb",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
         { "@type": "ListItem", "position": 2, "name": "UMA", "item": "https://enricopiovesan.com/uma/" }
@@ -23,13 +24,13 @@ layout: base.njk
       "author": { "@id": "https://enricopiovesan.com/#person" },
       "datePublished": "2024-08-01",
       "inLanguage": "en",
+      "proficiencyLevel": "Expert",
       "about": ["WebAssembly", "Microservices", "Software Architecture", "Portable Systems"],
       "url": "https://enricopiovesan.com/uma/"
     }
   ]
 }
 </script>
-{% endblock %}
 
 <section class="hero">
   <p class="hero-label">Framework</p>
@@ -97,13 +98,13 @@ layout: base.njk
 </section>
 
 {% elif concept == "C-DAD" %}
-{% block schema %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "BreadcrumbList",
+      "@id": "https://enricopiovesan.com/c-dad/#breadcrumb",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" },
         { "@type": "ListItem", "position": 2, "name": "C-DAD", "item": "https://enricopiovesan.com/c-dad/" }
@@ -118,12 +119,14 @@ layout: base.njk
       "author": { "@id": "https://enricopiovesan.com/#person" },
       "datePublished": "2025-11-01",
       "inLanguage": "en",
+      "proficiencyLevel": "Expert",
       "about": ["AI-native Systems", "Contract-Driven Development", "Software Architecture", "AI Engineering"],
       "url": "https://enricopiovesan.com/c-dad/"
     }
   ]
 }
 </script>
+{% endif %}
 {% endblock %}
 
 <section class="hero">

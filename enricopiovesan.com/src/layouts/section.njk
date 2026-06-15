@@ -1,6 +1,42 @@
 ---
 layout: base.njk
 ---
+{% block schema %}
+{% if datePublished %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://enricopiovesan.com{{ page.url }}",
+      "headline": "{{ title }}",
+      "description": "{{ description }}",
+      "url": "https://enricopiovesan.com{{ page.url }}",
+      "datePublished": "{{ datePublished }}",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "publisher": { "@id": "https://enricopiovesan.com/#person" },
+      "inLanguage": "en",
+      "proficiencyLevel": "Expert",
+      "isPartOf": { "@id": "https://enricopiovesan.com/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://enricopiovesan.com{{ page.url }}#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" }
+        {% if breadcrumb %}
+          {% for crumb in breadcrumb %}
+        ,{ "@type": "ListItem", "position": {{ loop.index + 1 }}, "name": "{{ crumb.label }}", "item": "https://enricopiovesan.com{{ crumb.href }}" }
+          {% endfor %}
+        {% endif %}
+      ]
+    }
+  ]
+}
+</script>
+{% endif %}
+{% endblock %}
 {% set nav = sectionNavs[sectionGroup] %}
 {% set autoToc = content | extractToc %}
 <div class="section-shell">
