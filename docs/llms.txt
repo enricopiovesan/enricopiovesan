@@ -99,10 +99,6 @@ In-depth analytical essays on specific topics in software architecture and AI sy
 - Uses: https://enricopiovesan.com/uses/
 - Now: https://enricopiovesan.com/now/
 
-## Full content
-
-For AI crawlers needing full page text: https://enricopiovesan.com/llms-full.txt
-
 ## Social and professional profiles
 
 - GitHub: https://github.com/enricopiovesan
