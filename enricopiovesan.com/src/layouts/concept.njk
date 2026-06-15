@@ -27,6 +27,44 @@ layout: base.njk
       "proficiencyLevel": "Expert",
       "about": ["WebAssembly", "Microservices", "Software Architecture", "Portable Systems"],
       "url": "https://enricopiovesan.com/uma/"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://enricopiovesan.com/uma/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Universal Microservices Architecture?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "UMA separates business logic from runtime environment. Instead of rewriting the same logic for browser, backend, edge, and AI pipelines, you write it once as a portable, self-contained unit — a Universal Microservice — and deploy it wherever it makes sense. Each service is governed by a contract that defines what it does, what it needs, and what it guarantees."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does contract-first mean in UMA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every service defines its interface, dependencies, and guarantees in a machine-readable contract before implementation begins. The contract is the source of truth — not the code."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What problem does UMA solve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The same business logic gets rewritten three, four, five times across browser, backend, edge, and AI pipelines. Most architectures assume the runtime too early and teams pay that cost forever — in maintenance, in drift, in onboarding time, and in the inability to adapt. UMA eliminates the assumption. Logic and runtime are separate concerns from the start."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is UMA runtime-agnostic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Business logic compiled to WebAssembly runs unchanged across browser, Node, Deno, Cloudflare Workers, and AI pipelines. The execution environment is a deployment decision, not an architectural one."
+          }
+        }
+      ]
     }
   ]
 }
@@ -122,6 +160,44 @@ layout: base.njk
       "proficiencyLevel": "Expert",
       "about": ["AI-native Systems", "Contract-Driven Development", "Software Architecture", "AI Engineering"],
       "url": "https://enricopiovesan.com/c-dad/"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://enricopiovesan.com/c-dad/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Contract-Driven AI Development?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Contract-Driven AI Development (C-DAD) is a framework where verifiable contracts — not prompts, not comments, not documentation — define how humans, AI systems, and runtimes collaborate to build software. The difference between a specification and a contract is verifiability. A specification describes intent. A contract enforces it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What problem does C-DAD solve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI coding tools can write code that looks right. They cannot know if it is right — because right is determined by intent, and intent was never declared. C-DAD makes intent a first-class citizen of the development process. Every behaviour has a contract. Every contract has a reason. Every reason is machine-readable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How are contracts verified in C-DAD?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Contracts in C-DAD are immutable units of record with explicit lifecycle states: Draft, Active, Deprecated, Retired. They carry provenance, validation results, and audit trails. They can be signed, distributed, and checked — not just read."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is hybrid governance in C-DAD?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not everything should be automated. C-DAD defines explicit handoff points where human judgment is required — and makes those points visible in the contract itself. Automation handles the routine. Humans govern the consequential."
+          }
+        }
+      ]
     }
   ]
 }

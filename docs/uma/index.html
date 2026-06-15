@@ -93,7 +93,12 @@
     "@id": "https://enricopiovesan.com/#person",
     "name": "Enrico Piovesan",
     "url": "https://enricopiovesan.com",
-    "image": "https://enricopiovesan.com/src/assets/img/enrico-piovesan.jpg",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://enricopiovesan.com/src/assets/img/enrico-piovesan.jpg",
+      "width": 800,
+      "height": 800
+    },
     "jobTitle": "Platform Software Architect",
     "worksFor": {
       "@type": "Organization",
@@ -140,6 +145,37 @@
 
   <main id="main-content">
     
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://enricopiovesan.com/uma/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Universal Microservices Architecture?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A portable, contract-driven execution model for distributed systems. Each business capability is packaged as a self-describing service that declares its contracts, metadata, and execution requirements independently of any runtime. The same capability runs identically across browser, edge, cloud, and AI pipeline without duplicating the logic or losing behavioral coherence." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do environment assumptions compound over time?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most distributed architectures make environment assumptions too early. The database layer assumes a server. The UI layer assumes a browser. Each assumption creates a coupling that limits where logic can run and multiplies the cost of every change. Teams that built their architecture with runtime assumptions baked in are now paying for those assumptions with every new environment they need to support." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does UMA differ from standard microservices?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Standard microservices architectures reduce coupling between services but do not address the coupling between logic and runtime. UMA takes portability further: the capability itself is runtime-agnostic. Standard microservices solve the deployment problem. UMA solves the portability problem — one implementation, any deployment environment." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where did UMA come from?",
+      "acceptedAnswer": { "@type": "Answer", "text": "UMA evolved from Client-Side Microservices Architecture, a 2023 paper that applied service-oriented thinking to the browser. That question expanded into UMA, which asked the same thing of every runtime in the stack. The UMA white paper was published in August 2024, followed by a book with 13 chapters of runnable Rust and WASM code and a live reference application at universalmicroservices.com." }
+    }
+  ]
+}
+</script>
+
 
 
 

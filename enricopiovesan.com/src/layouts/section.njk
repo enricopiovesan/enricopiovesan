@@ -2,6 +2,67 @@
 layout: base.njk
 ---
 {% block schema %}
+{% if concept == "UMA" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://enricopiovesan.com/uma/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Universal Microservices Architecture?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A portable, contract-driven execution model for distributed systems. Each business capability is packaged as a self-describing service that declares its contracts, metadata, and execution requirements independently of any runtime. The same capability runs identically across browser, edge, cloud, and AI pipeline without duplicating the logic or losing behavioral coherence." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do environment assumptions compound over time?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most distributed architectures make environment assumptions too early. The database layer assumes a server. The UI layer assumes a browser. Each assumption creates a coupling that limits where logic can run and multiplies the cost of every change. Teams that built their architecture with runtime assumptions baked in are now paying for those assumptions with every new environment they need to support." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does UMA differ from standard microservices?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Standard microservices architectures reduce coupling between services but do not address the coupling between logic and runtime. UMA takes portability further: the capability itself is runtime-agnostic. Standard microservices solve the deployment problem. UMA solves the portability problem — one implementation, any deployment environment." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where did UMA come from?",
+      "acceptedAnswer": { "@type": "Answer", "text": "UMA evolved from Client-Side Microservices Architecture, a 2023 paper that applied service-oriented thinking to the browser. That question expanded into UMA, which asked the same thing of every runtime in the stack. The UMA white paper was published in August 2024, followed by a book with 13 chapters of runnable Rust and WASM code and a live reference application at universalmicroservices.com." }
+    }
+  ]
+}
+</script>
+{% elif concept == "C-DAD" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://enricopiovesan.com/c-dad/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Contract-Driven AI Development?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A framework for building AI-native systems where contracts, not code, define the collaboration between humans, machines, and runtimes. Every capability declares its preconditions, postconditions, invariants, and exception flows in machine-readable form. Automated reasoning becomes possible because the structure carries the intent." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a spec and a contract?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A spec tells an agent what a function does. A contract tells an agent what the function is responsible for and under what conditions it can be trusted. Agents working with contracts can navigate, validate, and compose capabilities without breaking invariants. Agents working with specs can only read and describe them." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can't AI agents navigate code without contracts?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Because code encodes behavior, not intent. The constraint that prevents a certain operation exists in the code as a conditional, but the reason it exists — regulatory requirement, domain invariant, safety boundary — is nowhere in the repository. Contracts make that information explicit and machine-readable for the first time." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where did C-DAD come from?",
+      "acceptedAnswer": { "@type": "Answer", "text": "C-DAD emerged from years of watching the same failure pattern: codebases built by smart people that became progressively less navigable as they grew. Not because the code was bad but because the intent was never declared. The C-DAD white paper was published in November 2025. The companion CLI tool audits codebases for agent-readiness and scaffolds the contracts needed to fix what it finds." }
+    }
+  ]
+}
+</script>
+{% endif %}
 {% if datePublished %}
 <script type="application/ld+json">
 {

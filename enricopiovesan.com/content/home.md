@@ -1,11 +1,11 @@
 ---
 title: Enrico Piovesan
-description: Platform architect and author building frameworks for software that runs anywhere and codebases that AI agents can actually navigate.
+description: Platform architect at Autodesk. Author of Universal Microservices Architecture (Apress). Building frameworks for portable software and AI-navigable codebases.
 layout: home.njk
 permalink: /
 canonical: https://enricopiovesan.com/
 ogTitle: Enrico Piovesan — Platform Architect & Author
-ogDescription: Platform architect and author building frameworks for software that runs anywhere and codebases that AI agents can actually navigate.
+ogDescription: Platform architect at Autodesk. Author of Universal Microservices Architecture (Apress). Building frameworks for portable software and AI-navigable codebases.
 ogImage: og-default.png
 tagline: "Software should work for users, not for the runtime it happens to run on."
 intro: "After years building products across startups and enterprise platforms, from travel and payments to automotive and design software at global scale, I kept hitting the same wall. The same business logic rewritten for every environment. Systems that worked in isolation and broke at the seams. Codebases nobody could navigate when the team changed. I stopped accepting those as facts of life and started building frameworks to fix them."
