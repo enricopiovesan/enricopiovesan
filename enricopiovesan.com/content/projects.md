@@ -18,6 +18,10 @@ toc:
     label: Traverse
   - id: youaskm3
     label: youaskm3
+  - id: the-day-after-toolkit
+    label: the-day-after-toolkit
+  - id: uma-code-examples
+    label: UMA-code-examples
   - id: community-projects
     label: Community projects
   - id: patrol-toolkit
@@ -29,15 +33,29 @@ projects:
     type: Runtime / research
     stack: Rust
     status: in progress
-    description: Traverse is where the UMA and C-DAD ideas go further. A contract-driven Rust and WASM runtime for discovering, validating, and composing portable business capabilities across multi-agent orchestration scenarios. The spec is governed, the quality standards are in place, and the ADR process is documented before a single line of implementation is written. That is not bureaucracy. That is the only way to build a runtime that stays coherent as it grows.
+    description: "Traverse makes business logic portable and composable by treating business capabilities — not code modules — as the primary unit of software, governed through contracts and executable across browser, edge, cloud, and device environments. Rust-first and WASM-first from the ground up. Specs are versioned and merge-gating: pull requests fail if the implementation drifts from the approved spec. Includes a registry, deterministic workflow model, structured runtime traces for explainability, and a browser demo. Pre-implementation, Foundation v0.1 phase. Personal research project, not affiliated with Autodesk."
     github: https://github.com/enricopiovesan/Traverse
   - title: youaskm3
     id: youaskm3
     type: Personal knowledge layer
     stack: Rust, WASM, Web Components, PWA
     status: in progress
-    description: A personal knowledge layer built on the same foundations as Traverse and UMA. WASM-native, MCP-powered, designed to work with agentic systems. Runs entirely on GitHub Pages with no server, no database, and no ongoing cost. The federation model means anyone can fork it, run their own instance, and register in a shared registry.
+    description: "A personal knowledge layer that makes everything you have read, written, and built queryable as a connected graph — running entirely on infrastructure you own. WASM-native, MCP-powered, designed to work with agentic systems. Runs entirely on GitHub Pages with no server, no database, and no ongoing cost. The federation model means anyone can fork it, run their own instance, and register in a shared registry without depending on a central authority."
     github: https://github.com/youaskm3/youaskm3
+  - title: the-day-after-toolkit
+    id: the-day-after-toolkit
+    type: CLI / developer tooling
+    stack: TypeScript
+    status: in progress
+    description: "Audits a codebase for AI agent readiness and scaffolds the contracts needed to make it navigable — turning the ideas in The Day After into something a team can run against their own code today. Six commands covering audit and scaffolding. OpenSpec-governed. Ships with configuration for Claude, Cursor, and Codex so it fits directly into the agent workflows teams are already using. Built and functional, not yet published to npm."
+    github: https://github.com/enricopiovesan/the-day-after-toolkit
+  - title: UMA-code-examples
+    id: uma-code-examples
+    type: Reference implementation
+    stack: Rust, WASM
+    status: active
+    description: "The working reference implementation for the UMA book. 13 chapters of runnable Rust and WASM code with 100% business logic test coverage enforced in CI. Every concept in the book has corresponding runnable code — the live reference application at universalmicroservices.com is the same code described in the book, not a simplified demo. Dual MIT and Apache 2.0 licensed."
+    github: https://github.com/enricopiovesan/UMA-code-examples
 community:
   - title: Patrol Toolkit
     id: patrol-toolkit

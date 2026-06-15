@@ -42,9 +42,21 @@ CSMA was an attempt to write down why that assumption was wrong and what the alt
 
 **The portability seed.** CSMA was the first time I wrote down a pattern I had been circling around for years. The question it left open (why stop at the browser?) became the question that <abbr title="Universal Microservices Architecture">UMA</abbr> answered.
 
+## What triggered this paper
+
+The problem was not abstract. Frontend applications were getting more complex and more important, but the architecture treated them like an afterthought. The browser was a place where server logic got rendered, not a place where real business logic could live.
+
+The result was frontend codebases that could not scale across multiple teams. Every team built its own version of validation, formatting, and business rules because there was no shared, modular way to define that logic once and reuse it. Apps felt like collections of pages glued together rather than software with the same rigor as a desktop application.
+
+## How CSMA connects to UMA
+
+CSMA solved the modularity and team-scaling problem within the client. It did not yet ask the bigger question that UMA would ask a year later: why should the same logic be confined to the browser at all? CSMA established that the browser deserved to be treated as a first-class execution environment with modular, well-defined services. UMA generalised the solution across every runtime.
+
+Performance and modularity were not in tension. A well-architected frontend could be both fast and composable. That observation became the foundation of everything that followed.
+
 ## Who it is for
 
-Frontend architects and senior engineers building complex client applications who are hitting the limits of component-based thinking and want a more disciplined model for managing logic at the client layer.
+Frontend architects and senior engineers building complex client applications who are hitting the limits of component-based thinking and want a more disciplined model for managing logic at the client layer. Also relevant to anyone building at organisations with multiple teams contributing to the same frontend codebase, where the current architecture makes it hard to share business logic without duplicating it or creating tight coupling between teams.
 
 ---
 

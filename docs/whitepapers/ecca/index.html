@@ -246,8 +246,16 @@
 <p><strong>Governance without centralization.</strong> One of the failure modes in event-driven systems is governance that requires a central team to approve every change. ECCA proposes a federated model where ownership is distributed but contracts are machine-readable and enforceable at the boundary.</p>
 <p><strong>Lifecycle management.</strong> How events are versioned, deprecated, and retired without breaking consumers. The paper covers explicit versioning strategies and the contract obligations that producers carry through a deprecation cycle.</p>
 <p><strong>Discovery and AI navigability.</strong> An event contract catalog makes event-driven systems navigable by AI agents in the same way that C-DAD contracts make service logic navigable. The two frameworks are designed to compose.</p>
+<h2 id="what-triggered-this-paper">What triggered this paper</h2>
+<p>UMA solved the problem of business logic being duplicated across runtimes. ECCA addresses a different problem that shows up once an organisation has many event-driven services in production: nobody owns the events.</p>
+<p>The shift in thinking came from watching large organisations run dozens or hundreds of services communicating through events, with no central place to discover what events exist, who produces them, who consumes them, or what happens when an event's shape changes. Each team manages its own events in isolation. The coupling is real but invisible. It only becomes visible when something breaks across team boundaries.</p>
+<h2 id="a-concrete-scenario">A concrete scenario</h2>
+<p>A team changes the shape of an event they own because it makes sense for their service. Three other teams across the organisation consume that event and have no idea the change happened until their systems start failing in production. Nobody did anything wrong technically. The event had no declared contract and no registered owner, so there was no way to know who needed to be told.</p>
+<p>This is not a tooling failure. It is an architectural one. Events were never treated as first-class artifacts with declared contracts and explicit ownership, so the only governance that existed was tribal knowledge and communication overhead that scaled poorly as the organisation grew.</p>
+<h2 id="how-ecca-connects-to-c-dad">How ECCA connects to C-DAD</h2>
+<p>An event contract catalog makes event-driven systems navigable by AI agents in the same way that C-DAD contracts make service logic navigable. Both papers are built on the same premise: that implicit knowledge locked in people's heads is an architectural liability. ECCA applies that premise to events specifically, making the two frameworks composable for organisations that use both.</p>
 <h2 id="who-it-is-for">Who it is for</h2>
-<p>Architects and engineering leads building event-driven systems at scale who are hitting the governance ceiling: systems that work but that nobody can fully reason about anymore.</p>
+<p>Architects and engineering leads building event-driven systems at scale who are hitting the governance ceiling: systems that work but that nobody can fully reason about anymore. If your organisation has ever had an incident caused by an event change that nobody flagged in advance, this paper is describing your problem.</p>
 <hr>
 <p><a href="/whitepapers/">White Papers</a> · <a href="/whitepapers/c-dad/">C-DAD White Paper</a> · <a href="/whitepapers/uma/">UMA White Paper</a></p>
 
@@ -260,6 +268,12 @@
     <ul class="section-toc-links">
       
       <li><a href="#what-the-paper-covers">What the paper covers</a></li>
+      
+      <li><a href="#what-triggered-this-paper">What triggered this paper</a></li>
+      
+      <li><a href="#a-concrete-scenario">A concrete scenario</a></li>
+      
+      <li><a href="#how-ecca-connects-to-c-dad">How ECCA connects to C-DAD</a></li>
       
       <li><a href="#who-it-is-for">Who it is for</a></li>
       
