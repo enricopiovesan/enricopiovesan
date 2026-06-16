@@ -665,19 +665,35 @@
         function done() {
           if (--pending === 0 && drew) {
             // Palette 0 encodes dBZ as grayscale (v ~ (dBZ+32)*2).
-            // Rain: green -> yellow -> red by intensity, like a weather app.
-            // Snow (live Open-Meteo flag): blue ramp instead.
+            // Two-theme palette: dark bg = magenta rain + white-violet snow;
+            //                    light bg = indigo rain + deep purple snow.
+            // Heavy/severe end (yellow→orange→red) is identical on both themes.
             var snowing = WX && WX.snowfall > 0;
+            var isDark = document.documentElement.getAttribute('data-theme') === 'dark' ||
+              (!document.documentElement.getAttribute('data-theme') &&
+               window.matchMedia('(prefers-color-scheme: dark)').matches);
             var id = cx2.getImageData(0, 0, W, H), q = id.data;
             for (var k = 0; k < q.length; k += 4) {
               if (q[k + 3] < 25) { q[k + 3] = 0; continue; }
               var v2 = q[k], c2;
-              if (snowing) {                         // snow: pale violet ramp
+              if (snowing) {
                 var ts = Math.min(1, v2 / 160);
-                c2 = [205 - 70 * ts, 190 - 80 * ts, 235 - 30 * ts];
-              } else if (v2 < 140) {                 // rain: cyan -> deep teal
-                var tg = Math.min(1, v2 / 140);      // (green is the terrain's)
-                c2 = [115 - 85 * tg, 205 - 110 * tg, 215 - 55 * tg];
+                if (isDark) {
+                  // dark: bright white-blue -> light violet
+                  c2 = [230 - 40 * ts, 230 - 60 * ts, 255 - 20 * ts];
+                } else {
+                  // light: deep purple -> medium purple
+                  c2 = [100 + 40 * ts, 30 + 30 * ts, 180 - 20 * ts];
+                }
+              } else if (v2 < 140) {
+                var tg = Math.min(1, v2 / 140);
+                if (isDark) {
+                  // dark: magenta -> hot pink (visible against blue bg + green terrain)
+                  c2 = [220 - 20 * tg, 60 + 20 * tg, 180 - 40 * tg];
+                } else {
+                  // light: indigo -> blue (visible against cream bg + green terrain)
+                  c2 = [80 - 20 * tg, 60 - 20 * tg, 200 - 30 * tg];
+                }
               } else if (v2 < 160) c2 = [230, 205, 70];   // heavy
               else if (v2 < 180) c2 = [235, 140, 40];     // very heavy
               else c2 = [210, 50, 40];                    // severe
