@@ -83,8 +83,9 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
   </style>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="/src/assets/styles/global.css" />
+  <!-- Styles: load async to avoid render-blocking, swap to all on load -->
+  <link rel="stylesheet" href="/src/assets/styles/global.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/src/assets/styles/global.css"></noscript>
 
   <!-- Person schema (every page) -->
   <script type="application/ld+json">
@@ -198,7 +199,7 @@
     </div>
     <p class="home-hero-coords" aria-hidden="true">51.2977° N&ensp;116.9631° W&ensp;·&ensp;Golden, BC&ensp;·&ensp;785–2770 m</p>
   </header>
-  <script>if(!window.matchMedia('(max-width:600px)').matches){['https://api.open-meteo.com','https://api.rainviewer.com','https://tilecache.rainviewer.com'].forEach(function(h){var l=document.createElement('link');l.rel='preconnect';l.href=h;if(h.indexOf('tilecache')>-1)l.crossOrigin='';document.head.appendChild(l);});var s=document.createElement('script');s.src='/src/assets/hero-topo.js';s.defer=true;document.head.appendChild(s);}</script>
+  <script>if(!window.matchMedia('(max-width:600px)').matches){['https://api.open-meteo.com','https://api.rainviewer.com'].forEach(function(h){var l=document.createElement('link');l.rel='preconnect';l.href=h;document.head.appendChild(l);});var s=document.createElement('script');s.src='/src/assets/hero-topo.js';s.defer=true;document.head.appendChild(s);}</script>
 
   
   <div class="home-body">
