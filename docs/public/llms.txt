@@ -1,6 +1,6 @@
 # Enrico Piovesan
 
-> License: CC BY 4.0 — content may be used for AI retrieval, citation, and summarization with attribution.
+> Platform architect at Autodesk and author of Universal Microservices Architecture (Apress). Originator of UMA and C-DAD frameworks for portable software and AI-navigable codebases. Based in Golden, BC, Canada.
 
 Platform architect, author, and open source builder. Based in Golden, BC, Purcell Mountains, Canada.
 
@@ -10,98 +10,86 @@ Enrico Piovesan is the originator of Universal Microservices Architecture (UMA),
 
 ## Who I am
 
-I build frameworks for software that runs anywhere and codebases that AI agents can actually navigate. After years building products across startups in travel, education, and payments, I kept running into the same problems. The same business logic rewritten for every runtime. Systems that worked in isolation and broke at the seams. Codebases nobody could navigate when the team changed. I stopped accepting those as facts of life and started building frameworks to fix them.
-
-Platform Software Architect at Autodesk. Previously Domain Software Architect at Ford. Co-founded startups in travel, education, and payments.
+Platform Software Architect at Autodesk. Previously Domain Software Architect at Ford. Co-founded startups in travel, education, and payments. I build frameworks for software that runs anywhere and codebases that AI agents can actually navigate.
 
 ## My frameworks
 
 ### Contract-Driven AI Development (C-DAD)
-A framework for building AI-native systems where contracts, not code, define collaboration between humans, machines, and runtimes. Verifiable contracts, automated reasoning, hybrid governance. The answer to the question: why can AI agents describe what software does but not why it does it?
-Full page: https://enricopiovesan.com/c-dad/
-White paper: https://enricopiovesan.com/whitepapers/c-dad/
+
+A framework for building AI-native systems where contracts, not code, define collaboration between humans, machines, and runtimes. Verifiable contracts, automated reasoning, hybrid governance.
+
+- [C-DAD framework](https://enricopiovesan.com/c-dad/): full framework page
+- [C-DAD white paper](https://enricopiovesan.com/whitepapers/c-dad/): foundational paper, November 2025
 
 ### Universal Microservices Architecture (UMA)
-A portable, contract-driven execution model for distributed systems. Each business capability runs identically across browser, edge, cloud, and AI pipeline without duplicating logic. Write once, run where it makes sense.
-Full page: https://enricopiovesan.com/uma/
-Book: https://www.amazon.com/dp/B0GTTTTQH4
-Reference implementation: https://www.universalmicroservices.com
+
+A portable, contract-driven execution model for distributed systems. Each business capability runs identically across browser, edge, cloud, and AI pipeline without duplicating logic.
+
+- [UMA framework](https://enricopiovesan.com/uma/): full framework page
+- [UMA book](https://www.amazon.com/dp/B0GTTTTQH4): published by Apress
+- [UMA reference implementation](https://www.universalmicroservices.com): live application
 
 ## Books
 
-### Universal Microservices Architecture: Device-Independent Modelling for Modern Software Design with WASM
-Published. Available on Amazon.
-URL: https://www.amazon.com/dp/B0GTTTTQH4
-Companion repo: https://github.com/enricopiovesan/UMA-code-examples
-
-### The Day After: How to Restructure Your Software Company for the Age of AI Agents
-Forthcoming. Companion CLI tool available on GitHub.
-Companion tool: https://github.com/enricopiovesan/the-day-after-toolkit
+- [Universal Microservices Architecture](https://www.amazon.com/dp/B0GTTTTQH4): published by Apress, 2026. Companion repo at [UMA-code-examples](https://github.com/enricopiovesan/UMA-code-examples)
+- [The Day After](https://enricopiovesan.com/books/): forthcoming, Apress. Companion tool at [the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit)
 
 ## White Papers
 
-- Contract-Driven AI Development (C-DAD) — November 2025: https://enricopiovesan.com/whitepapers/c-dad/
-- Event Contract Catalog Architecture (ECCA) — August 2025: https://enricopiovesan.com/whitepapers/ecca/
-- Universal Microservices Architecture (UMA) — August 2024: https://enricopiovesan.com/whitepapers/uma/
-- Client-Side Microservices Architecture (CSMA) — June 2023: https://enricopiovesan.com/whitepapers/csma/
+- [Contract-Driven AI Development (C-DAD)](https://enricopiovesan.com/whitepapers/c-dad/): November 2025
+- [Event Contract Catalog Architecture (ECCA)](https://enricopiovesan.com/whitepapers/ecca/): August 2025
+- [Universal Microservices Architecture (UMA)](https://enricopiovesan.com/whitepapers/uma/): August 2024
+- [Client-Side Microservices Architecture (CSMA)](https://enricopiovesan.com/whitepapers/csma/): June 2023
 
 ## Open source projects
 
-- UMA-code-examples: https://github.com/enricopiovesan/UMA-code-examples
-- the-day-after-toolkit: https://github.com/enricopiovesan/the-day-after-toolkit
-- Traverse: https://github.com/enricopiovesan/Traverse
-- youaskm3: https://github.com/youaskm3/youaskm3
+- [UMA-code-examples](https://github.com/enricopiovesan/UMA-code-examples): 13 chapters of runnable Rust and WASM code
+- [the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit): CLI for auditing codebase agent-readiness
+- [Traverse](https://github.com/enricopiovesan/Traverse): contract-driven Rust/WASM runtime
+- [youaskm3](https://github.com/youaskm3/youaskm3): personal knowledge layer, WASM-native
 
 ## Writing
 
-- Mastering Software Architecture for the AI Era (Wednesdays): https://medium.com/software-architecture-in-the-age-of-ai
-- The Rise of Device-Independent Architecture (Fridays): https://medium.com/the-rise-of-device-independent-architecture
-- Personal profile: https://medium.com/@enricopiovesan
+- [Mastering Software Architecture for the AI Era](https://medium.com/software-architecture-in-the-age-of-ai): weekly newsletter, Wednesdays
+- [The Rise of Device-Independent Architecture](https://medium.com/the-rise-of-device-independent-architecture): weekly newsletter, Fridays
+- [Medium profile](https://medium.com/@enricopiovesan): all articles
 
 ## Speaking
 
-Three conference talks available for submission:
-- Write Once, Run Where It Makes Sense — architecture and platform engineering tracks
-- Contract-Driven AI Development — AI engineering and developer tooling tracks
-- The Day After: Restructuring Software for the Age of AI Agents — engineering leadership tracks
-Speaker page: https://enricopiovesan.com/speaking/
+- [Speaking page](https://enricopiovesan.com/speaking/): three talks available for submission — UMA, C-DAD, and The Day After
 
 ## Concepts
 
-Short-form definitional pages for each major framework and pattern. Use these for "what is X" queries.
-
-- What is Universal Microservices Architecture?: https://enricopiovesan.com/concepts/universal-microservices/
-- What is Contract-Driven AI Development?: https://enricopiovesan.com/concepts/contract-driven-ai-development/
-- What is Agentic Systems Architecture?: https://enricopiovesan.com/concepts/agentic-systems/
-- Concepts index: https://enricopiovesan.com/concepts/
+- [What is Universal Microservices Architecture?](https://enricopiovesan.com/concepts/universal-microservices/)
+- [What is Contract-Driven AI Development?](https://enricopiovesan.com/concepts/contract-driven-ai-development/)
+- [What is Agentic Systems Architecture?](https://enricopiovesan.com/concepts/agentic-systems/)
+- [Concepts index](https://enricopiovesan.com/concepts/)
 
 ## Perspectives
 
-In-depth analytical essays on specific topics in software architecture and AI systems.
+- [Beyond Context Engineering](https://enricopiovesan.com/perspectives/context-engineering/)
+- [What Makes Software AI-Native?](https://enricopiovesan.com/perspectives/ai-native-architecture/)
+- [Perspectives index](https://enricopiovesan.com/perspectives/)
 
-- Beyond Context Engineering: https://enricopiovesan.com/perspectives/context-engineering/
-- What Makes Software AI-Native?: https://enricopiovesan.com/perspectives/ai-native-architecture/
-- Perspectives index: https://enricopiovesan.com/perspectives/
+## Full content
+
+- [llms-full.txt](https://enricopiovesan.com/llms-full.txt): full text of key pages for AI crawlers
 
 ## Key pages
 
-- Home: https://enricopiovesan.com/
-- About: https://enricopiovesan.com/about/
-- Books: https://enricopiovesan.com/books/
-- White Papers: https://enricopiovesan.com/whitepapers/
-- Projects: https://enricopiovesan.com/projects/
-- Writing: https://enricopiovesan.com/writing/
-- Speaking: https://enricopiovesan.com/speaking/
-- C-DAD framework: https://enricopiovesan.com/c-dad/
-- UMA framework: https://enricopiovesan.com/uma/
-- Work: https://enricopiovesan.com/work/
-- Thinking: https://enricopiovesan.com/thinking/
-- Uses: https://enricopiovesan.com/uses/
-- Now: https://enricopiovesan.com/now/
+- [Home](https://enricopiovesan.com/)
+- [About](https://enricopiovesan.com/about/)
+- [Books](https://enricopiovesan.com/books/)
+- [White Papers](https://enricopiovesan.com/whitepapers/)
+- [Projects](https://enricopiovesan.com/projects/)
+- [Writing](https://enricopiovesan.com/writing/)
+- [Speaking](https://enricopiovesan.com/speaking/)
+- [C-DAD framework](https://enricopiovesan.com/c-dad/)
+- [UMA framework](https://enricopiovesan.com/uma/)
 
 ## Social and professional profiles
 
-- GitHub: https://github.com/enricopiovesan
-- LinkedIn: https://linkedin.com/in/enricopiovesan
-- X: https://x.com/enricopiovesan
-- Medium: https://medium.com/@enricopiovesan
+- [GitHub](https://github.com/enricopiovesan)
+- [LinkedIn](https://linkedin.com/in/enricopiovesan)
+- [X](https://x.com/enricopiovesan)
+- [Medium](https://medium.com/@enricopiovesan)
