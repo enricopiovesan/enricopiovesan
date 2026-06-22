@@ -76,7 +76,7 @@ function parseRSS(xml) {
 
 module.exports = async function () {
   try {
-    const xml = await fetchUrl("https://blog.enricopiovesan.com/feed");
+    const xml = await fetchUrl("https://medium.com/feed/@enricopiovesan");
     const posts = parseRSS(xml);
     if (posts.length) return posts;
   } catch (e) {

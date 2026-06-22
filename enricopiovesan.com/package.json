@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Personal brand website for Enrico Piovesan",
   "scripts": {
-    "build": "eleventy",
-    "start": "eleventy --serve",
-    "debug": "DEBUG=Eleventy* eleventy"
+    "build": "node --experimental-require-module node_modules/@11ty/eleventy/cmd.cjs",
+    "start": "node --experimental-require-module node_modules/@11ty/eleventy/cmd.cjs --serve",
+    "debug": "node --experimental-require-module node_modules/@11ty/eleventy/cmd.cjs --debug"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
