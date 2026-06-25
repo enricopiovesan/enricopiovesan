@@ -1,6 +1,14 @@
 ---
 name: topic-signal-report
-description: Use this skill to research and produce a structured signal report on any topic, technology, or domain. Searches across GitHub trending repositories, YouTube talks and tutorials, Hacker News discussions, web sources, research papers, and practitioner blogs. Trigger on requests like "research what is happening in X", "give me a signal report on X", "what are practitioners building in X", "top repos and talks on X", "what is trending in X right now", or any request to get a comprehensive current picture of a technology area. The user can specify how many items to include per source — default is 5 if not stated. Works for any domain: AI agents, software architecture, Rust, devtools, security, frontend, infrastructure, and so on.
+description: >-
+  Use this skill to research and produce a structured signal report on any topic, technology, or domain.
+  Searches across GitHub trending repositories, YouTube talks and tutorials, Hacker News discussions,
+  web sources, research papers, and practitioner blogs. Trigger on requests like
+  "research what is happening in X", "give me a signal report on X", "what are practitioners building in X",
+  "top repos and talks on X", "what is trending in X right now", or any request to get a comprehensive
+  current picture of a technology area. The user can specify how many items to include per source --
+  default is 5 if not stated. Works for any domain: AI agents, software architecture, Rust, devtools,
+  security, frontend, infrastructure, and so on.
 ---
 
 # Topic signal report
