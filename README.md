@@ -12,7 +12,7 @@ That's where UMA, C-DAD, and Traverse came from. Not from theory. From real prob
 Most architectures assume the environment too early. The same logic ends up duplicated four or five times across a codebase, and teams pay that cost forever.
 
 → **[Universal Microservices Architecture (UMA)](https://www.universalmicroservices.com/)** — a portable, contract-driven execution model for distributed systems. Write once, run where it makes sense.
-→ **[UMA-code-examples](https://github.com/enricopiovesan/UMA-code-examples)** — 13 chapters of runnable Rust/WASM code. 100% business logic coverage enforced in CI. Live reference app.
+→ **[UMA-code-examples](https://github.com/enricopiovesan/UMA-code-examples)** — 10 chapters of runnable Rust/WASM code. 100% business logic coverage enforced in CI. Live reference app.
 → **[Book on Amazon](https://www.amazon.com/dp/B0GTTTTQH4)** — the full model, the tradeoffs, and the design sequence behind it.
 
 ---
@@ -30,7 +30,7 @@ Tribal knowledge is locked in people's heads. There's no map. Agents guess, hall
 
 **[Traverse](https://github.com/enricopiovesan/Traverse)** — a contract-driven Rust/WASM runtime for discovering, validating, and composing portable business capabilities. Pre-implementation, spec-governed, personal R&D.
 
-**[youaskm3](https://github.com/youaskm3/youaskm3)** — a WASM-native, MCP-powered personal knowledge layer. Runs entirely on GitHub Pages. No server, no database, no cost. Federation model so anyone can fork and run their own instance.
+**[youaskm3](https://github.com/enricopiovesan/youaskm3)** — a WASM-native, MCP-powered personal knowledge layer. Runs entirely on GitHub Pages. No server, no database, no cost. Federation model so anyone can fork and run their own instance.
 
 ---
 
