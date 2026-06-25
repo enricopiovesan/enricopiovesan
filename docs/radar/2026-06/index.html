@@ -5,25 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Software Architecture Radar — June 2026 - Enrico Piovesan</title>
-  <meta name="description" content="10 software architecture signals worth paying attention to in June 2026. Curated from the knowledge graph and reviewed by Enrico Piovesan." />
+  <meta name="description" content="10 software architecture signals worth paying attention to in June 2026. Agents as architectural participants, LLMs in architecture design, fitness functions revisited, and the observability debt problem." />
   
 
   <!-- Open Graph -->
   <meta property="og:title" content="Software Architecture Radar — June 2026" />
-  <meta property="og:description" content="10 software architecture signals worth paying attention to in June 2026." />
+  <meta property="og:description" content="10 software architecture signals for June 2026. Agents as architectural participants, LLMs in architecture design, fitness functions, and observability debt." />
   <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://enricopiovesan.com/radar/2026-06/" />
-  <meta property="og:type" content="website" />
-  
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="Wed Jun 24 2026 18:00:00 GMT-0600 (Mountain Daylight Time)" />
+  <meta property="article:author" content="https://enricopiovesan.com/about/" />
   <meta property="og:site_name" content="Enrico Piovesan" />
   <!-- Twitter / X card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@enricopiovesan" />
   <meta name="twitter:creator" content="@enricopiovesan" />
   <meta name="twitter:title" content="Software Architecture Radar — June 2026" />
-  <meta name="twitter:description" content="10 software architecture signals worth paying attention to in June 2026." />
+  <meta name="twitter:description" content="10 software architecture signals for June 2026. Agents as architectural participants, LLMs in architecture design, fitness functions, and observability debt." />
   <meta name="twitter:image" content="https://enricopiovesan.com/public/og-default.png" />
 
   <!-- Favicons -->
@@ -149,52 +150,151 @@
     
 
 
-
-
-
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Software Architecture Radar — June 2026",
-  "description": "10 software architecture signals worth paying attention to in June 2026. Curated from the knowledge graph and reviewed by Enrico Piovesan.",
-  "url": "https://enricopiovesan.com/radar/2026-06/",
-  "author": {
-    "@type": "Person",
-    "name": "Enrico Piovesan",
-    "url": "https://enricopiovesan.com"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Enrico Piovesan",
-    "url": "https://enricopiovesan.com"
-  },
-  "inLanguage": "en",
-  "isPartOf": {
-    "@type": "Blog",
-    "name": "Software Architecture Radar",
-    "url": "https://enricopiovesan.com/radar/"
-  }
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://enricopiovesan.com/radar/2026-06/",
+      "headline": "Software Architecture Radar — June 2026",
+      "description": "10 software architecture signals worth paying attention to in June 2026. Agents as architectural participants, LLMs in architecture design, fitness functions revisited, and the observability debt problem.",
+      "url": "https://enricopiovesan.com/radar/2026-06/",
+      "datePublished": "Wed Jun 24 2026 18:00:00 GMT-0600 (Mountain Daylight Time)",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "publisher": { "@id": "https://enricopiovesan.com/#person" },
+      "inLanguage": "en",
+      "proficiencyLevel": "Expert",
+      "isPartOf": { "@id": "https://enricopiovesan.com/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://enricopiovesan.com/radar/2026-06/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" }
+        
+          
+        ,{ "@type": "ListItem", "position": 2, "name": "Radar", "item": "https://enricopiovesan.com/radar/" }
+          
+        ,{ "@type": "ListItem", "position": 3, "name": "June 2026", "item": "https://enricopiovesan.com" }
+          
+        
+      ]
+    }
+  ]
 }
 </script>
 
 
 
 
-<article class="page-content">
-  <h1>Software Architecture Radar — June 2026</h1>
-  
-  
-  <p><em>Issue 001 — June 2026</em></p>
+<div class="section-shell">
+
+  <aside class="section-nav-aside" aria-label="Radar navigation">
+    
+    <a class="section-nav-label" href="/radar/">Radar</a>
+    
+    
+    <ul class="section-nav-links">
+      
+      <li><a href="/radar/2026-06/" class="active" aria-current="page">June 2026</a></li>
+      
+    </ul>
+    
+  </aside>
+
+  <main class="section-main">
+    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        
+          
+            
+            <li><a href="/radar/">Radar</a></li>
+            
+          
+            
+            <li><span aria-current="page">June 2026</span></li>
+            
+          
+        
+      </ol>
+    </nav>
+
+    <div class="section-body">
+      <h1 class="section-h1">Software Architecture Radar — June 2026</h1>
+      
+      <p><em>Issue 001 — June 2026</em></p>
 <h2 id="editorial-note">Editorial note</h2>
-<p>Content coming soon. The first issue of the Software Architecture Radar will be published in June 2026.</p>
+<p>The dominant signal this month is a convergence that practitioners were discussing separately but that points at the same structural shift: agents as architectural participants, not external tools. Microsoft shipping MAF v1.0 at Build, a systematic literature review of LLMs in software architecture landing on arXiv, and a high-signal Hacker News thread on engineering discipline under AI pressure all named the same problem from different angles. The teams treating agents as a UI layer over existing systems are building the next generation of technical debt. The teams treating agents as first-class architectural components with governance, contracts, and defined responsibilities are doing something structurally different.</p>
+<p>The second signal worth noting is the return of fitness functions. After years of being referenced but rarely implemented, they are coming back as a concrete mechanism for expressing architectural constraints that tooling can reason about. That is not a coincidence.</p>
 <h2 id="the-10-signals">The 10 signals</h2>
-<p>Content coming soon.</p>
+<p><strong>1. Microsoft Agent Framework v1.0 reaches general availability</strong></p>
+<p>At Microsoft Build in San Francisco (June 2 to 3, 2026), Microsoft shipped MAF v1.0 with an agent harness as a first-class production concept. Skills, context, memory, and middleware are stable primitives. Claude Agent SDK and GitHub Copilot SDK agents can be dropped in as named participants while the orchestrator remains deterministic. This is the first major enterprise framework to treat agents as architectural citizens rather than automation scripts.</p>
+<p><em>Why it matters for architects:</em> The design decisions in MAF v1.0 will shape how enterprise teams structure multi-agent systems for the next several years, in the same way that Spring Boot shaped backend service design in its era. Worth understanding the mental model even if you are not a Microsoft shop, because your clients and teams will be.</p>
+<hr>
+<p><strong>2. Systematic review: Software Architecture Meets LLMs (arXiv 2505.16697, May 2026)</strong></p>
+<p>A systematic literature review covering 52 papers on how LLMs are being applied to software architecture tasks, including design decision support, documentation generation, and trade-off analysis. The key finding is that LLMs perform well on isolated architecture tasks but consistently struggle with cross-cutting trade-off analysis where multiple architectural concerns interact simultaneously.</p>
+<p><em>Why it matters for architects:</em> Before committing to AI-assisted architecture tooling, this review maps the actual capability boundaries. The gap between &quot;this output looks like architecture&quot; and &quot;this output reflects understood trade-offs&quot; is substantial and no current tool has closed it.</p>
+<hr>
+<p><strong>3. LLM-assisted Attribute-Driven Design (arXiv 2506.22688, June 2026)</strong></p>
+<p>A paper by Esposito et al. proposing a structured approach for using LLMs with ADD (Attribute-Driven Design), the method that derives architectural decisions from explicit quality attribute scenarios. The approach treats the LLM as a structured reasoning partner with constrained prompts rather than a freeform generator. Early results show better traceability between requirements and design decisions compared to unguided LLM use.</p>
+<p><em>Why it matters for architects:</em> ADD is underused outside academic contexts, partly because the scaffolding overhead is high. This paper offers a practical entry point for teams who want AI-assisted architecture decisions without losing the audit trail between requirements and design choices.</p>
+<hr>
+<p><strong>4. HN: &quot;AI demands more engineering discipline. Not less&quot; (500+ points, June 2026)</strong></p>
+<p>A high-engagement Hacker News discussion pushing back on the idea that AI tooling reduces the need for architectural thinking. The dominant view was that capable engineers are achieving more with less code and fewer moving parts, but that this requires more deliberate design upfront, not less. The skeptical camp argued that AI makes it faster to build systems that are hard to maintain at the architecture level.</p>
+<p><em>Why it matters for architects:</em> This debate is not theoretical. Teams using AI to accelerate implementation without architectural governance are producing systems that are harder to navigate and decompose, not easier. The thread named this clearly and the vote count suggests the practitioner community recognises it.</p>
+<hr>
+<p><strong>5. HN: &quot;Ask HN: What Is the State of App Development in 2026?&quot; (400+ points)</strong></p>
+<p>A wide-ranging discussion comparing the current AI moment to the desktop publishing revolution. The most-voted responses argued that AI is changing who can build software but not the structural problems that architecture exists to solve. Several practitioners noted that AI-generated code tends to produce flat, poorly decomposed systems that accumulate complexity rapidly without deliberate architectural intervention.</p>
+<p><em>Why it matters for architects:</em> This is the practitioner reality check that counterbalances tooling optimism. The structural problems of software architecture are not going away because code is cheaper to generate. They are potentially getting harder to manage as the volume of generated code increases.</p>
+<hr>
+<p><strong>6. matklad: &quot;Learning Software Architecture&quot; (May 12, 2026)</strong></p>
+<p>A post from Alex Kladov (Rust language designer at JetBrains) on how architectural judgment is actually developed. The argument is that architecture is learned through decomposition practice on real systems, not through pattern catalogs. The post resurfaced on Hacker News with 300+ points and a useful thread on the distinction between knowing patterns and having judgment.</p>
+<p><em>Why it matters for architects:</em> The post makes a distinction that training programs rarely surface: knowing architecture patterns and having architectural judgment are different capabilities that require different development strategies. Worth reading if you are mentoring engineers into architecture roles.</p>
+<hr>
+<p><strong>7. Mark Richards: &quot;Fitness Function Driven Architecture Revisited&quot; (May 4, 2026)</strong></p>
+<p>A Software Architecture Monday post revisiting fitness functions as a mechanism for expressing architectural constraints in executable form. Richards argued that AI tooling is making fitness functions more practical to implement because the barrier to writing automated checks has dropped significantly. Teams can now express architectural constraints as executable tests rather than documentation that drifts.</p>
+<p><em>Why it matters for architects:</em> Fitness functions are the closest thing to machine-enforceable architecture contracts that most teams have access to today. Their resurgence is directly connected to the AI-driven codebase navigation problem. If an AI agent is going to make changes to your system, it needs to be able to verify architectural constraints, not just read them.</p>
+<hr>
+<p><strong>8. UpCloud engineering: production trade-offs in modern architecture patterns (2026)</strong></p>
+<p>A production-focused post noting that the systems that hold up are not the ones that followed the most sophisticated blueprints, but the ones that made deliberate trade-offs with supporting infrastructure in place. The post named observability debt as the primary hidden cost of microservices adoption, noting that debugging a distributed trace across six services is expensive even with excellent tooling.</p>
+<p><em>Why it matters for architects:</em> This is the counter-signal to agent orchestration enthusiasm. Multi-agent systems add a new layer of distributed complexity on top of whatever microservices complexity already exists. Teams that have not resolved their observability debt are not in a position to add agents as architectural participants safely.</p>
+<hr>
+<p><strong>9. Software Architecture Gathering 2026 program published (Berlin, November 16 to 19)</strong></p>
+<p>The iSAQB Software Architecture Gathering published its 2026 program. LLM integration patterns, AI-native architecture design, fitness functions, and architectural documentation appeared as recurring themes across multiple sessions. The program is a reliable proxy for what senior architects in Europe are being asked to address this year.</p>
+<p><em>Why it matters for architects:</em> Conference programs lag practice by about a year. The fact that AI-native architecture and fitness functions are appearing together on the Gathering program means these topics have moved from edge practitioner interest to mainstream architect concern. If you are preparing talks or workshops for 2026, these are the themes that will get accepted.</p>
+<hr>
+<p><strong>10. HN: &quot;Building a better tool for documenting software architecture&quot; (March 2026, resurfaced)</strong></p>
+<p>A thread discussing the gap between architecture documentation tools and how architects actually think. The discussion converged on the problem that most tooling captures structure but not intent, making architecture documents useful for describing what exists but not for explaining why decisions were made or what constraints apply going forward.</p>
+<p><em>Why it matters for architects:</em> This is the C4 and Arc42 generation's unsolved problem. The thread named the gap clearly without naming a solution, which is where the field still is. Machine-readable architecture intent, the problem that contracts address, is the missing layer between current documentation tooling and the AI-navigable codebase.</p>
+<hr>
+<h2 id="cross-platform-signals">Cross-platform signals</h2>
+<p>Two signals appeared independently across multiple source types this month.</p>
+<p><strong>Agents as architectural participants, not tools.</strong> Microsoft Build (What shipped), the systematic LLM review (Research), and the HN engineering discipline thread all converged on the same finding from different directions. Agent orchestration is an architectural problem, not an automation problem. Teams that treat it as the latter will encounter the same governance failures that unstructured microservices adoption produced.</p>
+<p><strong>Architecture contracts and machine-readable intent.</strong> The fitness functions post, the ADD paper, and the architecture documentation thread all described the same gap from different angles: the intent behind architecture decisions is not encoded anywhere that tools can reason about. This is the pre-condition problem for AI-navigable codebases, and it is appearing across practitioner blogs, research, and community discussion simultaneously.</p>
 <hr>
 <p><a href="/radar/">Back to all issues</a></p>
 
-</article>
+    </div>
+  </main>
+
+  <aside class="section-toc-aside" aria-label="On this page">
+    
+    <span class="section-toc-label">On this page</span>
+    <ul class="section-toc-links">
+      
+      <li><a href="#editorial-note">Editorial note</a></li>
+      
+      <li><a href="#the-10-signals">The 10 signals</a></li>
+      
+      <li><a href="#cross-platform-signals">Cross-platform signals</a></li>
+      
+    </ul>
+    
+  </aside>
+
+</div>
 
   </main>
 

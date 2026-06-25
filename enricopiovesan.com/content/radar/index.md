@@ -1,7 +1,10 @@
 ---
 title: Software Architecture Radar — Enrico Piovesan
 description: A monthly publication of 10 software architecture signals worth paying attention to. Curated from books, white papers, research, and the knowledge graph behind the published work.
-layout: page.njk
+layout: section.njk
+sectionGroup: radar
+breadcrumb:
+  - label: Radar
 permalink: /radar/
 canonical: https://enricopiovesan.com/radar/
 ogTitle: Software Architecture Radar — Enrico Piovesan

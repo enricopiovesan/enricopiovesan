@@ -62,6 +62,13 @@
       { "href": "/now/", "label": "Now" }
     ]
   },
+  "radar": {
+    "label": "Radar",
+    "url": "/radar/",
+    "links": [
+      { "href": "/radar/2026-06/", "label": "June 2026" }
+    ]
+  },
   "standalone": {
     "label": "",
     "url": "",
