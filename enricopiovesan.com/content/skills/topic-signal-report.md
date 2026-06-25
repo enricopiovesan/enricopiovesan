@@ -1,7 +1,12 @@
 ---
 title: Topic Signal Report — Agent Skill
 description: An agent skill for Claude Code, Codex, and Cursor that researches any topic across GitHub, YouTube, Hacker News, arXiv, release notes, and practitioner blogs and produces a structured signal report.
-layout: page.njk
+layout: section.njk
+sectionGroup: skills
+breadcrumb:
+  - href: /skills/
+    label: Skills
+  - label: Topic Signal Report
 permalink: /skills/topic-signal-report/
 canonical: https://enricopiovesan.com/skills/topic-signal-report/
 ogTitle: Topic Signal Report — Agent Skill
