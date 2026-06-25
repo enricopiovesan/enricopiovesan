@@ -43,6 +43,6 @@ opensource:
     desc: A contract-driven Rust and WASM runtime for discovering, validating, and composing portable business capabilities across multi-agent orchestration scenarios.
   - name: youaskm3
     stack: Rust / WASM / PWA
-    href: https://github.com/youaskm3/youaskm3
+    href: https://github.com/enricopiovesan/youaskm3
     desc: A personal knowledge layer built on UMA foundations. WASM-native, MCP-powered, designed to work with agentic systems. Runs on GitHub Pages with no server or database.
 ---

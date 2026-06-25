@@ -18,6 +18,8 @@ series:
     url: https://medium.com/software-architecture-in-the-age-of-ai
     description: This is where the C-DAD thinking lives. Posts about contract-driven development, AI-native architecture, what it actually takes to make software organizations ready for agentic systems, and the patterns that keep showing up when that goes wrong. The writing here tends to be more conceptual. It is me trying to figure out what the next version of software architecture looks like when AI agents are a real part of the system.
     recent:
+      - title: "The Bugs You Never See Coming"
+        url: https://medium.com/software-architecture-in-the-age-of-ai/the-bugs-you-never-see-coming-93ad57ed8c46
       - title: "Read on Medium →"
         url: https://medium.com/software-architecture-in-the-age-of-ai
   - name: The Rise of Device-Independent Architecture
@@ -25,8 +27,10 @@ series:
     url: https://medium.com/the-rise-of-device-independent-architecture
     description: This is where the UMA thinking lives. Posts about WebAssembly, portable systems, device-independent architecture, and what it means to design software that runs where it makes sense instead of where the stack happens to put it. The writing here tends to be more technical. It is me working through the ideas that ended up in the book and the companion repository.
     recent:
-      - title: "Inside a Universal Microservice: Contracts, WASM, and the Registry"
-        url: https://medium.com/the-rise-of-device-independent-architecture/inside-a-universal-microservice-architecture-uma-bb04cf6343ac
+      - title: "The 40ms Your System Can't Explain"
+        url: https://medium.com/the-rise-of-device-independent-architecture/the-40ms-your-system-cant-explain-3d5bb80298a8
+      - title: "Why Agents Make Bad Decisions in Distributed Systems"
+        url: https://medium.com/the-rise-of-device-independent-architecture/why-agents-make-bad-decisions-in-distributed-systems-0bc1e11e1604
       - title: "Read on Medium →"
         url: https://medium.com/the-rise-of-device-independent-architecture
 toc:
