@@ -54,6 +54,13 @@ A portable, contract-driven execution model for distributed systems. Each busine
 - [The Rise of Device-Independent Architecture](https://medium.com/the-rise-of-device-independent-architecture): weekly newsletter, Fridays
 - [Medium profile](https://medium.com/@enricopiovesan): all articles
 
+## Software Architecture Radar
+
+A monthly publication of 10 software architecture signals worth paying attention to. Curated from the knowledge graph behind the published work. Published at the start of each month.
+
+- Radar index: https://enricopiovesan.com/radar/
+- Latest issue: https://enricopiovesan.com/radar/2026-06/
+
 ## Speaking
 
 - [Speaking page](https://enricopiovesan.com/speaking/): three talks available for submission — UMA, C-DAD, and The Day After

@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Software Architecture Books, Papers &amp; Projects - Enrico Piovesan</title>
-  <meta name="description" content="Published books, research white papers, and open source tools from Enrico Piovesan, covering UMA, C-DAD, portable systems, and AI-native software architecture." />
+  <title>Software Architecture Radar — Enrico Piovesan - Enrico Piovesan</title>
+  <meta name="description" content="A monthly publication of 10 software architecture signals worth paying attention to. Curated from books, white papers, research, and the knowledge graph behind the published work." />
   
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Work" />
-  <meta property="og:description" content="Books, white papers, and open source projects by Enrico Piovesan." />
+  <meta property="og:title" content="Software Architecture Radar — Enrico Piovesan" />
+  <meta property="og:description" content="10 software architecture signals worth paying attention to each month. Curated, reviewed, and edited by Enrico Piovesan." />
   <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:url" content="https://enricopiovesan.com/work/" />
+  <meta property="og:url" content="https://enricopiovesan.com/radar/" />
   <meta property="og:type" content="website" />
   
   <meta property="og:site_name" content="Enrico Piovesan" />
@@ -22,8 +22,8 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@enricopiovesan" />
   <meta name="twitter:creator" content="@enricopiovesan" />
-  <meta name="twitter:title" content="Work" />
-  <meta name="twitter:description" content="Books, white papers, and open source projects by Enrico Piovesan." />
+  <meta name="twitter:title" content="Software Architecture Radar — Enrico Piovesan" />
+  <meta name="twitter:description" content="10 software architecture signals worth paying attention to each month. Curated, reviewed, and edited by Enrico Piovesan." />
   <meta name="twitter:image" content="https://enricopiovesan.com/public/og-default.png" />
 
   <!-- Favicons -->
@@ -35,7 +35,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/img/ep-favicon-180.png" />
 
   <!-- Canonical -->
-  <link rel="canonical" href="https://enricopiovesan.com/work/" />
+  <link rel="canonical" href="https://enricopiovesan.com/radar/" />
 
   <!-- Theme: apply before paint to avoid flash -->
   <script>
@@ -133,7 +133,7 @@
 
 </head>
 <body>
-  <ep-nav active="work" base="/"></ep-nav>
+  <ep-nav active="radar" base="/"></ep-nav>
   <noscript>
     <nav aria-label="Main navigation" style="padding:1rem 2rem;font-size:0.85rem;">
       <a href="/">Enrico Piovesan</a> —
@@ -152,81 +152,43 @@
 
 
 
-<div class="section-shell">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Software Architecture Radar",
+  "description": "A monthly publication of 10 software architecture signals worth paying attention to. Curated from books, white papers, research, and the knowledge graph behind the published work.",
+  "url": "https://enricopiovesan.com/radar/",
+  "author": {
+    "@type": "Person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com"
+  },
+  "inLanguage": "en"
+}
+</script>
 
-  <aside class="section-nav-aside" aria-label="Work navigation">
-    
-    <a class="section-nav-label active" href="/work/">Work</a>
-    
-    
-    <ul class="section-nav-links">
-      
-      <li><a href="/books/">Books</a></li>
-      
-      <li><a href="/whitepapers/">White Papers</a></li>
-      
-      <li><a href="/projects/">Projects</a></li>
-      
-      <li><a href="/skills/">Skills</a></li>
-      
-      <li><a href="/teaching/">Teaching</a></li>
-      
-    </ul>
-    
-  </aside>
 
-  <main class="section-main">
-    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
-      <ol>
-        <li><a href="/">Home</a></li>
-        
-          
-            
-            <li><span aria-current="page">Work</span></li>
-            
-          
-        
-      </ol>
-    </nav>
 
-    <div class="section-body">
-      <h1 class="section-h1">Software Architecture Books, Papers &amp; Projects</h1>
-      
-      <p>Everything here came from the same starting point: a problem that kept showing up in different companies, different stacks, and different teams, and a decision that the answer had to be architectural rather than incidental. The books, papers, and tools are all attempts to make that answer concrete and usable.</p>
-<h2 id="booksbooks"><a href="/books/">Books</a></h2>
-<p>Two books on software architecture and AI-native systems. The first, <em><a href="https://www.amazon.com/dp/B0GTTTTQH4">Universal Microservices Architecture</a></em>, is published and available on Amazon. It covers the full <abbr title="Universal Microservices Architecture">UMA</abbr> model across 13 runnable chapters in Rust and WebAssembly, with 100% business logic coverage enforced in CI and a live reference application at universalmicroservices.com. It is the only book that treats runtime portability as an architectural primitive rather than a deployment convenience. The second, <em>The Day After</em>, is forthcoming from Apress. It builds the organizational model for restructuring software teams for the age of AI agents, role by role, using <abbr title="Contract-Driven AI Development">C-DAD</abbr> as its structural foundation. Both books are grounded in the same conviction: that the problems most teams attribute to people or process are actually architectural.</p>
-<h2 id="white-paperswhitepapers"><a href="/whitepapers/">White Papers</a></h2>
-<p>Four research papers published between 2023 and 2025, each addressing a specific structural problem that the industry was either ignoring or solving incompletely. <a href="/whitepapers/csma/"><abbr title="Client-Side Microservices Architecture">CSMA</abbr> (2023)</a> applied service-oriented thinking to the browser and asked why frontend logic kept getting duplicated instead of packaged. <a href="/whitepapers/uma/"><abbr title="Universal Microservices Architecture">UMA</abbr> (2024)</a> extended that question to every runtime in the stack and introduced the portable execution model. <a href="/whitepapers/ecca/"><abbr title="Event Contract Catalog Architecture">ECCA</abbr> (2025)</a> addressed event governance, closing the gap between schema registries and actual contract-level accountability for event-driven systems. <a href="/whitepapers/c-dad/"><abbr title="Contract-Driven AI Development">C-DAD</abbr> (2025)</a> defined how AI agents can navigate software through machine-enforceable contracts rather than code. Each paper is freely available. Each one is also the foundation of shipped tooling or a published book.</p>
-<h2 id="radarradar"><a href="/radar/">Radar</a></h2>
-<p>The Software Architecture Radar is a monthly publication of 10 curated signals from the architecture and AI-native systems space. Generated from the knowledge graph built across the published books, white papers, and articles, reviewed and edited each month.</p>
-<h2 id="projectsprojects"><a href="/projects/">Projects</a></h2>
-<p>Four open source projects, each built to prove that the frameworks work in running code. <a href="https://github.com/enricopiovesan/UMA-code-examples">UMA-code-examples</a> provides 13 chapters of runnable Rust and WASM implementations from the book, with every claim tested in CI. <a href="https://github.com/enricopiovesan/the-day-after-toolkit">the-day-after-toolkit</a> is a CLI that audits codebases for AI agent readiness and scaffolds the contracts needed to fix what it finds, configured out of the box for Claude, Cursor, and Codex. <a href="https://github.com/enricopiovesan/Traverse">Traverse</a> is a contract-driven Rust and WASM runtime for multi-agent orchestration scenarios, built spec-first before a line of implementation was written. <a href="https://github.com/youaskm3/youaskm3">youaskm3</a> is a personal knowledge layer that runs entirely on GitHub Pages with no server and no ongoing cost. All four are governed by OpenSpec contracts and CI-enforced quality gates.</p>
-<h2 id="skillsskills"><a href="/skills/">Skills</a></h2>
-<p>A public collection of agent skills for Claude Code, Codex, and Cursor, built around the same contract-first principles as the published frameworks. Skills encode how to approach a specific class of problem, what to verify before proceeding, and what constraints to respect. Browse the collection on GitHub or read about the philosophy behind it.</p>
 
-    </div>
-  </main>
+<article class="page-content">
+  <h1>Software Architecture Radar</h1>
+  
+  
+  <p>Ten signals worth paying attention to each month. Curated from books, white papers, research, and the knowledge graph behind the published work. Each issue includes a short editorial note on what the signals collectively point to, followed by the ten items.</p>
+<p>Not trends for the sake of trends. Not recaps of what everyone is already talking about. Signals that matter for architects, engineering leaders, and teams building serious software systems.</p>
+<p>Published monthly.</p>
+<h2 id="issues">Issues</h2>
+<ul>
+<li><a href="/radar/2026-06/">June 2026</a></li>
+</ul>
 
-  <aside class="section-toc-aside" aria-label="On this page">
-    
-    <span class="section-toc-label">On this page</span>
-    <ul class="section-toc-links">
-      
-      <li><a href="#books">Books</a></li>
-      
-      <li><a href="#white-papers">White Papers</a></li>
-      
-      <li><a href="#radar">Radar</a></li>
-      
-      <li><a href="#projects">Projects</a></li>
-      
-      <li><a href="#skills">Skills</a></li>
-      
-    </ul>
-    
-  </aside>
-
-</div>
+</article>
 
   </main>
 

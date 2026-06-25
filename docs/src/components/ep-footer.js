@@ -161,6 +161,7 @@ class EpFooter extends HTMLElement {
             <li><a href="${b}/projects/">Projects</a></li>
             <li><a href="${b}/skills/">Skills</a></li>
             <li><a href="${b}/writing/">Writing</a></li>
+            <li><a href="${b}/radar/">Radar</a></li>
             <li><a href="${b}/speaking/">Speaking</a></li>
             <li><a href="${b}/teaching/">Teaching</a></li>
             <li><a href="${b}/uma/">UMA framework</a></li>

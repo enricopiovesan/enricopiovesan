@@ -136,6 +136,55 @@ layout: base.njk
 }
 </script>
 {% endif %}
+{% if canonical == "https://enricopiovesan.com/radar/" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Software Architecture Radar",
+  "description": "A monthly publication of 10 software architecture signals worth paying attention to. Curated from books, white papers, research, and the knowledge graph behind the published work.",
+  "url": "https://enricopiovesan.com/radar/",
+  "author": {
+    "@type": "Person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com"
+  },
+  "inLanguage": "en"
+}
+</script>
+{% endif %}
+{% if canonical and canonical.includes('/radar/') and not canonical.endsWith('/radar/') %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ title }}",
+  "description": "{{ description }}",
+  "url": "{{ canonical }}",
+  "author": {
+    "@type": "Person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com"
+  },
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "Software Architecture Radar",
+    "url": "https://enricopiovesan.com/radar/"
+  }
+}
+</script>
+{% endif %}
 {% if canonical == "https://enricopiovesan.com/skills/" %}
 <script type="application/ld+json">
 {

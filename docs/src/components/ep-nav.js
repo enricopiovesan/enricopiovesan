@@ -310,6 +310,7 @@ class EpNav extends HTMLElement {
 
             <li><a href="${base}/speaking/"${active === 'speaking' ? ' aria-current="page"' : ''}>Speaking</a></li>
             <li><a href="${base}/writing/"${active === 'writing' ? ' aria-current="page"' : ''}>Writing</a></li>
+            <li><a href="${base}/radar/"${active === 'radar' ? ' aria-current="page"' : ''}>Radar</a></li>
             <li><a href="https://blog.enricopiovesan.com" target="_blank" rel="noopener">Blog</a></li>
           </ul>
           <button class="theme-toggle" aria-label="Toggle theme"></button>
