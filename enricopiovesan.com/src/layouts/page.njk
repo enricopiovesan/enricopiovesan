@@ -185,6 +185,28 @@ layout: base.njk
 }
 </script>
 {% endif %}
+{% if canonical and canonical.includes('/skills/') and not canonical.endsWith('/skills/') %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "{{ title }}",
+  "description": "{{ description }}",
+  "url": "{{ canonical }}",
+  "author": {
+    "@type": "Person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com"
+  },
+  "applicationCategory": "DeveloperApplication",
+  "isPartOf": {
+    "@type": "SoftwareSourceCode",
+    "name": "Agent Skills — Enrico Piovesan",
+    "url": "https://enricopiovesan.com/skills/"
+  }
+}
+</script>
+{% endif %}
 {% if canonical == "https://enricopiovesan.com/skills/" %}
 <script type="application/ld+json">
 {

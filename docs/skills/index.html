@@ -152,42 +152,65 @@
 
 
 
+<div class="section-shell">
 
+  <aside class="section-nav-aside" aria-label="Work navigation">
+    
+    <a class="section-nav-label" href="/work/">Work</a>
+    
+    
+    <ul class="section-nav-links">
+      
+      <li><a href="/books/">Books</a></li>
+      
+      <li><a href="/whitepapers/">White Papers</a></li>
+      
+      <li><a href="/projects/">Projects</a></li>
+      
+      <li><a href="/skills/" class="active" aria-current="page">Skills</a></li>
+      
+      <li><a href="/teaching/">Teaching</a></li>
+      
+    </ul>
+    
+  </aside>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareSourceCode",
-  "name": "Agent Skills — Enrico Piovesan",
-  "description": "A collection of agent skills for Claude Code, Codex, and Cursor, built around contract-first development and spec-governed workflows.",
-  "author": {
-    "@type": "Person",
-    "name": "Enrico Piovesan",
-    "url": "https://enricopiovesan.com"
-  },
-  "codeRepository": "https://github.com/enricopiovesan/enricopiovesan/tree/main/skills",
-  "programmingLanguage": "Markdown",
-  "url": "https://enricopiovesan.com/skills/"
-}
-</script>
+  <main class="section-main">
+    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        
+          
+            
+            <li><a href="/work/">Work</a></li>
+            
+          
+            
+            <li><span aria-current="page">Skills</span></li>
+            
+          
+        
+      </ol>
+    </nav>
 
-
-<article class="page-content">
-  <h1>Agent Skills</h1>
-  
-  
-  <p>Agent skills are folders of instructions that AI agents load to perform specific tasks in a repeatable, governed way. The skills in this collection are built around the same principles as the rest of the work here: contract-first, spec-governed, and designed to make AI-assisted development safer and more predictable.</p>
+    <div class="section-body">
+      <h1 class="section-h1">Agent Skills</h1>
+      
+      <p>Agent skills are folders of instructions that AI agents load to perform specific tasks in a repeatable, governed way. The skills in this collection are built around the same principles as the rest of the work here: contract-first, spec-governed, and designed to make AI-assisted development safer and more predictable.</p>
 <p>These are not prompt tricks or shortcut libraries. They are structured workflows that encode how to approach a specific class of problem, what to verify before proceeding, and what constraints to respect throughout.</p>
 <h2 id="why-a-public-skills-collection">Why a public skills collection</h2>
 <p>Most agent skills are private, project-specific, or tied to a single tool. This collection is public and designed to be composable across tools and projects.</p>
 <p>The underlying belief is the same one that produced C-DAD and Traverse: AI agents work better when the intent is declared explicitly rather than inferred. Skills are one concrete way to do that. A well-written skill tells an agent not just what to do but how to reason about the problem, what edge cases to check, and when to stop and ask rather than guess.</p>
 <h2 id="how-to-use-these-skills">How to use these skills</h2>
-<p>The skills live in the enricopiovesan GitHub profile repository at:
-<a href="https://github.com/enricopiovesan/enricopiovesan/tree/main/skills">github.com/enricopiovesan/enricopiovesan/tree/main/skills</a></p>
-<p>They follow the standard Agent Skills specification and are compatible with Claude Code, Codex, Cursor, and any agent that supports SKILL.md files.</p>
-<p>To add a skill to your project, reference the GitHub path directly or copy the SKILL.md file into your project's skills directory.</p>
+<p>Skills follow the standard Agent Skills specification and are compatible with Claude Code, Codex, Cursor, and any agent that supports SKILL.md files.</p>
+<p>To add a skill to your project, copy the SKILL.md file into your project's skills directory or reference the GitHub path directly. The skill activates when you describe the task it handles — no configuration required.</p>
+<p>The full collection lives on GitHub: <a href="https://github.com/enricopiovesan/enricopiovesan/tree/main/skills">github.com/enricopiovesan/enricopiovesan/tree/main/skills</a></p>
+<h2 id="skills-in-this-collection">Skills in this collection</h2>
+<h3 id="topic-signal-reportskillstopic-signal-report"><a href="/skills/topic-signal-report/">Topic Signal Report</a></h3>
+<p>Researches any topic, technology, or domain across six source types in parallel and produces a structured signal report. Covers what practitioners are building on GitHub, what they are watching on YouTube, what they are debating on Hacker News, what research is landing on arXiv, what has shipped in release notes, and what teams are writing about from production experience.</p>
+<p>Useful for architects and engineering leaders who need an honest current picture of a technology area before making a platform decision or writing a recommendation.</p>
+<p><a href="/skills/topic-signal-report/">Read the full skill documentation</a></p>
 <h2 id="philosophy">Philosophy</h2>
-<p>The skills in this collection share a few principles:</p>
 <p><strong>Contract before execution.</strong> Every skill starts by declaring what it is trying to achieve, what constraints apply, and what a successful outcome looks like. The agent does not start executing until those things are clear.</p>
 <p><strong>Verify, do not assume.</strong> Skills include explicit verification steps. The agent checks its work against declared criteria before reporting completion.</p>
 <p><strong>Stop and ask at the right moments.</strong> A skill that never stops and asks produces plausible-looking output that violates unstated constraints. These skills include explicit decision points where the agent surfaces ambiguity rather than resolving it silently.</p>
@@ -200,10 +223,30 @@
 <li><a href="/whitepapers/c-dad/">C-DAD White Paper</a></li>
 <li><a href="https://github.com/enricopiovesan/the-day-after-toolkit">the-day-after-toolkit</a></li>
 </ul>
-<h2 id="skills-repository">Skills repository</h2>
-<p><a href="https://github.com/enricopiovesan/enricopiovesan/tree/main/skills">Browse all skills on GitHub</a></p>
 
-</article>
+    </div>
+  </main>
+
+  <aside class="section-toc-aside" aria-label="On this page">
+    
+    <span class="section-toc-label">On this page</span>
+    <ul class="section-toc-links">
+      
+      <li><a href="#why-a-public-skills-collection">Why a public skills collection</a></li>
+      
+      <li><a href="#how-to-use-these-skills">How to use these skills</a></li>
+      
+      <li><a href="#skills-in-this-collection">Skills in this collection</a></li>
+      
+      <li><a href="#philosophy">Philosophy</a></li>
+      
+      <li><a href="#connection-to-the-broader-work">Connection to the broader work</a></li>
+      
+    </ul>
+    
+  </aside>
+
+</div>
 
   </main>
 

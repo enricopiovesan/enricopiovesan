@@ -1,7 +1,12 @@
 ---
 title: Agent Skills — Enrico Piovesan
 description: A collection of agent skills for Claude Code, Codex, and Cursor, built around contract-first development, spec-governed workflows, and AI-assisted architecture practices.
-layout: page.njk
+layout: section.njk
+sectionGroup: work
+breadcrumb:
+  - href: /work/
+    label: Work
+  - label: Skills
 permalink: /skills/
 canonical: https://enricopiovesan.com/skills/
 ogTitle: Agent Skills — Enrico Piovesan
@@ -20,16 +25,23 @@ The underlying belief is the same one that produced C-DAD and Traverse: AI agent
 
 ## How to use these skills
 
-The skills live in the enricopiovesan GitHub profile repository at:
-[github.com/enricopiovesan/enricopiovesan/tree/main/skills](https://github.com/enricopiovesan/enricopiovesan/tree/main/skills)
+Skills follow the standard Agent Skills specification and are compatible with Claude Code, Codex, Cursor, and any agent that supports SKILL.md files.
 
-They follow the standard Agent Skills specification and are compatible with Claude Code, Codex, Cursor, and any agent that supports SKILL.md files.
+To add a skill to your project, copy the SKILL.md file into your project's skills directory or reference the GitHub path directly. The skill activates when you describe the task it handles — no configuration required.
 
-To add a skill to your project, reference the GitHub path directly or copy the SKILL.md file into your project's skills directory.
+The full collection lives on GitHub: [github.com/enricopiovesan/enricopiovesan/tree/main/skills](https://github.com/enricopiovesan/enricopiovesan/tree/main/skills)
+
+## Skills in this collection
+
+### [Topic Signal Report](/skills/topic-signal-report/)
+
+Researches any topic, technology, or domain across six source types in parallel and produces a structured signal report. Covers what practitioners are building on GitHub, what they are watching on YouTube, what they are debating on Hacker News, what research is landing on arXiv, what has shipped in release notes, and what teams are writing about from production experience.
+
+Useful for architects and engineering leaders who need an honest current picture of a technology area before making a platform decision or writing a recommendation.
+
+[Read the full skill documentation](/skills/topic-signal-report/)
 
 ## Philosophy
-
-The skills in this collection share a few principles:
 
 **Contract before execution.** Every skill starts by declaring what it is trying to achieve, what constraints apply, and what a successful outcome looks like. The agent does not start executing until those things are clear.
 
@@ -47,7 +59,3 @@ These skills are the practical expression of the ideas behind Contract-Driven AI
 - [Traverse](https://github.com/enricopiovesan/Traverse)
 - [C-DAD White Paper](/whitepapers/c-dad/)
 - [the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit)
-
-## Skills repository
-
-[Browse all skills on GitHub](https://github.com/enricopiovesan/enricopiovesan/tree/main/skills)
