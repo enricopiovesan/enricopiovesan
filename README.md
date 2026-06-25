@@ -49,6 +49,18 @@ Five years of thinking about portable systems, AI-native architecture, and contr
 
 ---
 
+## Claude Code Skills
+
+Reusable, structured workflows for Claude Code. Each skill encodes a repeatable process — what to research, how to structure the output, what quality checks to run — so complex tasks stay consistent across sessions.
+
+→ **[skills/](https://github.com/enricopiovesan/enricopiovesan/tree/main/skills)** — full index with parameters and trigger phrases.
+
+| Skill | What it does |
+|---|---|
+| [topic-signal-report](https://github.com/enricopiovesan/enricopiovesan/blob/main/skills/topic-signal-report/SKILL.md) | Multi-source signal report on any topic: GitHub, YouTube, Hacker News, arXiv, releases, and practitioner blogs |
+
+---
+
 ## Speaking
 
 I talk about portable systems, contract-driven AI development, and what it actually takes to restructure software for the age of AI agents. Drawn directly from the books, white papers, and shipped tooling above.
