@@ -73,28 +73,16 @@ class EpNav extends HTMLElement {
     const active = this.getAttribute('active') || '';
     const base = (this.getAttribute('base') || '/').replace(/\/$/, '');
 
-    const workSlugs = ['books', 'whitepapers', 'projects', 'teaching'];
+    const workSlugs = ['books', 'whitepapers', 'projects', 'skills', 'teaching'];
     const thinkingSlugs = ['concepts', 'perspectives', 'knowledge-graph'];
-    const aboutSlugs = ['about', 'uses', 'now'];
     const workActive = workSlugs.includes(active);
     const thinkingActive = thinkingSlugs.includes(active);
-    const aboutActive = aboutSlugs.includes(active);
-
-    const aboutLinks = [
-      { href: `${base}/uses/`, label: 'Uses', slug: 'uses' },
-      { href: `${base}/now/`, label: 'Now', slug: 'now' },
-    ];
-
-    const directLinks = [
-      { href: `${base}/speaking/`, label: 'Speaking', slug: 'speaking' },
-      { href: `${base}/writing/`, label: 'Writing', slug: 'writing' },
-      { href: 'https://blog.enricopiovesan.com', label: 'Blog', slug: '', external: true },
-    ];
 
     const workLinks = [
       { href: `${base}/books/`, label: 'Books', slug: 'books' },
       { href: `${base}/whitepapers/`, label: 'White Papers', slug: 'whitepapers' },
       { href: `${base}/projects/`, label: 'Projects', slug: 'projects' },
+      { href: `${base}/skills/`, label: 'Skills', slug: 'skills' },
       { href: `${base}/teaching/`, label: 'Teaching', slug: 'teaching' },
     ];
 
@@ -294,17 +282,7 @@ class EpNav extends HTMLElement {
         <a href="${base}/" class="nav-name">ENRICO PIOVESAN</a>
         <div class="nav-right">
           <ul class="nav-links" id="nav-menu">
-            <li class="nav-dropdown-wrap">
-              <div class="nav-dropdown">
-                <a href="${base}/about/" class="nav-dropdown-link${aboutActive ? ' active' : ''}"${active === 'about' ? ' aria-current="page"' : ''}>About</a>
-                <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label="About submenu">▾</button>
-              </div>
-              <ul class="nav-dropdown-menu" role="menu">
-                <div class="nav-dropdown-menu-inner">
-                  ${aboutLinks.map(l => `<li><a href="${l.href}"${active === l.slug ? ' aria-current="page"' : ''}>${l.label}</a></li>`).join('')}
-                </div>
-              </ul>
-            </li>
+            <li><a href="${base}/about/"${active === 'about' ? ' aria-current="page"' : ''}>About</a></li>
 
             <li class="nav-dropdown-wrap">
               <div class="nav-dropdown">

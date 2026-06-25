@@ -15,6 +15,7 @@
       { "href": "/books/", "label": "Books" },
       { "href": "/whitepapers/", "label": "White Papers" },
       { "href": "/projects/", "label": "Projects" },
+      { "href": "/skills/", "label": "Skills" },
       { "href": "/teaching/", "label": "Teaching" }
     ]
   },

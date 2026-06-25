@@ -136,6 +136,24 @@ layout: base.njk
 }
 </script>
 {% endif %}
+{% if canonical == "https://enricopiovesan.com/skills/" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "Agent Skills — Enrico Piovesan",
+  "description": "A collection of agent skills for Claude Code, Codex, and Cursor, built around contract-first development and spec-governed workflows.",
+  "author": {
+    "@type": "Person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com"
+  },
+  "codeRepository": "https://github.com/enricopiovesan/enricopiovesan/tree/main/skills",
+  "programmingLanguage": "Markdown",
+  "url": "https://enricopiovesan.com/skills/"
+}
+</script>
+{% endif %}
 {% endblock %}
 <article class="page-content">
   <h1>{{ title | replace(" — Enrico Piovesan", "") }}</h1>
