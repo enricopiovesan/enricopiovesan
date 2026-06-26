@@ -491,13 +491,16 @@ a { color: inherit; text-decoration: none; }
 
 .page-content strong { color: var(--fg); font-weight: 400; }
 
-.page-content a {
+.page-content a,
+.section-body a {
   color: var(--link);
   text-decoration: underline;
   text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
 }
 
-.page-content a:hover { opacity: 0.75; }
+.page-content a:hover,
+.section-body a:hover { opacity: 0.75; }
 
 .page-content ul,
 .page-content ol {
