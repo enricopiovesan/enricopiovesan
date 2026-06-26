@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Software Architecture Radar — March 2026 - Enrico Piovesan</title>
+  <meta name="description" content="10 software architecture signals worth paying attention to in March 2026. Architecture documentation is broken, three papers agree, and the skills registry security problem becomes concrete." />
+  
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Software Architecture Radar — March 2026" />
+  <meta property="og:description" content="10 software architecture signals for March 2026. Architecture documentation is the broken layer, skills registry security, and multi-agent patterns solidifying." />
+  <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://enricopiovesan.com/radar/2026-03/" />
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="Mon Mar 30 2026 18:00:00 GMT-0600 (Mountain Daylight Time)" />
+  <meta property="article:author" content="https://enricopiovesan.com/about/" />
+  <meta property="og:site_name" content="Enrico Piovesan" />
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@enricopiovesan" />
+  <meta name="twitter:creator" content="@enricopiovesan" />
+  <meta name="twitter:title" content="Software Architecture Radar — March 2026" />
+  <meta name="twitter:description" content="10 software architecture signals for March 2026. Architecture documentation is the broken layer, skills registry security, and multi-agent patterns solidifying." />
+  <meta name="twitter:image" content="https://enricopiovesan.com/public/og-default.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/src/assets/img/ep-favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/src/assets/img/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/img/ep-favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/img/ep-favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/src/assets/img/ep-favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/img/ep-favicon-180.png" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://enricopiovesan.com/radar/2026-03/" />
+
+  <!-- Theme: apply before paint to avoid flash -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn-images-1.medium.com" crossorigin>
+
+  <!-- Google Analytics: deferred until after page interactive to avoid main-thread blocking -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-71P091V6MQ');
+    window.addEventListener('load', function() {
+      var s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-71P091V6MQ';
+      s.async = true;
+      document.head.appendChild(s);
+    });
+  </script>
+
+  <!-- Font preloads: tell browser to fetch before CSS is parsed -->
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-sans-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-sans-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Critical styles inlined to eliminate render-blocking requests -->
+  <style>
+@font-face{font-family:'Lato';font-style:normal;font-weight:300;font-display:swap;src:url('/src/assets/fonts/lato-300.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:300;font-display:swap;src:url('/src/assets/fonts/ibm-plex-sans-300.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-300.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/src/assets/fonts/ibm-plex-sans-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-400.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
+:root{--bg:#001f3f;--fg:#f6f7ed;--link:#dbe64c;--accent:#dbe64c;--border:rgba(246,247,237,0.2);--mid:#74c365;--header-bg:#001f3f;--header-fg:#f6f7ed;--footer-bg:#dbe64c;--footer-fg:#001f3f;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
+  </style>
+
+  <!-- Styles: load async to avoid render-blocking, swap to all on load -->
+  <link rel="stylesheet" href="/src/assets/styles/global.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/src/assets/styles/global.css"></noscript>
+
+  <!-- Person schema (every page) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://enricopiovesan.com/#person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://enricopiovesan.com/src/assets/img/enrico-piovesan.jpg",
+      "width": 800,
+      "height": 800
+    },
+    "jobTitle": "Platform Software Architect",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Autodesk"
+    },
+    "description": "Platform architect and author building frameworks for software that runs anywhere and codebases that AI agents can actually navigate.",
+    "sameAs": [
+      "https://github.com/enricopiovesan",
+      "https://linkedin.com/in/enricopiovesan",
+      "https://medium.com/@enricopiovesan",
+      "https://blog.enricopiovesan.com",
+      "https://x.com/enricopiovesan",
+      "https://www.universalmicroservices.com",
+      "https://www.amazon.com/dp/B0GTTTTQH4"
+    ],
+    "knowsAbout": [
+      "Software Architecture",
+      "WebAssembly",
+      "Contract-Driven AI Development",
+      "Universal Microservices Architecture",
+      "Distributed Systems",
+      "Agentic Systems",
+      "Platform Engineering"
+    ]
+  }
+  </script>
+
+  <!-- Schema -->
+  
+
+</head>
+<body>
+  <ep-nav active="2026-03" base="/"></ep-nav>
+  <noscript>
+    <nav aria-label="Main navigation" style="padding:1rem 2rem;font-size:0.85rem;">
+      <a href="/">Enrico Piovesan</a> —
+      <a href="/about/">About</a> · <a href="/uses/">Uses</a> · <a href="/now/">Now</a> ·
+      <a href="/work/">Work</a> · <a href="/books/">Books</a> · <a href="/whitepapers/">White Papers</a> · <a href="/projects/">Projects</a> · <a href="/teaching/">Teaching</a> ·
+      <a href="/thinking/">Thinking</a> · <a href="/concepts/">Concepts</a> · <a href="/perspectives/">Perspectives</a> · <a href="/knowledge-graph/">Knowledge Graph</a> ·
+      <a href="/uma/">UMA</a> · <a href="/c-dad/">C-DAD</a> ·
+      <a href="/speaking/">Speaking</a> · <a href="/writing/">Writing</a>
+    </nav>
+  </noscript>
+
+  <main id="main-content">
+    
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://enricopiovesan.com/radar/2026-03/",
+      "headline": "Software Architecture Radar — March 2026",
+      "description": "10 software architecture signals worth paying attention to in March 2026. Architecture documentation is broken, three papers agree, and the skills registry security problem becomes concrete.",
+      "url": "https://enricopiovesan.com/radar/2026-03/",
+      "datePublished": "Mon Mar 30 2026 18:00:00 GMT-0600 (Mountain Daylight Time)",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "publisher": { "@id": "https://enricopiovesan.com/#person" },
+      "inLanguage": "en",
+      "proficiencyLevel": "Expert",
+      "isPartOf": { "@id": "https://enricopiovesan.com/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://enricopiovesan.com/radar/2026-03/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" }
+        
+          
+        ,{ "@type": "ListItem", "position": 2, "name": "Radar", "item": "https://enricopiovesan.com/radar/" }
+          
+        ,{ "@type": "ListItem", "position": 3, "name": "March 2026", "item": "https://enricopiovesan.com" }
+          
+        
+      ]
+    }
+  ]
+}
+</script>
+
+
+
+
+<div class="section-shell">
+
+  <aside class="section-nav-aside" aria-label="Radar navigation">
+    
+    <a class="section-nav-label" href="/radar/">Radar</a>
+    
+    
+    <ul class="section-nav-links">
+      
+      <li><a href="/radar/2026-01/">January 2026</a></li>
+      
+      <li><a href="/radar/2026-02/">February 2026</a></li>
+      
+      <li><a href="/radar/2026-03/" class="active" aria-current="page">March 2026</a></li>
+      
+      <li><a href="/radar/2026-04/">April 2026</a></li>
+      
+      <li><a href="/radar/2026-05/">May 2026</a></li>
+      
+      <li><a href="/radar/2026-06/">June 2026</a></li>
+      
+    </ul>
+    
+  </aside>
+
+  <main class="section-main">
+    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        
+          
+            
+            <li><a href="/radar/">Radar</a></li>
+            
+          
+            
+            <li><span aria-current="page">March 2026</span></li>
+            
+          
+        
+      </ol>
+    </nav>
+
+    <div class="section-body">
+      <h1 class="section-h1">Software Architecture Radar — March 2026</h1>
+      
+      <p><em>Issue 003 — March 2026</em></p>
+<h2 id="editorial-note">Editorial note</h2>
+<p>March produced three independent signals pointing at the same problem: architecture documentation is broken in a way that AI makes more expensive. A multivocal literature review of generative AI in software architecture, a paper on automated architecture view generation, and a paper rethinking architecture documentation for AI-augmented ecosystems all landed in March and converged on the same finding. Existing documentation captures structure but not intent, and AI tools operating on that documentation are making design decisions without the context that intent would provide. Meanwhile the Hacker News working-on thread surfaced a concrete new security problem: skills registries for AI agents were failing AI-assisted audits at a 16 percent rate.</p>
+<h2 id="the-10-signals">The 10 signals</h2>
+<p><strong>1. &quot;Generative AI for Software Architecture: Applications, Challenges, and Future Directions&quot; (arXiv 2503.13310, March 2026)</strong></p>
+<p>A multivocal literature review by Esposito et al. synthesising 37 studies on generative AI applied to software architecture, covering both academic papers and practitioner gray literature. The review found that AI performs well on isolated architecture tasks and struggles consistently with cross-cutting concerns where multiple quality attributes interact.</p>
+<p><em>Why it matters for architects:</em> This is the most comprehensive mapping of AI capability in the architecture domain published to date. Before committing to AI-assisted architecture tooling in any specific area, the 37 studies cover where current tools actually work and where they reliably fail.</p>
+<hr>
+<p><strong>2. &quot;LLM-based Automated Architecture View Generation: Where Are We Now?&quot; (arXiv 2603.21178, March 2026)</strong></p>
+<p>A systematic assessment of current automated architecture view generation using LLMs, examining whether current models can produce accurate C4, UML, or ADL representations from code and documentation. The finding was mixed: simple views are achievable but multi-stakeholder views that reflect architectural intent rather than just structure are not.</p>
+<p><em>Why it matters for architects:</em> Auto-generated architecture diagrams are appearing in more teams as a capability. This paper establishes what they are actually generating: structural representations, not intent-bearing views. The distinction matters when those views are used to make decisions.</p>
+<hr>
+<p><strong>3. &quot;RAD-AI: Rethinking Architecture Documentation for AI-Augmented Ecosystems&quot; (arXiv 2603.28735, March 2026)</strong></p>
+<p>A paper proposing a new approach to architecture documentation specifically for ecosystems where AI agents are active participants. The core argument is that documentation designed for human readers is insufficient for AI agents, which need machine-readable intent, not human-readable narrative.</p>
+<p><em>Why it matters for architects:</em> This paper names the documentation gap precisely. Current documentation tooling was designed for the assumption that only humans read architecture documents. That assumption is no longer accurate for an increasing number of systems.</p>
+<hr>
+<p><strong>4. Mark Richards: &quot;Supervisor-Consumer Pattern&quot; (March 2, 2026)</strong></p>
+<p>A Software Architecture Monday lesson introducing the Supervisor-Consumer pattern as a formal architectural pattern for managing distributed workload coordination, particularly in systems where task failure needs to be contained without propagating through the consuming side.</p>
+<p><em>Why it matters for architects:</em> The pattern is increasingly relevant in agent orchestration architectures where task failures in one agent should not cascade. Richards naming and formalising it as a pattern gives teams a shared vocabulary for a problem they are encountering more frequently.</p>
+<hr>
+<p><strong>5. HN March &quot;What are you working on&quot;: skills registry security scanning finding 16 percent failure rate</strong></p>
+<p>A March 2026 Hacker News working-on thread included a practitioner working on security scanning of a skills registry containing over 14,000 agent skills. Surface heuristics flagged 6.6 percent as potentially malicious. AI-assisted deep audits found 16.4 percent with significant security concerns.</p>
+<p><em>Why it matters for architects:</em> Skills registries are the new package managers. The 16 percent AI audit failure rate at scale is the kind of empirical signal that should inform how teams think about agent skill provenance and supply chain risk. This number came from real production scanning, not a threat model.</p>
+<hr>
+<p><strong>6. Semantic code search MCP server trending on GitHub (March 2026)</strong></p>
+<p>A semantic code search MCP server that lets coding agents query entire codebases as structured context became a trending repository in March. It allowed agents to retrieve relevant code sections by semantic similarity rather than file path, reducing context window waste in agent workflows.</p>
+<p><em>Why it matters for architects:</em> Context management is an architectural concern in agentic systems, not a model concern. Tools that let agents retrieve relevant code at the architectural structure level, rather than loading entire files, represent a meaningful step toward treating codebases as navigable graphs rather than flat file systems.</p>
+<hr>
+<p><strong>7. OpenClaw exceeds 210,000 stars (March milestone)</strong></p>
+<p>Having surged from 9,000 stars in late January through 60,000 in February, OpenClaw crossed 210,000 stars in March, making it one of the fastest-growing open-source repositories in recent GitHub history. The project's emphasis on service decoupling and local-first AI infrastructure remained consistent across the growth period.</p>
+<p><em>Why it matters for architects:</em> Three months of sustained growth across different parts of the developer community indicate a signal rather than a moment. The local-first infrastructure emphasis was gaining traction as a counter-pattern to the assumption that AI workloads belong in the cloud.</p>
+<hr>
+<p><strong>8. Holepunch &quot;Pear&quot; P2P platform enters architect awareness</strong></p>
+<p>Holepunch, a company building Pear, an open-source peer-to-peer platform for decentralised applications, was actively hiring principal architects in March. The architecture removed central servers from the application layer entirely, using a distributed routing protocol instead.</p>
+<p><em>Why it matters for architects:</em> Decentralised architecture has historically been expensive to adopt and maintain. Pear's approach, which abstracted the P2P routing layer, was reducing that friction. As edge computing and local-first patterns grew through 2026, the architectural options for avoiding central infrastructure were expanding.</p>
+<hr>
+<p><strong>9. &quot;Injecting Sustainability in Software Architecture&quot; presented at GREENS 2026, Rio de Janeiro</strong></p>
+<p>The rapid review paper on sustainability in software architecture, first published in November 2025, was presented at the 10th International Workshop on Green and Sustainable Software in Rio de Janeiro in March. The workshop positioned sustainability as an architectural quality attribute alongside performance and reliability rather than a separate concern.</p>
+<p><em>Why it matters for architects:</em> Quality attribute trade-off analysis is core architecture work. When sustainability enters the set of first-class quality attributes that workshops and formal methods address, it becomes something architects need to be able to reason about explicitly in their decision documentation.</p>
+<hr>
+<p><strong>10. AI adoption maturity framework from CMU gaining enterprise traction</strong></p>
+<p>The AI Adoption Maturity Model released by CMU and Accenture in January was gaining visible traction in enterprise architecture conversations by March, appearing in vendor presentations, architecture review templates, and capability assessment frameworks across multiple sectors.</p>
+<p><em>Why it matters for architects:</em> The speed at which an assessment framework goes from release to enterprise adoption is a signal about how badly that vocabulary was needed. Three months from release to widespread reference in capability reviews suggests the field had been waiting for this framing.</p>
+<hr>
+<h2 id="cross-platform-signals">Cross-platform signals</h2>
+<p>One signal appeared across multiple source types this month.</p>
+<p><strong>Architecture documentation is the broken layer.</strong> Three independent arXiv papers and the semantic search MCP server trending on GitHub all named the same structural problem from different angles: existing architecture documentation was designed for human readers and does not carry the intent, constraints, and trade-off reasoning that AI tools need to operate safely on codebases. This cross-platform convergence in March was the clearest statement of that problem to date in 2026.</p>
+<hr>
+<p><a href="/radar/">Back to all issues</a></p>
+
+    </div>
+  </main>
+
+  <aside class="section-toc-aside" aria-label="On this page">
+    
+    <span class="section-toc-label">On this page</span>
+    <ul class="section-toc-links">
+      
+      <li><a href="#editorial-note">Editorial note</a></li>
+      
+      <li><a href="#the-10-signals">The 10 signals</a></li>
+      
+      <li><a href="#cross-platform-signals">Cross-platform signals</a></li>
+      
+    </ul>
+    
+  </aside>
+
+</div>
+
+  </main>
+
+  <ep-footer base="/"></ep-footer>
+  <noscript>
+    <footer style="padding:1.5rem 2rem;font-size:0.8rem;">
+      <a href="/">Home</a> · <a href="/about/">About</a> · <a href="/uses/">Uses</a> · <a href="/now/">Now</a> · <a href="/books/">Books</a> · <a href="/whitepapers/">White Papers</a> · <a href="/projects/">Projects</a> · <a href="/teaching/">Teaching</a> · <a href="/speaking/">Speaking</a> · <a href="/writing/">Writing</a> · <a href="/uma/">UMA</a> · <a href="/c-dad/">C-DAD</a> · <a href="/concepts/">Concepts</a> · <a href="/perspectives/">Perspectives</a> · <a href="/knowledge-graph/">Knowledge Graph</a>
+    </footer>
+  </noscript>
+  <!-- Web Components: loaded after page is interactive to stay off the critical render path -->
+  <script>
+    function _loadWC() {
+      ['/src/components/ep-nav.js', '/src/components/ep-footer.js'].forEach(function(src) {
+        var s = document.createElement('script'); s.type = 'module'; s.src = src; document.head.appendChild(s);
+      });
+    }
+    if (document.readyState === 'complete') { _loadWC(); }
+    else { window.addEventListener('load', _loadWC); }
+  </script>
+</body>
+</html>

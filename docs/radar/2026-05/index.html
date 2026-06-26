@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Software Architecture Radar — May 2026 - Enrico Piovesan</title>
+  <meta name="description" content="10 software architecture signals worth paying attention to in May 2026. matklad on architectural judgment, the most concentrated research month of 2026, EU AI Act obligations becoming visible in architecture decisions." />
+  
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Software Architecture Radar — May 2026" />
+  <meta property="og:description" content="10 software architecture signals for May 2026. matklad on architectural judgment, multi-agent patterns, and EU AI Act obligations arriving in architecture decisions." />
+  <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://enricopiovesan.com/radar/2026-05/" />
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="Sat May 30 2026 18:00:00 GMT-0600 (Mountain Daylight Time)" />
+  <meta property="article:author" content="https://enricopiovesan.com/about/" />
+  <meta property="og:site_name" content="Enrico Piovesan" />
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@enricopiovesan" />
+  <meta name="twitter:creator" content="@enricopiovesan" />
+  <meta name="twitter:title" content="Software Architecture Radar — May 2026" />
+  <meta name="twitter:description" content="10 software architecture signals for May 2026. matklad on architectural judgment, multi-agent patterns, and EU AI Act obligations arriving in architecture decisions." />
+  <meta name="twitter:image" content="https://enricopiovesan.com/public/og-default.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/src/assets/img/ep-favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/src/assets/img/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/img/ep-favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/img/ep-favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/src/assets/img/ep-favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/img/ep-favicon-180.png" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://enricopiovesan.com/radar/2026-05/" />
+
+  <!-- Theme: apply before paint to avoid flash -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn-images-1.medium.com" crossorigin>
+
+  <!-- Google Analytics: deferred until after page interactive to avoid main-thread blocking -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-71P091V6MQ');
+    window.addEventListener('load', function() {
+      var s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-71P091V6MQ';
+      s.async = true;
+      document.head.appendChild(s);
+    });
+  </script>
+
+  <!-- Font preloads: tell browser to fetch before CSS is parsed -->
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-sans-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-sans-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Critical styles inlined to eliminate render-blocking requests -->
+  <style>
+@font-face{font-family:'Lato';font-style:normal;font-weight:300;font-display:swap;src:url('/src/assets/fonts/lato-300.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:300;font-display:swap;src:url('/src/assets/fonts/ibm-plex-sans-300.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-300.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/src/assets/fonts/ibm-plex-sans-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-400.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
+:root{--bg:#001f3f;--fg:#f6f7ed;--link:#dbe64c;--accent:#dbe64c;--border:rgba(246,247,237,0.2);--mid:#74c365;--header-bg:#001f3f;--header-fg:#f6f7ed;--footer-bg:#dbe64c;--footer-fg:#001f3f;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
+  </style>
+
+  <!-- Styles: load async to avoid render-blocking, swap to all on load -->
+  <link rel="stylesheet" href="/src/assets/styles/global.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/src/assets/styles/global.css"></noscript>
+
+  <!-- Person schema (every page) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://enricopiovesan.com/#person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://enricopiovesan.com/src/assets/img/enrico-piovesan.jpg",
+      "width": 800,
+      "height": 800
+    },
+    "jobTitle": "Platform Software Architect",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Autodesk"
+    },
+    "description": "Platform architect and author building frameworks for software that runs anywhere and codebases that AI agents can actually navigate.",
+    "sameAs": [
+      "https://github.com/enricopiovesan",
+      "https://linkedin.com/in/enricopiovesan",
+      "https://medium.com/@enricopiovesan",
+      "https://blog.enricopiovesan.com",
+      "https://x.com/enricopiovesan",
+      "https://www.universalmicroservices.com",
+      "https://www.amazon.com/dp/B0GTTTTQH4"
+    ],
+    "knowsAbout": [
+      "Software Architecture",
+      "WebAssembly",
+      "Contract-Driven AI Development",
+      "Universal Microservices Architecture",
+      "Distributed Systems",
+      "Agentic Systems",
+      "Platform Engineering"
+    ]
+  }
+  </script>
+
+  <!-- Schema -->
+  
+
+</head>
+<body>
+  <ep-nav active="2026-05" base="/"></ep-nav>
+  <noscript>
+    <nav aria-label="Main navigation" style="padding:1rem 2rem;font-size:0.85rem;">
+      <a href="/">Enrico Piovesan</a> —
+      <a href="/about/">About</a> · <a href="/uses/">Uses</a> · <a href="/now/">Now</a> ·
+      <a href="/work/">Work</a> · <a href="/books/">Books</a> · <a href="/whitepapers/">White Papers</a> · <a href="/projects/">Projects</a> · <a href="/teaching/">Teaching</a> ·
+      <a href="/thinking/">Thinking</a> · <a href="/concepts/">Concepts</a> · <a href="/perspectives/">Perspectives</a> · <a href="/knowledge-graph/">Knowledge Graph</a> ·
+      <a href="/uma/">UMA</a> · <a href="/c-dad/">C-DAD</a> ·
+      <a href="/speaking/">Speaking</a> · <a href="/writing/">Writing</a>
+    </nav>
+  </noscript>
+
+  <main id="main-content">
+    
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://enricopiovesan.com/radar/2026-05/",
+      "headline": "Software Architecture Radar — May 2026",
+      "description": "10 software architecture signals worth paying attention to in May 2026. matklad on architectural judgment, the most concentrated research month of 2026, EU AI Act obligations becoming visible in architecture decisions.",
+      "url": "https://enricopiovesan.com/radar/2026-05/",
+      "datePublished": "Sat May 30 2026 18:00:00 GMT-0600 (Mountain Daylight Time)",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "publisher": { "@id": "https://enricopiovesan.com/#person" },
+      "inLanguage": "en",
+      "proficiencyLevel": "Expert",
+      "isPartOf": { "@id": "https://enricopiovesan.com/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://enricopiovesan.com/radar/2026-05/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" }
+        
+          
+        ,{ "@type": "ListItem", "position": 2, "name": "Radar", "item": "https://enricopiovesan.com/radar/" }
+          
+        ,{ "@type": "ListItem", "position": 3, "name": "May 2026", "item": "https://enricopiovesan.com" }
+          
+        
+      ]
+    }
+  ]
+}
+</script>
+
+
+
+
+<div class="section-shell">
+
+  <aside class="section-nav-aside" aria-label="Radar navigation">
+    
+    <a class="section-nav-label" href="/radar/">Radar</a>
+    
+    
+    <ul class="section-nav-links">
+      
+      <li><a href="/radar/2026-01/">January 2026</a></li>
+      
+      <li><a href="/radar/2026-02/">February 2026</a></li>
+      
+      <li><a href="/radar/2026-03/">March 2026</a></li>
+      
+      <li><a href="/radar/2026-04/">April 2026</a></li>
+      
+      <li><a href="/radar/2026-05/" class="active" aria-current="page">May 2026</a></li>
+      
+      <li><a href="/radar/2026-06/">June 2026</a></li>
+      
+    </ul>
+    
+  </aside>
+
+  <main class="section-main">
+    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        
+          
+            
+            <li><a href="/radar/">Radar</a></li>
+            
+          
+            
+            <li><span aria-current="page">May 2026</span></li>
+            
+          
+        
+      </ol>
+    </nav>
+
+    <div class="section-body">
+      <h1 class="section-h1">Software Architecture Radar — May 2026</h1>
+      
+      <p><em>Issue 005 — May 2026</em></p>
+<h2 id="editorial-note">Editorial note</h2>
+<p>May produced the highest concentration of architecture research published in any single month so far in 2026. Three significant arXiv papers landed in a two-week window. Alex Kladov's &quot;Learning Software Architecture&quot; post appeared on May 12 and became the month's highest-signal practitioner piece, resurfacing on Hacker News with over 300 points and a substantive discussion about the difference between knowing architecture patterns and having architectural judgment. And for the first time, the EU AI Act's August 2026 obligation date became visible in architecture planning cycles, with teams beginning to treat governance readiness as a scheduled architectural constraint rather than a future concern.</p>
+<h2 id="the-10-signals">The 10 signals</h2>
+<p><strong>1. matklad: &quot;Learning Software Architecture&quot; (May 12, 2026)</strong></p>
+<p>Alex Kladov, the Rust language designer at JetBrains, published a post on how architectural judgment is developed. The central argument was that architecture is learned through decomposition practice on real systems, not through pattern catalogs. The post was prompted by a question from a physicist asking how to develop software design skills and became one of the most-discussed architecture posts of 2026, reaching over 300 points on Hacker News.</p>
+<p><em>Why it matters for architects:</em> The post makes a distinction that architecture training programs rarely surface: knowing architecture patterns and having architectural judgment are different capabilities that develop through different activities. The Conway's Law framing, that the architecture reflects the social structure of the organization producing it, is underused in discussions about AI-assisted development where the &quot;organization&quot; now includes agents.</p>
+<hr>
+<p><strong>2. &quot;Software Architecture Meets LLMs: A Systematic Literature Review&quot; (arXiv 2505.16697, May 2026)</strong></p>
+<p>A systematic literature review covering 52 papers on how LLMs are being applied to software architecture tasks. The review documented that LLMs perform well on isolated architecture tasks and consistently underperform on cross-cutting trade-off analysis where multiple quality attributes interact. Published in May and immediately referenced in subsequent papers as the authoritative mapping of current capability boundaries.</p>
+<p><em>Why it matters for architects:</em> This is the most comprehensive capability map available for AI in the architecture domain. The finding that cross-cutting trade-off analysis remains beyond current tool capability is the most important practical boundary for architects evaluating where AI assistance is safe to depend on.</p>
+<hr>
+<p><strong>3. Mark Richards: &quot;Fitness Function Driven Architecture Revisited&quot; (May 4, 2026)</strong></p>
+<p>A Software Architecture Monday post arguing that fitness functions as a mechanism for expressing architectural constraints in executable form are gaining practical relevance in 2026 because AI tooling has dramatically reduced the cost of implementing them. Richards argued that teams can now express architectural constraints as automated checks rather than documentation that drifts.</p>
+<p><em>Why it matters for architects:</em> Fitness functions have been referenced in architecture literature since &quot;Building Evolutionary Architectures&quot; in 2017 but have seen limited adoption outside teams with strong testing cultures. The claim that AI tooling changes the implementation cost is testable and worth verifying against actual team experience. If accurate, fitness functions become the practical path to machine-enforceable architectural constraints.</p>
+<hr>
+<p><strong>4. Multi-agent firm structures emerge as the preferred architecture pattern (May 2026)</strong></p>
+<p>May's GitHub trending landscape was dominated by multi-agent coordination repositories. The Anthropic MCP standard and multi-agent firm structures, where role specialisation across agents beats single-agent approaches for complex tasks, became the dominant architectural framing in practitioner discussions. The pattern drew on organisational theory, specifically the idea that specialised teams outperform generalist individuals on complex problems.</p>
+<p><em>Why it matters for architects:</em> The shift from single-agent to multi-agent as the default architecture for complex AI tasks has significant design implications. Multi-agent systems require orchestration, failure isolation, shared context management, and inter-agent contracts. These are architecture problems, not model selection problems.</p>
+<hr>
+<p><strong>5. EU AI Act August 2026 obligations becoming visible in architecture planning</strong></p>
+<p>With the EU AI Act's first wave of significant obligations taking effect in August 2026, May was the month where architecture planning cycles began to explicitly include AI Act compliance as a dated constraint. Teams building systems with AI components in Europe or serving European users were beginning to map their architecture decisions to specific regulatory requirements.</p>
+<p><em>Why it matters for architects:</em> Regulatory compliance becoming an architecture constraint with a specific date is different from regulatory compliance as a general requirement. When architects have a deadline, the work of mapping system components to compliance requirements becomes schedulable. May 2026 was when that scheduling started appearing in project planning.</p>
+<hr>
+<p><strong>6. .NET May 2026 servicing release: ASP.NET Core 10.0.8 (May 12, 2026)</strong></p>
+<p>The May servicing release shipped ASP.NET Core 10.0.8, Entity Framework Core 10.0.8, and runtime versions 10.0.8, 9.0.16, and 8.0.27. The release coincided with increasing preview activity for .NET 10, which was targeting November 2026 general availability.</p>
+<p><em>Why it matters for architects:</em> .NET 10's minimal API improvements, native AOT support, and performance changes to Kestrel were becoming clearer in the preview builds circulating in May. Architecture decisions for .NET systems in 2026 needed to account for a major runtime version change arriving in under six months.</p>
+<hr>
+<p><strong>7. &quot;Artificial Intelligence for Software Architecture: Literature Review and the Road Ahead&quot; (arXiv 2504.04334, published April, circulating May)</strong></p>
+<p>A literature review covering AI applied to software architecture tasks, published in late April and entering wider practitioner circulation in May. The paper distinguished between AI for architecture support, which helps humans make decisions, and AI for architecture automation, which makes decisions without human review, and argued that the field was moving toward automation faster than its governance frameworks could follow.</p>
+<p><em>Why it matters for architects:</em> The support-versus-automation distinction is the most practically useful framing for architecture teams evaluating AI tooling. The paper's argument that automation is outpacing governance is specific enough to be actionable: teams should be able to state explicitly which of their AI architecture tools are in support mode and which have crossed into automation mode.</p>
+<hr>
+<p><strong>8. awesome-ai-agents-2026 repository crosses 300 catalogued resources</strong></p>
+<p>A community-maintained repository cataloguing AI agent frameworks, tools, and implementations crossed 300 resources in May 2026, with categories covering orchestration frameworks, memory implementations, tool registries, evaluation frameworks, and governance tooling. The repository was being updated monthly.</p>
+<p><em>Why it matters for architects:</em> 300 resources in a single domain represents a fragmented ecosystem without clear dominant patterns. For architects evaluating agent tooling, a fragmented catalog at this scale indicates the field has not yet converged on standard abstractions. Choices made in May 2026 are likely to require architectural renegotiation as the field consolidates.</p>
+<hr>
+<p><strong>9. &quot;State of Software Engineering 2026 Reality Check&quot; (kunalganglani.com, May 2026)</strong></p>
+<p>A practitioner post examining what has and has not changed in software engineering by mid-2026. The core finding was that the bottleneck has shifted from writing code to designing systems, communicating trade-offs, and debugging under pressure. AI tools have automated routine coding work but have not yet addressed the structural problems that architecture exists to solve.</p>
+<p><em>Why it matters for architects:</em> The bottleneck shift claim is the most significant practitioner argument of 2026. If AI tools have automated the implementation layer, the value of architectural judgment, the ability to identify the right system structure before writing code, rises precisely as the cost of writing code falls. This is the professional case for architecture as a distinct discipline in the AI era.</p>
+<hr>
+<p><strong>10. &quot;Emerging Trends in Software Architecture from the Practitioner's Perspective: A Five-Year Review&quot; (arXiv 2507.14554, submitted May)</strong></p>
+<p>A five-year retrospective on software architecture trends from the practitioner perspective, examining how patterns like cloud-native, DevOps, microservices, and AI integration had evolved since 2021. The paper found that architecture had grown more diverse in patterns and supporting tools, while the core discipline of deliberate architectural decision-making had remained constant across the period.</p>
+<p><em>Why it matters for architects:</em> Five-year retrospectives on practice are more reliable signal sources than annual trend reports. The finding that the core discipline is stable while the tool and pattern landscape is expanding is a useful counter to the narrative that architecture as practiced today will be unrecognisable in two years. The methods are evolving. The judgment is not.</p>
+<hr>
+<h2 id="cross-platform-signals">Cross-platform signals</h2>
+<p>Two signals appeared independently across multiple source types this month.</p>
+<p><strong>Architectural judgment as the non-automatable core.</strong> matklad's practitioner post, the systematic LLM review finding that cross-cutting analysis remains beyond current tools, and the state of software engineering reality check all converged on the same finding from different directions. Architectural judgment, the ability to reason about trade-offs across multiple quality attributes simultaneously, is the capability that AI tooling is not yet replicating. That convergence across a practitioner essay, a 52-paper research review, and an industry analysis is a strong signal rather than a coincidence.</p>
+<p><strong>Governance as a dated constraint.</strong> The EU AI Act obligations becoming visible in architecture planning, the AI-versus-automation literature review naming governance as the lagging concern, and the fitness functions post arguing for executable constraints all pointed at governance not as a principle but as a scheduled deliverable. May was when governance stopped being aspirational and started having a calendar date attached to it.</p>
+<hr>
+<p><a href="/radar/">Back to all issues</a></p>
+
+    </div>
+  </main>
+
+  <aside class="section-toc-aside" aria-label="On this page">
+    
+    <span class="section-toc-label">On this page</span>
+    <ul class="section-toc-links">
+      
+      <li><a href="#editorial-note">Editorial note</a></li>
+      
+      <li><a href="#the-10-signals">The 10 signals</a></li>
+      
+      <li><a href="#cross-platform-signals">Cross-platform signals</a></li>
+      
+    </ul>
+    
+  </aside>
+
+</div>
+
+  </main>
+
+  <ep-footer base="/"></ep-footer>
+  <noscript>
+    <footer style="padding:1.5rem 2rem;font-size:0.8rem;">
+      <a href="/">Home</a> · <a href="/about/">About</a> · <a href="/uses/">Uses</a> · <a href="/now/">Now</a> · <a href="/books/">Books</a> · <a href="/whitepapers/">White Papers</a> · <a href="/projects/">Projects</a> · <a href="/teaching/">Teaching</a> · <a href="/speaking/">Speaking</a> · <a href="/writing/">Writing</a> · <a href="/uma/">UMA</a> · <a href="/c-dad/">C-DAD</a> · <a href="/concepts/">Concepts</a> · <a href="/perspectives/">Perspectives</a> · <a href="/knowledge-graph/">Knowledge Graph</a>
+    </footer>
+  </noscript>
+  <!-- Web Components: loaded after page is interactive to stay off the critical render path -->
+  <script>
+    function _loadWC() {
+      ['/src/components/ep-nav.js', '/src/components/ep-footer.js'].forEach(function(src) {
+        var s = document.createElement('script'); s.type = 'module'; s.src = src; document.head.appendChild(s);
+      });
+    }
+    if (document.readyState === 'complete') { _loadWC(); }
+    else { window.addEventListener('load', _loadWC); }
+  </script>
+</body>
+</html>

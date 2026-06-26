@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Software Architecture Radar — February 2026 - Enrico Piovesan</title>
+  <meta name="description" content="10 software architecture signals worth paying attention to in February 2026. An AI agent framework reaches 25k stars, OpenClaw crosses 60k, and governance surfaces as the missing architecture layer." />
+  
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Software Architecture Radar — February 2026" />
+  <meta property="og:description" content="10 software architecture signals for February 2026. Agent frameworks going viral, governance as architecture, and sustainability entering the practitioner stack." />
+  <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://enricopiovesan.com/radar/2026-02/" />
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="Fri Feb 27 2026 17:00:00 GMT-0700 (Mountain Standard Time)" />
+  <meta property="article:author" content="https://enricopiovesan.com/about/" />
+  <meta property="og:site_name" content="Enrico Piovesan" />
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@enricopiovesan" />
+  <meta name="twitter:creator" content="@enricopiovesan" />
+  <meta name="twitter:title" content="Software Architecture Radar — February 2026" />
+  <meta name="twitter:description" content="10 software architecture signals for February 2026. Agent frameworks going viral, governance as architecture, and sustainability entering the practitioner stack." />
+  <meta name="twitter:image" content="https://enricopiovesan.com/public/og-default.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/src/assets/img/ep-favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/src/assets/img/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/img/ep-favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/img/ep-favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/src/assets/img/ep-favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/img/ep-favicon-180.png" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://enricopiovesan.com/radar/2026-02/" />
+
+  <!-- Theme: apply before paint to avoid flash -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn-images-1.medium.com" crossorigin>
+
+  <!-- Google Analytics: deferred until after page interactive to avoid main-thread blocking -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-71P091V6MQ');
+    window.addEventListener('load', function() {
+      var s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-71P091V6MQ';
+      s.async = true;
+      document.head.appendChild(s);
+    });
+  </script>
+
+  <!-- Font preloads: tell browser to fetch before CSS is parsed -->
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-sans-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-sans-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Critical styles inlined to eliminate render-blocking requests -->
+  <style>
+@font-face{font-family:'Lato';font-style:normal;font-weight:300;font-display:swap;src:url('/src/assets/fonts/lato-300.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:300;font-display:swap;src:url('/src/assets/fonts/ibm-plex-sans-300.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-300.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/src/assets/fonts/ibm-plex-sans-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-400.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
+:root{--bg:#001f3f;--fg:#f6f7ed;--link:#dbe64c;--accent:#dbe64c;--border:rgba(246,247,237,0.2);--mid:#74c365;--header-bg:#001f3f;--header-fg:#f6f7ed;--footer-bg:#dbe64c;--footer-fg:#001f3f;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
+  </style>
+
+  <!-- Styles: load async to avoid render-blocking, swap to all on load -->
+  <link rel="stylesheet" href="/src/assets/styles/global.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/src/assets/styles/global.css"></noscript>
+
+  <!-- Person schema (every page) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://enricopiovesan.com/#person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://enricopiovesan.com/src/assets/img/enrico-piovesan.jpg",
+      "width": 800,
+      "height": 800
+    },
+    "jobTitle": "Platform Software Architect",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Autodesk"
+    },
+    "description": "Platform architect and author building frameworks for software that runs anywhere and codebases that AI agents can actually navigate.",
+    "sameAs": [
+      "https://github.com/enricopiovesan",
+      "https://linkedin.com/in/enricopiovesan",
+      "https://medium.com/@enricopiovesan",
+      "https://blog.enricopiovesan.com",
+      "https://x.com/enricopiovesan",
+      "https://www.universalmicroservices.com",
+      "https://www.amazon.com/dp/B0GTTTTQH4"
+    ],
+    "knowsAbout": [
+      "Software Architecture",
+      "WebAssembly",
+      "Contract-Driven AI Development",
+      "Universal Microservices Architecture",
+      "Distributed Systems",
+      "Agentic Systems",
+      "Platform Engineering"
+    ]
+  }
+  </script>
+
+  <!-- Schema -->
+  
+
+</head>
+<body>
+  <ep-nav active="2026-02" base="/"></ep-nav>
+  <noscript>
+    <nav aria-label="Main navigation" style="padding:1rem 2rem;font-size:0.85rem;">
+      <a href="/">Enrico Piovesan</a> —
+      <a href="/about/">About</a> · <a href="/uses/">Uses</a> · <a href="/now/">Now</a> ·
+      <a href="/work/">Work</a> · <a href="/books/">Books</a> · <a href="/whitepapers/">White Papers</a> · <a href="/projects/">Projects</a> · <a href="/teaching/">Teaching</a> ·
+      <a href="/thinking/">Thinking</a> · <a href="/concepts/">Concepts</a> · <a href="/perspectives/">Perspectives</a> · <a href="/knowledge-graph/">Knowledge Graph</a> ·
+      <a href="/uma/">UMA</a> · <a href="/c-dad/">C-DAD</a> ·
+      <a href="/speaking/">Speaking</a> · <a href="/writing/">Writing</a>
+    </nav>
+  </noscript>
+
+  <main id="main-content">
+    
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://enricopiovesan.com/radar/2026-02/",
+      "headline": "Software Architecture Radar — February 2026",
+      "description": "10 software architecture signals worth paying attention to in February 2026. An AI agent framework reaches 25k stars, OpenClaw crosses 60k, and governance surfaces as the missing architecture layer.",
+      "url": "https://enricopiovesan.com/radar/2026-02/",
+      "datePublished": "Fri Feb 27 2026 17:00:00 GMT-0700 (Mountain Standard Time)",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "publisher": { "@id": "https://enricopiovesan.com/#person" },
+      "inLanguage": "en",
+      "proficiencyLevel": "Expert",
+      "isPartOf": { "@id": "https://enricopiovesan.com/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://enricopiovesan.com/radar/2026-02/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" }
+        
+          
+        ,{ "@type": "ListItem", "position": 2, "name": "Radar", "item": "https://enricopiovesan.com/radar/" }
+          
+        ,{ "@type": "ListItem", "position": 3, "name": "February 2026", "item": "https://enricopiovesan.com" }
+          
+        
+      ]
+    }
+  ]
+}
+</script>
+
+
+
+
+<div class="section-shell">
+
+  <aside class="section-nav-aside" aria-label="Radar navigation">
+    
+    <a class="section-nav-label" href="/radar/">Radar</a>
+    
+    
+    <ul class="section-nav-links">
+      
+      <li><a href="/radar/2026-01/">January 2026</a></li>
+      
+      <li><a href="/radar/2026-02/" class="active" aria-current="page">February 2026</a></li>
+      
+      <li><a href="/radar/2026-03/">March 2026</a></li>
+      
+      <li><a href="/radar/2026-04/">April 2026</a></li>
+      
+      <li><a href="/radar/2026-05/">May 2026</a></li>
+      
+      <li><a href="/radar/2026-06/">June 2026</a></li>
+      
+    </ul>
+    
+  </aside>
+
+  <main class="section-main">
+    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        
+          
+            
+            <li><a href="/radar/">Radar</a></li>
+            
+          
+            
+            <li><span aria-current="page">February 2026</span></li>
+            
+          
+        
+      </ol>
+    </nav>
+
+    <div class="section-body">
+      <h1 class="section-h1">Software Architecture Radar — February 2026</h1>
+      
+      <p><em>Issue 002 — February 2026</em></p>
+<h2 id="editorial-note">Editorial note</h2>
+<p>February's clearest signal was a ByteDance AI agent framework reaching number one on GitHub trending with 25,000 stars, while the practitioner conversation was shifting toward governance rather than capability. The month surfaced a meaningful paper on engineering research software in energy domains, an honest engineering post about infrastructure realities in 2026, and a formal security framework update that named AI as a first-class endpoint security category for the first time. The underlying theme across all sources: the tooling is maturing faster than the governance and architectural patterns that would make it safe to depend on.</p>
+<h2 id="the-10-signals">The 10 signals</h2>
+<p><strong>1. ByteDance AI agent framework reaches number one on GitHub trending (February 2026)</strong></p>
+<p>An AI agent orchestration framework from ByteDance became the number one trending repository on GitHub in February, reaching 25,000 stars. The framework addressed multi-agent coordination, task routing, and structured output handling for complex agent workflows.</p>
+<p><em>Why it matters for architects:</em> When a single framework from one company occupies the top trending position with this velocity, it shapes the vocabulary and patterns that teams reach for first. Architects evaluating agent orchestration options in early 2026 needed to understand what this framework was proposing and what its architecture assumed.</p>
+<hr>
+<p><strong>2. OpenClaw crosses 60,000 stars (February milestone)</strong></p>
+<p>OpenClaw, which had surged from 9,000 stars in late January, crossed 60,000 stars in February and continued climbing toward the 210,000 star mark it would hit in March. The project's architecture emphasised service decoupling and local-first AI infrastructure.</p>
+<p><em>Why it matters for architects:</em> The growth trajectory indicated this was not a viral moment but a sustained adoption signal. Projects that maintain this kind of growth across multiple months are solving a problem that practitioners keep returning to. The local-first infrastructure angle was distinct from the cloud-first defaults of most comparable tools.</p>
+<hr>
+<p><strong>3. OESIS Framework February 2026 release: AI named as a first-class security category</strong></p>
+<p>OPSWAT released a significant update to the OESIS endpoint security framework, introducing three new software categories: Vulnerability Management, Artificial Intelligence, and Gaming. The AI category established formal support methods including version detection, running state, and installation directory scanning for AI software components on managed endpoints.</p>
+<p><em>Why it matters for architects:</em> This is the first major security framework update to treat AI software as a distinct category requiring its own detection and compliance posture. Architects building or maintaining enterprise systems with AI components now have a formal model for what &quot;AI endpoint compliance&quot; means.</p>
+<hr>
+<p><strong>4. .NET February 2026 servicing release (February 10, 2026)</strong></p>
+<p>The February servicing release for .NET and .NET Framework shipped on February 10, containing security and non-security fixes. It coincided with increasing practitioner attention to .NET 10, which was in active preview at this point with general availability targeted for November 2026.</p>
+<p><em>Why it matters for architects:</em> .NET 10's architectural changes to Blazor, minimal API, and native AOT compilation were becoming clearer in February. Teams with .NET systems in their architecture planning cycles needed to be actively tracking the preview builds rather than waiting for GA.</p>
+<hr>
+<p><strong>5. vFunction publishes &quot;What is Software Architecture&quot; comprehensive guide (February 18, 2026)</strong></p>
+<p>A comprehensive guide to software architecture concepts, design patterns, and tooling published by vFunction on February 18. Notable for its framing of AI-augmented design as a normal part of the architecture discipline rather than a separate specialisation.</p>
+<p><em>Why it matters for architects:</em> Industry guides from companies with commercial interests in architecture tooling are worth reading for framing rather than neutrality. vFunction's framing that AI-augmented design belongs inside the architecture discipline, not alongside it, was ahead of most practitioner positions at the time.</p>
+<hr>
+<p><strong>6. &quot;Ten Recommendations for Engineering Research Software in Energy Research&quot; (arXiv 2502.13510, February 2026)</strong></p>
+<p>A February 2026 paper from the energy research domain making the case that architecture is a first-class concern in research software, not an afterthought. One of the ten recommendations was that choosing and designing a suitable architecture from the start is essential to developing research software efficiently and sustainably.</p>
+<p><em>Why it matters for architects:</em> Architecture discipline spreading into domains outside traditional software engineering is a signal that the field is maturing. Energy research software is a hard domain with long-lived systems and significant technical debt. Recommendations from that domain tend to be conservative and hard-won.</p>
+<hr>
+<p><strong>7. &quot;Governance-Aware AI Sandbox&quot; paper accepted for EASE 2026 (arXiv 2603.03394)</strong></p>
+<p>A paper presenting a governance-aware architecture for AI experimentation sandboxes, covering three iterative design phases: requirements collection, architecture design, and prototype development. Accepted for the 30th International Conference on Evaluation and Assessment in Software Engineering in Glasgow.</p>
+<p><em>Why it matters for architects:</em> AI sandboxes are becoming a standard part of enterprise architecture for teams that need to experiment with LLMs without exposing production systems or regulated data. This paper offered one of the first formally evaluated reference architectures for that use case.</p>
+<hr>
+<p><strong>8. Ask HN &quot;What are you working on? (February 2026)&quot;</strong></p>
+<p>The February 2026 Hacker News monthly thread showed practitioners building task management and workflow orchestration systems at increasing levels of complexity. One notable entry described a system called Stao designed for structured task state management, reflecting the broader shift from simple task tracking to architectural approaches to workflow coordination.</p>
+<p><em>Why it matters for architects:</em> Monthly working-on threads are a reliable proxy for where practitioners are spending real time. The shift from building products to building coordination infrastructure is a structural signal.</p>
+<hr>
+<p><strong>9. &quot;Software Engineering in 2026: A View From the Server Room&quot; (dev.to)</strong></p>
+<p>A practitioner post examining infrastructure realities in 2026, arguing that AI tools have automated routine coding work but shifted the bottleneck to engineers who can design systems and evaluate AI-generated code critically. The post emphasised that infrastructure consistency, not feature richness, is where most production systems fail quietly.</p>
+<p><em>Why it matters for architects:</em> The argument that the bottleneck has moved from code writing to system design is the most important practitioner claim of early 2026. If it is accurate, the value of architectural judgment is rising precisely as AI tools make tactical coding cheaper.</p>
+<hr>
+<p><strong>10. AI-assisted architecture tooling conversations enter mainstream practitioner press</strong></p>
+<p>February marked the point where AI-assisted architecture tooling stopped appearing only in research papers and started appearing in mainstream practitioner publications, including InfoQ, the Software Architect Newsletter, and major engineering blogs. The conversation shifted from &quot;can AI help with architecture&quot; to &quot;which parts of architecture should AI handle.&quot;</p>
+<p><em>Why it matters for architects:</em> The framing shift is important. Once the question becomes &quot;which parts&quot; rather than &quot;whether&quot;, the architecture community needs to have a clear answer about where human judgment is non-negotiable. That answer is not yet settled.</p>
+<hr>
+<h2 id="cross-platform-signals">Cross-platform signals</h2>
+<p>One signal appeared across multiple source types this month.</p>
+<p><strong>Governance as the missing architecture layer.</strong> The OESIS security framework update, the governance-aware AI sandbox paper, and the practitioner infrastructure post all named governance as the architectural concern that tooling was not yet addressing. Capabilities were shipping. Governance patterns for those capabilities were not.</p>
+<hr>
+<p><a href="/radar/">Back to all issues</a></p>
+
+    </div>
+  </main>
+
+  <aside class="section-toc-aside" aria-label="On this page">
+    
+    <span class="section-toc-label">On this page</span>
+    <ul class="section-toc-links">
+      
+      <li><a href="#editorial-note">Editorial note</a></li>
+      
+      <li><a href="#the-10-signals">The 10 signals</a></li>
+      
+      <li><a href="#cross-platform-signals">Cross-platform signals</a></li>
+      
+    </ul>
+    
+  </aside>
+
+</div>
+
+  </main>
+
+  <ep-footer base="/"></ep-footer>
+  <noscript>
+    <footer style="padding:1.5rem 2rem;font-size:0.8rem;">
+      <a href="/">Home</a> · <a href="/about/">About</a> · <a href="/uses/">Uses</a> · <a href="/now/">Now</a> · <a href="/books/">Books</a> · <a href="/whitepapers/">White Papers</a> · <a href="/projects/">Projects</a> · <a href="/teaching/">Teaching</a> · <a href="/speaking/">Speaking</a> · <a href="/writing/">Writing</a> · <a href="/uma/">UMA</a> · <a href="/c-dad/">C-DAD</a> · <a href="/concepts/">Concepts</a> · <a href="/perspectives/">Perspectives</a> · <a href="/knowledge-graph/">Knowledge Graph</a>
+    </footer>
+  </noscript>
+  <!-- Web Components: loaded after page is interactive to stay off the critical render path -->
+  <script>
+    function _loadWC() {
+      ['/src/components/ep-nav.js', '/src/components/ep-footer.js'].forEach(function(src) {
+        var s = document.createElement('script'); s.type = 'module'; s.src = src; document.head.appendChild(s);
+      });
+    }
+    if (document.readyState === 'complete') { _loadWC(); }
+    else { window.addEventListener('load', _loadWC); }
+  </script>
+</body>
+</html>

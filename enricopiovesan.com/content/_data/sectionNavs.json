@@ -72,6 +72,11 @@
     "label": "Radar",
     "url": "/radar/",
     "links": [
+      { "href": "/radar/2026-01/", "label": "January 2026" },
+      { "href": "/radar/2026-02/", "label": "February 2026" },
+      { "href": "/radar/2026-03/", "label": "March 2026" },
+      { "href": "/radar/2026-04/", "label": "April 2026" },
+      { "href": "/radar/2026-05/", "label": "May 2026" },
       { "href": "/radar/2026-06/", "label": "June 2026" }
     ]
   },
