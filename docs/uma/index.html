@@ -83,7 +83,8 @@
 ep-nav{display:block;min-height:64px}ep-footer{display:block}
   </style>
 
-  <link rel="stylesheet" href="/src/assets/styles/global.css">
+  <link rel="preload" href="/src/assets/styles/global.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/src/assets/styles/global.css"></noscript>
 
   <!-- Person schema (every page) -->
   <script type="application/ld+json">
