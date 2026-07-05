@@ -438,50 +438,8 @@
         octx.globalAlpha = 1;
       }
 
-      // Aurora: curtain rays along the northern (top) edge when the real
-      // planetary Kp index says a storm is on and it is night in Golden.
-      // Classic banding: green body, purple fringe at the top, drawn as
-      // vertical rays whose length and brightness undulate east-west.
-      if (!SUN.day && KP >= 4) {
-        var light3 = isLight();
-        var ai = Math.min(1, (KP - 3) / 4);       // Kp4 faint -> Kp7+ full
-        var aTop = light3 ? [106, 58, 176] : [165, 105, 235];
-        var aGrn = light3 ? [8, 120, 80] : [80, 255, 170];
-        var aMax = (light3 ? 0.5 : 0.95) * ai;
-        var aBase = h * 0.52;                     // deepest curtain reach
-        var seed = Math.floor(Date.now() / 60000); // curtain drifts by the minute
-        octx.save();
-        if (!light3) octx.globalCompositeOperation = 'lighter';
-        // Soft glow band behind the rays so the sky itself reads lit
-        var aglow = octx.createLinearGradient(0, 0, 0, aBase * 0.8);
-        aglow.addColorStop(0, 'rgba(' + aGrn[0] + ',' + aGrn[1] + ',' + aGrn[2] + ',' + ((light3 ? 0.12 : 0.22) * ai).toFixed(3) + ')');
-        aglow.addColorStop(1, 'rgba(' + aGrn[0] + ',' + aGrn[1] + ',' + aGrn[2] + ',0)');
-        octx.fillStyle = aglow;
-        octx.fillRect(0, 0, ow, aBase * 0.8);
-        for (var axp = 0; axp < ow; axp += 5) {
-          var u2 = axp / ow;
-          // Curtain envelope: two long waves plus a fine ray ripple
-          var env = 0.5 + 0.28 * Math.sin(u2 * 5.1 + seed * 0.7)
-                        + 0.22 * Math.sin(u2 * 13.7 + seed * 1.9);
-          var ray = 0.55 + 0.45 * Math.sin(u2 * 47 + seed * 3.1);
-          var hx = aBase * Math.max(0.2, env);
-          var ra3 = aMax * (0.45 + 0.55 * ray) * Math.max(0.25, env);
-          var agr = octx.createLinearGradient(0, 0, 0, hx);
-          agr.addColorStop(0, 'rgba(' + aTop[0] + ',' + aTop[1] + ',' + aTop[2] + ',' + (ra3 * 0.6).toFixed(3) + ')');
-          agr.addColorStop(0.35, 'rgba(' + aGrn[0] + ',' + aGrn[1] + ',' + aGrn[2] + ',' + ra3.toFixed(3) + ')');
-          agr.addColorStop(1, 'rgba(' + aGrn[0] + ',' + aGrn[1] + ',' + aGrn[2] + ',0)');
-          octx.fillStyle = agr;
-          octx.fillRect(axp, 0, 5, hx);
-        }
-        octx.restore();
-        // Data label, same voice as the sun/moon blocks
-        octx.globalAlpha = 0.8;
-        octx.fillStyle = light3 ? 'rgb(10,120,80)' : 'rgb(110,230,160)';
-        octx.font = '9px "IBM Plex Mono", monospace';
-        octx.textBaseline = 'alphabetic';
-        octx.fillText('aurora · Kp ' + (Math.round(KP * 10) / 10), 12, 14);
-        octx.globalAlpha = 1;
-      }
+      // Aurora is animated, so it draws in the per-frame overlay
+      // (drawAurora below), not in this static scene.
 
       // Gemini, from its real star positions — drawn only at night while
       // the constellation is actually above the horizon (it sits next to
@@ -898,6 +856,56 @@
     var sy2 = Math.max(h, ow / DATA.aspect), sx2 = sy2 * DATA.aspect;
     var ox2 = (ow - sx2) / 2 - margin, oy2 = (h - sy2) / 2;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    // Aurora: animated curtain rays along the northern (top) edge when
+    // the real planetary Kp index says a storm is on and it is night in
+    // Golden. Classic banding: green body, purple fringe at the top.
+    // The curtain envelope sways slowly, the fine rays shimmer faster,
+    // like the real thing. Drawn per frame on the 40 ms overlay ticker.
+    if (SUN && !SUN.day && KP >= 4) {
+      var light3 = isLight();
+      var ai = Math.min(1, (KP - 3) / 4);         // Kp4 faint -> Kp7+ full
+      var aTop = light3 ? [106, 58, 176] : [165, 105, 235];
+      var aGrn = light3 ? [8, 120, 80] : [80, 255, 170];
+      var aMax = (light3 ? 0.5 : 0.95) * ai;
+      var aBase = h * 0.52;                       // deepest curtain reach
+      var at = Date.now() / 1000;
+      ctx.save();
+      if (!light3) ctx.globalCompositeOperation = 'lighter';
+      // Soft glow band behind the rays so the sky itself reads lit,
+      // breathing slowly with the storm.
+      var breathe = 0.85 + 0.15 * Math.sin(at * 0.35);
+      var aglow = ctx.createLinearGradient(0, 0, 0, aBase * 0.8);
+      aglow.addColorStop(0, 'rgba(' + aGrn[0] + ',' + aGrn[1] + ',' + aGrn[2] + ',' + ((light3 ? 0.12 : 0.22) * ai * breathe).toFixed(3) + ')');
+      aglow.addColorStop(1, 'rgba(' + aGrn[0] + ',' + aGrn[1] + ',' + aGrn[2] + ',0)');
+      ctx.fillStyle = aglow;
+      ctx.fillRect(0, 0, w, aBase * 0.8);
+      for (var axp = 0; axp < w; axp += 6) {
+        var u2 = axp / w;
+        // Envelope: two long waves drifting east at different speeds
+        var env = 0.5 + 0.28 * Math.sin(u2 * 5.1 - at * 0.11)
+                      + 0.22 * Math.sin(u2 * 13.7 + at * 0.07);
+        // Fine rays flicker and slide faster than the envelope
+        var ray = 0.55 + 0.45 * Math.sin(u2 * 47 - at * 0.9)
+                       * (0.7 + 0.3 * Math.sin(u2 * 23 + at * 1.7));
+        var hx = aBase * Math.max(0.2, env) * (0.92 + 0.08 * Math.sin(u2 * 9 + at * 0.5));
+        var ra3 = aMax * (0.45 + 0.55 * ray) * Math.max(0.25, env) * breathe;
+        var agr = ctx.createLinearGradient(0, 0, 0, hx);
+        agr.addColorStop(0, 'rgba(' + aTop[0] + ',' + aTop[1] + ',' + aTop[2] + ',' + (ra3 * 0.6).toFixed(3) + ')');
+        agr.addColorStop(0.35, 'rgba(' + aGrn[0] + ',' + aGrn[1] + ',' + aGrn[2] + ',' + ra3.toFixed(3) + ')');
+        agr.addColorStop(1, 'rgba(' + aGrn[0] + ',' + aGrn[1] + ',' + aGrn[2] + ',0)');
+        ctx.fillStyle = agr;
+        ctx.fillRect(axp, 0, 6, hx);
+      }
+      ctx.restore();
+      // Data label, same voice as the sun/moon blocks
+      ctx.globalAlpha = 0.8;
+      ctx.fillStyle = light3 ? 'rgb(10,120,80)' : 'rgb(110,230,160)';
+      ctx.font = '9px "IBM Plex Mono", monospace';
+      ctx.textBaseline = 'alphabetic';
+      ctx.fillText('aurora · Kp ' + (Math.round(KP * 10) / 10), 12, 14);
+      ctx.globalAlpha = 1;
+    }
 
     // Wind streaks: drift in the real wind direction, pace from speed.
     if (WX && WX.wind_speed_10m >= 5) {
