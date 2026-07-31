@@ -56,6 +56,6 @@ Useful for architects and engineering leaders who need an honest current picture
 These skills are the practical expression of the ideas behind Contract-Driven AI Development and Traverse. C-DAD defines how software should declare its intent so AI agents can navigate it safely. These skills apply the same principle in the other direction: they declare the agent's intent so the work it produces is predictable, verifiable, and governed.
 
 - [Contract-Driven AI Development](/c-dad/)
-- [Traverse](https://github.com/enricopiovesan/Traverse)
+- [Traverse](https://traverse-framework.com)
 - [C-DAD White Paper](/whitepapers/c-dad/)
 - [the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit)

@@ -46,4 +46,4 @@ Engineering leaders, staff architects, and senior developers who are watching AI
 
 ---
 
-[Read the full framework](/c-dad/) · [the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit) · [The Day After](/books/)
+[Read the full framework](/c-dad/) · [the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit) · [The Day After AI](/books/)
