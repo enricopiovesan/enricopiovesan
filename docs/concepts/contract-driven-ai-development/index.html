@@ -114,7 +114,9 @@ ep-nav{display:block;min-height:64px}ep-footer{display:block}
       "https://blog.enricopiovesan.com",
       "https://x.com/enricopiovesan",
       "https://www.universalmicroservices.com",
-      "https://www.amazon.com/dp/B0GTTTTQH4"
+      "https://www.amazon.com/dp/B0GTTTTQH4",
+      "https://traverse-framework.com",
+      "https://thedayafteraibook.com"
     ],
     "knowsAbout": [
       "Software Architecture",
@@ -232,7 +234,7 @@ ep-nav{display:block;min-height:64px}ep-footer{display:block}
 
     <div class="section-body">
       <h1 class="section-h1">What is Contract-Driven AI Development?</h1>
-      <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: June 2026</p>
+      <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: July 2026</p>
       <p>Most software was not built to be navigated by AI agents. It was built to be read by the people who wrote it. The intent lives in someone's head. The constraints live in a Slack thread from two years ago. The exception paths live nowhere at all.</p>
 <p>When an AI agent encounters that codebase it does not fail loudly. It produces plausible output that is wrong in ways that take weeks to find. The problem is not the model. The problem is that the code has no contracts.</p>
 <p>Contract-driven AI development is the practice of making software legible to AI agents by declaring intent explicitly through contracts rather than leaving it implicit in code.</p>
@@ -251,12 +253,13 @@ ep-nav{display:block;min-height:64px}ep-footer{display:block}
 <p>Spec-driven development tells agents what to build. Contract-driven AI development tells agents what they can trust. The first automates execution. The second enables reasoning.</p>
 <p>Teams already writing OpenAPI specs, ADRs, architecture decision records, or structured technical documentation are closer than they think. An OpenAPI spec declares endpoints and types. A C-DAD contract extends that to declare the conditions under which those endpoints can be trusted: the preconditions that must hold, the postconditions that must be true, the invariants that must never break, and the governance rules that apply. The gap is making those artifacts machine-enforceable rather than human-readable. That gap is what separates a codebase that AI agents can describe from one they can reason about.</p>
 <h2 id="where-to-go-deeper">Where to go deeper</h2>
-<p>The full framework is documented in the C-DAD white paper and the forthcoming book The Day After. The companion CLI tool audits your codebase for agent-readiness today.</p>
+<p>The full framework is documented in the C-DAD white paper and the forthcoming book The Day After AI. The companion CLI tool audits your codebase for agent-readiness today. <a href="https://traverse-framework.com">Traverse</a> is a live runtime implementation of C-DAD principles.</p>
 <ul>
 <li><a href="/c-dad/">C-DAD full framework</a></li>
 <li><a href="/whitepapers/">C-DAD White Paper</a></li>
-<li><a href="/books/">The Day After</a></li>
+<li><a href="/books/">The Day After AI</a></li>
 <li><a href="https://github.com/enricopiovesan/the-day-after-toolkit">the-day-after-toolkit</a></li>
+<li><a href="https://traverse-framework.com">Traverse</a></li>
 </ul>
 
     </div>

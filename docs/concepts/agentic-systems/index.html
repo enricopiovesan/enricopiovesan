@@ -114,7 +114,9 @@ ep-nav{display:block;min-height:64px}ep-footer{display:block}
       "https://blog.enricopiovesan.com",
       "https://x.com/enricopiovesan",
       "https://www.universalmicroservices.com",
-      "https://www.amazon.com/dp/B0GTTTTQH4"
+      "https://www.amazon.com/dp/B0GTTTTQH4",
+      "https://traverse-framework.com",
+      "https://thedayafteraibook.com"
     ],
     "knowsAbout": [
       "Software Architecture",
@@ -232,7 +234,7 @@ ep-nav{display:block;min-height:64px}ep-footer{display:block}
 
     <div class="section-body">
       <h1 class="section-h1">Agentic Systems Architecture</h1>
-      <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: June 2026</p>
+      <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: July 2026</p>
       <p><em>By <a href="https://enricopiovesan.com/about/">Enrico Piovesan</a>, author of <a href="https://www.amazon.com/dp/B0GTTTTQH4">Universal Microservices Architecture</a> (Apress)</em></p>
 <p>AI agents are becoming a real part of software teams. Not as a future possibility. As a present reality that most engineering organizations are not structurally ready for.</p>
 <p>The gap is not model capability. The gap is architectural legibility. Agents work well in codebases that declare their intent. They work poorly in codebases that assume a human will fill in the gaps.</p>
@@ -246,12 +248,12 @@ ep-nav{display:block;min-height:64px}ep-footer{display:block}
 <p>Most teams encounter AI agents as single assistants operating on one task at a time. The harder and more consequential problem is multi-agent orchestration: multiple agents working concurrently on the same codebase, the same pipeline, or the same capability graph. At that scale, the failure modes are different. One agent modifies a behavior that another agent is reasoning about. A third agent generates code that satisfies the tests but violates an invariant that was never declared anywhere. The output looks correct in isolation. The system breaks at the boundary.</p>
 <p>The root cause is the same one that makes codebases hard for human teams to maintain at scale: intent was never declared. An agent has no way to know whether a proposed change violates a constraint that exists only in someone's memory. It cannot distinguish a load-bearing conditional from a legacy workaround. It cannot tell which invariants are business-critical and which are implementation accidents. Without contracts, multi-agent systems produce conflicts that are expensive to detect and structurally difficult to prevent. With contracts, each agent operates within declared boundaries. The orchestration layer validates that agents are composing capabilities correctly before anything executes, and can surface conflicts as contract violations rather than runtime failures.</p>
 <h2 id="where-to-go-deeper">Where to go deeper</h2>
-<p>The full framework for building agentic-ready software is covered across C-DAD, The Day After, and the Traverse runtime.</p>
+<p>The full framework for building agentic-ready software is covered across C-DAD, The Day After AI, and the Traverse runtime.</p>
 <ul>
 <li><a href="/concepts/contract-driven-ai-development/">Contract-Driven AI Development</a></li>
 <li><a href="/c-dad/">C-DAD full framework</a></li>
-<li><a href="/books/">The Day After</a></li>
-<li><a href="https://github.com/enricopiovesan/Traverse">Traverse</a></li>
+<li><a href="/books/">The Day After AI</a></li>
+<li><a href="https://traverse-framework.com">Traverse</a>, live at v0.8.1, code at <a href="https://github.com/traverse-framework/traverse">github.com/traverse-framework/traverse</a></li>
 <li><a href="https://github.com/youaskm3/youaskm3">youaskm3</a></li>
 </ul>
 

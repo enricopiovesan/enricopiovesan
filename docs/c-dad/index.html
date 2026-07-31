@@ -113,7 +113,9 @@ ep-nav{display:block;min-height:64px}ep-footer{display:block}
       "https://blog.enricopiovesan.com",
       "https://x.com/enricopiovesan",
       "https://www.universalmicroservices.com",
-      "https://www.amazon.com/dp/B0GTTTTQH4"
+      "https://www.amazon.com/dp/B0GTTTTQH4",
+      "https://traverse-framework.com",
+      "https://thedayafteraibook.com"
     ],
     "knowsAbout": [
       "Software Architecture",
@@ -210,7 +212,7 @@ ep-nav{display:block;min-height:64px}ep-footer{display:block}
 
     <div class="section-body">
       <h1 class="section-h1">Contract-Driven AI Development (C-DAD)</h1>
-      <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: June 2026</p>
+      <p style="font-family:var(--mono);font-size:0.68rem;color:var(--mid);margin-bottom:2rem;">Last updated: July 2026</p>
       <p>AI coding tools are good at describing what software does. They are not good at knowing why it does it. The constraint that exists because of a regulatory audit three years ago. The non-goal that was obvious in the room and invisible in the repo. The exception path that one engineer carries in their head and nowhere else. When an AI agent encounters that code it guesses. Sometimes correctly. Often not. The problem is not the model. The problem is that the codebase has no contracts, only code. Contract-Driven AI Development is a response to that problem.</p>
 <h2 id="what-is-contract-driven-ai-development">What is Contract-Driven AI Development?</h2>
 <p>A specification describes what a system does. A contract describes why it can be trusted. That distinction is the foundation of C-DAD. Contract-Driven AI Development is a framework for building AI-native systems where contracts, not code, define the collaboration between humans, machines, and runtimes. Every capability declares its preconditions, postconditions, invariants, and exception flows in machine-readable form. Not documentation, but contracts that the pipeline can enforce. Automated reasoning becomes possible because the structure carries the intent. Hybrid governance means humans author the intent and machines validate the implementation. Neither replaces the other. The combination produces systems that are both navigable and trustworthy at scale.</p>
@@ -219,13 +221,16 @@ ep-nav{display:block;min-height:64px}ep-footer{display:block}
 <h2 id="why-cant-ai-agents-navigate-code-without-contracts">Why can't AI agents navigate code without contracts?</h2>
 <p>Because code encodes behavior, not intent. The constraint that prevents a certain operation exists in the code as a conditional, but the reason it exists (regulatory requirement, domain invariant, safety boundary) is nowhere in the repository. It lived in a meeting, then in someone's head, then nowhere at all when that person left. An AI agent reading the code sees the conditional. It does not know whether it is load-bearing or legacy. Contracts make that information explicit and machine-readable for the first time.</p>
 <h2 id="where-did-c-dad-come-from">Where did C-DAD come from?</h2>
-<p>C-DAD emerged from years of watching the same failure pattern: codebases built by smart people that became progressively less navigable as they grew. Not because the code was bad but because the intent was never declared. The knowledge lived in people, not in the system. When those people left, or when an AI agent arrived, the system became opaque. The C-DAD white paper was published in November 2025. The companion CLI tool audits codebases for agent-readiness and scaffolds the contracts needed to fix what it finds. The second book, The Day After, builds the full organizational model around C-DAD role by role.</p>
+<p>C-DAD emerged from years of watching the same failure pattern: codebases built by smart people that became progressively less navigable as they grew. Not because the code was bad but because the intent was never declared. The knowledge lived in people, not in the system. When those people left, or when an AI agent arrived, the system became opaque. The C-DAD white paper was published in November 2025. The companion CLI tool audits codebases for agent-readiness and scaffolds the contracts needed to fix what it finds. The second book, The Day After AI, builds the full organizational model around C-DAD role by role.</p>
+<h2 id="proof-in-production">Proof in production</h2>
+<p>C-DAD was a framework with a white paper. It is now a live runtime. <a href="https://traverse-framework.com">Traverse</a> is a contract-driven WASM runtime, currently at v0.8.1, where every capability call validates against a machine-readable contract before it runs, traces every output, and links back to the governing spec document behind it. Nine crates and 73 governing specs, open source under Apache 2.0, with a registry, an MCP integration so AI agents can call capabilities directly, and a full docs site.</p>
+<p>That is the most concrete proof C-DAD works. Not just as a theory of how software should declare its intent, but as a runtime that enforces it on every call.</p>
 <h2 id="the-work">The work</h2>
 <ul>
 <li><a href="/whitepapers/"><abbr title="Contract-Driven AI Development">C-DAD</abbr> White Paper</a>, the foundational paper. November 2025.</li>
 <li><a href="https://github.com/enricopiovesan/the-day-after-toolkit">the-day-after-toolkit</a>, CLI tool for auditing codebase agent-readiness</li>
-<li><a href="/books/">The Day After</a>, the book. Forthcoming.</li>
-<li><a href="https://github.com/enricopiovesan/Traverse">Traverse</a>, the runtime that implements C-DAD principles</li>
+<li><a href="/books/">The Day After AI</a>, the book. Forthcoming from Apress, contract signed. Full site at <a href="https://thedayafteraibook.com">thedayafteraibook.com</a>.</li>
+<li><a href="https://traverse-framework.com">Traverse</a>, the live runtime that implements C-DAD principles. Code at <a href="https://github.com/traverse-framework/traverse">github.com/traverse-framework/traverse</a>.</li>
 </ul>
 
     </div>
@@ -243,6 +248,8 @@ ep-nav{display:block;min-height:64px}ep-footer{display:block}
       <li><a href="#why-cant-ai-agents-navigate-code-without-contracts">Why can&#39;t AI agents navigate code without contracts?</a></li>
       
       <li><a href="#where-did-c-dad-come-from">Where did C-DAD come from?</a></li>
+      
+      <li><a href="#proof-in-production">Proof in production</a></li>
       
       <li><a href="#the-work">The work</a></li>
       
