@@ -30,11 +30,12 @@ intro: I do not believe in separating thinking from building. The frameworks and
 projects:
   - title: Traverse
     id: traverse
-    type: Runtime / research
-    stack: Rust
-    status: in progress
-    description: "Traverse makes business logic portable and composable by treating business capabilities — not code modules — as the primary unit of software, governed through contracts and executable across browser, edge, cloud, and device environments. Rust-first and WASM-first from the ground up. Specs are versioned and merge-gating: pull requests fail if the implementation drifts from the approved spec. Includes a registry, deterministic workflow model, structured runtime traces for explainability, and a browser demo. Pre-implementation, Foundation v0.1 phase. Personal research project, not affiliated with Autodesk."
-    github: https://github.com/enricopiovesan/Traverse
+    type: Runtime, open source
+    stack: Rust, WASM
+    status: v0.8.1
+    description: "Traverse makes business logic portable and composable by treating business capabilities, not code modules, as the primary unit of software, governed through contracts and executable across browser, edge, cloud, and device environments. Rust-first and WASM-first from the ground up. Specs are versioned and merge-gating, so pull requests fail if the implementation drifts from the approved spec. Now at v0.8.1, Apache 2.0, and open source. 9 crates, 73 governing specs, a registry, MCP integration so AI agents can call capabilities directly, a quickstart, 6 runnable examples, a blog, and a changelog. Not affiliated with Autodesk."
+    url: https://traverse-framework.com
+    github: https://github.com/traverse-framework/traverse
   - title: youaskm3
     id: youaskm3
     type: Personal knowledge layer
@@ -47,8 +48,9 @@ projects:
     type: CLI / developer tooling
     stack: TypeScript
     status: in progress
-    description: "Audits a codebase for AI agent readiness and scaffolds the contracts needed to make it navigable — turning the ideas in The Day After into something a team can run against their own code today. Six commands covering audit and scaffolding. OpenSpec-governed. Ships with configuration for Claude, Cursor, and Codex so it fits directly into the agent workflows teams are already using. Built and functional, not yet published to npm."
+    description: "Audits a codebase for AI agent readiness and scaffolds the contracts needed to make it navigable, turning the ideas in The Day After AI into something a team can run against their own code today. Six commands covering audit and scaffolding. OpenSpec-governed. Ships with configuration for Claude, Cursor, and Codex so it fits directly into the agent workflows teams are already using. Built and functional, not yet published to npm. Full documentation lives at thedayafteraibook.com/toolkit/."
     github: https://github.com/enricopiovesan/the-day-after-toolkit
+    url: https://thedayafteraibook.com/toolkit/
   - title: UMA-code-examples
     id: uma-code-examples
     type: Reference implementation

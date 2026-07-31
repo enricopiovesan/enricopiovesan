@@ -11,7 +11,7 @@ ogTitle: Contract-Driven AI Development (C-DAD)
 ogDescription: A framework for building AI-native systems where contracts, not code, define collaboration between humans, machines, and runtimes.
 ogImage: og-cdad.png
 concept: C-DAD
-lastUpdated: "June 2026"
+lastUpdated: "July 2026"
 ---
 
 AI coding tools are good at describing what software does. They are not good at knowing why it does it. The constraint that exists because of a regulatory audit three years ago. The non-goal that was obvious in the room and invisible in the repo. The exception path that one engineer carries in their head and nowhere else. When an AI agent encounters that code it guesses. Sometimes correctly. Often not. The problem is not the model. The problem is that the codebase has no contracts, only code. Contract-Driven AI Development is a response to that problem.
@@ -30,11 +30,17 @@ Because code encodes behavior, not intent. The constraint that prevents a certai
 
 ## Where did C-DAD come from?
 
-C-DAD emerged from years of watching the same failure pattern: codebases built by smart people that became progressively less navigable as they grew. Not because the code was bad but because the intent was never declared. The knowledge lived in people, not in the system. When those people left, or when an AI agent arrived, the system became opaque. The C-DAD white paper was published in November 2025. The companion CLI tool audits codebases for agent-readiness and scaffolds the contracts needed to fix what it finds. The second book, The Day After, builds the full organizational model around C-DAD role by role.
+C-DAD emerged from years of watching the same failure pattern: codebases built by smart people that became progressively less navigable as they grew. Not because the code was bad but because the intent was never declared. The knowledge lived in people, not in the system. When those people left, or when an AI agent arrived, the system became opaque. The C-DAD white paper was published in November 2025. The companion CLI tool audits codebases for agent-readiness and scaffolds the contracts needed to fix what it finds. The second book, The Day After AI, builds the full organizational model around C-DAD role by role.
+
+## Proof in production
+
+C-DAD was a framework with a white paper. It is now a live runtime. [Traverse](https://traverse-framework.com) is a contract-driven WASM runtime, currently at v0.8.1, where every capability call validates against a machine-readable contract before it runs, traces every output, and links back to the governing spec document behind it. Nine crates and 73 governing specs, open source under Apache 2.0, with a registry, an MCP integration so AI agents can call capabilities directly, and a full docs site.
+
+That is the most concrete proof C-DAD works. Not just as a theory of how software should declare its intent, but as a runtime that enforces it on every call.
 
 ## The work
 
 - [<abbr title="Contract-Driven AI Development">C-DAD</abbr> White Paper](/whitepapers/), the foundational paper. November 2025.
 - [the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit), CLI tool for auditing codebase agent-readiness
-- [The Day After](/books/), the book. Forthcoming.
-- [Traverse](https://github.com/enricopiovesan/Traverse), the runtime that implements C-DAD principles
+- [The Day After AI](/books/), the book. Forthcoming from Apress, contract signed. Full site at [thedayafteraibook.com](https://thedayafteraibook.com).
+- [Traverse](https://traverse-framework.com), the live runtime that implements C-DAD principles. Code at [github.com/traverse-framework/traverse](https://github.com/traverse-framework/traverse).

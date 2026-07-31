@@ -11,7 +11,7 @@ ogTitle: Universal Microservices Architecture (UMA)
 ogDescription: A portable, contract-driven execution model for distributed systems. Write once, run where it makes sense.
 ogImage: og-uma.png
 concept: UMA
-lastUpdated: "June 2026"
+lastUpdated: "July 2026"
 ---
 
 Every team I have worked with has the same invisible tax. The payment logic lives in the backend. A version of it lives in the browser. Another version runs at the edge. A fourth gets rewritten when the AI pipeline needs it. Nobody planned this. It just happened because the architecture made assumptions about the environment before it made decisions about the problem. Over time the copies drift. A bug gets fixed in one place and not the others. A business rule changes and three of the four versions get updated. The system becomes harder to reason about, harder to change, and harder to trust. The tax compounds. Universal Microservices Architecture is a response to that problem.
@@ -32,6 +32,8 @@ Standard microservices architectures reduce coupling between services but do not
 
 UMA evolved from Client-Side Microservices Architecture, a 2023 paper that applied service-oriented thinking to the browser. The question was simple: why should the browser always be a consumer of server logic rather than a legitimate execution environment in its own right? That question expanded into UMA, which asked the same thing of every runtime in the stack. The UMA white paper was published in August 2024. The book followed with 13 chapters of runnable Rust and WASM code, 100% business logic coverage enforced in CI, and a live reference application. The full model, concepts, and reference implementation live at universalmicroservices.com.
 
+[Traverse](https://traverse-framework.com) is the contract-driven WASM runtime built on UMA principles. It takes portability further, governing every capability call with a machine-readable contract and tracing every execution.
+
 ## The work
 
 - [universalmicroservices.com](https://www.universalmicroservices.com), the full model, reference app, and documentation
@@ -39,3 +41,4 @@ UMA evolved from Client-Side Microservices Architecture, a 2023 paper that appli
 - [UMA-code-examples](https://github.com/enricopiovesan/UMA-code-examples), 13 chapters of runnable Rust and WASM code
 - [UMA White Paper](/whitepapers/), the foundational paper. August 2024.
 - [<abbr title="Client-Side Microservices Architecture">CSMA</abbr> White Paper](/whitepapers/), where the thinking started. June 2023.
+- [Traverse](https://traverse-framework.com), the contract-driven WASM runtime built on UMA principles

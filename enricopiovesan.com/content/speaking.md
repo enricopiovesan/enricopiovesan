@@ -27,17 +27,17 @@ talks:
       - This talk introduces Contract-Driven AI Development. The core idea is that a specification describes what a system does, but a contract describes why it can be trusted. Verifiable contracts, automated reasoning, and hybrid governance change what agentic systems can do with a codebase and what teams can safely delegate to them.
     based_on: C-DAD White Paper and the-day-after-toolkit
     based_on_url: /whitepapers/
-  - title: "The Day After: Restructuring Software for the Age of AI Agents"
+  - title: "The Day After AI: Making Software Companies Legible to AI Agents"
     track: Engineering leadership and CTO tracks
     description:
-      - Most software organizations are not ready for AI agents. Not because the technology is immature, but because the codebases were never built to be navigable by anything other than the people who wrote them. The intent is locked in people's heads. The constraints live in Slack threads from two years ago. The capability boundaries exist in someone's memory, not in the system.
+      - Most software organizations are not ready for AI agents. Not because the technology is immature, but because the codebases were never built to be navigable by anything other than the people who wrote them. Tribal knowledge is the real bottleneck. The intent is locked in people's heads. The constraints live in Slack threads from two years ago. The capability boundaries exist in someone's memory, not in a capabilities graph the system can read.
       - When an AI agent tries to work in that environment, it does not fail loudly. It fails quietly. It produces plausible output that is wrong in ways that take weeks to find.
-      - This talk is about what it actually takes to fix that. Not a rewrite. Not a new platform. A deliberate, role-by-role process of making software organizations legible to agentic systems without throwing everything away. What the architect needs to declare. What the developer needs to own. What the PM needs to ask in discovery that a story format was never designed to hold.
-    based_on: The Day After (forthcoming) and C-DAD White Paper
-    based_on_url: /whitepapers/
+      - This talk is about what it actually takes to fix that. Not a rewrite. It pulls tribal knowledge out into contracts role by role, capability by capability, instead of throwing everything away. What the architect needs to declare. What the developer needs to own. What the PM needs to ask in discovery that a story format was never designed to hold.
+    based_on: The Day After AI (forthcoming from Apress) and C-DAD White Paper
+    based_on_url: https://thedayafteraibook.com
 bio:
   - Enrico Piovesan is a platform architect and author who spent years building products across startups in travel, education, and payments before deciding that the problems he kept running into were architectural, not incidental.
-  - He developed Universal Microservices Architecture as an answer to the portability problem and Contract-Driven AI Development as an answer to the navigability problem. His first book on UMA is available on Amazon. His second book, The Day After, is forthcoming. He has published five research papers since 2023 and maintains four open source projects built from the same frameworks.
+  - He developed Universal Microservices Architecture as an answer to the portability problem and Contract-Driven AI Development as an answer to the navigability problem. His first book on UMA is available on Amazon. His second book, The Day After AI, is forthcoming from Apress with contract signed and manuscript complete. He has published five research papers since 2023 and maintains four open source projects built from the same frameworks.
   - He is a Platform Software Architect at Autodesk and publishes on architecture and AI-native systems every week on Medium. He is based in Golden, BC, Purcell Mountains, Canada.
 availability: Currently accepting CFP invitations for architecture, WASM, and AI engineering tracks. All talks are drawn from published work and shipped tooling.
 toc:
@@ -46,7 +46,7 @@ toc:
   - id: contract-driven-ai-development
     label: Contract-Driven AI Development
   - id: the-day-after
-    label: The Day After
+    label: The Day After AI
   - id: bio
     label: Speaker bio
   - id: contact
