@@ -3,25 +3,28 @@ const fs = require("fs");
 const path = require("path");
 
 const BLOG_IMG_DIR = path.join(__dirname, "../../src/assets/img/blog");
+const FETCH_TIMEOUT_MS = 10000;
 
 function fetchUrl(url, redirectCount = 0) {
   return new Promise((resolve, reject) => {
     if (redirectCount > 5) return reject(new Error("Too many redirects"));
-    https.get(url, { headers: { "User-Agent": "Mozilla/5.0 (compatible; Eleventy)" } }, (res) => {
+    const req = https.get(url, { headers: { "User-Agent": "Mozilla/5.0 (compatible; Eleventy)" } }, (res) => {
       if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
         return fetchUrl(res.headers.location, redirectCount + 1).then(resolve).catch(reject);
       }
       let data = "";
       res.on("data", chunk => data += chunk);
       res.on("end", () => resolve(data));
-    }).on("error", reject);
+    });
+    req.on("error", reject);
+    req.setTimeout(FETCH_TIMEOUT_MS, () => req.destroy(new Error(`Timed out after ${FETCH_TIMEOUT_MS}ms: ${url}`)));
   });
 }
 
 function fetchBinary(url, redirectCount = 0) {
   return new Promise((resolve, reject) => {
     if (redirectCount > 5) return reject(new Error("Too many redirects"));
-    https.get(url, { headers: { "User-Agent": "Mozilla/5.0 (compatible; Eleventy)" } }, (res) => {
+    const req = https.get(url, { headers: { "User-Agent": "Mozilla/5.0 (compatible; Eleventy)" } }, (res) => {
       if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
         const loc = res.headers.location;
         const next = loc.startsWith("http") ? loc : new URL(loc, url).href;
@@ -30,7 +33,9 @@ function fetchBinary(url, redirectCount = 0) {
       const chunks = [];
       res.on("data", chunk => chunks.push(chunk));
       res.on("end", () => resolve({ buffer: Buffer.concat(chunks), contentType: res.headers["content-type"] || "" }));
-    }).on("error", reject);
+    });
+    req.on("error", reject);
+    req.setTimeout(FETCH_TIMEOUT_MS, () => req.destroy(new Error(`Timed out after ${FETCH_TIMEOUT_MS}ms: ${url}`)));
   });
 }
 
