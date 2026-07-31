@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Personal brand website for Enrico Piovesan",
   "scripts": {
+    "prebuild": "node scripts/prefetch-blog-images.js",
     "build": "node --experimental-require-module node_modules/@11ty/eleventy/cmd.cjs",
+    "prestart": "node scripts/prefetch-blog-images.js",
     "start": "node --experimental-require-module node_modules/@11ty/eleventy/cmd.cjs --serve",
     "debug": "node --experimental-require-module node_modules/@11ty/eleventy/cmd.cjs --debug"
   },
