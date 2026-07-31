@@ -206,6 +206,8 @@ class EpFooter extends HTMLElement {
             <li><a href="https://blog.enricopiovesan.com" target="_blank" rel="noopener">Blog</a></li>
             <li><a href="https://www.universalmicroservices.com" target="_blank" rel="noopener">universalmicroservices.com</a></li>
             <li><a href="https://www.amazon.com/dp/B0GTTTTQH4" target="_blank" rel="noopener">UMA Book</a></li>
+            <li><a href="https://traverse-framework.com" target="_blank" rel="noopener">traverse-framework.com</a></li>
+            <li><a href="https://thedayafteraibook.com" target="_blank" rel="noopener">thedayafteraibook.com</a></li>
             <li><a href="https://github.com/enricopiovesan" target="_blank" rel="noopener">GitHub</a></li>
             <li><a href="https://linkedin.com/in/enricopiovesan" target="_blank" rel="noopener">LinkedIn</a></li>
             <li><a href="https://medium.com/@enricopiovesan" target="_blank" rel="noopener">Medium</a></li>
