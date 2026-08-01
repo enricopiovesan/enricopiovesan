@@ -19,7 +19,7 @@ Published monthly.
 
 ## H1 2026 signal tracker
 
-Ten themes tracked across six issues. A filled dot marks a month where that theme appeared as a named signal.
+Ten themes tracked across seven issues. A filled dot marks a month where that theme appeared as a named signal.
 
 <div class="signal-tracker" style="margin: 2rem 0 2.5rem; overflow-x: auto;">
 <table style="border-collapse: collapse; width: 100%; font-size: 0.85rem; line-height: 1.4;">
@@ -32,6 +32,7 @@ Ten themes tracked across six issues. A filled dot marks a month where that them
 <th style="padding: 0.5rem 0.75rem; border-bottom: 2px solid currentColor; text-align: center; font-weight: 600; white-space: nowrap;">Apr</th>
 <th style="padding: 0.5rem 0.75rem; border-bottom: 2px solid currentColor; text-align: center; font-weight: 600; white-space: nowrap;">May</th>
 <th style="padding: 0.5rem 0.75rem; border-bottom: 2px solid currentColor; text-align: center; font-weight: 600; white-space: nowrap;">Jun</th>
+<th style="padding: 0.5rem 0.75rem; border-bottom: 2px solid currentColor; text-align: center; font-weight: 600; white-space: nowrap;">Jul</th>
 <th style="padding: 0.5rem 0 0.5rem 1rem; border-bottom: 2px solid currentColor; text-align: center; font-weight: 600; white-space: nowrap; opacity: 0.6; font-size: 0.75rem;">Issues</th>
 </tr>
 </thead>
@@ -44,7 +45,8 @@ Ten themes tracked across six issues. A filled dot marks a month where that them
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
-<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">6/6</td>
+<td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
+<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">7/7</td>
 </tr>
 <tr>
 <td style="padding: 0.6rem 1.5rem 0.6rem 0; border-bottom: 1px solid currentColor; white-space: nowrap; opacity: 0.85;">Governance as architecture</td>
@@ -54,7 +56,8 @@ Ten themes tracked across six issues. A filled dot marks a month where that them
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
-<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">6/6</td>
+<td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
+<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">7/7</td>
 </tr>
 <tr>
 <td style="padding: 0.6rem 1.5rem 0.6rem 0; border-bottom: 1px solid currentColor; white-space: nowrap; opacity: 0.85;">Multi-agent coordination</td>
@@ -64,7 +67,8 @@ Ten themes tracked across six issues. A filled dot marks a month where that them
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
-<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">5/6</td>
+<td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
+<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">6/7</td>
 </tr>
 <tr>
 <td style="padding: 0.6rem 1.5rem 0.6rem 0; border-bottom: 1px solid currentColor; white-space: nowrap; opacity: 0.85;">arXiv research signal</td>
@@ -74,7 +78,8 @@ Ten themes tracked across six issues. A filled dot marks a month where that them
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
-<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">5/6</td>
+<td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
+<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">6/7</td>
 </tr>
 <tr>
 <td style="padding: 0.6rem 1.5rem 0.6rem 0; border-bottom: 1px solid currentColor; white-space: nowrap; opacity: 0.85;">Supply chain security</td>
@@ -84,7 +89,8 @@ Ten themes tracked across six issues. A filled dot marks a month where that them
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;opacity:0.2;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;opacity:0.2;"></span></td>
-<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">4/6</td>
+<td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;opacity:0.2;"></span></td>
+<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">4/7</td>
 </tr>
 <tr>
 <td style="padding: 0.6rem 1.5rem 0.6rem 0; border-bottom: 1px solid currentColor; white-space: nowrap; opacity: 0.85;">Architecture documentation gap</td>
@@ -94,7 +100,8 @@ Ten themes tracked across six issues. A filled dot marks a month where that them
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
-<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">4/6</td>
+<td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;opacity:0.2;"></span></td>
+<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">4/7</td>
 </tr>
 <tr>
 <td style="padding: 0.6rem 1.5rem 0.6rem 0; border-bottom: 1px solid currentColor; white-space: nowrap; opacity: 0.85;">Sustainability / Green SW</td>
@@ -104,7 +111,8 @@ Ten themes tracked across six issues. A filled dot marks a month where that them
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;opacity:0.2;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;opacity:0.2;"></span></td>
-<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">4/6</td>
+<td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;opacity:0.2;"></span></td>
+<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">4/7</td>
 </tr>
 <tr>
 <td style="padding: 0.6rem 1.5rem 0.6rem 0; border-bottom: 1px solid currentColor; white-space: nowrap; opacity: 0.85;">Framework releases (.NET)</td>
@@ -114,7 +122,8 @@ Ten themes tracked across six issues. A filled dot marks a month where that them
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;opacity:0.2;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
-<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">4/6</td>
+<td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;opacity:0.2;"></span></td>
+<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">4/7</td>
 </tr>
 <tr>
 <td style="padding: 0.6rem 1.5rem 0.6rem 0; border-bottom: 1px solid currentColor; white-space: nowrap; opacity: 0.85;">Architecture patterns</td>
@@ -124,7 +133,8 @@ Ten themes tracked across six issues. A filled dot marks a month where that them
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;opacity:0.2;"></span></td>
-<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">3/6</td>
+<td style="text-align: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid currentColor;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;opacity:0.2;"></span></td>
+<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; border-bottom: 1px solid currentColor; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">3/7</td>
 </tr>
 <tr>
 <td style="padding: 0.6rem 1.5rem 0.6rem 0; white-space: nowrap; opacity: 0.85;">EU AI Act readiness</td>
@@ -134,7 +144,8 @@ Ten themes tracked across six issues. A filled dot marks a month where that them
 <td style="text-align: center; padding: 0.6rem 0.75rem;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;opacity:0.2;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
 <td style="text-align: center; padding: 0.6rem 0.75rem;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:currentColor;opacity:0.8;"></span></td>
-<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">2/6</td>
+<td style="text-align: center; padding: 0.6rem 0.75rem;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;opacity:0.2;"></span></td>
+<td style="text-align: center; padding: 0.6rem 0 0.6rem 1rem; font-size: 0.75rem; opacity: 0.55; font-weight: 600;">2/7</td>
 </tr>
 </tbody>
 </table>
@@ -142,15 +153,15 @@ Ten themes tracked across six issues. A filled dot marks a month where that them
 
 ## What is trending
 
-These themes appeared in four or more of the six H1 2026 issues. They are not individual stories — they are structural shifts.
+These themes appeared in four or more of the seven 2026 issues so far. They are not individual stories — they are structural shifts.
 
-**Agentic AI tooling (6/6 issues).** Every month introduced new frameworks, tools, or infrastructure responses driven by agentic development workflows. The signal moved from tooling going viral in January to infrastructure teams designing for 30x capacity in April to multi-agent firms becoming the default pattern by June. This is not a trend — it is a ground condition.
+**Agentic AI tooling (7/7 issues).** Every month introduced new frameworks, tools, or infrastructure responses driven by agentic development workflows. The signal moved from tooling going viral in January to infrastructure teams designing for 30x capacity in April to multi-agent firms becoming the default pattern by June to a July pushback against orchestration itself, in favor of loop engineering and parallel independent agent attempts. This is not a trend — it is a ground condition, and it is still changing shape month to month.
 
-**Governance as architecture (6/6 issues).** Not a compliance add-on. Governance appeared every month as the architectural layer that tooling was building faster than teams could fill. It showed up in security frameworks (OESIS naming AI as an endpoint category), in research papers (governance-aware sandbox, widening governance gaps in coding agents), in regulatory readiness (EU AI Act), and in production failures (Adobe breach exposing bulk data export without controls). The recurring signal: capability is shipping, governance patterns are not keeping pace.
+**Governance as architecture (7/7 issues).** Not a compliance add-on. Governance appeared every month as the architectural layer that tooling was building faster than teams could fill. It showed up in security frameworks (OESIS naming AI as an endpoint category), in research papers (governance-aware sandbox, widening governance gaps in coding agents), in regulatory readiness (EU AI Act), and in production failures (Adobe breach exposing bulk data export without controls, then in July the Hugging Face and Anthropic disclosures showing agent evaluation environments reaching real production infrastructure). The recurring signal: capability is shipping, governance patterns are not keeping pace, and July made the cost of that gap concrete rather than theoretical.
 
-**Multi-agent coordination (5/6 issues).** Single-agent approaches gave way to specialised agent teams. The pattern consolidated through the half: ByteDance's framework in February, skills registries under security scrutiny in March, GitHub's 30x capacity disclosure driven by agentic workloads in April, multi-agent firm structures dominating GitHub trending in May. By June the MCP standard was becoming the de facto integration layer.
+**Multi-agent coordination (6/7 issues).** Single-agent approaches gave way to specialised agent teams, then in July that consolidation met its first real pushback. The pattern moved through the half: ByteDance's framework in February, skills registries under security scrutiny in March, GitHub's 30x capacity disclosure driven by agentic workloads in April, multi-agent firm structures dominating GitHub trending in May, the MCP standard becoming the de facto integration layer by June. By July, practitioners were arguing in public that heavy orchestration degrades performance more than it helps, and Orca's parallel-attempt pattern showed up as a simpler alternative gaining real GitHub traction.
 
-**arXiv research surge in architecture (5/6 issues).** The software architecture research community published at an unusual rate on AI-native design, agentic SDLC reference architectures, documentation for AI-augmented systems, and agent harness patterns. March, April, and May each had three or more significant papers. The research community has accepted agentic AI as a core architecture concern rather than a specialisation.
+**arXiv research surge in architecture (6/7 issues).** The software architecture research community published at an unusual rate on AI-native design, agentic SDLC reference architectures, documentation for AI-augmented systems, and agent harness patterns. March, April, and May each had three or more significant papers, and July added two papers on opposite ends of the same problem, generating microservice architectures from requirements and validating them structurally afterward. The research community has accepted agentic AI as a core architecture concern rather than a specialisation.
 
 ---
 
