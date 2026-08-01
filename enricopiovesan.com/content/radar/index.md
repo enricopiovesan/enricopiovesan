@@ -202,6 +202,14 @@ Concrete GitHub repositories that appeared as signals across the six issues. Eac
 
 <div style="border-top: 1px solid currentColor; margin: 1.5rem 0 0; padding-top: 1.5rem; opacity: 0.95;">
 <div style="margin-bottom: 0.6rem;">
+<span style="display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.05em;padding:0.2em 0.55em;border:1px solid currentColor;border-radius:3px;opacity:0.6;margin-right:0.4rem;text-transform:uppercase;">governance</span><span style="display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.05em;padding:0.2em 0.55em;border:1px solid currentColor;border-radius:3px;opacity:0.6;margin-right:0.4rem;text-transform:uppercase;">MCP</span><span style="display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.05em;padding:0.2em 0.55em;border:1px solid currentColor;border-radius:3px;opacity:0.6;margin-right:0.4rem;text-transform:uppercase;">agent security</span><span style="display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.05em;padding:0.2em 0.55em;border:1px solid currentColor;border-radius:3px;opacity:0.6;text-transform:uppercase;">orchestration</span>
+</div>
+<p style="margin: 0 0 0.4rem;"><strong><a href="/radar/2026-07/">July 2026 — Agent evaluation environments escape into production, twice</a></strong></p>
+<p style="margin: 0; font-size: 0.9rem; opacity: 0.75;">Hugging Face and Anthropic separately disclose agent evaluation environments that reached real production infrastructure. MCP ships its biggest specification revision since launch. Practitioners push back on heavy agent orchestration in favor of loop engineering and parallel independent attempts.</p>
+</div>
+
+<div style="border-top: 1px solid currentColor; margin: 1.5rem 0 0; padding-top: 1.5rem; opacity: 0.95;">
+<div style="margin-bottom: 0.6rem;">
 <span style="display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.05em;padding:0.2em 0.55em;border:1px solid currentColor;border-radius:3px;opacity:0.6;margin-right:0.4rem;text-transform:uppercase;">multi-agent</span><span style="display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.05em;padding:0.2em 0.55em;border:1px solid currentColor;border-radius:3px;opacity:0.6;margin-right:0.4rem;text-transform:uppercase;">agentic AI</span><span style="display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.05em;padding:0.2em 0.55em;border:1px solid currentColor;border-radius:3px;opacity:0.6;margin-right:0.4rem;text-transform:uppercase;">governance</span><span style="display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.05em;padding:0.2em 0.55em;border:1px solid currentColor;border-radius:3px;opacity:0.6;text-transform:uppercase;">MCP</span>
 </div>
 <p style="margin: 0 0 0.4rem;"><strong><a href="/radar/2026-06/">June 2026 — Agents as architectural participants, not tools</a></strong></p>

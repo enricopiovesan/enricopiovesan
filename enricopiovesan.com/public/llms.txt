@@ -59,7 +59,7 @@ A portable, contract-driven execution model for distributed systems. Each busine
 A monthly publication of 10 software architecture signals worth paying attention to. Curated from the knowledge graph behind the published work. Published at the start of each month.
 
 - Radar index: https://enricopiovesan.com/radar/
-- Latest issue: https://enricopiovesan.com/radar/2026-06/
+- Latest issue: https://enricopiovesan.com/radar/2026-07/
 
 ## Speaking
 
