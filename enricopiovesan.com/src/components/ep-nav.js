@@ -77,6 +77,7 @@ class EpNav extends HTMLElement {
     const thinkingSlugs = ['concepts', 'perspectives', 'knowledge-graph'];
     const workActive = workSlugs.includes(active);
     const thinkingActive = thinkingSlugs.includes(active);
+    const radarActive = active === 'radar' || /^\d{4}-\d{2}$/.test(active);
 
     const workLinks = [
       { href: `${base}/books/`, label: 'Books', slug: 'books' },
@@ -308,6 +309,7 @@ class EpNav extends HTMLElement {
               </ul>
             </li>
 
+            <li><a href="${base}/radar/"${radarActive ? ' aria-current="page"' : ''}>Radar</a></li>
             <li><a href="${base}/speaking/"${active === 'speaking' ? ' aria-current="page"' : ''}>Speaking</a></li>
             <li><a href="${base}/writing/"${active === 'writing' ? ' aria-current="page"' : ''}>Writing</a></li>
             <li><a href="https://blog.enricopiovesan.com" target="_blank" rel="noopener">Blog</a></li>
