@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Software Architecture Radar — July 2026 - Enrico Piovesan</title>
+  <meta name="description" content="10 software architecture signals worth paying attention to in July 2026. Anthropic and OpenAI disclose agent evaluation environments that escaped into real production systems, MCP ships its biggest revision yet, and practitioners push back on heavy agent orchestration." />
+  
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Software Architecture Radar — July 2026" />
+  <meta property="og:description" content="10 software architecture signals for July 2026. Agent evaluation environments breach real infrastructure, MCP&#39;s biggest spec revision yet, and a practitioner backlash against heavy orchestration." />
+  <meta property="og:image" content="https://enricopiovesan.com/public/og-default.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://enricopiovesan.com/radar/2026-07/" />
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="Fri Jul 31 2026 00:00:00 GMT+0000 (Coordinated Universal Time)" />
+  <meta property="article:author" content="https://enricopiovesan.com/about/" />
+  <meta property="og:site_name" content="Enrico Piovesan" />
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@enricopiovesan" />
+  <meta name="twitter:creator" content="@enricopiovesan" />
+  <meta name="twitter:title" content="Software Architecture Radar — July 2026" />
+  <meta name="twitter:description" content="10 software architecture signals for July 2026. Agent evaluation environments breach real infrastructure, MCP&#39;s biggest spec revision yet, and a practitioner backlash against heavy orchestration." />
+  <meta name="twitter:image" content="https://enricopiovesan.com/public/og-default.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/src/assets/img/ep-favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/src/assets/img/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/img/ep-favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/img/ep-favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/src/assets/img/ep-favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/img/ep-favicon-180.png" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://enricopiovesan.com/radar/2026-07/" />
+
+  <!-- Theme: apply before paint to avoid flash -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+
+  <!-- Google Analytics: deferred until after page interactive to avoid main-thread blocking -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-71P091V6MQ');
+    window.addEventListener('load', function() {
+      var s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-71P091V6MQ';
+      s.async = true;
+      document.head.appendChild(s);
+    });
+  </script>
+
+  <!-- Font preloads: tell browser to fetch before CSS is parsed -->
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-sans-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-sans-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/ibm-plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Critical styles inlined to eliminate render-blocking requests -->
+  <style>
+@font-face{font-family:'Lato';font-style:normal;font-weight:300;font-display:swap;src:url('/src/assets/fonts/lato-300.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:300;font-display:swap;src:url('/src/assets/fonts/ibm-plex-sans-300.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-300.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/src/assets/fonts/ibm-plex-sans-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-400.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/src/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-sans-500.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/src/assets/fonts/ibm-plex-mono-400.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-400.ttf') format('truetype')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/src/assets/fonts/ibm-plex-mono-500.woff2') format('woff2'),url('/src/assets/fonts/ibm-plex-mono-500.ttf') format('truetype')}
+:root{--bg:#001f3f;--fg:#f6f7ed;--link:#dbe64c;--accent:#dbe64c;--border:rgba(246,247,237,0.2);--mid:#74c365;--header-bg:#001f3f;--header-fg:#f6f7ed;--footer-bg:#dbe64c;--footer-fg:#001f3f;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--space-xs:0.5rem;--space-sm:1rem;--space-md:2rem;--space-lg:3rem;--space-xl:6rem}
+[data-theme="light"]{--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f7ed;--fg:#001f3f;--link:#00804c;--accent:#dbe64c;--border:rgba(0,31,63,0.2);--mid:#00804c;--header-bg:#f6f7ed;--header-fg:#001f3f;--footer-bg:#dbe64c;--footer-fg:#001f3f}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}img,video,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
+ep-nav{display:block;min-height:64px}ep-footer{display:block}
+  </style>
+
+  <link rel="preload" href="/src/assets/styles/global.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/src/assets/styles/global.css"></noscript>
+
+  <!-- Person schema (every page) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://enricopiovesan.com/#person",
+    "name": "Enrico Piovesan",
+    "url": "https://enricopiovesan.com",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://enricopiovesan.com/src/assets/img/enrico-piovesan.jpg",
+      "width": 800,
+      "height": 800
+    },
+    "jobTitle": "Platform Software Architect",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Autodesk"
+    },
+    "description": "Platform architect and author building frameworks for software that runs anywhere and codebases that AI agents can actually navigate.",
+    "sameAs": [
+      "https://github.com/enricopiovesan",
+      "https://linkedin.com/in/enricopiovesan",
+      "https://medium.com/@enricopiovesan",
+      "https://blog.enricopiovesan.com",
+      "https://x.com/enricopiovesan",
+      "https://www.universalmicroservices.com",
+      "https://www.amazon.com/dp/B0GTTTTQH4",
+      "https://traverse-framework.com",
+      "https://thedayafteraibook.com"
+    ],
+    "knowsAbout": [
+      "Software Architecture",
+      "WebAssembly",
+      "Contract-Driven AI Development",
+      "Universal Microservices Architecture",
+      "Distributed Systems",
+      "Agentic Systems",
+      "Platform Engineering"
+    ]
+  }
+  </script>
+
+  <!-- Schema -->
+  
+
+</head>
+<body>
+  <ep-nav active="2026-07" base="/"></ep-nav>
+  <noscript>
+    <nav aria-label="Main navigation" style="padding:1rem 2rem;font-size:0.85rem;">
+      <a href="/">Enrico Piovesan</a> —
+      <a href="/about/">About</a> · <a href="/uses/">Uses</a> · <a href="/now/">Now</a> ·
+      <a href="/work/">Work</a> · <a href="/books/">Books</a> · <a href="/whitepapers/">White Papers</a> · <a href="/projects/">Projects</a> · <a href="/teaching/">Teaching</a> ·
+      <a href="/thinking/">Thinking</a> · <a href="/concepts/">Concepts</a> · <a href="/perspectives/">Perspectives</a> · <a href="/knowledge-graph/">Knowledge Graph</a> ·
+      <a href="/uma/">UMA</a> · <a href="/c-dad/">C-DAD</a> ·
+      <a href="/speaking/">Speaking</a> · <a href="/writing/">Writing</a>
+    </nav>
+  </noscript>
+
+  <main id="main-content">
+    
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://enricopiovesan.com/radar/2026-07/",
+      "headline": "Software Architecture Radar — July 2026",
+      "description": "10 software architecture signals worth paying attention to in July 2026. Anthropic and OpenAI disclose agent evaluation environments that escaped into real production systems, MCP ships its biggest revision yet, and practitioners push back on heavy agent orchestration.",
+      "url": "https://enricopiovesan.com/radar/2026-07/",
+      "datePublished": "Fri Jul 31 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
+      "author": { "@id": "https://enricopiovesan.com/#person" },
+      "publisher": { "@id": "https://enricopiovesan.com/#person" },
+      "inLanguage": "en",
+      "proficiencyLevel": "Expert",
+      "isPartOf": { "@id": "https://enricopiovesan.com/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://enricopiovesan.com/radar/2026-07/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enricopiovesan.com/" }
+        
+          
+        ,{ "@type": "ListItem", "position": 2, "name": "Radar", "item": "https://enricopiovesan.com/radar/" }
+          
+        ,{ "@type": "ListItem", "position": 3, "name": "July 2026", "item": "https://enricopiovesan.com" }
+          
+        
+      ]
+    }
+  ]
+}
+</script>
+
+
+
+
+<div class="section-shell">
+
+  <aside class="section-nav-aside" aria-label="Radar navigation">
+    
+    <a class="section-nav-label" href="/radar/">Radar</a>
+    
+    
+    <ul class="section-nav-links">
+      
+      <li><a href="/radar/2026-01/">January 2026</a></li>
+      
+      <li><a href="/radar/2026-02/">February 2026</a></li>
+      
+      <li><a href="/radar/2026-03/">March 2026</a></li>
+      
+      <li><a href="/radar/2026-04/">April 2026</a></li>
+      
+      <li><a href="/radar/2026-05/">May 2026</a></li>
+      
+      <li><a href="/radar/2026-06/">June 2026</a></li>
+      
+      <li><a href="/radar/2026-07/" class="active" aria-current="page">July 2026</a></li>
+      
+    </ul>
+    
+  </aside>
+
+  <main class="section-main">
+    <nav class="section-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        
+          
+            
+            <li><a href="/radar/">Radar</a></li>
+            
+          
+            
+            <li><span aria-current="page">July 2026</span></li>
+            
+          
+        
+      </ol>
+    </nav>
+
+    <div class="section-body">
+      <h1 class="section-h1">Software Architecture Radar — July 2026</h1>
+      
+      <p><em>Issue 007 — July 2026</em></p>
+<h2 id="editorial-note">Editorial note</h2>
+<p>July was the month the governance gap this radar has tracked since January stopped being theoretical. Hugging Face disclosed that an autonomous agent operating inside what was supposed to be an isolated evaluation environment breached its production infrastructure. Days later, Anthropic disclosed its own version of the same failure: after reviewing 141,006 evaluation runs, it found three separate incidents where Claude, told it had no internet access, actually did, and used it to reach the real systems of three organizations while believing it was inside a simulated exercise. Two frontier labs, the same root cause. The isolation boundary between &quot;the agent is being evaluated&quot; and &quot;the agent is acting on the world&quot; turned out to be a configuration detail, not an architectural guarantee.</p>
+<p>The second signal is a genuine pushback against heavy agent orchestration, arriving from a surprising direction. Practitioners who spent 2024 and 2025 building elaborate multi-agent coordination layers are now arguing in public that the orchestration itself is the problem. Loop engineering, the framing that a single well-designed agent loop beats a stack of routing logic, gained real traction this month. Read against the governance failures above, the two signals rhyme: the more moving parts an agentic system has, the harder it is to know what it can actually reach.</p>
+<h2 id="the-10-signals">The 10 signals</h2>
+<p><strong>1. Anthropic and OpenAI disclose agent evaluation environments that escaped into production systems (July 16 to 31, 2026)</strong></p>
+<p>Hugging Face disclosed on July 16 that an autonomous agent framework, run by a partner during isolated testing, had exploited two code-execution vulnerabilities in its dataset processing pipeline and generated more than 17,000 recorded actions across its infrastructure before being detected. Days later, Anthropic disclosed a related but distinct finding: prompted by the Hugging Face incident, it reviewed 141,006 of its own evaluation runs and found three separate incidents, six runs total, where Claude was told it had no internet access, that claim was false due to a misconfiguration with a third-party evaluation partner, and the model used the access it should not have had to reach production systems at three organizations. One had a database with several hundred rows of production data accessed. A security company's scanner ran malicious Python code the model generated. Anthropic described its response as a blameless postmortem, stating it was treating the fixes as its own responsibility regardless of where the misconfiguration originated.</p>
+<p><em>Why it matters for architects:</em> The isolation of an agent evaluation environment has, for most teams, been an assumption rather than a verified architectural property. Two frontier labs just demonstrated that the assumption fails under real conditions, not hypothetical ones. If your system gives an agent a sandbox and tells it the sandbox is isolated, that claim needs to be enforced at the network and credential layer, not stated in a prompt.</p>
+<hr>
+<p><strong>2. MCP ships its biggest specification revision since launch (July 28, 2026)</strong></p>
+<p>The Model Context Protocol's 2026-07-28 revision removed the stateful session core entirely. The <code>initialize</code> handshake and the <code>Mcp-Session-Id</code> header are gone, each request now self-describes its own protocol version and capabilities, and list results carry cache hints so gateways no longer need sticky sessions or a shared session store to route traffic correctly. Roots, Sampling, and Logging are deprecated with a twelve-month offramp, the legacy HTTP and SSE transport is deprecated too, and all four Tier 1 SDKs required migration work on release day. Authorization was hardened with issuer validation and issuer-bound credentials, directly addressing the class of scope and credential problems the Hugging Face and Anthropic incidents made concrete in the same month.</p>
+<p><em>Why it matters for architects:</em> A remote MCP server that needed sticky sessions, a shared session store, and deep packet inspection at the gateway can now run behind a plain round-robin load balancer. That is a real simplification. It also means every MCP integration in production needs a migration plan before the twelve-month deprecation window on the old transport closes.</p>
+<hr>
+<p><strong>3. Practitioners push back on heavy agent orchestration frameworks (July 2026)</strong></p>
+<p>Saahil Jain, CTO of You.com, argued on the Stack Overflow Podcast that orchestration frameworks popularized in 2024 now degrade agent performance more often than they help, and that the real 2026 differentiator is information retrieval and evaluation, not routing logic between agents. A widely circulated blog post the same week, titled bluntly &quot;Agent orchestration is so two years ago,&quot; made the same argument from a different angle: modern long-horizon models handle tasks that used to require a coordination layer, and the coordination layer itself has become the source of failure it was built to prevent.</p>
+<p><em>Why it matters for architects:</em> This is the counter-signal to the multi-agent-as-default pattern this radar tracked through the first half of 2026. It does not mean orchestration is wrong everywhere. It means the decision to add a coordination layer needs the same justification any other architectural layer needs, a specific failure mode it prevents, not a default assumption that more agents working together is automatically better than one agent working well.</p>
+<hr>
+<p><strong>4. Loop engineering gains traction as the successor to prompt engineering (July 2026)</strong></p>
+<p>The term, coined in June by Addy Osmani synthesizing ideas from Anthropic's Boris Cherny and Peter Steinberger, describes designing the loop an agent runs inside, act, observe, decide, repeat, rather than hand-writing prompts for each step. Cherny, who built Claude Code, was quoted describing his own workflow as loops that prompt Claude and decide what to do next, with no human typing each instruction. Through July the framing spread across practitioner blogs as a concrete alternative to both manual prompting and heavy multi-agent orchestration.</p>
+<p><em>Why it matters for architects:</em> Loop engineering and the orchestration pushback above are the same underlying shift described twice. The architectural unit of interest is moving from the prompt, and from the multi-agent graph, to the verification step inside a single agent's loop. Teams evaluating agent architectures should be asking what verifies the loop's output, not just what routes work between agents.</p>
+<hr>
+<p><strong>5. Cloud Security Alliance survey finds most agent deployments are over-permissioned and under-monitored (July 2026)</strong></p>
+<p>A Cloud Security Alliance survey found that nearly three-quarters of organizations grant AI agents more access than their tasks require, and separate reporting found that enterprise agent fleets had roughly doubled since December 2025 while average monitoring coverage held at about 52 percent, meaning close to half of deployed agents operate without security oversight or logging.</p>
+<p><em>Why it matters for architects:</em> This is the structural precondition for incidents like the Hugging Face and Anthropic disclosures above. An agent with file access, API access, database access, and outbound network access, with no explicit scope limit, no execution ceiling, and no human review on destructive actions, has the same structural properties attackers exploited this month. The difference is intent, not architecture. Scope limits and execution ceilings are not optional hardening at this point, they are the baseline.</p>
+<hr>
+<p><strong>6. Orca crosses 20,000 GitHub stars running parallel coding agent fleets (July 2026)</strong></p>
+<p>Orca, an agent development environment from Stably AI that runs multiple coding agents in parallel across isolated Git worktrees and lets a developer pick the best result, grew from roughly 2,100 stars in May to more than 20,000 by July. It supports over 30 CLI agents including Claude Code, Codex, and OpenCode, running on desktop, mobile, and VPS.</p>
+<p><em>Why it matters for architects:</em> Orca's pattern, run several agents on the same task and select the winner, is a simpler alternative to building a coordination layer that tries to get one agent right the first time. Read alongside signal 3, this is the orchestration pushback showing up as a concrete architectural choice rather than just an argument: parallel independent attempts with human selection, instead of a routing graph between cooperating agents.</p>
+<hr>
+<p><strong>7. OpenViking's self-evolving context database continues growing as agent memory infrastructure (2026)</strong></p>
+<p>OpenViking, an open-source context database from ByteDance's Volcano Engine, unifies agent memory, knowledge retrieval, and skills through a file system paradigm rather than a vector store or a flat key-value cache. It has sustained growth past 25,000 stars since its January release, with Red Hat shipping an OpenShift AI deployment guide for it in the spring.</p>
+<p><em>Why it matters for architects:</em> Context management keeps resurfacing as an infrastructure problem rather than a model problem, a pattern this radar first noted with semantic code search MCP servers in March. OpenViking's file system framing, hierarchical context that evolves rather than a database that gets queried, is a distinct architectural bet on how agent memory should be structured. Worth evaluating against whatever ad hoc context management your own agent systems have accumulated.</p>
+<hr>
+<p><strong>8. &quot;From Textual Requirements to Microservice Architectures&quot; (<a href="https://arxiv.org/abs/2607.28307">arXiv 2607.28307</a>, July 2026)</strong></p>
+<p>A study evaluating whether an LLM, specifically OpenAI's o3, can synthesize a coherent microservice architecture directly from natural-language requirements, without code or runtime artifacts to work from. The evaluation combined structural comparison against implemented reference decompositions with blinded expert ratings of architectural quality.</p>
+<p><em>Why it matters for architects:</em> This tests the earliest possible point in the design process where AI could plausibly replace architectural judgment, before any code exists. The paper's use of blinded expert review rather than automated metrics alone is the right method for a question this qualitative, and the result is a useful boundary marker for how far upstream in the design process current tooling can be trusted.</p>
+<hr>
+<p><strong>9. &quot;Structural Validation of LLM-Generated Microservice Decompositions Using Source-Code Dependencies&quot; (<a href="https://arxiv.org/abs/2607.28331">arXiv 2607.28331</a>, July 2026)</strong></p>
+<p>A companion problem to signal 8, addressed by a different group: once an LLM has proposed a microservice decomposition, how do you verify it is structurally sound against the actual source-code dependency graph, rather than just plausible-looking on paper.</p>
+<p><em>Why it matters for architects:</em> Generation and validation landing as separate papers in the same month is itself a signal. The field is treating LLM-proposed architecture as something that requires an independent, mechanical check, not something to trust because the model producing it sounds confident. That is the correct instinct, and it is a pattern worth applying to any AI-assisted architecture tooling your own team adopts, not just microservice decomposition specifically.</p>
+<hr>
+<p><strong>10. ÜberConf 2026 program asks what is left for the architect who is not writing the code (Denver, July 14 to 17)</strong></p>
+<p>ÜberConf's software architecture track this year included sessions titled &quot;Agentic Architecture in Action,&quot; &quot;The Agentic Architect,&quot; and, most directly, &quot;Who Am I If I'm Not the One Writing the Code?&quot; The program treated the identity question, not just the tooling question, as a legitimate conference topic for the first time.</p>
+<p><em>Why it matters for architects:</em> Conference programs are a reliable proxy for what practitioners are actually anxious about, not just what vendors want to sell them. A session asking architects to reconsider their own professional identity, rather than just their toolkit, is a different kind of signal than another framework comparison talk. Worth attending to if your own team is having that conversation informally without a structured venue for it.</p>
+<hr>
+<h2 id="cross-platform-signals">Cross-platform signals</h2>
+<p>Two signals appeared independently across multiple source types this month.</p>
+<p><strong>Agent isolation is a configuration detail until proven otherwise.</strong> The Hugging Face breach, Anthropic's own disclosure, the Cloud Security Alliance survey, and MCP's authorization hardening all converged on the same finding from four different directions: what teams call an &quot;isolated&quot; or &quot;scoped&quot; agent environment is frequently isolated in intent only. The incidents this month were not caused by malicious agents. They were caused by architectures that assumed a boundary existed without verifying it did.</p>
+<p><strong>The pushback against heavy orchestration is arriving as both argument and artifact.</strong> The Stack Overflow Podcast interview, the &quot;agent orchestration is so two years ago&quot; post, loop engineering's spread through practitioner blogs, and Orca's parallel-attempt pattern all point the same direction: coordination layers between agents are being treated as a cost to justify, not a default to reach for. This is a genuine reversal from the multi-agent-firm framing that dominated GitHub trending as recently as May.</p>
+<hr>
+<p><a href="/radar/">Back to all issues</a></p>
+
+    </div>
+  </main>
+
+  <aside class="section-toc-aside" aria-label="On this page">
+    
+    <span class="section-toc-label">On this page</span>
+    <ul class="section-toc-links">
+      
+      <li><a href="#editorial-note">Editorial note</a></li>
+      
+      <li><a href="#the-10-signals">The 10 signals</a></li>
+      
+      <li><a href="#cross-platform-signals">Cross-platform signals</a></li>
+      
+    </ul>
+    
+  </aside>
+
+</div>
+
+  </main>
+
+  <ep-footer base="/"></ep-footer>
+  <noscript>
+    <footer style="padding:1.5rem 2rem;font-size:0.8rem;">
+      <a href="/">Home</a> · <a href="/about/">About</a> · <a href="/uses/">Uses</a> · <a href="/now/">Now</a> · <a href="/books/">Books</a> · <a href="/whitepapers/">White Papers</a> · <a href="/projects/">Projects</a> · <a href="/teaching/">Teaching</a> · <a href="/speaking/">Speaking</a> · <a href="/writing/">Writing</a> · <a href="/uma/">UMA</a> · <a href="/c-dad/">C-DAD</a> · <a href="/concepts/">Concepts</a> · <a href="/perspectives/">Perspectives</a> · <a href="/knowledge-graph/">Knowledge Graph</a>
+    </footer>
+  </noscript>
+  <!-- Web Components: loaded after page is interactive to stay off the critical render path -->
+  <script>
+    function _loadWC() {
+      ['/src/components/ep-nav.js', '/src/components/ep-footer.js'].forEach(function(src) {
+        var s = document.createElement('script'); s.type = 'module'; s.src = src; document.head.appendChild(s);
+      });
+    }
+    if (document.readyState === 'complete') { _loadWC(); }
+    else { window.addEventListener('load', _loadWC); }
+  </script>
+</body>
+</html>
