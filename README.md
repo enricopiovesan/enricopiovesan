@@ -21,14 +21,14 @@ Most architectures assume the environment too early. The same logic ends up dupl
 Tribal knowledge is locked in people's heads. There's no map. Agents guess, hallucinate, and break things. The fix isn't more prompting. It's better structure.
 
 → **[the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit)** — a CLI (`cdad`) that audits codebase agent-readiness and scaffolds the contracts needed to fix it.
-→ **[The Day After](https://github.com/enricopiovesan/the-day-after-toolkit)** — the book behind the toolkit. Explores what it takes to restructure software organizations for the age of AI agents.
+→ **[The Day After AI: Making Software Companies Legible to AI Agents](https://thedayafteraibook.com)**. Forthcoming from Apress, manuscript complete. Explores what it takes to restructure software organizations for the age of AI agents.
 → **[C-DAD white paper](https://drive.google.com/file/d/1HC_ZWJl9aYaMeN78qiL3ZYBVY7mAGl3f/view)** — Contract-Driven AI Development: verifiable contracts, automated reasoning, hybrid governance.
 
 ---
 
 ## What I'm building now
 
-**[Traverse](https://github.com/enricopiovesan/Traverse)** — a contract-driven Rust/WASM runtime for discovering, validating, and composing portable business capabilities. Pre-implementation, spec-governed, personal R&D.
+**[Traverse](https://traverse-framework.com)**. A contract-driven Rust and WASM runtime at v0.8.1. Capabilities governed by machine-readable contracts, sandboxed in Wasmtime, discoverable by AI agents via MCP. The live proof that UMA and C-DAD work together in production. Open source at github.com/traverse-framework.
 
 **[youaskm3](https://github.com/enricopiovesan/youaskm3)** — a WASM-native, MCP-powered personal knowledge layer. Runs entirely on GitHub Pages. No server, no database, no cost. Federation model so anyone can fork and run their own instance.
 
@@ -69,12 +69,12 @@ Three topics I'm currently submitting to conferences:
 
 - **"Write Once, Run Where It Makes Sense"** — the architecture of portable business logic with WASM and UMA. Architecture and platform engineering tracks.
 - **"Contract-Driven AI Development"** — how verifiable contracts change how we build AI-assisted systems. AI engineering tracks.
-- **"The Day After: Restructuring Software for the Age of AI Agents"** — practical patterns for making codebases navigable by AI agents. Engineering leadership tracks.
+- **"The Day After AI: Making Software Companies Legible to AI Agents"**. Practical patterns for making codebases navigable by AI agents. Engineering leadership tracks.
 
 ---
 
 I'm a Software Architect at Autodesk by day. I moved from Italy to Canada about ten years ago and ended up in Golden, BC. Purcell Mountains, population small, snow quality excellent. I'm a certified ski instructor. When there's fresh snow, everything else waits.
 
-Traverse and The Day After are next. youaskm3 is in progress.
+The Day After AI is forthcoming from Apress. Traverse shipped to v0.8.1. youaskm3 is in progress.
 
 **[enricopiovesan.com](https://enricopiovesan.com)** · **[LinkedIn](https://linkedin.com/in/enricopiovesan)** · **[Medium](https://medium.com/@enricopiovesan)** · **[X](https://x.com/enricopiovesan)**

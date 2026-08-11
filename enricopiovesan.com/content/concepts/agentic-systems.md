@@ -14,7 +14,7 @@ canonical: https://enricopiovesan.com/concepts/agentic-systems/
 ogTitle: Agentic Systems Architecture
 ogDescription: Structural patterns for building software that works with AI agents — multi-agent orchestration, contract-based boundaries, navigable codebases.
 datePublished: "2025-06-01"
-lastUpdated: "June 2026"
+lastUpdated: "August 2026"
 ---
 
 *By [Enrico Piovesan](https://enricopiovesan.com/about/), author of [Universal Microservices Architecture](https://www.amazon.com/dp/B0GTTTTQH4) (Apress)*
@@ -43,10 +43,10 @@ The root cause is the same one that makes codebases hard for human teams to main
 
 ## Where to go deeper
 
-The full framework for building agentic-ready software is covered across C-DAD, The Day After, and the Traverse runtime.
+The full framework for building agentic-ready software is covered across C-DAD, The Day After AI, and the Traverse runtime.
 
 - [Contract-Driven AI Development](/concepts/contract-driven-ai-development/)
 - [C-DAD full framework](/c-dad/)
-- [The Day After](/books/)
-- [Traverse](https://github.com/enricopiovesan/Traverse)
+- [The Day After AI](/books/)
+- [Traverse](https://traverse-framework.com)
 - [youaskm3](https://github.com/youaskm3/youaskm3)

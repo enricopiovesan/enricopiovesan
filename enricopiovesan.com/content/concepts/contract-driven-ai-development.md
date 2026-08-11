@@ -14,7 +14,7 @@ canonical: https://enricopiovesan.com/concepts/contract-driven-ai-development/
 ogTitle: What is Contract-Driven AI Development?
 ogDescription: An approach to building AI-native systems where contracts define what software does and why it can be trusted by AI agents.
 datePublished: "2025-11-01"
-lastUpdated: "June 2026"
+lastUpdated: "August 2026"
 ---
 
 Most software was not built to be navigated by AI agents. It was built to be read by the people who wrote it. The intent lives in someone's head. The constraints live in a Slack thread from two years ago. The exception paths live nowhere at all.
@@ -53,9 +53,9 @@ Teams already writing OpenAPI specs, ADRs, architecture decision records, or str
 
 ## Where to go deeper
 
-The full framework is documented in the C-DAD white paper and the forthcoming book The Day After. The companion CLI tool audits your codebase for agent-readiness today.
+The full framework is documented in the C-DAD white paper and the forthcoming book The Day After AI. The companion CLI tool audits your codebase for agent-readiness today.
 
 - [C-DAD full framework](/c-dad/)
 - [C-DAD White Paper](/whitepapers/)
-- [The Day After](/books/)
+- [The Day After AI](/books/)
 - [the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit)

@@ -27,18 +27,25 @@ talks:
       - This talk introduces Contract-Driven AI Development. The core idea is that a specification describes what a system does, but a contract describes why it can be trusted. Verifiable contracts, automated reasoning, and hybrid governance change what agentic systems can do with a codebase and what teams can safely delegate to them.
     based_on: C-DAD White Paper and the-day-after-toolkit
     based_on_url: /whitepapers/
-  - title: "The Day After: Restructuring Software for the Age of AI Agents"
+  - title: "The Day After AI: Making Software Companies Legible to AI Agents"
     track: Engineering leadership and CTO tracks
     description:
       - Most software organizations are not ready for AI agents. Not because the technology is immature, but because the codebases were never built to be navigable by anything other than the people who wrote them. The intent is locked in people's heads. The constraints live in Slack threads from two years ago. The capability boundaries exist in someone's memory, not in the system.
       - When an AI agent tries to work in that environment, it does not fail loudly. It fails quietly. It produces plausible output that is wrong in ways that take weeks to find.
       - This talk is about what it actually takes to fix that. Not a rewrite. Not a new platform. A deliberate, role-by-role process of making software organizations legible to agentic systems without throwing everything away. What the architect needs to declare. What the developer needs to own. What the PM needs to ask in discovery that a story format was never designed to hold.
-    based_on: The Day After (forthcoming) and C-DAD White Paper
-    based_on_url: /whitepapers/
+    based_on: The Day After AI and the C-DAD White Paper
+    based_on_url: https://thedayafteraibook.com
+  - title: "Building a Contract-Driven WASM Runtime: Lessons from Traverse"
+    track: WASM and Rust engineering tracks
+    description:
+      - Most WASM projects use WebAssembly for portability. Traverse uses it as an enforcement layer. Every capability call validates inputs against a JSON Schema contract before execution, runs inside a Wasmtime sandbox, and produces a structured trace artifact. The contract is not documentation. It is the runtime boundary.
+      - This talk covers what it actually took to build a contract-driven capability runtime from scratch. The spec-first workflow where 73 governing specs gate every merge. The registry design that makes capabilities discoverable by AI agents via MCP. The decision to treat business capabilities rather than code modules as the primary architectural unit. And where the approach breaks down.
+    based_on: Traverse v0.8.1 and the UMA White Paper
+    based_on_url: https://traverse-framework.com
 bio:
-  - Enrico Piovesan is a platform architect and author who spent years building products across startups in travel, education, and payments before deciding that the problems he kept running into were architectural, not incidental.
-  - He developed Universal Microservices Architecture as an answer to the portability problem and Contract-Driven AI Development as an answer to the navigability problem. His first book on UMA is available on Amazon. His second book, The Day After, is forthcoming. He has published five research papers since 2023 and maintains four open source projects built from the same frameworks.
-  - He is a Platform Software Architect at Autodesk and publishes on architecture and AI-native systems every week on Medium. He is based in Golden, BC, Purcell Mountains, Canada.
+  - Enrico Piovesan is a platform architect and author who builds frameworks for software that runs anywhere and codebases that AI agents can actually navigate.
+  - After years building products across startups in travel, education, and payments, he developed Universal Microservices Architecture, a portable, contract-driven execution model for distributed systems. His first book on UMA is published by Apress. His second book, The Day After AI: Making Software Companies Legible to AI Agents, is forthcoming from Apress with the manuscript complete.
+  - He is a Platform Software Architect at Autodesk, the creator of Traverse (a live contract-driven WASM runtime at v0.8.1), and publishes on architecture and AI-native systems every week on Medium. He is based in Golden, BC, Purcell Mountains, Canada.
 availability: Currently accepting CFP invitations for architecture, WASM, and AI engineering tracks. All talks are drawn from published work and shipped tooling.
 toc:
   - id: write-once-run-where-it-makes-sense
@@ -46,7 +53,9 @@ toc:
   - id: contract-driven-ai-development
     label: Contract-Driven AI Development
   - id: the-day-after
-    label: The Day After
+    label: The Day After AI
+  - id: lessons-from-traverse
+    label: Lessons from Traverse
   - id: bio
     label: Speaker bio
   - id: contact

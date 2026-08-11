@@ -24,7 +24,7 @@ work:
     desc: Weekly posts on Medium since May 2025. Posts become papers. Papers become books.
   - label: Speaking
     href: /speaking/
-    desc: Three conference talks drawn from published work and shipped tooling.
+    desc: Four conference talks drawn from published work and shipped tooling.
 frameworks:
   - name: Universal Microservices Architecture
     abbr: UMA
@@ -39,8 +39,8 @@ frameworks:
 opensource:
   - name: Traverse
     stack: Rust / WASM
-    href: https://github.com/enricopiovesan/Traverse
-    desc: A contract-driven Rust and WASM runtime for discovering, validating, and composing portable business capabilities across multi-agent orchestration scenarios.
+    href: https://traverse-framework.com
+    desc: A contract-driven Rust and WASM runtime for discovering, validating, and composing portable business capabilities. v0.8.1, open source.
   - name: youaskm3
     stack: Rust / WASM / PWA
     href: https://github.com/enricopiovesan/youaskm3

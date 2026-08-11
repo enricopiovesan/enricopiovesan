@@ -10,7 +10,7 @@ breadcrumb:
 noindex: true
 canonical: https://enricopiovesan.com/now/
 ogTitle: "Now, Enrico Piovesan"
-ogDescription: "Current focus: C-DAD tooling, The Day After book, and conference submissions on portable systems and AI-native software architecture."
+ogDescription: "Current focus: C-DAD tooling, The Day After AI book, and conference submissions on portable systems and AI-native software architecture."
 ---
 
 This page is updated regularly and reflects what actually has my attention. Not what I plan to do, not what I have done. What I am working on right now.
@@ -19,11 +19,11 @@ This page is updated regularly and reflects what actually has my attention. Not 
 
 **Universal Microservices Architecture.** The Apress book publishes August 26, 2026. Thirteen runnable chapters in Rust and WebAssembly. 100% business logic coverage enforced in CI. Available on [Amazon](https://www.amazon.com/dp/B0GTTTTQH4).
 
-**The Day After.** Negotiating publication with Apress. The companion CLI tool (cdad) is built and in progress. The book covers what it actually takes to restructure a software organization for the age of AI agents.
+**The Day After AI.** Contract signed with Apress, manuscript complete, forthcoming. [thedayafteraibook.com](https://thedayafteraibook.com)
 
 **youaskm3.** A WASM-native, MCP-powered personal knowledge layer. Runs entirely on GitHub Pages. No server, no database, no cost. Working through the milestone roadmap. M1 is next.
 
-**Traverse.** A contract-driven Rust and WASM runtime for portable business capabilities. Pre-implementation, spec-governed. Foundation is in place.
+**Traverse.** A contract-driven Rust and WASM runtime for portable business capabilities. v0.8.1, open source, live at [traverse-framework.com](https://traverse-framework.com).
 
 **Writing.** Publishing every Wednesday and Friday on Medium. Two active series on software architecture and AI-native systems.
 

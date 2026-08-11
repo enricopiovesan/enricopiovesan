@@ -13,7 +13,7 @@ canonical: https://enricopiovesan.com/perspectives/context-engineering/
 ogTitle: Beyond Context Engineering
 ogDescription: Context engineering tells agents what to know. It does not tell agents what they can trust. Here is what comes next.
 datePublished: "2025-06-01"
-lastUpdated: "June 2026"
+lastUpdated: "August 2026"
 ---
 
 *By [Enrico Piovesan](https://enricopiovesan.com/about/), author of [Universal Microservices Architecture](https://www.amazon.com/dp/B0GTTTTQH4) (Apress)*
@@ -56,5 +56,5 @@ This is the foundation of Contract-Driven AI Development.
 
 - [C-DAD, the full framework](/c-dad/)
 - [C-DAD White Paper](/whitepapers/c-dad/)
-- [The Day After](/books/), the book on restructuring software organizations for the age of AI agents
+- [The Day After AI](/books/), the book on restructuring software organizations for the age of AI agents
 - [Contract-Driven AI Development concept page](/concepts/contract-driven-ai-development/)

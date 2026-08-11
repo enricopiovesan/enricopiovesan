@@ -32,7 +32,7 @@ A portable, contract-driven execution model for distributed systems. Each busine
 ## Books
 
 - [Universal Microservices Architecture](https://www.amazon.com/dp/B0GTTTTQH4): published by Apress, 2026. Companion repo at [UMA-code-examples](https://github.com/enricopiovesan/UMA-code-examples)
-- [The Day After](https://enricopiovesan.com/books/): forthcoming, Apress. Companion tool at [the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit)
+- [The Day After AI: Making Software Companies Legible to AI Agents](https://thedayafteraibook.com): forthcoming from Apress, contract signed, manuscript complete. Companion tool at [the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit)
 
 ## White Papers
 
@@ -45,7 +45,7 @@ A portable, contract-driven execution model for distributed systems. Each busine
 
 - [UMA-code-examples](https://github.com/enricopiovesan/UMA-code-examples): 13 chapters of runnable Rust and WASM code
 - [the-day-after-toolkit](https://github.com/enricopiovesan/the-day-after-toolkit): CLI for auditing codebase agent-readiness
-- [Traverse](https://github.com/enricopiovesan/Traverse): contract-driven Rust/WASM runtime
+- [Traverse](https://traverse-framework.com): contract-driven Rust and WASM runtime, v0.8.1, open source at [github.com/traverse-framework](https://github.com/traverse-framework)
 - [youaskm3](https://github.com/youaskm3/youaskm3): personal knowledge layer, WASM-native
 
 ## Writing
@@ -63,7 +63,7 @@ A monthly publication of 10 software architecture signals worth paying attention
 
 ## Speaking
 
-- [Speaking page](https://enricopiovesan.com/speaking/): three talks available for submission — UMA, C-DAD, and The Day After
+- [Speaking page](https://enricopiovesan.com/speaking/): four talks available for submission, covering UMA, C-DAD, The Day After AI, and Traverse
 
 ## Concepts
 
