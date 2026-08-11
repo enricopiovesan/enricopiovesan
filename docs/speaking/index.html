@@ -246,6 +246,21 @@ ep-nav{display:block;min-height:64px}ep-footer{display:block}
         
       </div>
       
+      <div class="talk-entry" id="lessons-from-traverse">
+        <span class="talk-entry-track">WASM and Rust engineering tracks</span>
+        <h2 class="talk-entry-title">Building a Contract-Driven WASM Runtime: Lessons from Traverse</h2>
+        
+          
+          <p>Most WASM projects use WebAssembly for portability. Traverse uses it as an enforcement layer. Every capability call validates inputs against a JSON Schema contract before execution, runs inside a Wasmtime sandbox, and produces a structured trace artifact. The contract is not documentation. It is the runtime boundary.</p>
+          
+          <p>This talk covers what it actually took to build a contract-driven capability runtime from scratch. The spec-first workflow where 73 governing specs gate every merge. The registry design that makes capabilities discoverable by AI agents via MCP. The decision to treat business capabilities rather than code modules as the primary architectural unit. And where the approach breaks down.</p>
+          
+        
+        
+        <p class="talk-entry-source">Based on: <a href="https://traverse-framework.com">Traverse v0.8.1 and the UMA White Paper</a></p>
+        
+      </div>
+      
 
       <div class="talk-entry" id="bio">
         <h2 class="talk-entry-title">Speaker bio</h2>
@@ -272,7 +287,7 @@ ep-nav{display:block;min-height:64px}ep-footer{display:block}
     
     <span class="section-toc-label">On this page</span>
     <ul class="section-toc-links">
-      <li><a href="#write-once-run-where-it-makes-sense">Write Once, Run Where It Makes Sense</a></li><li><a href="#contract-driven-ai-development">Contract-Driven AI Development</a></li><li><a href="#the-day-after">The Day After AI</a></li><li><a href="#bio">Speaker bio</a></li><li><a href="#contact">Book a talk</a></li>
+      <li><a href="#write-once-run-where-it-makes-sense">Write Once, Run Where It Makes Sense</a></li><li><a href="#contract-driven-ai-development">Contract-Driven AI Development</a></li><li><a href="#the-day-after">The Day After AI</a></li><li><a href="#lessons-from-traverse">Lessons from Traverse</a></li><li><a href="#bio">Speaker bio</a></li><li><a href="#contact">Book a talk</a></li>
     </ul>
     
   </aside>
