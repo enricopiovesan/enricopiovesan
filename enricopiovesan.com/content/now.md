@@ -10,7 +10,7 @@ breadcrumb:
 noindex: true
 canonical: https://enricopiovesan.com/now/
 ogTitle: "Now, Enrico Piovesan"
-ogDescription: "Current focus: C-DAD tooling, The Day After book, and conference submissions on portable systems and AI-native software architecture."
+ogDescription: "Current focus: C-DAD tooling, The Day After AI book, and conference submissions on portable systems and AI-native software architecture."
 ---
 
 This page is updated regularly and reflects what actually has my attention. Not what I plan to do, not what I have done. What I am working on right now.

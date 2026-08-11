@@ -28,10 +28,11 @@ Nothing yet. This log starts now.
 
 ## About these talks
 
-Three talks available for submission. All drawn directly from published books, white papers, and shipped tooling.
+Four talks available for submission. All drawn directly from published books, white papers, and shipped tooling.
 
-- [Write Once, Run Where It Makes Sense](/speaking/) — architecture and platform engineering tracks
-- [Contract-Driven AI Development](/speaking/) — AI engineering and developer tooling tracks
-- [The Day After: Restructuring Software for the Age of AI Agents](/speaking/) — engineering leadership and CTO tracks
+- [Write Once, Run Where It Makes Sense](/speaking/), architecture and platform engineering tracks
+- [Contract-Driven AI Development](/speaking/), AI engineering and developer tooling tracks
+- [The Day After AI: Making Software Companies Legible to AI Agents](/speaking/), engineering leadership and CTO tracks
+- [Building a Contract-Driven WASM Runtime: Lessons from Traverse](/speaking/), WASM and Rust engineering tracks
 
 If you are a conference organizer, [get in touch via LinkedIn](https://linkedin.com/in/enricopiovesan).

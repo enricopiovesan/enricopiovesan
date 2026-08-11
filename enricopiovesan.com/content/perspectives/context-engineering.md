@@ -56,5 +56,5 @@ This is the foundation of Contract-Driven AI Development.
 
 - [C-DAD, the full framework](/c-dad/)
 - [C-DAD White Paper](/whitepapers/c-dad/)
-- [The Day After](/books/), the book on restructuring software organizations for the age of AI agents
+- [The Day After AI](/books/), the book on restructuring software organizations for the age of AI agents
 - [Contract-Driven AI Development concept page](/concepts/contract-driven-ai-development/)

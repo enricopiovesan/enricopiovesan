@@ -24,7 +24,7 @@ work:
     desc: Weekly posts on Medium since May 2025. Posts become papers. Papers become books.
   - label: Speaking
     href: /speaking/
-    desc: Three conference talks drawn from published work and shipped tooling.
+    desc: Four conference talks drawn from published work and shipped tooling.
 frameworks:
   - name: Universal Microservices Architecture
     abbr: UMA
