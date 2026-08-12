@@ -64,6 +64,7 @@ A monthly publication of 10 software architecture signals worth paying attention
 ## Speaking
 
 - [Speaking page](https://enricopiovesan.com/speaking/): four talks available for submission, covering UMA, C-DAD, The Day After AI, and Traverse
+- [Sessionize profile](https://sessionize.com/enricopiovesan): all active conference submissions
 
 ## Concepts
 
