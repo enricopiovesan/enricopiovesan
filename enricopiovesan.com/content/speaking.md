@@ -61,4 +61,5 @@ toc:
   - id: contact
     label: Book a talk
 contact_url: https://linkedin.com/in/enricopiovesan
+sessionize_url: https://sessionize.com/enricopiovesan
 ---

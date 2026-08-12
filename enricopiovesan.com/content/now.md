@@ -27,4 +27,4 @@ This page is updated regularly and reflects what actually has my attention. Not 
 
 **Writing.** Publishing every Wednesday and Friday on Medium. Two active series on software architecture and AI-native systems.
 
-**Speaking.** Actively submitting CFPs for architecture, WASM, and AI engineering tracks.
+**Speaking.** Actively submitting CFPs for architecture, WASM, and AI engineering tracks. [Speaker profile on Sessionize](https://sessionize.com/enricopiovesan).
