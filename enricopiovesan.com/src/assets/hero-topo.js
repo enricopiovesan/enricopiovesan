@@ -725,7 +725,7 @@
   var FIRES = [];
   function fetchFires() {
     if (document.hidden || !visible) return;
-    fetch('https://services6.arcgis.com/ubm4tcTYICKBpist/arcgis/rest/services/BCWS_ActiveFires_PublicView/FeatureServer/0/query?where=1%3D1&geometry=-117.5,51.1,-116.4,51.45&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=FIRE_STATUS&returnGeometry=true&f=geojson')
+    fetch('https://services6.arcgis.com/ubm4tcTYICKBpist/arcgis/rest/services/BCWS_ActiveFires_PublicView/FeatureServer/0/query?where=FIRE_STATUS%20%3C%3E%20%27Out%27&geometry=-117.5,51.1,-116.4,51.45&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=FIRE_STATUS&returnGeometry=true&f=geojson')
       .then(function (r) { return r.json(); })
       .then(function (d) {
         FIRES = (d.features || []).map(function (f) {
