@@ -12,7 +12,7 @@ That's where UMA, C-DAD, and Traverse came from. Not from theory. From real prob
 Most architectures assume the environment too early. The same logic ends up duplicated four or five times across a codebase, and teams pay that cost forever.
 
 → **[Universal Microservices Architecture (UMA)](https://www.universalmicroservices.com/)** — a portable, contract-driven execution model for distributed systems. Write once, run where it makes sense.
-→ **[UMA-code-examples](https://github.com/enricopiovesan/UMA-code-examples)** — 10 chapters of runnable Rust/WASM code. 100% business logic coverage enforced in CI. Live reference app.
+→ **[UMA-code-examples](https://github.com/enricopiovesan/UMA-code-examples)** — 13 chapters of runnable Rust/WASM code. 100% business logic coverage enforced in CI. Live reference app.
 → **[Book on Amazon](https://www.amazon.com/dp/B0GTTTTQH4)** — the full model, the tradeoffs, and the design sequence behind it.
 
 ---
