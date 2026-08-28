@@ -7,7 +7,7 @@
  * Cloudflare's edge IPs (OpenSky 522, adsb.lol 429, adsb.fi 403). Deno Deploy's
  * egress is not on those block lists, so this runs there instead.
  *
- * Endpoint:  GET https://<project>.deno.dev/
+ * Endpoint:  GET https://planes-proxy.enricopiovesan.deno.net/
  *   ?lat=&lon=&radius=   point + radius in nm (defaults: Golden, BC / 80 nm)
  *   ?debug=1             include an upstream trace in the response
  *
