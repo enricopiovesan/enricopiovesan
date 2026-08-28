@@ -15,33 +15,33 @@ ADS-B relay for the homepage hero (`src/assets/hero-topo.js`).
 
 ## What it does
 
-`GET https://<project>.deno.dev/?lat=&lon=&radius=` → OpenSky `/states/all` over
-a bounding box, remapped to the ADSBExchange v2 shape (`{ "ac": [ ... ] }`) the
-client already parses. Falls back to `adsb.lol`. `?debug=1` adds an upstream
-trace. Total failure → `200 { "ac": [] }` so the hero just shows no planes.
-45 s in-memory cache.
+`GET https://planes-proxy.enricopiovesan.deno.net/?lat=&lon=&radius=` → OpenSky
+`/states/all` over a bounding box, remapped to the ADSBExchange v2 shape
+(`{ "ac": [ ... ] }`) the client already parses. Falls back to `adsb.lol`.
+`?debug=1` adds an upstream trace. Total failure → `200 { "ac": [] }` so the hero
+just shows no planes. 45 s in-memory cache.
 
 ## Deploy
 
-1. Sign in at <https://dash.deno.com> with GitHub (no card).
-2. **New Project** → **Deploy from GitHub** → this repo, or use the CLI:
-   ```bash
-   deno install -gArf jsr:@deno/deployctl
-   cd enricopiovesan.com/deno
-   deployctl deploy --project=<project> planes-proxy.ts
-   ```
-3. Note the URL it prints, e.g. `https://<project>.deno.dev`.
-4. In `../src/assets/hero-topo.js`, set `PLANES_API` to that URL.
-5. Optional, in the project's **Settings → Environment Variables**:
-   - `OPENSKY_CLIENT_ID` / `OPENSKY_CLIENT_SECRET` — free OpenSky account →
-     Account → API client. Raises the daily limit from ~400 to 4000.
-   - `AIRPLANES_LIVE_KEY` — if airplanes.live grants access; it then becomes the
-     primary source. Sent as the `api-auth` header.
+Hosted at <https://console.deno.com> → org `enricopiovesan` → app `planes-proxy`,
+linked to this GitHub repo. Config:
+
+- **Entrypoint:** `enricopiovesan.com/deno/planes-proxy.ts`
+- **Install / build / pre-deploy commands:** none
+- **Production branch:** `main` (the console auto-deploys main on every push)
+- **Environment variables:**
+  - `OPENSKY_CLIENT_ID` / `OPENSKY_CLIENT_SECRET` — free OpenSky account →
+    Account → API client. Raises the daily limit from ~400 to 4000.
+  - `AIRPLANES_LIVE_KEY` — optional; if airplanes.live grants access it becomes
+    the primary source, sent as the `api-auth` header.
+
+`PLANES_API` in `../src/assets/hero-topo.js` and the `preconnect` in
+`../src/layouts/home.njk` both point at `planes-proxy.enricopiovesan.deno.net`.
 
 ## Verify
 
 ```bash
-curl -s "https://<project>.deno.dev/?debug=1" | head -c 400
+curl -s "https://planes-proxy.enricopiovesan.deno.net/?debug=1" | head -c 400
 ```
 
 Expect `{"ac":[{...}],"now":...,"total":N,"_debug":[{"src":"opensky","status":200,...}]}`.

@@ -50,8 +50,7 @@
   // to the public APIs don't work (airplanes.live 403s, the open forks send no
   // CORS), and a Cloudflare Worker can't help either (every free source blocks
   // Cloudflare's edge IPs) — so the relay runs on Deno Deploy instead.
-  // Replace with your deployed URL: https://<project>.deno.dev/
-  var PLANES_API = 'https://REPLACE-ME.deno.dev/';
+  var PLANES_API = 'https://planes-proxy.enricopiovesan.deno.net/';
   // Trans-Canada Hwy 1 through the map: normalized [nx,ny] from OSM trunk ways.
   // Enters NW off-map-top, runs south to Golden, then east through Kicking Horse canyon.
   var HWY1 = [[0.409,-0.135],[0.413,-0.119],[0.417,-0.102],[0.423,-0.079],[0.429,-0.051],[0.434,-0.032],[0.446,0.017],[0.448,0.032],[0.45,0.049],[0.451,0.065],[0.454,0.081],[0.456,0.096],[0.456,0.112],[0.459,0.127],[0.462,0.147],[0.465,0.168],[0.469,0.184],[0.473,0.203],[0.477,0.219],[0.481,0.242],[0.487,0.28],[0.49,0.296],[0.495,0.316],[0.501,0.331],[0.507,0.346],[0.509,0.362],[0.51,0.378],[0.512,0.394],[0.516,0.41],[0.52,0.426],[0.521,0.443],[0.536,0.443],[0.55,0.448],[0.562,0.457],[0.578,0.459],[0.589,0.447],[0.6,0.437],[0.613,0.428],[0.627,0.434],[0.632,0.45],[0.64,0.464],[0.649,0.477],[0.658,0.492],[0.672,0.501],[0.682,0.516],[0.69,0.537],[0.699,0.55],[0.71,0.537],[0.726,0.538],[0.733,0.552],[0.743,0.564],[0.755,0.574],[0.766,0.59],[0.773,0.605],[0.781,0.619],[0.79,0.631],[0.805,0.638],[0.82,0.642],[0.831,0.654],[0.84,0.667],[0.848,0.681],[0.859,0.694],[0.868,0.712],[0.874,0.726]];
