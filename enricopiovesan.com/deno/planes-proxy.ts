@@ -25,7 +25,7 @@
  */
 
 const DEFAULTS = { lat: 51.2977, lon: -116.9631, radius: 80 };
-const CACHE_MS = 45_000;
+const CACHE_MS = 120_000; // anon OpenSky allows ~400 req/day; the hero dead-reckons between fetches
 const UA = "enricopiovesan.com-hero/1.0 (+https://enricopiovesan.com; contact enrico.piovesan10@gmail.com)";
 
 const CORS: Record<string, string> = {
@@ -78,7 +78,7 @@ Deno.serve(async (req) => {
 
   const body = JSON.stringify(payload);
   if (ok && !debug) cache = { key, at: Date.now(), body };
-  return json(body, ok ? 45 : 10);
+  return json(body, ok ? 120 : 10);
 });
 
 function json(body: string, maxAge = 45) {
