@@ -610,8 +610,12 @@
       .then(function (r) { return r.json(); })
       .then(function (d) {
         var t0 = performance.now();
+        // Keep only traffic near the strip's longitude span before capping,
+        // so off-map aircraft can't crowd out the ones we can draw.
         PLANES = (d.ac || []).filter(function (a) {
-          return typeof a.lat === 'number' && typeof a.lon === 'number';
+          if (typeof a.lat !== 'number' || typeof a.lon !== 'number') return false;
+          var nx0 = (a.lon - GEO.lonLeft) / GEO.dLon;
+          return nx0 > -0.3 && nx0 < 1.3;
         }).slice(0, 12).map(function (a) {
           var spd = (a.gs || 0) * 1.852 / 3600;      // knots -> km/s
           var tr = (a.track || 0) * Math.PI / 180;
@@ -1419,6 +1423,7 @@
     else if (visible) {
       start();
       if (!WX) fetchWeather();
+      if (!PLANES.length && DATA) fetchPlanes();
     }
   });
 
