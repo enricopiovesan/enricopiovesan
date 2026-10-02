@@ -93,10 +93,11 @@ function bbox(lat: number, lon: number, radius: number) {
   return { lamin: lat - dLat, lamax: lat + dLat, lomin: lon - dLon, lomax: lon + dLon };
 }
 
-async function openSkyToken(): Promise<string | null> {
-  const id = Deno.env.get("OPENSKY_CLIENT_ID");
-  const secret = Deno.env.get("OPENSKY_CLIENT_SECRET");
-  if (!id || !secret) return null;
+// `t` records why we fell back to anonymous, visible via ?debug=1.
+async function openSkyToken(t: Record<string, unknown>): Promise<string | null> {
+  const id = Deno.env.get("OPENSKY_CLIENT_ID")?.trim();
+  const secret = Deno.env.get("OPENSKY_CLIENT_SECRET")?.trim();
+  if (!id || !secret) { t.authWhy = `env missing (id:${!!id} secret:${!!secret})`; return null; }
   if (osToken && Date.now() < osToken.exp) return osToken.value;
   const r = await fetch(
     "https://auth.opensky-network.org/auth/realms/opensky-network/protocol/openid-connect/token",
@@ -106,8 +107,9 @@ async function openSkyToken(): Promise<string | null> {
       body: new URLSearchParams({ grant_type: "client_credentials", client_id: id, client_secret: secret }),
     },
   );
-  if (!r.ok) return null;
+  if (!r.ok) { t.authWhy = `token ${r.status}: ${(await r.text()).slice(0, 120)}`; return null; }
   const d = await r.json();
+  if (!d.access_token) { t.authWhy = "token response had no access_token"; return null; }
   osToken = { value: d.access_token, exp: Date.now() + (d.expires_in ?? 1800) * 1000 - 60_000 };
   return osToken.value;
 }
@@ -117,7 +119,7 @@ async function fromOpenSky(lat: number, lon: number, radius: number, trace: Trac
   const u = `https://opensky-network.org/api/states/all?lamin=${b.lamin.toFixed(4)}&lomin=${b.lomin.toFixed(4)}&lamax=${b.lamax.toFixed(4)}&lomax=${b.lomax.toFixed(4)}`;
   const t: Record<string, unknown> = { src: "opensky" };
   try {
-    const token = await openSkyToken();
+    const token = await openSkyToken(t);
     t.auth = token ? "client" : "anon";
     const headers: Record<string, string> = { accept: "application/json", "user-agent": UA };
     if (token) headers.authorization = `Bearer ${token}`;
